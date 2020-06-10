@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei"!important;
+}
+
+.tf {
+    font-family: "\5FAE\8F6F\96C5\9ED1",微软雅黑,"Microsoft Yahei",雅黑\9,Arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fl,
+.fr {
+    display: inline;
+}
+
+.font-12px {
+    font-size: 12px;
+}
+
+.font-16px {
+    font-size: 16px;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    overflow: auto;
+}

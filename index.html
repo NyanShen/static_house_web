@@ -13,43 +13,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/common.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .tf {
-            font-family: "\5FAE\8F6F\96C5\9ED1",微软雅黑,"Microsoft Yahei",雅黑\9,Arial;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .fl {
-            float: left;
-        }
-
-        .fr {
-            float: right;
-        }
-
-        .fl,
-        .fr {
-            display: inline;
-        }
-
         .main-body {
-            width: 100%;
-            z-index: 1000;
-            min-width: 1200px;
+            width: 1200px;
+            margin: 0 auto;
         }
 
+        /*导航样式*/
         .nav {
-            width: 1200px;
             height: 50px;
             line-height: 50px;
-            margin: 0 auto;
             background-color: #f3f3f3;
         }
 
@@ -57,22 +31,68 @@
             display: inline-block;
             color: #333;
             padding: 0 20px;
+            font-size: 16px;
             font-weight: bold;
         }
 
         .nav>a:hover {
             color: #c20000;
         }
+
         .nav>a.actived {
             color: #ff3333;
             height: 47px;
             border-bottom: 3px solid #ff3333;
         }
+
+        /*楼盘首页样式*/
+        .box-one {
+            margin-top: 20px;
+        }
+
+        .box-one>.box-left {
+            width: 600px;
+        }
+
+        .box-one>.box-right {
+            width: 552px;
+            height: auto;
+            background-color: red;
+        }
+
+        .box-left>.scroll-show {
+            width: 600px;
+            height: 400px;
+            background-color: green;
+        }
+
+        .box-left>.scroll-bar {
+            margin-top: 8px;
+        }
+
+        .box-left>.scroll-bar>.scroll {
+            width: 600px;
+            height: 80px;
+            background-color: yellow;
+        }
+
+        /*置业顾问样式*/
+        .box-two {
+            margin: 20px 0;
+        }
+
+       .box-header>.text-right>a {
+            color: ;
+        }
     </style>
 </head>
 
 <body>
+
     <div class="main-body">
+
+
+        <!--二级导航 begin-->
         <div class="nav tf">
             <a href="" class="actived">楼盘主页</a>
             <a href="">详情</a>
@@ -84,11 +104,39 @@
             <a href="">问答</a>
             <a href="">自定义</a>
         </div>
+        <!--二级导航 end-->
+
+        <!--楼盘首页 begin-->
+        <div class="box-one clearfix">
+            <div class="box-left fl">
+                <div class="scroll-show">幻灯片</div>
+                <div class="scroll-bar">
+                    <div class="scroll">轮播</div>
+                </div>
+            </div>
+            <div class="box-right fr">楼盘属性</div>
+        </div>
+        <!--楼盘首页 end-->
+
+        <!--置业顾问 begin-->
+        <div class="box-two">
+            <div class="box-header clearfix">
+                <div class="text-left fl">
+                    <strong class="font-16px">置业顾问</strong>
+                    <span class="font-12px">为你提供一下服务：区域导购 政策解读 户型解析</span>
+                </div>
+                <div class="text-right fr">
+                    <a href="">申请入驻>></a>
+                </div>
+            </div>
+            <div class="box-body"></div>
+        </div>
+        <!--置业顾问 end-->
+
+
     </div>
 
-    <script>
-
-    </script>
+    <script></script>
 </body>
 
 </html>
