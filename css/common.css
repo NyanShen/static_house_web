@@ -13,7 +13,12 @@ body {
 }
 
 a {
+    color: #333;
     text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }
 
 .fl {
@@ -37,9 +42,31 @@ a {
     font-size: 16px;
 }
 
+.font-18px {
+    font-size: 18px;
+}
+
+.font-24px {
+    font-size: 24px;
+}
+
 .clearfix::after {
     content: '';
     display: block;
     clear: both;
     overflow: auto;
+}
+
+.cut-line {
+    border-bottom: 1px solid #F4F4F4;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #999;
 }
