@@ -1,15 +1,17 @@
 .box-login {
     position: absolute;
-    top: 200px;
+    top: 120px;
     left: 50%;
     width: 350px;
     box-shadow: 0 0 12px #ddd;
     z-index: 999;
 }
+
 .box-login>.login-form{
     min-height: 240px;
-    padding: 20px 25px 25px 25px;
+    padding: 20px 25px 20px 25px;
 }
+
 .box-login>.login-form>.login-tab {
     text-align: center;
 }
@@ -34,7 +36,96 @@
 
 .box-login>.login-form dd p input {
     border: 0;
+    width: 80%;
     height: 39px;
     background-color: #f0f0f0;
     padding-left: 10px;
+}
+
+.box-login>.login-form dd .login-code input{
+    width: 120px;
+}
+
+.box-login>.login-form dd .login-code em {
+    float: right;
+    width: 123px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.box-login>.login-form dd .login-code em a {
+    display: block;
+    width: 110px;
+    height: 38px;
+    margin-left: 10px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+
+.box-login>.login-form .login-item {
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+}
+
+.box-login>.login-form .login-item .register{
+    color: #1da838;
+    padding-left: 10px;
+}
+
+.box-login>.login-form .login-item a:hover {
+    color: #666;
+}
+
+.box-login>.login-form .login-item input[type=checkbox]{
+    vertical-align: -1px;
+}
+
+.box-login>.login-form>a{
+    display: block;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #1da838;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.box-login>.login-third {
+    width: 300px;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 25px 25px 25px;
+    color: #666;
+}
+
+.box-login>.login-third dt {
+    border-top: 1px solid #e6e6e6;
+}
+
+.box-login>.login-third dt span{
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+    font-size: 12px;
+    background-color: #fff;
+    color: #999;
+    margin-top: -10px;
+}
+
+.box-login>.login-third dd p,
+.box-login>.login-third dd .third-link {
+    margin: 10px 0;
+}
+
+.box-login>.login-third dd .third-link a{
+    margin: 0 5px;
+    color: #666;
+}
+
+.box-login>.login-third dd .third-link a:hover {
+    color: #DF2F2F;
 }
