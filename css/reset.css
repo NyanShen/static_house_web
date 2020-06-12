@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei"!important;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+textarea,
+input{
+    border-color: #e5e5e5;
+    border-radius: 2px;
+    }
+input {
+    height: 25px;
+}
