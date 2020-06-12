@@ -1,0 +1,40 @@
+.box-login {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 350px;
+    box-shadow: 0 0 12px #ddd;
+    z-index: 999;
+}
+.box-login>.login-form{
+    min-height: 240px;
+    padding: 20px 25px 25px 25px;
+}
+.box-login>.login-form>.login-tab {
+    text-align: center;
+}
+
+.box-login>.login-form>.login-tab span {
+    font-size: 16px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.box-login>.login-form>.login-tab span.actived {
+    color: #1da838;
+}
+
+.box-login>.login-form dd p {
+    width: 300px;
+    height: 39px;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.box-login>.login-form dd p input {
+    border: 0;
+    height: 39px;
+    background-color: #f0f0f0;
+    padding-left: 10px;
+}
