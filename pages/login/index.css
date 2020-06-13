@@ -40,7 +40,7 @@
 
 .box-login>.login-form dd p {
     width: 380px;
-    height: 39px;
+    height: 40px;
     background-color: #f0f0f0;
     margin-top: 20px;
     border-radius: 2px;
@@ -49,9 +49,8 @@
 .box-login>.login-form dd p input {
     border: 0;
     width: 80%;
-    height: 39px;
+    height: 40px;
     background-color: #f0f0f0;
-    padding-left: 10px;
 }
 
 .box-login>.login-form dd .login-code input{
@@ -61,8 +60,8 @@
 .box-login>.login-form dd .login-code em {
     float: right;
     width: 123px;
-    height: 39px;
-    line-height: 39px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     background-color: #fff;
 }
@@ -113,10 +112,9 @@
 
 /*第三方登录*/
 .box-login>.login-third {
-    width: 380px;
     font-size: 12px;
     text-align: center;
-    padding: 10px 25px 25px 25px;
+    padding: 10px 35px 25px 35px;
     color: #666;
 }
 
@@ -152,11 +150,47 @@
     color: #DF2F2F;
 }
 
-/*登录icon
-.box-login>.login-form dd .login-account i{
+/*登录icon*/
+.box-login>.login-form>dd>p>i{
     float: left;
-    width: 60px;
-    height: 60px;
-    background: url("../../images/login_sprites.png") no-repeat;
-    background-position: -170px -70px;
+    width: 20px;
+    height: 20px;
+    margin: 10px 10px;
+}
+
+.box-login>.login-form .login-pass {
+    position: relative;
+}
+
+.box-login>.login-form .login-pass .eyes-icon {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    margin: 10px 10px;
+}
+
+.box-login>.login-form .login-pass .eyes-icon.close{
+    background: url("../../images/login_sprites.png") -10px -50px;
+}
+
+.box-login>.login-form .login-pass .eyes-icon.open{
+    background: url("../../images/login_sprites.png") -50px -50px;
+}
+
+.box-login>.login-form .login-phone i {
+    background: url("../../images/login_sprites.png") -10px -90px;
+}
+
+.box-login>.login-form .login-code i {
+    background: url("../../images/login_sprites.png") -50px -10px;
+}
+
+.box-login>.login-form .login-account i {
+    background: url("../../images/login_sprites.png") -90px -50px;
+}
+
+.box-login>.login-form .login-pass>i {
+    background: url("../../images/login_sprites.png") -90px -10px;
 }
