@@ -51,3 +51,7 @@
 .description {
     color: #999;
 }
+
+.required-red {
+    color: #DF2F30;
+}

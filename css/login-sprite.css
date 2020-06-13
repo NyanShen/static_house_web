@@ -1,0 +1,34 @@
+.bg-icon_dun {
+    width: 60px; height: 60px;
+    background: url('login_sprites.png') -10px -10px;
+}
+
+.bg-icon_eyeclose {
+    width: 60px; height: 60px;
+    background: url('login_sprites.png') -90px -10px;
+}
+
+.bg-icon_eyeopen {
+    width: 60px; height: 60px;
+    background: url('login_sprites.png') -10px -90px;
+}
+
+.bg-delinput {
+    width: 57px; height: 57px;
+    background: url('login_sprites.png') -90px -90px;
+}
+
+.bg-icon_lock {
+    width: 40px; height: 40px;
+    background: url('login_sprites.png') -170px -10px;
+}
+
+.bg-icon_man {
+    width: 40px; height: 40px;
+    background: url('login_sprites.png') -170px -70px;
+}
+
+.bg-icon_phone {
+    width: 40px; height: 40px;
+    background: url('login_sprites.png') -10px -170px;
+}
