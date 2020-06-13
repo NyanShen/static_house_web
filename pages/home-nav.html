@@ -9,31 +9,54 @@
     <link rel="stylesheet" href="../css/common.css">
     <style>
         .box-home-nav {
-            width: 100%;
+            position: relative;
             height: 50px;
             min-width: 1200px;
             background-color: #1da838;
         }
 
         .box-home-nav>.home-content {
-            width: 1200;
+            width: 1200px;
             margin: 0 auto;
         }
 
-        .box-home-nav>.home-content>.home-nav li,
-        .box-home-nav>.home-content>.home-login li {
+        .box-home-nav>.home-content>.home-logo,
+        .box-home-nav>.home-content li {
             display: inline-block;
             height: 50px;
             line-height: 50px;
             padding: 0 10px;
         }
 
+        .box-home-nav>.home-content>.home-city {
+            height: 50px;
+            line-height: 50px;
+            padding-right: 5px;
+        }
+
+        .box-home-nav>.home-content>.home-city a {
+            position: relative;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 3px 20px 3px 12px;
+        }
+
+        .box-home-nav>.home-content>.home-city a::after {
+            content: '';
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            border-top: 5px solid #fff;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+
         .box-home-nav>.home-content>.home-nav li:hover {
             background-color: #14922d;
         }
 
-        .box-home-nav>.home-content>.home-nav li a,
-        .box-home-nav>.home-content>.home-login li a {
+        .box-home-nav>.home-content a {
             font-weight: bold;
             color: #fff;
         }
@@ -52,7 +75,12 @@
 <body>
     <div class="box-home-nav">
         <div class="home-content clearfix">
-            <div class="home-city fl"></div>
+            <h2 class="home-logo fl">
+                <a href="">房产在线<small>Fang.com</small></a>
+            </h2>
+            <div class="home-city fl">
+                <a href="">襄阳</a>
+            </div>
             <div class="home-nav fl">
                 <ul>
                     <li><a>首页</a></li>
