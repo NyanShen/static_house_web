@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咨询</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<style>
+    .box-wrap {
+        min-width: 1200px;
+        margin: 20px;
+    }
+
+    .box-content {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .box-content>.consult-left {
+        float: left;
+        width: 900px;
+    }
+
+    .box-content>.consult-left>.consult-tab {
+        position: relative;
+        font-size: 0;
+        margin-top: 20px;
+        border-bottom: 2px solid #1da838;
+    }
+
+    .box-content>.consult-left>.consult-tab a {
+        display: inline-block;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        padding: 10px 30px;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    .box-content>.consult-left>.consult-tab a.actived {
+        border: 1px solid #1da838;
+        color: #fff;
+        background-color: #1da838;
+    }
+
+    .box-content>.consult-left>.consult-tab a:hover:not(.actived) {
+        background-color: #e6e6e6;
+    }
+
+    .box-content>.consult-left>.consult-tab a:last-child {
+        border-right: 1px solid #ccc;
+    }
+
+    .box-content>.consult-right {
+        float: right;
+        width: 225px;
+    }
+</style>
+<body>
+    <div class="box-wrap">
+        <div class="box-content clearfix">
+        <div class="consult-left">
+            <div class="consult-tab">
+                <a href="" class="actived">咨询</a>
+                <a href="">企业咨询</a>
+                <a href="">咨询</a>
+                <a href="">咨询</a>
+                <a href="">咨询</a>
+            </div>
+            <div class="consult-list">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="consult-right"></div>
+        </div>
+    </div>
+</body>
+</html>
