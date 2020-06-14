@@ -63,3 +63,23 @@
 .hide {
     display: none;
 }
+
+.third-link {
+    margin: 10px 0;
+}
+
+.third-link a{
+    font-size: 12px;
+    margin: 0 12px 0 5px;
+    color: #666;
+}
+
+.third-link a:hover {
+    color: #DF2F2F;
+}
+
+.third-link>img {
+    width: 24px;
+    height: 24px;
+    vertical-align: -6px;
+}
