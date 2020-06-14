@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分页</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style>
+        .pagination {
+            margin: 20px;
+        }
+
+        .pagination ul li {
+            display: inline-block;
+        }
+
+        .pagination ul li a {
+            border: 1px solid #eee;
+            padding: 8px 16px;
+        }
+
+        .pagination ul li a.actived {
+            color: #fff;
+            background-color: #1da838;
+        }
+
+        .pagination ul li a:hover:not(.actived) {
+            color: #1da838;
+            border-color: #1da838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagination">
+        <ul>
+            <li><a href="">首页</a></li>
+            <li><a href="">上一页</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="" class="actived">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+            <li><a href="">下一页</a></li>
+            <li><a href="">尾页</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
