@@ -1,0 +1,198 @@
+.box-wrap {
+    min-width: 1200px;
+    margin: 20px;
+}
+
+.box-content {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.consult-left {
+    width: 860px;
+}
+
+.consult-left>.consult-tab {
+    position: relative;
+    font-size: 0;
+    border-bottom: 2px solid #11a43c;
+}
+
+.consult-left>.consult-tab a {
+    display: inline-block;
+    font-size: 14px;
+    border: 1px solid #eee;
+    padding: 10px 30px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.consult-left>.consult-tab a.actived {
+    border: 1px solid #11a43c;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.consult-left>.consult-tab a:hover:not(.actived) {
+    background-color: #eee;
+}
+
+.consult-left>.consult-tab a:last-child {
+    border-right: 1px solid #eee;
+}
+
+/*咨询列表*/
+
+.consult-left>.consult-list li {
+    border-bottom: 1px dashed #eee;
+    padding: 35px 0;
+}
+
+.consult-left>.consult-list .has-img .item-picture {
+    position: relative;
+    width: 222px;
+    height: 150px;
+    overflow: hidden;
+    margin-left: 20px;
+    border: 1px solid #f4f4f4;
+}
+
+.consult-left>.consult-list .has-img .item-picture img {
+    position: absolute;
+    width: 222px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.consult-left>.consult-list .has-img .item-info {
+    max-width: 600px;
+    min-height: 120px;
+}
+
+.consult-left>.consult-list li p {
+    line-height: 30px;
+}
+
+.consult-left>.consult-list li .title {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.consult-left>.consult-list li .title:hover, .consult-left>.consult-list li .desc a:hover {
+    text-decoration: underline;
+}
+
+.consult-left>.consult-list li .desc a {
+    color: #999;
+}
+
+.consult-right {
+    position: relative;
+    width: 300px;
+}
+
+.consult-right img {
+    width: 300px;
+    height: 210px;
+}
+
+.consult-right>.hot-purchase {
+    min-height: 150px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.consult-right>.hot-purchase>.title {
+    font-size: 16px;
+    padding-bottom: 10px;
+    color: #666;
+}
+
+.consult-right>.hot-purchase .item {
+    border-bottom: 1px dashed #ccc;
+    padding: 5px 5px 10px 5px;
+}
+
+.consult-right>.hot-purchase .item dt, .consult-right>.hot-purchase .item .tag-1 {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.consult-right>.hot-purchase .item dt .text-area {
+    color: #666;
+}
+
+.consult-right>.hot-purchase .item dt .price {
+    float: right;
+    color: #ff3344;
+}
+
+.consult-right>.hot-purchase .item dt a:hover {
+    color: #ff3344;
+}
+
+.consult-right>.hot-purchase .item dd {
+    font-size: 12px;
+}
+
+.consult-right>.hot-purchase .item dd .tag {
+    background-color: #11a43c;
+    color: #fff;
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+
+.consult-right>.hot-purchase .item .tag-2, .consult-right>.hot-purchase .item.on .tag-1 {
+    display: none;
+}
+
+.consult-right>.hot-purchase .item.on {
+    background-color: #fff;
+}
+
+.consult-right>.hot-purchase .item.on .tag-2 {
+    display: block;
+}
+
+.consult-right>.hot-purchase .item.on .picture-left img {
+    width: 100px;
+    height: 74px;
+}
+
+.consult-left>.consult-list .has-img .item-picture img:hover,
+.consult-right>.hot-purchase .item.on .picture-left img:hover {
+    opacity: 0.9;
+}
+
+.consult-right>.hot-purchase .item.on .content-right {
+    position: relative;
+    width: 150px;
+    height: 74px;
+    margin-left: 15px;
+}
+
+.consult-right>.hot-purchase .item.on .content-right p {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.consult-right>.hot-purchase .item.on .content-right a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.consult-right>.hot-purchase .item.on .content-right a:hover {
+    background-color: #14922d;
+}

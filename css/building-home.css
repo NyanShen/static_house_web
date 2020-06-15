@@ -76,12 +76,12 @@
 }
 .score-point {
     font-size: 20px;
-    color: #1da838;
+    color: #11a43c;
 }
 
 .bold-red {
     font-weight: bold;
-    color: #1da838;
+    color: #11a43c;
 }
 
 .btn-type {
@@ -141,13 +141,13 @@
 }
 
 .informaion-li>.informaion-li-right a.bjtx {
-    color: #1da838;
+    color: #11a43c;
 }
 
 .informaion-li .more-detail:hover,
 .informaion-li .informaion-li-ellipsis a:hover,
 .informaion-li>.informaion-li-right a.bjtx:hover {
-    border-color: #1da838;
+    border-color: #11a43c;
 }
 
 .informaion-li .informaion-li-text {
@@ -202,7 +202,7 @@
 
 .information-phone a {
     font-size: 12px;
-    color: #FF3332;
+    color: #ff3344;
 }
 
 .information-book {
@@ -218,14 +218,14 @@
 }
 
 .information-book .fl:hover p {
-    color: #1da838;
+    color: #11a43c;
 }
 
 .information-book a {
     border-radius: 2px;
     padding: 3px 6px;
     color: #fff;
-    background-color: #1da838;
+    background-color: #11a43c;
 }
 
 .information-book .fr {

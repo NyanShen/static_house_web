@@ -1,7 +1,10 @@
 .tf {
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
 }
+
+
 /*float*/
+
 .fl {
     float: left;
 }
@@ -14,7 +17,10 @@
 .fr {
     display: inline;
 }
+
+
 /*font-size*/
+
 .font-12px {
     font-size: 12px;
 }
@@ -68,7 +74,7 @@
     margin: 10px 0;
 }
 
-.third-link a{
+.third-link a {
     font-size: 12px;
     margin: 0 12px 0 5px;
     color: #666;
@@ -82,4 +88,29 @@
     width: 24px;
     height: 24px;
     vertical-align: -6px;
+}
+
+/*分页*/
+.pagination {
+    margin: 20px;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li a {
+    border: 1px solid #eee;
+    padding: 8px 16px;
+}
+
+.pagination li a.actived {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.pagination li a:hover:not(.actived) {
+    color: #11a43c;
+    border-color: #11a43c;
 }

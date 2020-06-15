@@ -10,7 +10,7 @@
 .register-wrap > .register-header > a {
     font-size: 28px;
     font-weight: bold;
-    color: #1da838;
+    color: #11a43c;
 }
 
 .register-wrap > .register-header > span {
@@ -18,7 +18,7 @@
     color: #666;
     padding-left: 10px;
     margin-left: 10px;
-    border-left: 1px solid #666;
+    border-left: 1px solid #e5e5e5;
 }
 
 .box-register {
@@ -63,7 +63,7 @@
     padding: 12px 15px;
     border-radius: 2px;
     color: #fff;
-    background-color: #1da838;
+    background-color: #11a43c;
 }
 
 .box-register > .register-form li .eyes-icon {
@@ -83,7 +83,7 @@
     position: absolute;
     left: 135px;
     font-size: 12px;
-    color: #df2f30;
+    color: #ff3344;
 }
 
 .box-register > .register-form li .tip {
@@ -98,7 +98,7 @@
 
 .box-register > .register-form .register-btn {
     color: #fff;
-    background-color: #1da838;
+    background-color: #11a43c;
 }
 
 .box-register > .register-form li em a:hover,
@@ -133,6 +133,6 @@
 }
 
 .box-register>.register-info p a {
-    color: #1da838;
+    color: #11a43c;
 }
 
