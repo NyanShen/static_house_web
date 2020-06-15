@@ -1,7 +1,26 @@
+/*layout*/
+
+.box-wrap {
+    width: 100%;
+    min-width: 1200px;
+}
+
+.box-content {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.body-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
 .tf {
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
 }
-
 
 /*float*/
 
@@ -13,11 +32,16 @@
     float: right;
 }
 
-.fl,
-.fr {
+.fl, .fr {
     display: inline;
 }
 
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    overflow: auto;
+}
 
 /*font-size*/
 
@@ -37,38 +61,7 @@
     font-size: 24px;
 }
 
-.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
-    overflow: auto;
-}
-
-.cut-line {
-    border-bottom: 1px solid #f4f4f4;
-    clear: both;
-    margin-bottom: 10px;
-}
-
-.mb10 {
-    margin-bottom: 10px;
-}
-
-.description {
-    color: #999;
-}
-
-.required-red {
-    color: #df2f30;
-}
-
-.block {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
+/*第三方链接*/
 
 .third-link {
     margin: 10px 0;
@@ -91,6 +84,7 @@
 }
 
 /*分页*/
+
 .pagination {
     margin: 20px;
     text-align: center;
@@ -113,4 +107,75 @@
 .pagination li a:hover:not(.actived) {
     color: #11a43c;
     border-color: #11a43c;
+}
+
+/*面包屑*/
+
+.breadcrumb {
+    height: 40px;
+    line-height: 40px;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.breadcrumb a:last-child {
+    color: #11a43c;
+}
+
+.breadcrumb a:hover:not(:last-child) {
+    color: #ff3344;
+}
+
+/*带下划线标题*/
+
+.line-title {
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.line-title>.title-name {
+    padding: 8px 4px;
+    border-bottom: 3px solid #11a43c;
+}
+
+/*others*/
+
+.cut-line {
+    border-bottom: 1px solid #f4f4f4;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.description {
+    color: #999;
+}
+
+.required-red {
+    color: #df2f30;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.hide {
+    display: none;
 }
