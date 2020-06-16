@@ -876,42 +876,44 @@
     </div>
 
     <script>
-        function justifyCenter(child) {
-            let topOffeset = child.offsetParent().outerHeight() - child.outerHeight();
-            let leftOffeset = child.offsetParent().outerWidth() - child.outerWidth();
+        function justifyPicture(child) {
+            let maxLeft = child.offsetParent().outerHeight() - child.outerHeight();
+            let maxTop = child.offsetParent().outerWidth() - child.outerWidth();
             child.css({
-                top: topOffeset / 2 + 'px',
-                left: leftOffeset / 2 + 'px'
+                left: maxLeft / 2 + 'px',
+                top: maxTop / 2 + 'px'
             })
         }
 
-        function dragElement(moveObj) {
-            let max_left = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
-            let max_top = moveObj.offsetParent().outerHeight() - moveObj.outerHeight();
+        function dragPicture(moveObj) {
+            let maxLeft = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
+            let maxTop = moveObj.offsetParent().outerHeight() - moveObj.outerHeight();
             moveObj.on('mousedown', event => {
-                let ele_x = event.offsetX;
-                let ele_y = event.offsetY;
-                $(moveObj).on('mousemove', e => {
-                    console.log(e.clientX, e.offsetX, ele_x)
+                let imgTop = parseFloat(moveObj.css('top'));
+                let imgLeft = parseFloat(moveObj.css('left'));
+                let lastPointX = event.clientX;
+                let lastPointY = event.clientY;
+                $(document).on('mousemove', e => {
                     e.preventDefault();
-                    let left = e.clientX - ele_x;
-                    let top = e.clientY - ele_y;
+                    let changeX = e.clientX - lastPointX;
+                    let changeY = e.clientY - lastPointY;
+                    let disX = imgLeft + changeX;
+                    let disY = imgTop + changeY;
                     moveObj.css({
-                        left: Math.max(Math.min(left, 0), max_left) + "px",
-                        top: Math.max(Math.min(top, 0), max_top) + "px"
+                        left: Math.max(Math.min(disX, 0), maxLeft) + "px",
+                        top: Math.max(Math.min(disY, 0), maxTop) + "px"
                     })
                 })
             });
             $(document).on('mouseup', () => {
-                $(moveObj).off('mousemove');
+                $(document).off('mousemove');
             })
         }
 
         $(document).ready(function () {
             let child = $('#sandPicture');
-            let parent = $('#sandContent');
-            justifyCenter(child)
-            dragElement(child)
+            justifyPicture(child)
+            dragPicture(child)
         })
     </script>
 </body>
