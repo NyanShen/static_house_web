@@ -71,7 +71,9 @@
     overflow: hidden;
 }
 
-.consult-left>.consult-list li .title:hover, .consult-left>.consult-list li .desc a:hover {
+.consult-left>.consult-refer .refer-content:hover,
+ .consult-left>.consult-list li .title:hover, 
+ .consult-left>.consult-list li .desc a:hover {
     text-decoration: underline;
 }
 
@@ -87,6 +89,10 @@
 .consult-right img {
     width: 300px;
     height: 210px;
+}
+
+.consult-right img:hover {
+    opacity: 0.9;
 }
 
 .consult-right>.hot-purchase {
@@ -123,7 +129,7 @@
 }
 
 .consult-right>.hot-purchase .item dt a:hover {
-    color: #ff3344;
+    color: #df2f30;
 }
 
 .consult-right>.hot-purchase .item dd {
@@ -154,8 +160,7 @@
     height: 74px;
 }
 
-.consult-left>.consult-list .has-img .item-picture img:hover,
-.consult-right>.hot-purchase .item.on .picture-left img:hover {
+.consult-left>.consult-list .has-img .item-picture img:hover, .consult-right>.hot-purchase .item.on .picture-left img:hover {
     opacity: 0.9;
 }
 
@@ -184,4 +189,132 @@
 
 .consult-right>.hot-purchase .item.on .content-right a:hover {
     background-color: #14922d;
+}
+
+/*咨询详情*/
+
+.consult-left>.consult-header {
+    text-align: center;
+    line-height: 40px;
+    padding: 10px 0;
+}
+
+.consult-left>.consult-header>.sub-title span {
+    margin-right: 10px;
+    color: #666;
+}
+
+.consult-left>.consult-content {
+    width: 860px;
+    min-height: 200px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.consult-left>.building-related .picture {
+    display: block;
+    width: 160px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.consult-left>.building-related .picture:hover {
+    opacity: 0.9;
+}
+
+.consult-left>.building-related .content {
+    position: relative;
+    width: 680px;
+    margin-left: 20px;
+}
+
+.consult-left>.building-related .content p {
+    height: 30px;
+    line-height: 30px;
+}
+
+.consult-left>.building-related .title a {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.consult-left>.building-related .title a:hover {
+    color: #df2f30;
+}
+
+.consult-left>.building-related .price {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #ff3344;
+}
+
+.consult-left>.building-related .phone {
+    font-size: 16px;
+    font-weight: bold;
+    color: #11a43c;
+}
+
+.consult-left>.building-related .application {
+    position: relative;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.consult-left>.building-related .application i.username {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon_man.png") no-repeat top center;
+}
+
+.consult-left>.building-related .application i.phoneNumber {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    padding-left: 10px;
+    background: url("../images/icon_phone.png") no-repeat top center;
+}
+
+.consult-left>.building-related .application input[type=text] {
+    height: 30px;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+    padding-left: 28px;
+}
+
+.consult-left>.building-related .application a {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+}
+
+.consult-left>.consult-refer li {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.consult-left>.consult-refer .refer-title {
+    float: left;
+    border: 1px solid #ff9900;
+    padding: 0 5px;
+    color: #ff9900;
+    margin-right: 10px;
+}
+
+.consult-left>.consult-refer .refer-content {
+    float: left;
+    color: #666;
+    max-width: 680px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

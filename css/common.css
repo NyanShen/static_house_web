@@ -74,7 +74,7 @@
 }
 
 .third-link a:hover {
-    color: #DF2F2F;
+    color: #df2f30;
 }
 
 .third-link>img {
@@ -125,7 +125,7 @@
 }
 
 .breadcrumb a:hover:not(:last-child) {
-    color: #ff3344;
+    color: #df2f30;
 }
 
 /*带下划线标题*/
@@ -162,6 +162,10 @@
 
 .description {
     color: #999;
+}
+
+.text-color {
+    color: #666;
 }
 
 .required-red {

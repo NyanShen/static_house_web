@@ -6,5 +6,8 @@
 竖分割线： #e5e5e5
 border: #eee #e5e5e5 #ddd
 输入框背景色：#f0f0f0
-报错提示及a:hover：#ff3344
+报错提示及：#ff3344
+a:hover：#df2f30
 字体样色：#11a43c #666 #999
+
+标签tag橙色：#ff9900

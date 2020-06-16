@@ -101,7 +101,7 @@
 }
 
 .box-login>.login-form .login-item a:hover {
-    color: #ff3344;
+    color: #df2f30;
 }
 
 .box-login>.login-form .login-item input[type=checkbox]{
@@ -150,7 +150,7 @@
 }
 
 .box-login>.login-third dd a:hover {
-    color: #ff3344;
+    color: #df2f30;
 }
 
 /*登录icon*/
