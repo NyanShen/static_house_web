@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/building-home.css">
     <link rel="stylesheet" type="text/css" href="css/building-type.css">
+    <link rel="stylesheet" type="text/css" href="css/sand-map.css">
     <style>
         .main-body {
             width: 1200px;
@@ -223,7 +224,7 @@
         .box-zxwd>.box-zxwd-right .wd-area textarea {
             width: 100%;
         }
-        
+
         .box-zxwd>.box-zxwd-right .wd-area .submit-area {
             margin-top: 8px;
         }
@@ -260,6 +261,7 @@
             margin: 10px 0;
         }
     </style>
+    <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -781,6 +783,17 @@
         <!--VR看房展示 begin-->
         <!--VR看房展示 end-->
         <!--沙盘图 begin-->
+        <div class="box-sand table-detail">
+            <div class="table-detail-header">
+                <h3 class="fl">北京华发·中央公园楼栋信息</h3>
+            </div>
+            <div class="sand-container clearfix">
+                <div class="sand-content fl" id="sandContent">
+                    <img src="images/sand_900x600c.jpg" alt="" id="sandPicture">
+                </div>
+                <div class="sand-info fr"></div>
+            </div>
+        </div>
         <!--沙盘图 end-->
         <!--位置及周边配套 begin-->
         <!--位置及周边配套 end-->
@@ -862,7 +875,45 @@
         <div style="margin-bottom: 120px;"></div>
     </div>
 
-    <script></script>
+    <script>
+        function justifyCenter(child) {
+            let topOffeset = child.offsetParent().outerHeight() - child.outerHeight();
+            let leftOffeset = child.offsetParent().outerWidth() - child.outerWidth();
+            child.css({
+                top: topOffeset / 2 + 'px',
+                left: leftOffeset / 2 + 'px'
+            })
+        }
+
+        function dragElement(moveObj) {
+            let max_left = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
+            let max_top = moveObj.offsetParent().outerHeight() - moveObj.outerHeight();
+            moveObj.on('mousedown', event => {
+                let ele_x = event.offsetX;
+                let ele_y = event.offsetY;
+                $(moveObj).on('mousemove', e => {
+                    console.log(e.clientX, e.offsetX, ele_x)
+                    e.preventDefault();
+                    let left = e.clientX - ele_x;
+                    let top = e.clientY - ele_y;
+                    moveObj.css({
+                        left: Math.max(Math.min(left, 0), max_left) + "px",
+                        top: Math.max(Math.min(top, 0), max_top) + "px"
+                    })
+                })
+            });
+            $(document).on('mouseup', () => {
+                $(moveObj).off('mousemove');
+            })
+        }
+
+        $(document).ready(function () {
+            let child = $('#sandPicture');
+            let parent = $('#sandContent');
+            justifyCenter(child)
+            dragElement(child)
+        })
+    </script>
 </body>
 
 </html>
