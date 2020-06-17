@@ -84,7 +84,7 @@
     background-color: #11a43c;
 }
 
-.box-login>.login-form>a:hover,
+.box-login>.login-form>.longin-btn:hover,
 .box-login>.login-form dd .login-code em a:hover {
     background-color: #14922d;
 }
@@ -108,7 +108,7 @@
     vertical-align: -1px;
 }
 
-.box-login>.login-form>a{
+.box-login>.login-form>.longin-btn{
     display: block;
     width: 380px;
     height: 40px;
@@ -117,6 +117,7 @@
     background-color: #11a43c;
     color: #fff;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 /*第三方登录*/

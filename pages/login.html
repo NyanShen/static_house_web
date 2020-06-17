@@ -14,7 +14,7 @@
 <body>
     <div class="login-wrap">
         <div class="box-login">
-            <div class="login-form">
+            <div class="login-form" id="loginForm">
                 <dt class="login-tab">
                     <span class="actived">手机动态码登录</span>
                     <span>账号密码登录</span>
@@ -22,12 +22,13 @@
                 <dd>
                     <p class="login-phone">
                         <i></i>
-                        <input type="text" placeholder="请输入手机号码">
-                        <span class="error">请输入正确的手机号码</span>
+                        <input type="text" placeholder="请输入手机号码" id="phone" name="loginPhoneNumber">
+                        <span class="error" id="phoneError"></span>
                     </p>
                     <p class="login-code clearfix">
                         <i></i>
-                        <input type="text" placeholder="验证码">
+                        <input type="text" placeholder="验证码" id="phoneCode" name="loginPhoneCode">
+                        <span class="error" id="phoneCodeError"></span>
                         <em>
                             <a href="">获取验证码</a>
                         </em>
@@ -36,23 +37,24 @@
                 <dd class="hide">
                     <p class="login-account">
                         <i></i>
-                        <input type="text" placeholder="请输入登录账号">
+                        <input type="text" placeholder="请输入登录账号" id="account" name="LoginAccount">
+                        <span class="error" id="accountError"></span>
                     </p>
                     <p class="login-pass clearfix">
                         <i></i>
-                        <input id="login-pass" type="password" placeholder="密码">
+                        <input type="password" placeholder="密码" id="loginPass">
+                        <span class="error" id="loginPassError"></span>
                         <i class="eyes-icon close"></i>
                     </p>
                 </dd>
                 <div class="login-item clearfix">
                     <label for="loginAuto" class="fl">
                         <input type="checkbox" checked="true">自动登录
-
                     </label>
                     <a href="" class="fr register">免费注册</a>
                     <a href="" class="fr">忘记密码</a>
                 </div>
-                <a href="">登录</a>
+                <input class="longin-btn" type="submit" href="" id="loginBtn" value="登录">
             </div>
             <div class="login-third">
                 <dt>
@@ -74,32 +76,5 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function () {
-        $('.login-form .login-tab span').each(function (index) {
-            $(this).click(function () {
-                $('.hide').removeClass('hide')
-                $('.actived').removeClass('actived')
-                $('.login-form dd').eq(index-1).addClass('hide')
-                $(this).addClass('actived')
-            })
-        })
-
-        $('.login-form .login-pass .eyes-icon').click(function() {
-            var _this = $(this)
-            //获取同级兄弟input当前的密码框
-            var _input=_this.siblings('#login-pass');
-            if (_this.hasClass('close')){
-                _this.removeClass('close')
-                _this.addClass('open')
-                _input.attr('type', 'text')
-            } else {
-                _this.removeClass('open')
-                _this.addClass('close')
-                _input.attr('type', 'password')
-            }
-        })
-    })
-</script>
-
+<script src="../js/login.js"></script>
 </html>
