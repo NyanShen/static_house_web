@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>楼盘首页</title>
+    <meta name="keywords" content="楼盘首页">
+    <meta name="description" content="楼盘首页">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/building-home.css">
+    <link rel="stylesheet" type="text/css" href="../css/building-type.css">
+    <link rel="stylesheet" type="text/css" href="../css/sand-map.css">
+    <style>
+        /*导航样式*/
+        .nav {
+            height: 50px;
+            line-height: 50px;
+            background-color: #f3f3f3;
+        }
+
+        .nav>a {
+            display: inline-block;
+            color: #333;
+            padding: 0 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav>a:hover {
+            color: #11a43c;
+        }
+
+        .nav>a.actived {
+            color: #11a43c;
+            height: 47px;
+            border-bottom: 3px solid #11a43c;
+        }
+
+        /*楼盘首页 common*/
+        .table-detail {
+            margin-top: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+        }
+
+        .table-detail-header {
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+
+        .table-detail-header .title-list a:hover {
+            color: #11a43c;
+        }
+
+        .table-detail-header .title-list span {
+            color: #e5e5e5;
+            margin: 0 10px;
+        }
+
+        /*置业顾问样式*/
+        .box-consultant {
+            margin: 20px 0;
+        }
+
+        .box-consultant>.box-body>.arrow-left {
+            position: relative;
+            width: 20px;
+            height: 106px;
+        }
+
+        .box-consultant>.box-body>.arrow-right {
+            position: relative;
+            width: 20px;
+            height: 106px;
+        }
+
+        .box-consultant>.box-body>.arrow-left::after {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 43px;
+            border-right: 10px solid #eee;
+            border-left: 10px solid transparent;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+
+        .box-consultant>.box-body>.arrow-right::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 43px;
+            border-right: 10px solid transparent;
+            border-left: 10px solid #eee;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .box-header>.text-right>a {
+            color: #77be66;
+        }
+
+        .box-consultant>.box-body {
+            height: 106px;
+            margin-top: 15px;
+            border: 1px solid #eee;
+        }
+
+        .box-consultant .user-list {
+            height: 66px;
+            margin-top: 32px;
+        }
+
+        .box-consultant .user-list li {
+            display: inline-block;
+            width: 194px;
+            margin-left: 30px;
+        }
+
+        .box-consultant .user-list .user-info h4 {
+            display: inline;
+        }
+
+        .box-consultant .user-list .user-info span {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .box-consultant .user-list .user-info a {
+            font-size: 12px;
+            border: 1px solid #11a43c;
+            padding: 0 3px 0 6px;
+            color: #11a43c;
+            border-radius: 2px;
+        }
+
+        .box-consultant .user-list .user-image {
+            margin-right: 12px;
+        }
+
+        .box-consultant .user-list .user-image img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+        }
+
+        /*楼盘特惠活动/参团展示区*/
+        .box-three li {
+            height: 106px;
+            border: 1px solid #eee;
+            background-color: #f4faec;
+        }
+
+        .box-three li~li {
+            margin-top: 8px;
+        }
+
+        /*楼盘资讯和问答*/
+        .box-zxwd>.box-zxwd-left {
+            width: 700px;
+            padding-right: 20px;
+            border-right: 1px solid #e5e5e5;
+        }
+
+        .box-zxwd>.box-zxwd-left .zx-list li {
+            height: 35px;
+        }
+
+        .box-zxwd>.box-zxwd-left .zx-list li .zx-left {
+            max-width: 600px;
+            height: 35px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .box-zxwd>.box-zxwd-left .zx-list a {
+            margin-right: 8px;
+            font-size: 12px;
+            border: 1px solid #11a43c;
+            color: #11a43c;
+            padding: 2px 4px;
+            vertical-align: middle;
+        }
+
+        .box-zxwd>.box-zxwd-right ul li {
+            margin-bottom: 8px;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-list {
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-list .wd-flag {
+            color: #11a43c;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-list .wd-left {
+            max-width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-area textarea {
+            width: 100%;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-area .submit-area {
+            margin-top: 8px;
+        }
+
+        .box-zxwd>.box-zxwd-right .wd-area .submit-area a {
+            background-color: #11a43c;
+            color: #fff;
+            border-radius: 2px;
+            padding: 4px 8px;
+        }
+
+        /*楼盘相册*/
+        .box-building-picture ul {
+            margin: 15px 0;
+        }
+
+        .box-building-picture ul li {
+            display: inline-block;
+        }
+
+        .box-building-picture ul li .picture {
+            width: 214px;
+            height: 121px;
+            margin-left: 18px;
+        }
+
+        .box-building-picture ul li .picture img {
+            width: 214px;
+            height: 121px;
+        }
+
+        .box-building-picture ul li .text {
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="box-wrap">
+        <div class="box-content">
+            <!--二级导航 begin-->
+            <div class="nav tf">
+                <a href="" class="actived">楼盘主页</a>
+                <a href="">详情</a>
+                <a href="">户型</a>
+                <a href="">相册</a>
+                <a href="">资讯</a>
+                <a href="">周边配套</a>
+                <a href="">点评</a>
+                <a href="">问答</a>
+                <a href="">自定义</a>
+            </div>
+            <!--二级导航 end-->
+
+            <!--楼盘首页 begin-->
+            <div class="box box-building clearfix">
+                <div class="building-slide fl">
+                    <div class="image-show">
+                        <div class="image-list">
+                            <a href="">
+                                <img src="../images/1400x933.jpg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="../images/1400x933.jpg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="../images/1400x933.jpg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="../images/1400x933.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="scroll-bar">
+                        <ul class="scroll-list">
+                            <li>
+                                <p class="scroll_tit">
+                                    <a href="">视频（直播）</a>
+                                </p>
+                                <em></em>
+                                <img src="../images/112x80.jpg" alt="">
+                            </li>
+                            <li>
+                                <p class="scroll_tit">
+                                    <a href="">效果图</a>
+                                </p>
+                                <em></em>
+                                <img src="../images/112x80.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="building-attribute fr">
+                    <div class="title">
+                        <h1 style="display: inline;">楼盘属性名称</h1>
+                        <span style="margin-right: 15px;">别名：xxxx, xxxxx</span>
+                        <a href="">
+                            <span class="score-point">4.3</span>
+                            <span>/5分</span>
+                        </a>
+                    </div>
+                    <div class="btn-type">
+                        <a href="" class="btn-zise">欧式</a>
+                        <a href="" class="btn-fengse">现代</a>
+                        <a href="" class="btn-chengse">毛坯</a>
+                        <a href="" class="btn-lanse">老盘加推</a>
+                        <a href="" class="btn-lvse">低密居所</a>
+                    </div>
+                    <div class="cut-line"></div>
+                    <div class="informaion-li clearfix">
+                        <div class="informaion-li-left fl">
+                            <h3>均价：</h3>
+                            <span class="bold-red font-24px">41000</span>
+                            <span class="unit">元/m²</span>
+                        </div>
+                        <div class="informaion-li-right fl">
+                            <a href="" class="bjtx"><i>icon</i><span>变价提醒</span></a>
+                            <a href=""><i></i><span>价格说明</span></a>
+                            <a href=""><i></i><span>查看价格走势</span></a>
+                            <a href=""><i></i><span>贷款计算器</span></a>
+                        </div>
+                    </div>
+                    <div class="informaion-li clearfix">
+                        <div class="informaion-li-left fl">
+                            <h3>主力户型：</h3>
+                        </div>
+                        <div class="informaion-li-ellipsis fl">
+                            <a href=""><span>三居(建面360㎡)</span></a>
+                            <a href=""><span>三居(建面375㎡)</span></a>
+                            <a href=""><span>三居(建面380㎡)</span></a>
+                        </div>
+                        <div class="informaion-li-right fl">
+                            <a href=""><i></i><span>全部</span></a>
+                        </div>
+                    </div>
+                    <div class="informaion-li clearfix">
+                        <div class="informaion-li-left fl">
+                            <h3>项目地址：</h3>
+                        </div>
+                        <div class="informaion-li-text informaion-li-ellipsis fl">
+                            <span>海淀北部地区西北旺镇亮甲店村村东</span>
+                        </div>
+                        <div class="informaion-li-right fl">
+                            <a href=""><i></i><span>查看地图</span></a>
+                        </div>
+                    </div>
+                    <div class="informaion-li clearfix">
+                        <div class="informaion-li-left fl">
+                            <h3>近期开盘：</h3>
+                        </div>
+                        <div class="informaion-li-text fl">
+                            <span>B区已于2018年5月1日推出新房源</span>
+                        </div>
+                        <div class="informaion-li-right fl">
+                            <a href="" class="bjtx"><i>icon</i><span>开盘提醒</span></a>
+                            <a href=""><i></i><span>交房时间</span></a>
+                            <a href=""><i></i><span>我要装修</span></a>
+                        </div>
+                    </div>
+                    <div class="informaion-li clearfix">
+                        <div class="informaion-li-left fl">
+                            <h3>近期开盘：</h3>
+                        </div>
+                        <div class="informaion-li-right fl">
+                            <a href=""><span>京房售证字(2020)124号></span></a>
+                        </div>
+                    </div>
+                    <div class="informaion-li clearfix mb10">
+                        <div class="informaion-li-left fl">
+                            <a href="" class="more-detail">更多详细信息>></a>
+                        </div>
+                        <div class="informaion-li-right-normal fr">
+                            <a href=""><i></i>收藏</a>
+                            <a href=""><i></i>分享</a>
+                            <a href=""><i></i>对比</a>
+                            <a href=""><i></i>扫描到手机</a>
+                        </div>
+                    </div>
+                    <div class="cut-line"></div>
+                    <div class="information-phone clearfix">
+                        <div class="fl">
+                            <span class="bold-red font-18px">咨询电话：  </span>
+                            <span class="bold-red font-24px">4000009237</span>
+                        </div>
+                        <div class="fr">
+                            <a href="" class="btn-zxzx"><i>icon</i>在线咨询</a>
+                        </div>
+                    </div>
+                    <div class="information-phone clearfix">
+                        <p class="fl">致电售楼处了解更多信息，安全通话隐藏真实号码</p>
+                        <div class="fr">
+                            <a href=""><i>icon</i>微信扫码拨号</a>
+                        </div>
+                    </div>
+                    <div class="information-book clearfix">
+                        <div class="fl">
+                            <div class="fl">
+                                <p title="全天候直通售楼处">全天候直通售楼处</p>
+                                <p title="置业顾问1对1服务" class="description">置业顾问1对1服务</p>
+                            </div>
+                            <div class="fr">
+                                <a href="">预约看房</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--楼盘首页 end-->
+
+            <!--置业顾问 begin-->
+            <div class="box-consultant">
+                <div class="box-header clearfix">
+                    <div class="text-left fl">
+                        <strong class="font-16px">置业顾问</strong>
+                        <span class="font-12px">为你提供一下服务：区域导购 政策解读 户型解析</span>
+                    </div>
+                    <div class="text-right fr">
+                        <a href="">申请入驻>></a>
+                    </div>
+                </div>
+                <div class="box-body clearfix">
+                    <div class="arrow-left fl"></div>
+                    <ul class="user-list fl">
+                        <li>
+                            <div class="user-image fl">
+                                <img src="../images/105x105.jpg" alt="">
+                            </div>
+                            <div class="user-info fl">
+                                <p>
+                                <h4>魏文燕</h4>
+                                <span>置业顾问</span>
+                                </p>
+                                <p><a href=""><i></i>在线咨询</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-image fl">
+                                <img src="../images/105x105.jpg" alt="">
+                            </div>
+                            <div class="user-info fl">
+                                <p>
+                                <h4>文燕</h4>
+                                <span>置业顾问</span>
+                                </p>
+                                <p><a href=""><i></i>在线咨询</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-image fl">
+                                <img src="../images/105x105.jpg" alt="">
+                            </div>
+                            <div class="user-info fl">
+                                <p>
+                                <h4>魏文燕</h4>
+                                <span>置业顾问</span>
+                                </p>
+                                <p><a href=""><i></i>在线咨询</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-image fl">
+                                <img src="../images/105x105.jpg" alt="">
+                            </div>
+                            <div class="user-info fl">
+                                <p>
+                                <h4>文燕</h4>
+                                <span>置业顾问</span>
+                                </p>
+                                <p><a href=""><i></i>在线咨询</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-image fl">
+                                <img src="../images/105x105.jpg" alt="">
+                            </div>
+                            <div class="user-info fl">
+                                <p>
+                                <h4>魏文燕</h4>
+                                <span>置业顾问</span>
+                                </p>
+                                <p><a href=""><i></i>在线咨询</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="arrow-right fr"></div>
+                </div>
+            </div>
+            <!--置业顾问 end-->
+
+            <!--楼盘特惠活动/参团展示区 begin-->
+            <div class="box-three">
+                <ul>
+                    <li>楼盘特惠活动/参团展示区1</li>
+                    <li>楼盘特惠活动/参团展示区2</li>
+                </ul>
+            </div>
+            <!--楼盘特惠活动/参团展示区 end-->
+
+            <!--楼盘资讯和问答 begin-->
+            <div class="box box-zxwd clearfix">
+                <div class="box-zxwd-left fl">
+                    <div class="zx-header mb10 clearfix">
+                        <h3 class="fl">楼盘资讯和问答里资讯区域</h3>
+                        <span class="font-12px description fr">更多</span>
+                    </div>
+                    <div class="zx-list">
+                        <ul>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观，测试字符长度单独疫情后的2020，你必须更新你的购房观，测试字符长度单独</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="zx-left fl">
+                                    <a href="">精彩活动</a>
+                                    <span>疫情后的2020，你必须更新你的购房观</span>
+                                </div>
+                                <div class="zx-right fr">
+                                    <span class="font-12px description">2020-01-12</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-zxwd-right fr">
+                    <div class="wd-header mb10 clearfix">
+                        <h3 class="fl">楼盘资讯和问答里问答区域</h3>
+                        <span class="font-12px fr">更多问答</span>
+                    </div>
+                    <div class="wd-list">
+                        <ul>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的，测试测绘师测试测试</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的，测试测绘师测试测试</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的，测试测绘师测试测试</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="wd-left fl">
+                                    <span class="wd-flag">问：</span>
+                                    <span>请问楼盘资讯和问答是做什么用的，测试测绘师测试测试</span>
+                                </div>
+                                <div class="wd-right wd-flag fr">已回答</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="wd-area">
+                        <textarea type="text" rows="5"></textarea>
+                        <div class="submit-area">
+                            <input type="text" name="" id="">
+                            <input type="text" name="" id="">
+                            <a href="">提交问卷</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--楼盘资讯和问答 end-->
+
+            <!--户型图展示 begin-->
+            <div class="box-hxt table-detail">
+                <div class="table-detail-header">
+                    <h3 class="fl">户型图展示</h3>
+                    <div class="title-list fr">
+                        <a href="">二居(1)</a>
+                        <span>|</span>
+                        <a href="">三居(1)</a>
+                        <span>|</span>
+                        <a href="">四居(1)</a>
+                        <span>|</span>
+                        <a href="">更多<em>></em></a>
+                    </div>
+                </div>
+                <div class="box-hxt-body clearfix">
+                    <a href="">
+                        <div class="box-hxt-image">
+                            <img src="../images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="box-hxt-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="box-hxt-image">
+                            <img src="../images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="box-hxt-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="box-hxt-image">
+                            <img src="../images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="box-hxt-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="box-hxt-image">
+                            <img src="../images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="box-hxt-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!--户型图展示 end-->
+            <!--VR看房展示 begin-->
+            <!--VR看房展示 end-->
+            <!--沙盘图 begin-->
+            <div class="box-sand table-detail">
+                <div class="table-detail-header">
+                    <h3 class="fl">北京华发·中央公园楼栋信息</h3>
+                </div>
+                <div class="sand-container clearfix">
+                    <div class="sand-content fl" id="sandContent">
+                        <img src="../images/sand_900x600c.jpg" alt="" id="sandPicture">
+                    </div>
+                    <div class="sand-info fr"></div>
+                </div>
+            </div>
+            <!--沙盘图 end-->
+            <!--位置及周边配套 begin-->
+            <!--位置及周边配套 end-->
+            <!--点评 begin-->
+            <!--点评 end-->
+            <!--购房计算器 begin-->
+            <!--购房计算器 end-->
+            <!--楼盘相册 begin-->
+            <div class="box-building-picture table-detail">
+                <div class="table-detail-header">
+                    <h3 class="fl">楼盘相册</h3>
+                    <div class="title-list fr">
+                        <a href="">户型(102)</a>
+                        <span>|</span>
+                        <a href="">交通图(3)</a>
+                        <span>|</span>
+                        <a href="">实景图(1)</a>
+                        <span>|</span>
+                        <a href="">效果图(1)</a>
+                        <span>|</span>
+                        <a href="">样板间(1)</a>
+                        <span>|</span>
+                        <a href="">活动现场(2)</a>
+                        <span>|</span>
+                        <a href="">配套图(56)</a>
+                        <span>|</span>
+                        <a href="">证照(6)</a>
+                        <span>|</span>
+                        <a href="">更多<em>></em></a>
+                    </div>
+                </div>
+                <div class="buiding-picture-body">
+                    <ul>
+                        <li>
+                            <div class="picture">
+                                <img src="../images/building_pic_214x160.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>熙悦天寰鸟瞰效果图</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="picture">
+                                <img src="../images/building_pic_214x160.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>熙悦天寰鸟瞰效果图</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="picture">
+                                <img src="../images/building_pic_214x160.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>熙悦天寰鸟瞰效果图</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="picture">
+                                <img src="../images/building_pic_214x160.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>熙悦天寰鸟瞰效果图</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="picture">
+                                <img src="../images/building_pic_214x160.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>熙悦天寰鸟瞰效果图</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--楼盘相册 end-->
+            <!---->
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="box-content">
+            <p class="about">
+                <a href="">关于我们</a>
+                <span>|</span>
+                <a href="">联系我们</a>
+                <span>|</span>
+                <a href="">加入我们</a>
+                <span>|</span>
+                <a href="">网站公告</a>
+                <span>|</span>
+                <a href="">帮助中心</a>
+            </p>
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="">鲁ICP备14025533-3号</a>
+                <a href="">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <div class="fix-side">
+        <ul class="fix-bar">
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <div class="qr-code">
+                        <img src="../images/qr_code.jpg" alt="">
+                        <p>房产在线</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="fix-to-top" id="toTopBtn">
+            <span>TOP</span>
+        </div>
+    </div>
+    <script>
+        function toggleToTopBtn(toTopBtn, scrollTop, clientHeight) {
+            if (scrollTop > clientHeight) {
+                toTopBtn.css('display', 'block')
+            } else {
+                toTopBtn.css('display', 'none')
+            }
+        }
+        function justifyPicture(child) {
+            let maxLeft = child.offsetParent().outerHeight() - child.outerHeight();
+            let maxTop = child.offsetParent().outerWidth() - child.outerWidth();
+            child.css({
+                left: maxLeft / 2 + 'px',
+                top: maxTop / 2 + 'px'
+            })
+        }
+
+        function dragPicture(moveObj) {
+            let maxLeft = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
+            let maxTop = moveObj.offsetParent().outerHeight() - moveObj.outerHeight();
+            moveObj.on('mousedown', event => {
+                let imgTop = parseFloat(moveObj.css('top'));
+                let imgLeft = parseFloat(moveObj.css('left'));
+                let lastPointX = event.clientX;
+                let lastPointY = event.clientY;
+                $(document).on('mousemove', e => {
+                    e.preventDefault();
+                    let changeX = e.clientX - lastPointX;
+                    let changeY = e.clientY - lastPointY;
+                    let disX = imgLeft + changeX;
+                    let disY = imgTop + changeY;
+                    moveObj.css({
+                        left: Math.max(Math.min(disX, 0), maxLeft) + "px",
+                        top: Math.max(Math.min(disY, 0), maxTop) + "px"
+                    })
+                })
+            });
+            $(document).on('mouseup', () => {
+                $(document).off('mousemove');
+            })
+        }
+
+        $(document).ready(function () {
+            /*沙盘图*/
+            let child = $('#sandPicture');
+            justifyPicture(child);
+            dragPicture(child);
+            /*回到顶部*/
+            let toTopBtn = $('#toTopBtn');
+            let scrollTop = $(document).scrollTop();
+            let clientHeight = document.documentElement.clientHeight;
+            toggleToTopBtn(toTopBtn, scrollTop, clientHeight);
+            $(window).on('scroll', () => {
+                scrollTop = $(document).scrollTop();
+                toggleToTopBtn(toTopBtn, scrollTop, clientHeight);
+            })
+            toTopBtn.on('click', () => {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500)
+            })
+        })
+    </script>
+</body>
+
+</html>

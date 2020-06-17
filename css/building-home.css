@@ -1,4 +1,5 @@
 /*楼盘首页样式*/
+
 .box {
     margin-top: 20px;
 }
@@ -70,10 +71,12 @@
 }
 
 /*楼盘属性*/
+
 .box-building>.building-attribute {
     width: 552px;
     height: auto;
 }
+
 .score-point {
     font-size: 20px;
     color: #11a43c;
@@ -144,9 +147,7 @@
     color: #11a43c;
 }
 
-.informaion-li .more-detail:hover,
-.informaion-li .informaion-li-ellipsis a:hover,
-.informaion-li>.informaion-li-right a.bjtx:hover {
+.informaion-li .more-detail:hover, .informaion-li .informaion-li-ellipsis a:hover, .informaion-li>.informaion-li-right a.bjtx:hover {
     border-color: #11a43c;
 }
 
@@ -224,10 +225,31 @@
 .information-book a {
     border-radius: 2px;
     padding: 3px 6px;
-    color: #fff;
     background-color: #11a43c;
 }
 
 .information-book .fr {
     margin: 10px 5px 0;
+}
+
+.box-footer .about span, .box-footer .about a {
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+.box-footer .about a:hover, .box-footer .record a:hover {
+    color: #11a43c;
+}
+
+.box-footer .copyright, .box-footer .contact, .box-footer .record, .box-footer .record a {
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #9d9ea8;
+}
+
+.box-footer .record a {
+    padding-left: 10px;
 }
