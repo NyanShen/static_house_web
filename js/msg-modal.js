@@ -1,21 +1,21 @@
 (function () {
     $.MsgNodal = {
-        Alert: function (title, msg) {
-            GenerateHtml("alert", title, msg);
+        Alert: function (title, message) {
+            GenerateHtml("alert", title, message);
             btnOk();
             btnNo();
         },
-        Confirm: function (title, msg, callback) {
-            GenerateHtml("confirm", title, msg);
+        Confirm: function (title, message, callback) {
+            GenerateHtml("confirm", title, message);
             btnOk(callback);
             btnNo();
         }
     }
     //生成Html
-    var GenerateHtml = function (type, title, msg) {
+    var GenerateHtml = function (type, title, message) {
         var _html = "";
         _html += '<div id="modalBox"></div><div id="modalContent"><span id="modalTitle">' + title + '</span>';
-        _html += '<a id="modalIcon">x</a><div id="ModalMessage">' + msg + '</div><div id="modalBtnGroup">';
+        _html += '<a id="modalIcon">x</a><div id="ModalMessage">' + message + '</div><div id="modalBtnGroup">';
         if (type == "alert") {
             _html += '<input id="modalBtnOk" type="button" value="确定" />';
         }
@@ -52,11 +52,10 @@
         $("#modalTitle").css({
             display: 'block',
             fontSize: '14px',
-            color: '#444',
+            color: '#333',
             padding: '10px 15px',
-            backgroundColor: '#DDD',
+            backgroundColor: '#eee',
             borderRadius: '15px 15px 0 0',
-            borderBottom: '3px solid #009BFE',
             fontWeight: 'bold'
         });
         $("#ModalMessage").css({
@@ -70,51 +69,79 @@
             position: 'absolute',
             right: '10px',
             top: '9px',
-            border: '1px solid Gray',
             width: '18px',
             height: '18px',
             textAlign: 'center',
             lineHeight: '16px',
             cursor: 'pointer',
             borderRadius: '12px',
-            fontFamily: '微软雅黑'
+            color: '#fff',
+            backgroundColor: '#DDD'
         });
-        $("#modalBtnGroup").css({
-            margin: '15px 0 10px 0',
-            textAlign: 'center'
-        });
-        $("#modalBtnOk,#modalBtnNo").css({
-            width: '85px',
-            height: '30px',
-            color: 'white',
-            border: 'none'
-        });
-        $("#modalBtnOk").css({
-            backgroundColor: '#168bbb'
-        });
-        $("#modalBtnNo").css({
-            backgroundColor: 'gray',
-            marginLeft: '20px'
-        });
+
         //右上角关闭按钮hover样式
         $("#modalIcon").hover(function () {
             $(this).css({
-                backgroundColor: 'Red',
-                color: 'White'
+                backgroundColor: '#df2f30'
             });
         }, function () {
             $(this).css({
-                backgroundColor: '#DDD',
-                color: 'black'
+                backgroundColor: '#DDD'
             });
         });
+
+        $("#modalBtnGroup").css({
+            margin: '10px 0',
+            textAlign: 'center'
+        });
+        $("#modalBtnOk,#modalBtnNo").css({
+            cursor: 'pointer',
+            width: '85px',
+            height: '30px',
+        });
+        $("#modalBtnOk").css({
+            color: '#fff',
+            backgroundColor: '#11a43c'
+        });
+
+        $("#modalBtnOk").hover(
+            function () {
+                $(this).css({
+                    backgroundColor: '#14922d'
+                })
+            },
+            function () {
+                $(this).css({
+                    backgroundColor: '#11a43c'
+                })
+            });
+
+        $("#modalBtnNo").css({
+            color: '#666',
+            backgroundColor: '#fff',
+            marginLeft: '20px',
+            border: '1px solid #ddd'
+        });
+
+        $("#modalBtnNo").hover(
+            function () {
+                $(this).css({
+                    backgroundColor: '#eee'
+                })
+            },
+            function () {
+                $(this).css({
+                    backgroundColor: '#fff'
+                })
+            });
+
         var _widht = document.documentElement.clientWidth; //屏幕宽
         var _height = document.documentElement.clientHeight; //屏幕高
         var boxWidth = $("#modalContent").width();
         var boxHeight = $("#modalContent").height();
         //让提示框居中
         $("#modalContent").css({
-            top:  200 + "px",
+            top: 200 + "px",
             left: (_widht - boxWidth) / 2 + "px"
         });
     }
