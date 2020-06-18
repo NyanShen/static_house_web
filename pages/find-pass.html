@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回密码</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/find-pass.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="box-header">
+        <a href="">房产在线<small>Fang.com</small></a>
+        <span>找回密码</span>
+    </div>
+    <div class="box-content-shadow">
+        <div class="box-find-pass">
+            <div class="progress">
+                <ul>
+                    <li class="clearfix passed">
+                        <div class="step fr">
+                            <p class="text">1</p>
+                            <p class="desc">校验身份</p>
+                        </div>
+                    </li>
+                    <li class="clearfix actived">
+                        <div class="line fl"></div>
+                        <div class="step fr">
+                            <p class="text">2</p>
+                            <p class="desc">重置密码</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="line fl"></div>
+                        <div class="step fr">
+                            <p class="text">3</p>
+                            <p class="desc">操作成功</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cut-line"></div>
+            <div class="step-content">
+                <ul>
+                    <li>
+                        <label for="phone">手机号码：</label>
+                        <input class="phone" type="text" name="" id="phone" placeholder="请输入手机号码">
+                        <div class="error">请输入正确的手机号码</div>
+                    </li>
+                    <li>
+                        <label for="findPassBtn">&nbsp;</label>
+                        <input type="submit" class="find-pass-btn" value="下一步">
+                    </li>
+                </ul>
+            </div>
+            <div class="step-content hide">
+                <div class="step-info">短信验证码已经发送至<span>134*******12</span>，请查收</div>
+                <ul>
+                    <li>
+                        <label for="phoneCode">手机验证码：</label>
+                        <input class="phone-code" type="text" name="" id="phoneCode" placeholder="请输入手机验证码">
+                        <em>
+                            <a href="">重新获取</a>
+                        </em>
+                    </li>
+        
+                    <li>
+                        <label for="password">密码：</label>
+                        <input type="text" name="" id="password" placeholder="密码">
+                        <div class="tip">8-16位半角字符，英文字母与数字的组合，区分大小写</div>
+                    </li>
+                    <li>
+                        <label for="findPassBtn">&nbsp;</label>
+                        <input type="submit" class="find-pass-btn" value="提交">
+                    </li>
+                   
+                </ul>
+            </div>
+            <div class="step-content hide">
+                <div><img src="../images/check150.png" alt="" width="150px" height="150px"></div>
+                <div>操作成功</div>
+                <p><span class="description">5s后返回到首页</span></p>
+                <p>
+                    <input type="button" class="back-btn" value="返回首页">
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

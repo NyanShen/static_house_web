@@ -1,10 +1,16 @@
 $(document).ready(function () {
     $('.login-form .login-tab span').each(function (index) {
         $(this).click(function () {
-            $('.hide').removeClass('hide')
-            $('.actived').removeClass('actived')
-            $('.login-form dd').eq(index - 1).addClass('hide')
-            $(this).addClass('actived')
+            $('.login-form>.hide').removeClass('hide');
+            $('.actived').removeClass('actived');
+            $('.login-form dd').eq(index - 1).addClass('hide');
+            $(this).addClass('actived');
+            
+            if($('#findPassBtn').hasClass('hide')) {
+                $('#findPassBtn').removeClass('hide');
+            } else {
+                $('#findPassBtn').addClass('hide');
+            }
         })
     })
 
@@ -13,13 +19,13 @@ $(document).ready(function () {
         //获取同级兄弟input当前的密码框
         var _input = _this.siblings('#loginPass');
         if (_this.hasClass('close')) {
-            _this.removeClass('close')
-            _this.addClass('open')
-            _input.attr('type', 'text')
+            _this.removeClass('close');
+            _this.addClass('open');
+            _input.attr('type', 'text');
         } else {
-            _this.removeClass('open')
-            _this.addClass('close')
-            _input.attr('type', 'password')
+            _this.removeClass('open');
+            _this.addClass('close');
+            _input.attr('type', 'password');
         }
     })
 

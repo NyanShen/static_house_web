@@ -1,44 +1,18 @@
-.register-wrap {
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 100px;
-}
-.register-wrap > .register-header {
-    margin-bottom: 20px;
-}
-
-.register-wrap > .register-header > a {
-    font-size: 28px;
-    font-weight: bold;
-    color: #11a43c;
-}
-
-.register-wrap > .register-header > span {
-    font-size: 18px;
-    color: #666;
-    padding-left: 10px;
-    margin-left: 10px;
-    border-left: 1px solid #e5e5e5;
-}
-
 .box-register {
-    width: 1200px;
     padding: 50px 20px 50px 120px;
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.23);
-    background-color: #fff;
 }
 
-.box-register > .register-form {
+.box-register>.register-form {
     width: 750px;
     border-right: 1px solid #eee;
 }
 
-.box-register > .register-form li {
+.box-register>.register-form li {
     position: relative;
     margin-bottom: 25px;
 }
 
-.box-register > .register-form li label {
+.box-register>.register-form li label {
     float: left;
     width: 120px;
     line-height: 39px;
@@ -46,7 +20,7 @@
     text-align: right;
 }
 
-.box-register > .register-form li input {
+.box-register>.register-form li input {
     border: 0;
     width: 300px;
     height: 39px;
@@ -54,11 +28,11 @@
     padding-left: 10px;
 }
 
-.box-register > .register-form li .phone-code {
+.box-register>.register-form li .phone-code {
     width: 180px;
 }
 
-.box-register > .register-form li em a {
+.box-register>.register-form li em a {
     margin-left: 15px;
     padding: 12px 15px;
     border-radius: 2px;
@@ -66,7 +40,7 @@
     background-color: #11a43c;
 }
 
-.box-register > .register-form li .eyes-icon {
+.box-register>.register-form li .eyes-icon {
     position: absolute;
     right: 310px;
     top: 0;
@@ -75,18 +49,18 @@
     margin: 10px 10px;
 }
 
-.box-register > .register-form li .eyes-icon.close {
+.box-register>.register-form li .eyes-icon.close {
     background: url("../images/login_sprites.png") -10px -50px;
 }
 
-.box-register > .register-form li .error {
+.box-register>.register-form li .error {
     position: absolute;
     left: 135px;
     font-size: 12px;
     color: #ff3344;
 }
 
-.box-register > .register-form li .tip {
+.box-register>.register-form li .tip {
     position: absolute;
     right: 45px;
     top: 0;
@@ -96,26 +70,26 @@
     color: #999;
 }
 
-.box-register > .register-form .register-btn {
+.box-register>.register-form .register-btn {
+    cursor: pointer;
     color: #fff;
     background-color: #11a43c;
 }
 
-.box-register > .register-form li em a:hover,
-.box-register > .register-form .register-btn:hover {
+.box-register>.register-form li em a:hover, .box-register>.register-form .register-btn:hover {
     background-color: #14922d;
 }
 
-.box-register > .register-form .register-link {
+.box-register>.register-form .register-link {
     padding-left: 132px;
 }
 
-.box-register > .register-form .register-link a {
+.box-register>.register-form .register-link a {
     font-size: 12px;
     color: #6B91B3;
 }
 
-.box-register > .register-form .register-link a:hover {
+.box-register>.register-form .register-link a:hover {
     color: #df2f30;
 }
 
@@ -135,4 +109,3 @@
 .box-register>.register-info p a {
     color: #11a43c;
 }
-

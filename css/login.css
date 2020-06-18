@@ -19,27 +19,27 @@
     z-index: 999;
 }
 
-.box-login>.login-form{
+.login-form{
     min-height: 240px;
     padding: 30px 35px 20px 35px;
 }
 
-.box-login>.login-form>.login-tab {
+.login-form>.login-tab {
     text-align: center;
 }
 
-.box-login>.login-form>.login-tab span {
+.login-form>.login-tab span {
     cursor: pointer;
     font-size: 16px;
     padding: 12px;
     font-weight: bold;
 }
 
-.box-login>.login-form>.login-tab span.actived {
+.login-form>.login-tab span.actived {
     color: #11a43c;
 }
 
-.box-login>.login-form dd p {
+.login-form dd p {
     position: relative;
     width: 380px;
     height: 40px;
@@ -48,14 +48,14 @@
     border-radius: 2px;
 }
 
-.box-login>.login-form dd p input {
+.login-form dd p input {
     border: 0;
     width: 80%;
     height: 40px;
     background-color: #f0f0f0;
 }
 
-.box-login>.login-form dd p .error {
+.login-form dd p .error {
     position: absolute;
     top: 40px;
     left: 0;
@@ -63,11 +63,11 @@
     color: #ff3344;
 }
 
-.box-login>.login-form dd .login-code input{
+.login-form dd .login-code input{
     width: 180px;
 }
 
-.box-login>.login-form dd .login-code em {
+.login-form dd .login-code em {
     float: right;
     width: 123px;
     height: 40px;
@@ -76,7 +76,7 @@
     background-color: #fff;
 }
 
-.box-login>.login-form dd .login-code em a {
+.login-form dd .login-code em a {
     display: block;
     width: 110px;
     height: 38px;
@@ -85,31 +85,31 @@
     background-color: #11a43c;
 }
 
-.box-login>.login-form>.longin-btn:hover,
-.box-login>.login-form dd .login-code em a:hover {
+.login-form>.longin-btn:hover,
+.login-form dd .login-code em a:hover {
     background-color: #14922d;
 }
 
-.box-login>.login-form .login-item {
+.login-form .login-item {
     height: 35px;
     line-height: 35px;
     margin: 10px 0;
 }
 
-.box-login>.login-form .login-item .register{
+.login-form .login-item .register{
     color: #11a43c;
     padding-left: 10px;
 }
 
-.box-login>.login-form .login-item a:hover {
+.login-form .login-item a:hover {
     color: #df2f30;
 }
 
-.box-login>.login-form .login-item input[type=checkbox]{
+.login-form .login-item input[type=checkbox]{
     vertical-align: -1px;
 }
 
-.box-login>.login-form>.longin-btn{
+.login-form>.longin-btn{
     display: block;
     width: 380px;
     height: 40px;
@@ -122,18 +122,18 @@
 }
 
 /*第三方登录*/
-.box-login>.login-third {
+.login-third {
     font-size: 12px;
     text-align: center;
     padding: 10px 35px 25px 35px;
     color: #666;
 }
 
-.box-login>.login-third dt {
+.login-third dt {
     border-top: 1px solid #f4f4f4;
 }
 
-.box-login>.login-third dt span{
+.login-third dt span{
     display: block;
     width: 120px;
     margin: 0 auto;
@@ -143,31 +143,31 @@
     margin-top: -10px;
 }
 
-.box-login>.login-third dd p {
+.login-third dd p {
     margin: 10px 0;
 }
 
-.box-login>.login-third dd p a {
+.login-third dd p a {
     color: #6B91B3;
 }
 
-.box-login>.login-third dd a:hover {
+.login-third dd a:hover {
     color: #df2f30;
 }
 
 /*登录icon*/
-.box-login>.login-form>dd>p>i{
+.login-form>dd>p>i{
     float: left;
     width: 20px;
     height: 20px;
     margin: 10px 10px;
 }
 
-.box-login>.login-form .login-pass {
+.login-form .login-pass {
     position: relative;
 }
 
-.box-login>.login-form .login-pass .eyes-icon {
+.login-form .login-pass .eyes-icon {
     cursor: pointer;
     position: absolute;
     right: 5px;
@@ -177,26 +177,26 @@
     margin: 10px 10px;
 }
 
-.box-login>.login-form .login-pass .eyes-icon.close{
+.login-form .login-pass .eyes-icon.close{
     background: url("../images/login_sprites.png") -10px -50px;
 }
 
-.box-login>.login-form .login-pass .eyes-icon.open{
+.login-form .login-pass .eyes-icon.open{
     background: url("../images/login_sprites.png") -50px -50px;
 }
 
-.box-login>.login-form .login-phone i {
+.login-form .login-phone i {
     background: url("../images/login_sprites.png") -10px -90px;
 }
 
-.box-login>.login-form .login-code i {
+.login-form .login-code i {
     background: url("../images/login_sprites.png") -50px -10px;
 }
 
-.box-login>.login-form .login-account i {
+.login-form .login-account i {
     background: url("../images/login_sprites.png") -90px -50px;
 }
 
-.box-login>.login-form .login-pass>i {
+.login-form .login-pass>i {
     background: url("../images/login_sprites.png") -90px -10px;
 }
