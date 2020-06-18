@@ -15,7 +15,7 @@
     var GenerateHtml = function (type, title, message) {
         var _html = "";
         _html += '<div id="modalBox"></div><div id="modalContent"><span id="modalTitle">' + title + '</span>';
-        _html += '<a id="modalIcon">x</a><div id="ModalMessage">' + message + '</div><div id="modalBtnGroup">';
+        _html += '<a id="modalIcon"></a><div id="ModalMessage">' + message + '</div><div id="modalBtnGroup">';
         if (type == "alert") {
             _html += '<input id="modalBtnOk" type="button" value="确定" />';
         }
@@ -67,18 +67,15 @@
         $("#modalIcon").css({
             display: 'block',
             position: 'absolute',
-            right: '10px',
-            top: '9px',
-            width: '18px',
-            height: '18px',
-            textAlign: 'center',
-            lineHeight: '16px',
+            right: '14px',
+            top: '14px',
+            width: '14px',
+            height: '14px',
             cursor: 'pointer',
-            borderRadius: '12px',
-            color: '#fff',
-            backgroundColor: '#DDD'
+            borderRadius: '50%',
+            background: 'url(../images/close14.png) no-repeat',
+            backgroundColor: '#ccc'
         });
-
         //右上角关闭按钮hover样式
         $("#modalIcon").hover(function () {
             $(this).css({
@@ -86,10 +83,9 @@
             });
         }, function () {
             $(this).css({
-                backgroundColor: '#DDD'
+                backgroundColor: '#ccc'
             });
         });
-
         $("#modalBtnGroup").css({
             margin: '10px 0',
             textAlign: 'center'
@@ -103,7 +99,6 @@
             color: '#fff',
             backgroundColor: '#11a43c'
         });
-
         $("#modalBtnOk").hover(
             function () {
                 $(this).css({
@@ -115,14 +110,12 @@
                     backgroundColor: '#11a43c'
                 })
             });
-
         $("#modalBtnNo").css({
             color: '#666',
             backgroundColor: '#fff',
             marginLeft: '20px',
             border: '1px solid #ddd'
         });
-
         $("#modalBtnNo").hover(
             function () {
                 $(this).css({
