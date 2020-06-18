@@ -76,17 +76,26 @@
     background-color: #fff;
 }
 
-.login-form dd .login-code em a {
-    display: block;
+.login-form dd .login-code em span {
     width: 110px;
     height: 38px;
     margin-left: 10px;
     color: #fff;
+}
+
+.login-form dd .login-code em .code-btn {
+    display: block;
     background-color: #11a43c;
+    cursor: pointer;
+}
+
+.login-form dd .login-code em .count-down {
+    display: none;
+    background-color: #999;
 }
 
 .login-form>.longin-btn:hover,
-.login-form dd .login-code em a:hover {
+.login-form dd .login-code em .code-btn:hover {
     background-color: #14922d;
 }
 

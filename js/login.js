@@ -5,8 +5,8 @@ $(document).ready(function () {
             $('.actived').removeClass('actived');
             $('.login-form dd').eq(index - 1).addClass('hide');
             $(this).addClass('actived');
-            
-            if($('#findPassBtn').hasClass('hide')) {
+
+            if ($('#findPassBtn').hasClass('hide')) {
                 $('#findPassBtn').removeClass('hide');
             } else {
                 $('#findPassBtn').addClass('hide');
@@ -27,6 +27,28 @@ $(document).ready(function () {
             _this.addClass('close');
             _input.attr('type', 'password');
         }
+    })
+
+    //获取验证码
+    $('#phoneCodeBtn').click(function () {
+        $(this).hide();
+        $('#countdown').css({
+            display: 'block'
+        });
+        var second = 60;
+        $('#countdown').text((second) + "秒");
+        var interval = setInterval(function () {
+            second--;
+            $('#countdown').text((second) + "秒");
+            if (second < 0) {
+                $('#phoneCodeBtn').text("重发验证码");
+                clearInterval(interval);
+                $('#countdown').hide();
+                $('#phoneCodeBtn').css({
+                    display: 'block'
+                });
+            }
+        }, 1000)
     })
 
 
