@@ -20,14 +20,19 @@ $(document).ready(function () {
         return count;
     }
 
-    function validatePattern(pattern, element, errorElement, name) {
+    function validatePhone(pattern, element, errorElement, name) {
         let count = 0;
         let regExpInstance = new RegExp(pattern);
+        if (!element.val()) {
+            count++;
+            errorElement.text(`${name}不能为空`);
+            return count;
+        }
         if (!regExpInstance.test(element.val())) {
             count++;
             errorElement.text(`请输入正确的${name}`);
         }
-        return count;
+        return count
     }
 
     function validateMapper(fieldId, validateType, pattern = '') {
@@ -35,7 +40,7 @@ $(document).ready(function () {
         let errorElement = $(`#${fieldId}Error`);
         let validates = {
             "required": validateRequired(element, errorElement, nameMapper[fieldId]),
-            "pattern": validatePattern(pattern, element, errorElement, nameMapper[fieldId])
+            "pattern": validatePhone(pattern, element, errorElement, nameMapper[fieldId])
         }
         return validates[validateType]
     }
@@ -130,11 +135,7 @@ $(document).ready(function () {
             let errorCount = validator([
                 {
                     fieldId: 'phone',
-                    type: 'required',
-                },
-                {
-                    fieldId: 'phone',
-                    type: 'pattern',
+                    type: 'phone',
                     pattern: '^1[34589]\\d{9}$'
                 },
                 {
@@ -164,11 +165,7 @@ $(document).ready(function () {
         let errorCount = validator([
             {
                 fieldId: 'phone',
-                type: 'required',
-            },
-            {
-                fieldId: 'phone',
-                type: 'pattern',
+                type: 'phone',
                 pattern: '^1[34589]\\d{9}$'
             },
             {
