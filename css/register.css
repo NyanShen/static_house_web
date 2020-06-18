@@ -77,6 +77,7 @@
 .box-register>.register-form li .error {
     position: absolute;
     left: 135px;
+    top: 40px;
     font-size: 12px;
     color: #ff3344;
 }

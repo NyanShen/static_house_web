@@ -40,7 +40,7 @@
                     </li>
                     <li class="clearfix">
                         <label for="password">密码：</label>
-                        <input type="password" name="password" id="password" placeholder="密码">
+                        <input type="password" name="password" id="registerPass" placeholder="密码">
                         <div class="error" id="registerPassError"></div>
                         <div class="tip">8-20位包含字母、数字、符号中至少2种的密码</div>
                     </li>
@@ -48,14 +48,14 @@
                         <label for="registerBtn">&nbsp;</label>
                         <input type="submit" class="register-btn" value="立即注册" id="registerBtn">
                     </li>
-                    <l class="clearfix"i>
+                    <l class="clearfix" i>
                         <div class="register-link">
                             <span class="description font-12px">我已阅读并接受</span>
                             <a href="">《房产在线服务协议》</a>
                             <span class="description font-12px">及</span>
                             <a href="">《隐私权政策》</a>
                         </div>
-                    </li>
+                        </li>
                 </ul>
             </div>
             <div class="register-info fr">
@@ -77,28 +77,32 @@
     $(document).ready(function () {
         var phone = $('#phone');
         var phoneCode = $('#phoneCode');
-        var password = $('#password');
+        var registerPass = $('#registerPass');
         var phoneError = $('#phoneError');
         var phoneCodeError = $('#phoneCodeError');
         var registerPassError = $('#registerPassError');
         var registerForm = $('#registerForm');
 
-        registerForm.on('focusin', '#phone,#password,#phoneCode', function (event) {
+        registerForm.on('focusin', '#phone,#registerPass,#phoneCode', function (event) {
             let targetId = event.currentTarget.id;
             let errorElement = $('#' + targetId + 'Error');
             clearErrorText(errorElement);
         })
 
+        registerPass.on('focusout', function () {
+            loginPassValidate(registerPass, registerPassError);
+        })
+
         $('#registerBtn').on('click', function () {
             phoneValidate(phone, phoneError);
             phoneCodeValidate(phoneCode, phoneCodeError);
-            loginPassValidate(password, registerPassError);
+            loginPassValidate(registerPass, registerPassError);
             app.request({
                 url: app.apiUrl('/user/register'),
                 data: {
                     mobile: phone.val(),
                     source: '1',
-                    password: password.val(),
+                    password: registerPass.val(),
                     randCode: phoneCode.val()
                 },
                 type: 'POST',
