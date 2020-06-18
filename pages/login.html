@@ -13,7 +13,7 @@
 <body>
     <div class="login-wrap">
         <div class="box-login">
-            <div class="login-form" id="loginForm">
+            <div class="login-form" id="signForm">
                 <dt class="login-tab">
                     <span class="actived">手机动态码登录</span>
                     <span>账号密码登录</span>
@@ -26,7 +26,7 @@
                     </p>
                     <p class="login-code clearfix">
                         <i></i>
-                        <input type="text" placeholder="验证码" id="phoneCode" name="loginPhoneCode">
+                        <input type="text" placeholder="请输入验证码" id="phoneCode" name="loginPhoneCode">
                         <span class="error" id="phoneCodeError"></span>
                         <em>
                             <span class="code-btn" id="phoneCodeBtn">获取验证码</span>
@@ -42,8 +42,8 @@
                     </p>
                     <p class="login-pass clearfix">
                         <i></i>
-                        <input type="password" placeholder="密码" id="loginPass">
-                        <span class="error" id="loginPassError"></span>
+                        <input type="password" placeholder="密码" id="password">
+                        <span class="error" id="passwordError"></span>
                         <i class="eyes-icon close"></i>
                     </p>
                 </dd>
@@ -79,4 +79,5 @@
 <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/login.js"></script>
 <script src="../js/msg-modal.js"></script>
+
 </html>

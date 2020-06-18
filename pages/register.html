@@ -20,7 +20,7 @@
     </div>
     <div class="box-content-shadow">
         <div class="box-register clearfix">
-            <div class="register-form fl" id="registerForm">
+            <div class="register-form fl" id="signForm">
                 <ul>
                     <li class="clearfix">
                         <label for="phoneNumber">手机号码：</label>
@@ -40,8 +40,8 @@
                     </li>
                     <li class="clearfix">
                         <label for="password">密码：</label>
-                        <input type="password" name="password" id="registerPass" placeholder="密码">
-                        <div class="error" id="registerPassError"></div>
+                        <input type="password" name="password" id="password" placeholder="请输入密码">
+                        <div class="error" id="passwordError"></div>
                         <div class="tip">8-20位包含字母、数字、符号中至少2种的密码</div>
                     </li>
                     <li class="clearfix">
@@ -73,47 +73,4 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function () {
-        var phone = $('#phone');
-        var phoneCode = $('#phoneCode');
-        var registerPass = $('#registerPass');
-        var phoneError = $('#phoneError');
-        var phoneCodeError = $('#phoneCodeError');
-        var registerPassError = $('#registerPassError');
-        var registerForm = $('#registerForm');
-
-        registerForm.on('focusin', '#phone,#registerPass,#phoneCode', function (event) {
-            let targetId = event.currentTarget.id;
-            let errorElement = $('#' + targetId + 'Error');
-            clearErrorText(errorElement);
-        })
-
-        registerPass.on('focusout', function () {
-            loginPassValidate(registerPass, registerPassError);
-        })
-
-        $('#registerBtn').on('click', function () {
-            phoneValidate(phone, phoneError);
-            phoneCodeValidate(phoneCode, phoneCodeError);
-            loginPassValidate(registerPass, registerPassError);
-            app.request({
-                url: app.apiUrl('/user/register'),
-                data: {
-                    mobile: phone.val(),
-                    source: '1',
-                    password: registerPass.val(),
-                    randCode: phoneCode.val()
-                },
-                type: 'POST',
-                dataType: 'json',
-                headers: {},
-                done: function (res) {
-                }
-            });
-        })
-    })
-
-</script>
-
 </html>
