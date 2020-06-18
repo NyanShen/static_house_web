@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/app.js"></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
                 <ul>
                     <li>
                         <label for="phoneNumber">手机号码：</label>
-                        <input type="text" name="" id="phoneNumber" placeholder="请输入手机号码">
+                        <input type="text" name="" id="mobile" placeholder="请输入手机号码">
                         <div class="error">请输入正确的手机号码</div>
                         <div class="tip"></div>
                     </li>
@@ -48,7 +50,7 @@
                     </li>
                     <li>
                         <label for="registerBtn">&nbsp;</label>
-                        <input type="submit" class="register-btn" value="立即注册">
+                        <input type="submit" class="register-btn" value="立即注册" id="registerBtn">
                     </li>
                     <li>
                         <div class="register-link">
@@ -75,5 +77,28 @@
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#registerBtn').on('click', function () {
+            var mobile = $('#phone').val();
+            var phoneCode = $('#phoneCode').val();
+            var password = $('#password').val();
+            app.request({
+                url: app.apiUrl('/user/register'),
+                data: {
+                    mobile,
+                    source: '1',
+                    password,
+                    code: phoneCode
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function (res) {
+                }
+            });
+        })
+    })
+</script>
 
 </html>
