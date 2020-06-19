@@ -40,7 +40,7 @@
             backgroundColor: 'black',
             top: '0',
             left: '0',
-            opacity: '0.6'
+            opacity: '0.2'
         });
         $("#modalContent").css({
             zIndex: '999999',

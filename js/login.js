@@ -1,5 +1,7 @@
 $(document).ready(function () {
     let loginByPhone = true;
+
+    //登录校验规则
     let nameMapper = {
         phone: '手机号码',
         phoneCode: '手机验证码',
@@ -20,13 +22,13 @@ $(document).ready(function () {
         return count;
     }
 
-    function validatePhone(pattern, element, errorElement, name) {
+    function validatePhone(element, errorElement, name) {
         let count = 0;
-        let regExpInstance = new RegExp(pattern);
+        let regExpInstance = new RegExp('^1[34589]\\d{9}$');
         if (!element.val()) {
             count++;
             errorElement.text(`${name}不能为空`);
-            return count;
+            return count
         }
         if (!regExpInstance.test(element.val())) {
             count++;
@@ -35,20 +37,23 @@ $(document).ready(function () {
         return count
     }
 
-    function validateMapper(fieldId, validateType, pattern = '') {
+    function validateMapper(fieldId, validateType, rules = {}) {
         let element = $(`#${fieldId}`);
         let errorElement = $(`#${fieldId}Error`);
-        let validates = {
-            "required": validateRequired(element, errorElement, nameMapper[fieldId]),
-            "pattern": validatePhone(pattern, element, errorElement, nameMapper[fieldId])
+        switch (validateType) {
+            case 'required':
+                return validateRequired(element, errorElement, nameMapper[fieldId]);
+            case 'phone':
+                return validatePhone(element, errorElement, nameMapper[fieldId]);
+            default:
+                return 0
         }
-        return validates[validateType]
     }
 
     function validator(validateItems) {
         let count = 0;
         validateItems.forEach(item => {
-            count = count + validateMapper(item.fieldId, item.type, item.pattern);
+            count = count + validateMapper(item.fieldId, item.type);
         });
         return count;
     }
@@ -86,57 +91,89 @@ $(document).ready(function () {
             _input.attr('type', 'password');
         }
     })
-
-    //获取验证码
-    $('#phoneCodeBtn').click(function () {
-        $(this).hide();
-        $('#countdown').css({
-            display: 'block'
-        });
-        let second = 60;
-        $('#countdown').text((second) + "秒");
-        let interval = setInterval(function () {
-            second--;
-            $('#countdown').text((second) + "秒");
-            if (second < 0) {
-                $('#phoneCodeBtn').text("重发验证码");
-                clearInterval(interval);
-                $('#countdown').hide();
-                $('#phoneCodeBtn').css({
-                    display: 'block'
-                });
-            }
-        }, 1000)
-    })
-
-
     let phone = $('#phone');
     let phoneCode = $('#phoneCode');
-    let loginBtn = $('#loginBtn');
-    let signForm = $('#signForm');
     let password = $('#password');
+    let account = $('#account');
+    let loginPhoneCodeBtn = $('#loginPhoneCodeBtn');
+    let registerPhoneCodeBtn = $('#registerPhoneCodeBtn');
+    let signForm = $('#signForm');
+    let loginBtn = $('#loginBtn');
+    let registerBtn = $('#registerBtn');
 
+    //表单聚焦
     signForm.on('focusin', '#phone,#phoneCode,#account,#password', function (event) {
         let targetId = event.currentTarget.id;
         let errorElement = $(`#${targetId}Error`);
         clearErrorText(errorElement);
     })
 
+    //表单失去焦点
     signForm.on('focusout', '#phone,#phoneCode,#account,#password', function (event) {
         let targetId = event.currentTarget.id;
         let element = $(`#${targetId}`);
         let errorElement = $(`#${targetId}Error`);
-        validateRequired(element, errorElement, nameMapper[targetId]);
+        if (targetId === 'phone') {
+            validatePhone(element, errorElement, nameMapper[targetId])
+        } else {
+            validateRequired(element, errorElement, nameMapper[targetId]);
+        }
     })
 
+    //获取验证码
+    loginPhoneCodeBtn.click(function () {
+        getPhoneCodeByType($(this), 'login')
+    })
+
+    registerPhoneCodeBtn.click(function () {
+        getPhoneCodeByType($(this), 'register')
+    })
+
+    function getPhoneCodeByType(targetElement, type) {
+        let errorCount = validator([{
+            fieldId: 'phone',
+            type: 'phone'
+        }]);
+        if (errorCount) return;
+        let countdown = $('#countdown');
+        let cssStyle = {
+            display: 'block'
+        };
+        app.request({
+            url: app.apiUrl(`/user/${type}-code`),
+            data: {
+                mobile: phone.val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function () {
+                targetElement.hide();
+                countdown.css(cssStyle);
+                let second = 60;
+                countdown.text((second) + "秒");
+                let interval = setInterval(function () {
+                    second--;
+                    countdown.text((second) + "秒");
+                    if (second < 0) {
+                        targetElement.text("重发验证码");
+                        clearInterval(interval);
+                        countdown.hide();
+                        targetElement.css(cssStyle);
+                    }
+                }, 1000)
+            }
+        });
+    }
+
+    //登录提交
     loginBtn.on('click', function () {
         let count = 0;
         if (loginByPhone) {
             let errorCount = validator([
                 {
                     fieldId: 'phone',
-                    type: 'phone',
-                    pattern: '^1[34589]\\d{9}$'
+                    type: 'phone'
                 },
                 {
                     fieldId: 'phoneCode',
@@ -144,6 +181,21 @@ $(document).ready(function () {
                 }
             ])
             count = count + errorCount;
+            if (count) return
+            app.request({
+                url: app.apiUrl('/user/login-by-code'),
+                data: {
+                    mobile: phone.val(),
+                    randCode: phoneCode.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    $MsgModal.Alert('提示', '注册成功');
+                    window.location = '/pages/login.html';
+                }
+            });
         } else {
             let errorCount = validator([
                 {
@@ -156,17 +208,31 @@ $(document).ready(function () {
                 }
             ])
             count = count + errorCount;
+            if (count) return
+            app.request({
+                url: app.apiUrl('/user/login-by-password'),
+                data: {
+                    account: account.val(),
+                    password: password.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    window.location = '/index.html';
+                }
+            });
         }
 
     })
 
-    $('#registerBtn').on('click', function () {
+    //注册提交
+    registerBtn.on('click', function () {
         let count = 0;
         let errorCount = validator([
             {
                 fieldId: 'phone',
-                type: 'phone',
-                pattern: '^1[34589]\\d{9}$'
+                type: 'phone'
             },
             {
                 fieldId: 'phoneCode',
@@ -178,22 +244,24 @@ $(document).ready(function () {
             }
         ])
         count = count + errorCount;
-        if (count) {
-            return;
+
+        if (!count) {
+            app.request({
+                url: app.apiUrl('/user/register'),
+                data: {
+                    mobile: phone.val(),
+                    source: '1',
+                    password: password.val(),
+                    randCode: phoneCode.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    $MsgModal.Alert('提示', '注册成功');
+                    window.location = '/pages/login.html';
+                }
+            });
         }
-        app.request({
-            url: app.apiUrl('/user/register'),
-            data: {
-                mobile: phone.val(),
-                source: '1',
-                password: password.val(),
-                randCode: phoneCode.val()
-            },
-            type: 'POST',
-            dataType: 'json',
-            headers: {},
-            done: function (res) {
-            }
-        });
     })
 })

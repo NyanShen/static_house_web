@@ -73,7 +73,7 @@ app.request = function (params) {
                 msg['_page_count'] = jqXHR.getResponseHeader('X-Total');
                 params.done.call(this, msg);
             } else {
-                alert(msg.message);
+                $.MsgNodal.Alert('报错', msg.message)
                 // layer.msg(msg.message, {
                 //     offset: '200px'
                 //     , icon: 2
@@ -95,7 +95,7 @@ app.request = function (params) {
                 location.href = app.jumpUrl('/pages/login.html');
             } else {
                 if (typeof response.responseJSON != 'undefined') {
-                    alert(response.responseJSON.message);
+                    $.MsgNodal.Alert('报错', response.responseJSON.message)
                     // layer.msg(response.responseJSON.message, {
                     //     offset: '200px'
                     //     , icon: 2
