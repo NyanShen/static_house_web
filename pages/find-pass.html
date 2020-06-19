@@ -15,27 +15,27 @@
 
 <body>
     <div class="box-header">
-        <a href="">房产在线<small>Fang.com</small></a>
+        <a href="/">房产在线<small>Fang.com</small></a>
         <span>找回密码</span>
     </div>
     <div class="box-content-shadow">
-        <div class="box-find-pass">
+        <div class="box-find-pass" id="signForm">
             <div class="progress">
                 <ul>
-                    <li class="clearfix passed">
+                    <li class="clearfix actived" id="stepOne">
                         <div class="step fr">
                             <p class="text">1</p>
                             <p class="desc">校验身份</p>
                         </div>
                     </li>
-                    <li class="clearfix actived">
+                    <li class="clearfix" id="stepTwo">
                         <div class="line fl"></div>
                         <div class="step fr">
                             <p class="text">2</p>
                             <p class="desc">重置密码</p>
                         </div>
                     </li>
-                    <li class="clearfix">
+                    <li class="clearfix" id="stepThree">
                         <div class="line fl"></div>
                         <div class="step fr">
                             <p class="text">3</p>
@@ -45,52 +45,62 @@
                 </ul>
             </div>
             <div class="cut-line"></div>
-            <div class="step-content">
+            <div class="step-content" id="stepContentOne">
                 <ul>
                     <li>
                         <label for="phone">手机号码：</label>
-                        <input class="phone" type="text" name="" id="phone" placeholder="请输入手机号码">
-                        <div class="error">请输入正确的手机号码</div>
+                        <input class="phone" type="text" name="" id="phone" placeholder="请输入手机号码" value="">
+                        <div class="error" id="phoneError"></div>
                     </li>
                     <li>
                         <label for="findPassBtn">&nbsp;</label>
-                        <input type="submit" class="find-pass-btn" value="下一步">
+                        <input type="submit" class="find-pass-btn" value="下一步" id="nextStepBtn">
                     </li>
                 </ul>
             </div>
-            <div class="step-content hide">
-                <div class="step-info">短信验证码已经发送至<span>134*******12</span>，请查收</div>
+            <div class="step-content hide" id="stepContentTwo">
+                <!-- <div class="step-info">短信验证码已经发送至<span id="findPassPhoneText"></span>，请查收</div> -->
                 <ul>
                     <li>
-                        <label for="phoneCode">手机验证码：</label>
-                        <input class="phone-code" type="text" name="" id="phoneCode" placeholder="请输入手机验证码">
-                        <em>
-                            <a href="">重新获取</a>
-                        </em>
+                        <label for="phoneShow">手机号码：</label>
+                        <input type="text" name="phoneShow" id="phoneShow" value="" readonly>
                     </li>
-        
+                    <li>
+                        <label for="phoneCode">手机验证码：</label>
+                        <input class="phone-code" type="text" name="phoneCode" id="phoneCode" value="" placeholder="请输入手机验证码">
+                        <em>
+                            <span class="code-btn" id="findPassPhoneCodeBtn">重新获取</span>
+                            <span class="count-down" id="countdown"></span>
+                        </em>
+                        <div class="error" id="phoneCodeError"></div>
+                    </li>
                     <li>
                         <label for="password">密码：</label>
-                        <input type="text" name="" id="password" placeholder="密码">
-                        <div class="tip">8-16位半角字符，英文字母与数字的组合，区分大小写</div>
+                        <input type="password" name="password" id="password" value="" placeholder="请输入密码">
+                        <div class="tip">8-20位包含字母、数字、符号中至少2种的密码</div>
+                        <div class="error" id="passwordError"></div>
                     </li>
                     <li>
                         <label for="findPassBtn">&nbsp;</label>
-                        <input type="submit" class="find-pass-btn" value="提交">
+                        <input type="submit" class="find-pass-btn" value="提交" id="findPassBtn">
                     </li>
                    
                 </ul>
             </div>
-            <div class="step-content hide">
+            <div class="step-content hide" id="stepContentThree">
                 <div><img src="../images/check150.png" alt="" width="150px" height="150px"></div>
                 <div>操作成功</div>
-                <p><span class="description">5s后返回到首页</span></p>
+                <p><span class="description" id="countdownBack"></span></p>
                 <p>
-                    <input type="button" class="back-btn" value="返回首页">
+                    <a href="../index.html" class="back-btn">返回首页</a>
                 </p>
             </div>
         </div>
     </div>
 </body>
 
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/msg-modal.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/app.js"></script>
 </html>

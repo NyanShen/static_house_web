@@ -1,27 +1,27 @@
 (function () {
     $.MsgNodal = {
-        Alert: function (title, message) {
-            GenerateHtml("alert", title, message);
+        Alert: function (title, message, okText='确定') {
+            GenerateHtml("alert", title, message, okText);
             btnOk();
             btnNo();
         },
-        Confirm: function (title, message, callback) {
-            GenerateHtml("confirm", title, message);
+        Confirm: function (title, message, callback, okText='确定', cancelText='取消') {
+            GenerateHtml("confirm", title, message, okText, cancelText);
             btnOk(callback);
             btnNo();
         }
     }
     //生成Html
-    var GenerateHtml = function (type, title, message) {
+    var GenerateHtml = function (type, title, message, okText, cancelText) {
         var _html = "";
-        _html += '<div id="modalBox"></div><div id="modalContent"><span id="modalTitle">' + title + '</span>';
-        _html += '<a id="modalIcon"></a><div id="ModalMessage">' + message + '</div><div id="modalBtnGroup">';
+        _html += `<div id="modalBox"></div><div id="modalContent"><span id="modalTitle">${title}</span>`;
+        _html += `<a id="modalIcon"></a><div id="ModalMessage">${message}</div><div id="modalBtnGroup">`;
         if (type == "alert") {
-            _html += '<input id="modalBtnOk" type="button" value="确定" />';
+            _html += `<input id="modalBtnOk" type="button" value="${okText}" />`;
         }
         if (type == "confirm") {
-            _html += '<input id="modalBtnOk" type="button" value="确定" />';
-            _html += '<input id="modalBtnNo" type="button" value="取消" />';
+            _html += `<input id="modalBtnOk" type="button" value="${okText}" />`;
+            _html += `<input id="modalBtnNo" type="button" value="${cancelText}" />`;
         }
         _html += '</div></div>';
         //必须先将_html添加到body，再设置Css样式
@@ -53,16 +53,16 @@
             display: 'block',
             fontSize: '14px',
             color: '#333',
-            padding: '10px 15px',
+            padding: '14px 15px',
             backgroundColor: '#eee',
             borderRadius: '15px 15px 0 0',
             fontWeight: 'bold'
         });
         $("#ModalMessage").css({
-            padding: '20px',
-            lineHeight: '20px',
+            padding: '26px 20px 32px 20px',
+            lineHeight: '22px',
             borderBottom: '1px dashed #DDD',
-            fontSize: '13px'
+            fontSize: '14px'
         });
         $("#modalIcon").css({
             display: 'block',
@@ -87,13 +87,13 @@
             });
         });
         $("#modalBtnGroup").css({
-            margin: '10px 0',
+            margin: '16px 0',
             textAlign: 'center'
         });
         $("#modalBtnOk,#modalBtnNo").css({
             cursor: 'pointer',
-            width: '85px',
-            height: '30px',
+            width: '100px',
+            height: '34px',
         });
         $("#modalBtnOk").css({
             color: '#fff',

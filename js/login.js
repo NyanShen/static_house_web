@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let loginByPhone = true;
+    let loginByPhone = false;
 
     //登录校验规则
     let nameMapper = {
@@ -63,14 +63,14 @@ $(document).ready(function () {
         $(this).click(function () {
             $('.login-form>.hide').removeClass('hide');
             $('.actived').removeClass('actived');
-            $('.login-form dd').eq(index - 1).addClass('hide');
+            $('.login-form .login-item').eq(index - 1).addClass('hide');
             $(this).addClass('actived');
 
             if ($('#findPassBtn').hasClass('hide')) {
-                loginByPhone = false;
+                loginByPhone = true;
                 $('#findPassBtn').removeClass('hide');
             } else {
-                loginByPhone = true;
+                loginByPhone = false;
                 $('#findPassBtn').addClass('hide');
             }
         })
@@ -80,7 +80,7 @@ $(document).ready(function () {
     $('.login-form .login-pass .eyes-icon').click(function () {
         let _this = $(this)
         //获取同级兄弟input当前的密码框
-        let _input = _this.siblings('#loginPass');
+        let _input = _this.siblings('#password');
         if (_this.hasClass('close')) {
             _this.removeClass('close');
             _this.addClass('open');
@@ -122,32 +122,51 @@ $(document).ready(function () {
 
     //获取验证码
     loginPhoneCodeBtn.click(function () {
-        getPhoneCodeByType($(this), 'login')
-    })
-
-    registerPhoneCodeBtn.click(function () {
-        getPhoneCodeByType($(this), 'register')
-    })
-
-    function getPhoneCodeByType(targetElement, type) {
         let errorCount = validator([{
             fieldId: 'phone',
             type: 'phone'
         }]);
         if (errorCount) return;
+        let params = {message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url:'/pages/register.html'}
+        getPhoneCodeByType($(this), '/user/login-code', confirmModel, params)
+    })
+
+    registerPhoneCodeBtn.click(function () {
+        let errorCount = validator([{
+            fieldId: 'phone',
+            type: 'phone'
+        }]);
+        if (errorCount) return;
+        let params = {message: '您输入的手机号已注册，请直接登录', okText: '去登录', url:'/pages/login.html'}
+        getPhoneCodeByType($(this), '/user/register-code', confirmModel, params)
+    })
+
+    function confirmModel({message, okText, url}) {
+        $.MsgNodal.Confirm('提示', message, function () {
+            window.location.href = url
+        }, okText);
+    }
+
+    //获取手机验证码（login, register,password）
+    function getPhoneCodeByType(targetElement, uri, callback, params) {
         let countdown = $('#countdown');
         let cssStyle = {
             display: 'block'
         };
         app.request({
-            url: app.apiUrl(`/user/${type}-code`),
+            url: app.apiUrl(uri),
             data: {
                 mobile: phone.val()
             },
             type: 'GET',
             dataType: 'json',
             headers: {},
-            done: function () {
+            done: function (res) {
+                if (!res.data) {
+                    console.log(!res.data)
+                    callback && callback(params)
+                    return;
+                }
                 targetElement.hide();
                 countdown.css(cssStyle);
                 let second = 60;
@@ -155,7 +174,7 @@ $(document).ready(function () {
                 let interval = setInterval(function () {
                     second--;
                     countdown.text((second) + "秒");
-                    if (second < 0) {
+                    if (second <= 0) {
                         targetElement.text("重发验证码");
                         clearInterval(interval);
                         countdown.hide();
@@ -167,6 +186,11 @@ $(document).ready(function () {
     }
 
     //登录提交
+    $('.login-wrap').keydown(function (event) {
+        if (event.keyCode === 13) {
+            loginBtn.trigger("click");
+        }
+    })
     loginBtn.on('click', function () {
         let count = 0;
         if (loginByPhone) {
@@ -191,9 +215,9 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 headers: {},
-                done: function () {
-                    $MsgModal.Alert('提示', '注册成功');
-                    window.location = '/pages/login.html';
+                done: function (res) {
+                    app.setToken(res.data);
+                    window.location.href = '/';
                 }
             });
         } else {
@@ -218,8 +242,9 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 headers: {},
-                done: function () {
-                    window.location = '/index.html';
+                done: function (res) {
+                    app.setToken(res.data);
+                    window.location.href = '/';
                 }
             });
         }
@@ -227,6 +252,11 @@ $(document).ready(function () {
     })
 
     //注册提交
+    $('.box-register').keydown(function (event) {
+        if (event.keyCode === 13) {
+            registerBtn.trigger("click");
+        }
+    })
     registerBtn.on('click', function () {
         let count = 0;
         let errorCount = validator([
@@ -245,23 +275,123 @@ $(document).ready(function () {
         ])
         count = count + errorCount;
 
-        if (!count) {
-            app.request({
-                url: app.apiUrl('/user/register'),
-                data: {
-                    mobile: phone.val(),
-                    source: '1',
-                    password: password.val(),
-                    randCode: phoneCode.val()
-                },
-                type: 'POST',
-                dataType: 'json',
-                headers: {},
-                done: function () {
-                    $MsgModal.Alert('提示', '注册成功');
-                    window.location = '/pages/login.html';
-                }
-            });
-        }
+        if (count) return
+        app.request({
+            url: app.apiUrl('/user/register'),
+            data: {
+                mobile: phone.val(),
+                source: '1',
+                password: password.val(),
+                randCode: phoneCode.val()
+            },
+            type: 'POST',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                window.location.href = "/index.html";
+            }
+        });
     })
+
+    //找回密码
+
+    let nextStepBtn = $('#nextStepBtn');
+    let findPassBtn = $('#findPassBtn');
+    let stepOne = $('#stepOne');
+    let stepTwo = $('#stepTwo');
+    let stepThree = $('#stepThree');
+    let stepContentOne = $('#stepContentOne');
+    let stepContentTwo = $('#stepContentTwo');
+    let stepContentThree = $('#stepContentThree');
+    let findPassPhoneCodeBtn = $('#findPassPhoneCodeBtn');
+    let phoneShow = $('#phoneShow');
+    nextStepBtn.click(function () {
+        let count = 0;
+        let errorCount = validator([
+            {
+                fieldId: 'phone',
+                type: 'phone'
+            }
+        ])
+        count = count + errorCount;
+        if (count) return;
+        app.request({
+            url: app.apiUrl('/user/is-register'),
+            data: {
+                mobile: phone.val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                if (res.data) {
+                    stepOne.removeClass('actived');
+                    stepOne.addClass('passed')
+                    stepTwo.addClass('actived')
+                    stepContentOne.hide();
+                    stepContentTwo.show();
+                    phoneShow.val(phone.val())
+                } else {
+                    $.MsgNodal.Confirm('提示', '您输入的手机号尚未注册，请检查手机号或注册账户', function () {
+                        window.location.href = '/pages/register.html'
+                    }, '去注册', '');
+                }
+            }
+        });
+    });
+
+    findPassBtn.click(function () {
+        let count = 0;
+        let errorCount = validator([
+            {
+                fieldId: 'phoneCode',
+                type: 'required'
+            },
+            {
+                fieldId: 'password',
+                type: 'required',
+            }
+        ])
+        count = count + errorCount;
+        if (count) return;
+
+        app.request({
+            url: app.apiUrl('/user/change-password-by-code'),
+            data: {
+                mobile: phone.val(),
+                randCode: phoneCode.val(),
+                password: password.val()
+            },
+            type: 'POST',
+            dataType: 'json',
+            headers: {},
+            done: function () {
+                stepTwo.removeClass('actived');
+                stepTwo.addClass('passed');
+                stepThree.addClass('actived');
+                stepContentTwo.hide();
+                stepContentThree.show();
+                //5秒后返回首页
+                countdownBack();
+            }
+        });
+    });
+
+    findPassPhoneCodeBtn.click(function () {
+        getPhoneCodeByType($(this), '/user/password-code');
+    });
+
+    function countdownBack() {
+        let second = 5;
+        let countdownBack = $('#countdownBack');
+        countdownBack.text(`${second}s后返回到首页`)
+        let interval = setInterval(function () {
+            second--;
+            countdownBack.text(`${second}s后返回到首页`)
+            if (second <= 0) {
+                clearInterval(interval);
+                window.location.href = "/index.html";
+            }
+        }, 1000)
+    }
 })

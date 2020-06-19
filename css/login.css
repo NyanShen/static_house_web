@@ -39,23 +39,23 @@
     color: #11a43c;
 }
 
-.login-form dd p {
+.login-form .login-item p {
     position: relative;
     width: 380px;
     height: 40px;
     background-color: #f0f0f0;
-    margin: 25px 0;
+    margin-top: 30px;
     border-radius: 2px;
 }
 
-.login-form dd p input {
+.login-form .login-item p input {
     border: 0;
     width: 80%;
     height: 40px;
     background-color: #f0f0f0;
 }
 
-.login-form dd p .error {
+.login-form .login-item p .error {
     position: absolute;
     top: 40px;
     left: 0;
@@ -63,11 +63,11 @@
     color: #ff3344;
 }
 
-.login-form dd .login-code input{
+.login-form .login-item .login-code input{
     width: 180px;
 }
 
-.login-form dd .login-code em {
+.login-form .login-item .login-code em {
     float: right;
     width: 123px;
     height: 40px;
@@ -76,45 +76,45 @@
     background-color: #fff;
 }
 
-.login-form dd .login-code em span {
+.login-form .login-item .login-code em span {
     width: 110px;
     height: 38px;
     margin-left: 10px;
     color: #fff;
 }
 
-.login-form dd .login-code em .code-btn {
+.login-form .login-item .login-code em .code-btn {
     display: block;
     background-color: #11a43c;
     cursor: pointer;
 }
 
-.login-form dd .login-code em .count-down {
+.login-form .login-item .login-code em .count-down {
     display: none;
     background-color: #999;
 }
 
 .login-form>.longin-btn:hover,
-.login-form dd .login-code em .code-btn:hover {
+.login-form .login-item .login-code em .code-btn:hover {
     background-color: #14922d;
 }
 
-.login-form .login-item {
+.login-form .login-option {
     height: 35px;
     line-height: 35px;
     margin: 10px 0;
 }
 
-.login-form .login-item .register{
+.login-form .login-option .register{
     color: #11a43c;
     padding-left: 10px;
 }
 
-.login-form .login-item a:hover {
+.login-form .login-option a:hover {
     color: #df2f30;
 }
 
-.login-form .login-item input[type=checkbox]{
+.login-form .login-option input[type=checkbox]{
     vertical-align: -1px;
 }
 
@@ -165,7 +165,7 @@
 }
 
 /*登录icon*/
-.login-form>dd>p>i{
+.login-form>.login-item>p>i{
     float: left;
     width: 20px;
     height: 20px;

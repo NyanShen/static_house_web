@@ -14,47 +14,47 @@
     <div class="login-wrap">
         <div class="box-login">
             <div class="login-form" id="signForm">
-                <dt class="login-tab">
-                    <span class="actived">手机动态码登录</span>
-                    <span>账号密码登录</span>
-                </dt>
-                <dd>
+                <div class="login-tab">
+                    <span class="actived">账号密码登录</span>
+                    <span>手机动态码登录</span>
+                </div>
+                <div class="login-item">
+                    <p class="login-account">
+                        <i></i>
+                        <input type="text" name="account" value="" placeholder="请输入登录账号" id="account">
+                        <span class="error" id="accountError"></span>
+                    </p>
+                    <p class="login-pass clearfix">
+                        <i></i>
+                        <input type="password" placeholder="密码" value="" id="password">
+                        <span class="error" id="passwordError"></span>
+                        <i class="eyes-icon close"></i>
+                    </p>
+                </div>
+                <div class="login-item hide">
                     <p class="login-phone">
                         <i></i>
-                        <input type="text" placeholder="请输入手机号码" id="phone" name="loginPhoneNumber">
+                        <input type="text" name="phone" value="" placeholder="请输入手机号码" id="phone">
                         <span class="error" id="phoneError"></span>
                     </p>
                     <p class="login-code clearfix">
                         <i></i>
-                        <input type="text" placeholder="请输入验证码" id="phoneCode" name="loginPhoneCode">
+                        <input type="text" name="phoneCode" value="" placeholder="请输入验证码" id="phoneCode">
                         <span class="error" id="phoneCodeError"></span>
                         <em>
                             <span class="code-btn" id="loginPhoneCodeBtn">获取验证码</span>
                             <span class="count-down" id="countdown"></span>
                         </em>
                     </p>
-                </dd>
-                <dd class="hide">
-                    <p class="login-account">
-                        <i></i>
-                        <input type="text" placeholder="请输入登录账号" id="account" name="LoginAccount">
-                        <span class="error" id="accountError"></span>
-                    </p>
-                    <p class="login-pass clearfix">
-                        <i></i>
-                        <input type="password" placeholder="密码" id="password">
-                        <span class="error" id="passwordError"></span>
-                        <i class="eyes-icon close"></i>
-                    </p>
-                </dd>
-                <div class="login-item clearfix">
+                </div>
+                <div class="login-option clearfix">
                     <label for="loginAuto" class="fl">
                         <input type="checkbox" checked="true">自动登录
                     </label>
                     <a href="register.html" class="fr register">免费注册</a>
-                    <a href="find-pass.html" class="fr hide" id="findPassBtn">找回密码</a>
+                    <a href="find-pass.html" class="fr" id="findPassBtn">找回密码</a>
                 </div>
-                <input class="longin-btn" type="submit" href="" id="loginBtn" value="登录">
+                <input class="longin-btn" type="button" id="loginBtn" value="登录">
             </div>
             <div class="login-third">
                 <dt>
