@@ -52,7 +52,7 @@
         $("#modalTitle").css({
             display: 'block',
             fontSize: '14px',
-            color: '#333',
+            color: '#666',
             padding: '14px 15px',
             backgroundColor: '#eee',
             borderRadius: '15px 15px 0 0',

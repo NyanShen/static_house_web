@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let loginByPhone = false;
+    let loginByPassword = true;
 
     //登录校验规则
     let nameMapper = {
@@ -66,12 +66,12 @@ $(document).ready(function () {
             $('.login-form .login-item').eq(index - 1).addClass('hide');
             $(this).addClass('actived');
 
-            if ($('#findPassBtn').hasClass('hide')) {
-                loginByPhone = true;
-                $('#findPassBtn').removeClass('hide');
-            } else {
-                loginByPhone = false;
+            if ($(this)[0].id === 'loginByCodeSwitch') {
+                loginByPassword = false;
                 $('#findPassBtn').addClass('hide');
+            } else {
+                loginByPassword = true;
+                $('#findPassBtn').removeClass('hide');
             }
         })
     })
@@ -127,7 +127,7 @@ $(document).ready(function () {
             type: 'phone'
         }]);
         if (errorCount) return;
-        let params = {message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url:'/pages/register.html'}
+        let params = { message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' }
         getPhoneCodeByType($(this), '/user/login-code', confirmModel, params)
     })
 
@@ -137,11 +137,11 @@ $(document).ready(function () {
             type: 'phone'
         }]);
         if (errorCount) return;
-        let params = {message: '您输入的手机号已注册，请直接登录', okText: '去登录', url:'/pages/login.html'}
+        let params = { message: '您输入的手机号已注册，请直接登录', okText: '去登录', url: '/pages/login.html' }
         getPhoneCodeByType($(this), '/user/register-code', confirmModel, params)
     })
 
-    function confirmModel({message, okText, url}) {
+    function confirmModel({ message, okText, url }) {
         $.MsgNodal.Confirm('提示', message, function () {
             window.location.href = url
         }, okText);
@@ -193,34 +193,7 @@ $(document).ready(function () {
     })
     loginBtn.on('click', function () {
         let count = 0;
-        if (loginByPhone) {
-            let errorCount = validator([
-                {
-                    fieldId: 'phone',
-                    type: 'phone'
-                },
-                {
-                    fieldId: 'phoneCode',
-                    type: 'required',
-                }
-            ])
-            count = count + errorCount;
-            if (count) return
-            app.request({
-                url: app.apiUrl('/user/login-by-code'),
-                data: {
-                    mobile: phone.val(),
-                    randCode: phoneCode.val()
-                },
-                type: 'POST',
-                dataType: 'json',
-                headers: {},
-                done: function (res) {
-                    app.setToken(res.data);
-                    window.location.href = '/';
-                }
-            });
-        } else {
+        if (loginByPassword) {
             let errorCount = validator([
                 {
                     fieldId: 'account',
@@ -238,6 +211,33 @@ $(document).ready(function () {
                 data: {
                     account: account.val(),
                     password: password.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function (res) {
+                    app.setToken(res.data);
+                    window.location.href = '/';
+                }
+            });
+        } else {
+            let errorCount = validator([
+                {
+                    fieldId: 'phone',
+                    type: 'phone'
+                },
+                {
+                    fieldId: 'phoneCode',
+                    type: 'required',
+                }
+            ])
+            count = count + errorCount;
+            if (count) return
+            app.request({
+                url: app.apiUrl('/user/login-by-code'),
+                data: {
+                    mobile: phone.val(),
+                    randCode: phoneCode.val()
                 },
                 type: 'POST',
                 dataType: 'json',
@@ -330,11 +330,9 @@ $(document).ready(function () {
                     stepTwo.addClass('actived')
                     stepContentOne.hide();
                     stepContentTwo.show();
-                    phoneShow.val(phone.val())
+                    phoneShow.val(phone.val());
                 } else {
-                    $.MsgNodal.Confirm('提示', '您输入的手机号尚未注册，请检查手机号或注册账户', function () {
-                        window.location.href = '/pages/register.html'
-                    }, '去注册', '');
+                    confirmModel({ message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' })
                 }
             }
         });

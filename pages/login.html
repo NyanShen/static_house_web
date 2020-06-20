@@ -15,8 +15,8 @@
         <div class="box-login">
             <div class="login-form" id="signForm">
                 <div class="login-tab">
-                    <span class="actived">账号密码登录</span>
-                    <span>手机动态码登录</span>
+                    <span class="actived" id="loginByPassSwitch">账号密码登录</span>
+                    <span id="loginByCodeSwitch">手机动态码登录</span>
                 </div>
                 <div class="login-item">
                     <p class="login-account">
@@ -39,7 +39,7 @@
                     </p>
                     <p class="login-code clearfix">
                         <i></i>
-                        <input type="text" name="phoneCode" value="" placeholder="请输入验证码" id="phoneCode">
+                        <input type="text" name="phoneCode" value="" placeholder="请输入验证码" id="phoneCode" autocomplete="off">
                         <span class="error" id="phoneCodeError"></span>
                         <em>
                             <span class="code-btn" id="loginPhoneCodeBtn">获取验证码</span>
@@ -54,7 +54,7 @@
                     <a href="register.html" class="fr register">免费注册</a>
                     <a href="find-pass.html" class="fr" id="findPassBtn">找回密码</a>
                 </div>
-                <input class="longin-btn" type="button" id="loginBtn" value="登录">
+                <input class="longin-btn" type="submit" id="loginBtn" value="登录">
             </div>
             <div class="login-third">
                 <dt>
