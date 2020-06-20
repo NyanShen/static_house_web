@@ -71,14 +71,16 @@
     overflow: hidden;
 }
 
-.consult-left>.consult-refer .refer-content:hover,
- .consult-left>.consult-list li .title:hover, 
- .consult-left>.consult-list li .desc a:hover {
+.consult-left>.consult-list li .publish {
+    color: #999;
+}
+
+.consult-left>.consult-refer .refer-content:hover, .consult-left>.consult-list li .title:hover, .consult-left>.consult-list li .desc a:hover {
     text-decoration: underline;
 }
 
 .consult-left>.consult-list li .desc a {
-    color: #999;
+    color: #666;
 }
 
 .consult-right {
@@ -86,12 +88,19 @@
     width: 300px;
 }
 
-.consult-right img {
+.consult-right .consult-ad {
+    position: relative;
+    width: 300px;
+    height: 210px;
+    overflow: hidden;
+}
+
+.consult-right .consult-ad img {
     width: 300px;
     height: 210px;
 }
 
-.consult-right img:hover {
+.consult-right .consult-ad img:hover {
     opacity: 0.9;
 }
 
@@ -298,8 +307,7 @@
 }
 
 .consult-left>.consult-refer li {
-    font-size: 12px;
-    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .consult-left>.consult-refer .refer-title {
