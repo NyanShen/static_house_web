@@ -14,18 +14,19 @@
     margin: auto;
     width: 450px;
     height: 420px;
-    box-shadow: 0 0 6px 2px rgba(0,0,0,0.23);
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.23);
     background-color: #fff;
     z-index: 999;
 }
 
-.login-form{
+.login-form {
     min-height: 240px;
-    padding: 30px 35px 20px 35px;
+    padding: 40px 35px 20px 35px;
 }
 
 .login-form>.login-tab {
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .login-form>.login-tab span {
@@ -33,6 +34,7 @@
     font-size: 16px;
     padding: 12px;
     font-weight: bold;
+    color: #333;
 }
 
 .login-form>.login-tab span.actived {
@@ -44,7 +46,7 @@
     width: 380px;
     height: 40px;
     background-color: #f0f0f0;
-    margin-top: 30px;
+    margin-bottom: 25px;
     border-radius: 2px;
 }
 
@@ -63,7 +65,7 @@
     color: #ff3344;
 }
 
-.login-form .login-item .login-code input{
+.login-form .login-item .login-code input {
     width: 180px;
 }
 
@@ -94,18 +96,11 @@
     background-color: #999;
 }
 
-.login-form>.longin-btn:hover,
-.login-form .login-item .login-code em .code-btn:hover {
+.login-form>.login-btn:hover, .login-form .login-item .login-code em .code-btn:hover {
     background-color: #14922d;
 }
 
-.login-form .login-option {
-    height: 35px;
-    line-height: 35px;
-    margin: 10px 0;
-}
-
-.login-form .login-option .register{
+.login-form .login-option .register {
     color: #11a43c;
     padding-left: 10px;
 }
@@ -114,12 +109,11 @@
     color: #df2f30;
 }
 
-.login-form .login-option input[type=checkbox]{
+.login-form .login-option input[type=checkbox] {
     vertical-align: -1px;
 }
 
-.login-form>.longin-btn{
-    display: block;
+.login-form>.login-btn {
     width: 380px;
     height: 40px;
     line-height: 40px;
@@ -131,6 +125,7 @@
 }
 
 /*第三方登录*/
+
 .login-third {
     font-size: 12px;
     text-align: center;
@@ -142,7 +137,7 @@
     border-top: 1px solid #f4f4f4;
 }
 
-.login-third dt span{
+.login-third dt span {
     display: block;
     width: 120px;
     margin: 0 auto;
@@ -165,7 +160,8 @@
 }
 
 /*登录icon*/
-.login-form>.login-item>p>i{
+
+.login-form>.login-item>p>i {
     float: left;
     width: 20px;
     height: 20px;
@@ -186,11 +182,11 @@
     margin: 10px 10px;
 }
 
-.login-form .login-pass .eyes-icon.close{
+.login-form .login-pass .eyes-icon.close {
     background: url("../images/login_sprites.png") -10px -50px;
 }
 
-.login-form .login-pass .eyes-icon.open{
+.login-form .login-pass .eyes-icon.open {
     background: url("../images/login_sprites.png") -50px -50px;
 }
 
@@ -208,4 +204,25 @@
 
 .login-form .login-pass>i {
     background: url("../images/login_sprites.png") -90px -10px;
+}
+
+/*绑定手机号*/
+
+.login-bind-phone {
+    display: none;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-bind-phone .login-back {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: url("../images/back.png");
 }

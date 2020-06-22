@@ -18,7 +18,11 @@
                     <span class="actived" id="loginByPassSwitch">账号密码登录</span>
                     <span id="loginByCodeSwitch">手机动态码登录</span>
                 </div>
-                <div class="login-item">
+                <div class="login-bind-phone">
+                    <i class="login-back"></i>
+                    <span class="title">绑定手机号</span>
+                </div>
+                <div class="login-item" id="loginByPassForm">
                     <p class="login-account">
                         <i></i>
                         <input type="text" name="account" value="" placeholder="请输入登录账号" id="account">
@@ -31,10 +35,10 @@
                         <i class="eyes-icon close"></i>
                     </p>
                 </div>
-                <div class="login-item hide">
+                <div class="login-item hide" id="loginByCodeForm">
                     <p class="login-phone">
                         <i></i>
-                        <input type="text" name="phone" value="" placeholder="请输入手机号码" id="phone">
+                        <input type="text" name="phone" value="13435678943" placeholder="请输入手机号码" id="phone">
                         <span class="error" id="phoneError"></span>
                     </p>
                     <p class="login-code clearfix">
@@ -47,14 +51,14 @@
                         </em>
                     </p>
                 </div>
-                <div class="login-option clearfix">
+                <div class="login-option clearfix mb10">
                     <label for="loginAuto" class="fl">
                         <input type="checkbox" checked="true">自动登录
                     </label>
                     <a href="register.html" class="fr register">免费注册</a>
                     <a href="find-pass.html" class="fr" id="findPassBtn">找回密码</a>
                 </div>
-                <input class="longin-btn" type="submit" id="loginBtn" value="登录">
+                <input class="login-btn" type="submit" id="loginBtn" value="登录">
             </div>
             <div class="login-third">
                 <dt>
@@ -62,11 +66,11 @@
                 </dt>
                 <dd>
                     <div class="third-link">
-                        <img src="../images/wechat_icon.gif" alt=""><a href="">微信</a>
-                        <img src="../images/QQ_icon.gif" alt=""><a href="">QQ</a>
-                        <img src="../images/xinlang_icon.gif" alt=""><a href="">微博</a>
+                        <img src="../images/wechat_icon.gif" alt=""><a href="javascript:;" id="wechat">微信</a>
+                        <img src="../images/QQ_icon.gif" alt=""><a href="javascript:;">QQ</a>
+                        <img src="../images/xinlang_icon.gif" alt=""><a href="javascript:;">微博</a>
                     </div>
-                    <p>
+                    <p class="login-agreement">
                         我已阅读并接受
                         <a href="">《房产在线服务协议》</a>及
                         <a href="">《隐私权政策》</a>

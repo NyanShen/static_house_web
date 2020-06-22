@@ -1,5 +1,6 @@
 $(document).ready(function () {
     let loginByPassword = true;
+    let loginByBindPhone = false;
 
     //登录校验规则
     let nameMapper = {
@@ -61,20 +62,22 @@ $(document).ready(function () {
     //切换登录方式
     $('.login-form .login-tab span').each(function (index) {
         $(this).click(function () {
-            $('.login-form>.hide').removeClass('hide');
             $('.actived').removeClass('actived');
-            $('.login-form .login-item').eq(index - 1).addClass('hide');
             $(this).addClass('actived');
 
             if ($(this)[0].id === 'loginByCodeSwitch') {
                 loginByPassword = false;
                 $('#findPassBtn').addClass('hide');
+                $('#loginByCodeForm').show();
+                $('#loginByPassForm').hide();
             } else {
                 loginByPassword = true;
+                $('#loginByCodeForm').hide();
+                $('#loginByPassForm').show();
                 $('#findPassBtn').removeClass('hide');
             }
         })
-    })
+    });
 
     //显示隐藏密码
     $('.login-form .login-pass .eyes-icon').click(function () {
@@ -90,7 +93,7 @@ $(document).ready(function () {
             _this.addClass('close');
             _input.attr('type', 'password');
         }
-    })
+    });
     let phone = $('#phone');
     let phoneCode = $('#phoneCode');
     let password = $('#password');
@@ -106,7 +109,7 @@ $(document).ready(function () {
         let targetId = event.currentTarget.id;
         let errorElement = $(`#${targetId}Error`);
         clearErrorText(errorElement);
-    })
+    });
 
     //表单失去焦点
     signForm.on('focusout', '#phone,#phoneCode,#account,#password', function (event) {
@@ -118,7 +121,7 @@ $(document).ready(function () {
         } else {
             validateRequired(element, errorElement, nameMapper[targetId]);
         }
-    })
+    });
 
     //获取验证码
     loginPhoneCodeBtn.click(function () {
@@ -128,8 +131,9 @@ $(document).ready(function () {
         }]);
         if (errorCount) return;
         let params = { message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' }
-        getPhoneCodeByType($(this), '/user/login-code', confirmModel, params)
-    })
+        let url = loginByBindPhone ? '/user/login-bind': '/user/login-code';
+        getPhoneCodeByType($(this), url, confirmModel, params)
+    });
 
     registerPhoneCodeBtn.click(function () {
         let errorCount = validator([{
@@ -139,7 +143,7 @@ $(document).ready(function () {
         if (errorCount) return;
         let params = { message: '您输入的手机号已注册，请直接登录', okText: '去登录', url: '/pages/login.html' }
         getPhoneCodeByType($(this), '/user/register-code', confirmModel, params)
-    })
+    });
 
     function confirmModel({ message, okText, url }) {
         $.MsgNodal.Confirm('提示', message, function () {
@@ -147,7 +151,7 @@ $(document).ready(function () {
         }, okText);
     }
 
-    //获取手机验证码（login, register,password）
+    //获取手机验证码（login, register,password, bind）
     function getPhoneCodeByType(targetElement, uri, callback, params) {
         let countdown = $('#countdown');
         let cssStyle = {
@@ -163,7 +167,6 @@ $(document).ready(function () {
             headers: {},
             done: function (res) {
                 if (!res.data) {
-                    console.log(!res.data)
                     callback && callback(params)
                     return;
                 }
@@ -190,10 +193,10 @@ $(document).ready(function () {
         if (event.keyCode === 13) {
             loginBtn.trigger("click");
         }
-    })
+    });
     loginBtn.on('click', function () {
         let count = 0;
-        if (loginByPassword) {
+        if (loginByPassword && !loginByBindPhone) {
             let errorCount = validator([
                 {
                     fieldId: 'account',
@@ -234,7 +237,7 @@ $(document).ready(function () {
             count = count + errorCount;
             if (count) return
             app.request({
-                url: app.apiUrl('/user/login-by-code'),
+                url: app.apiUrl(loginByBindPhone ? '/user/login-by-bind': '/user/login-by-code'),
                 data: {
                     mobile: phone.val(),
                     randCode: phoneCode.val()
@@ -249,6 +252,54 @@ $(document).ready(function () {
             });
         }
 
+    });
+
+    //绑定提交
+    $('#wechat').click(function () {
+        loginByBindPhone = true;
+        $('#loginBtn').val('登录并绑定');
+        $('.login-bind-phone,#loginByCodeForm').show();
+        $('.login-tab,.login-option,.login-agreement,#loginByPassForm').hide();
+    });
+
+    $('.login-form .login-back').click(function () {
+        loginByBindPhone = false;
+        $('#loginBtn').val('登录');
+        if (loginByPassword) {
+            $('.login-bind-phone,#loginByCodeForm').hide();
+            $('.login-tab,.login-option,.login-agreement,#loginByPassForm').show();
+        } else {
+            $('.login-bind-phone').hide();
+            $('.login-tab,.login-option,.login-agreement').show();
+        }
+    });
+    $('#loginBindPhoneBtn').click(function () {
+        let errorCount = validator([
+            {
+                fieldId: 'phone',
+                type: 'phone'
+            },
+            {
+                fieldId: 'phoneCode',
+                type: 'required',
+            }
+        ])
+        count = count + errorCount;
+        if (count) return
+        app.request({
+            url: app.apiUrl('/user/login-by-bind'),
+            data: {
+                mobile: phone.val(),
+                randCode: phoneCode.val()
+            },
+            type: 'POST',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                app.setToken(res.data);
+                window.location.href = '/';
+            }
+        });
     })
 
     //注册提交
@@ -256,7 +307,7 @@ $(document).ready(function () {
         if (event.keyCode === 13) {
             registerBtn.trigger("click");
         }
-    })
+    });
     registerBtn.on('click', function () {
         let count = 0;
         let errorCount = validator([
@@ -291,7 +342,7 @@ $(document).ready(function () {
                 window.location.href = "/index.html";
             }
         });
-    })
+    });
 
     //找回密码
 

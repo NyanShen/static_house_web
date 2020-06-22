@@ -10,13 +10,13 @@
     margin: 20px auto 20px;
 }
 
-.box-header > a {
+.box-header>a {
     font-size: 28px;
     font-weight: bold;
     color: #11a43c;
 }
 
-.box-header > span {
+.box-header>span {
     font-size: 18px;
     color: #666;
     padding-left: 10px;
@@ -75,7 +75,7 @@
     cursor: pointer;
 }
 
-.fix-side li, .fix-side .fix-to-top span{
+.fix-side li, .fix-side .fix-to-top span {
     position: relative;
     display: block;
     width: 48px;
@@ -277,6 +277,7 @@
     right: 0;
     top: 12px;
 }
+
 .line-title>.more:hover {
     text-decoration: underline;
     color: #666;
@@ -308,6 +309,10 @@
 
 .text-color {
     color: #666;
+}
+
+.title-color {
+    color: #333;
 }
 
 .required-red {
