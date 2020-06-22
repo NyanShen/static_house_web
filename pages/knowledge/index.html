@@ -9,24 +9,44 @@
     <link rel="stylesheet" href="//static.fczx.com/www/css/_common.css">
 </head>
 <style>
-    .box-knowledge {
-        margin-top: 20px;
+    .knowledge-item {
+        padding: 30px 0 30px 30px;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .knowledge-title {
+    .knowledge-item .knowledge-title {
         font-size: 18px;
         font-weight: bold;
     }
+
+    .knowledge-left {
+        min-height: 350px;
+    }
+
     .knowledge-left .menu-item {
         margin-top: 20px;
     }
 
-    .knowledge-left .menu-item .sub-title{
+    .knowledge-left .menu-item .sub-title {
         padding-left: 16px;
         font-size: 16px;
         font-weight: bold;
         color: #333;
-        background: url("../images/triangle-down.png") no-repeat left center;
+
+    }
+
+    .knowledge-left .menu-item.down .sub-title {
+        background: url("//static.fczx.com/www/assets/icons/triangle-down.png") no-repeat left center;
+    }
+
+    .knowledge-left .menu-item.right .sub-title {
+        background: url("//static.fczx.com/www/assets/icons/triangle-right.png") no-repeat left center;
+    }
+
+    .knowledge-left .menu-item.right ul {
+        display: none;
     }
 
     .knowledge-left .menu-item ul {
@@ -40,19 +60,95 @@
         font: 14px/30px "Miscrosoft Yahei";
         color: #666;
     }
+
+    .knowledge-left .menu-item ul>li>a:hover {
+        color: #df2f30;
+    }
+
+    .knowledge-left .menu-item ul>li>a.actived {
+        color: #df2f30;
+        font-weight: bold;
+    }
+
+    .knowledge-right {
+        width: 840px;
+    }
+
+    .knowledge-right .knowledge-cut-line {
+        margin-right: 20px;
+        height: 2px;
+        background-color: #f7f7f7;
+    }
+
+    .knowledge-right ul li {
+        overflow: hidden;
+        margin-right: 20px;
+        padding: 20px 0 20px 20px;
+        border-bottom: 1px solid #f7f7f7;
+        cursor: pointer;
+    }
+
+    .knowledge-right ul li:hover {
+        background-color: #f7f7f7;
+    }
+
+    .knowledge-right .picture {
+        margin-right: 20px;
+        width: 130px;
+        overflow: hidden;
+    }
+
+    .knowledge-right .describe .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .knowledge-right .describe .title:hover {
+        text-decoration: underline;
+    }
+
+    .knowledge-right .describe .collect {
+        border-radius: 2px;
+        padding: 4px 6px;
+        margin-left: 20px;
+        color: #3399ff;
+        background-color: #e2f1ff;
+    }
+
+    .knowledge-right .describe .collect:hover {
+        color: #fff;
+        background-color: #3399ff;
+    }
+
+    .knowledge-right .describe .tag a {
+        background-color: #eee;
+        padding: 4px 8px;
+        border-radius: 2px;
+        margin-right: 10px;
+    }
+
+    .knowledge-right .describe .tag a:hover {
+        color: #fff;
+        background-color: #11a43c;
+    }
+
+    .knowledge-right .describe .comment {
+        font-size: 12px;
+        color: #999;
+    }
 </style>
 
 <body>
     <div class="box-content">
-        <div class="box-knowledge">
-            <a href="" class="knowledge-title">买房知识</a>
-            <div class="clearfix">
+        <div class="mt20">
+            <div class="knowledge-item clearfix">
+                <div class="knowledge-title"><a href="">买房知识</a></div>
                 <div class="knowledge-left fl">
-                    <div class="menu-item">
-                        <a href="" class="sub-title">买房准备</a>
+                    <div class="menu-item down">
+                        <a href="javascript:;" class="sub-title">买房准备</a>
                         <ul>
                             <li>
-                                <a href="">购房资格</a>
+                                <a href="" class="actived">购房资格</a>
                                 <a href="">购房能力</a>
                             </li>
                             <li>
@@ -61,11 +157,175 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="menu-item right">
+                        <a href="javascript:;" class="sub-title">看房选房</a>
+                        <ul>
+                            <li>
+                                <a href="">选新房技巧</a>
+                                <a href="">选二手房技巧</a>
+                            </li>
+                            <li>
+                                <a href="">选教育地产技巧</a>
+                                <a href="">建筑类型</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="knowledge-right fr"></div>
+                <div class="knowledge-right fr">
+                    <div class="knowledge-cut-line"></div>
+                    <ul>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">公积金</a>
+                                    <a href="">贷款</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">公积金</a>
+                                    <a href="">贷款</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">户口</a>
+                                    <a href="">贷款</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">贷款</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">公积金</a>
+                                    <a href="">贷款</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li clearfix>
+                            <div class="picture fl">
+                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                    width="130px">
+                            </div>
+                            <div class="describe fl">
+                                <p>
+                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="collect">收藏</a>
+                                </p>
+                                <p class="tag mt10">
+                                    <a href="">房产证</a>
+                                    <a href="">公积金</a>
+                                    <a href="">贷款</a>
+                                    <a href="">房屋产权年限</a>
+                                </p>
+                                <p class="comment mt10">
+                                    <i>icon</i>
+                                    <span>(123)</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </body>
+<script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(document).ready(function () {
+        $('.menu-item .sub-title').each(function (index) {
+            $(this).click(function () {
+                let _this = $(this);
+                let _parent = _this.parent();
+                let _siblings = _this.siblings('ul');
+                if (_parent.hasClass('down')) {
+                    _parent.removeClass('down');
+                    _parent.addClass('right');
+                    _siblings.hide();
+                } else {
+                    _parent.removeClass('right');
+                    _parent.addClass('down');
+                    _siblings.show();
+                }
+            })
+        })
+    });
+</script>
 
 </html>
