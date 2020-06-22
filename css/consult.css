@@ -428,3 +428,34 @@
     height: 118px;
     overflow: hidden;
 }
+
+/*热门咨询*/
+.consult-right>.hot-consult li {
+    margin-top: 10px;
+}
+
+.consult-right>.hot-consult li span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.consult-right>.hot-consult li a {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    margin-left: 5px;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.consult-right>.hot-consult li a:hover {
+    color: #333;
+    text-decoration: underline;
+}
