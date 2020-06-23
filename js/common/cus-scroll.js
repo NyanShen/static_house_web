@@ -138,3 +138,14 @@
     })
     win.CustomScrollBar = CustomScrollBar;
 })(window, document, jQuery);
+
+// 根据不同类型获取滚动实例
+function getCustomScrollBarInstance(tagId) {
+    let params = {
+        contentSelector: `#${tagId} .scroll-content`,
+        sliderSelector: `#${tagId} .scroll-slider`,
+        barSeletor: `#${tagId} .scroll-bar`,
+        wheelStep: 20
+    }
+    return new CustomScrollBar(params);
+}
