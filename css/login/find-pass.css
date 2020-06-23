@@ -1,0 +1,166 @@
+.box-find-pass {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.box-find-pass>.progress {
+    margin: 10px 250px 20px 0;
+    font-size: 0;
+}
+
+.box-find-pass>.progress li {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    font-size: 14px;
+}
+
+.box-find-pass>.progress .step p {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    overflow: hidden;
+    color: #666;
+}
+
+.box-find-pass>.progress li.passed .text {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.box-find-pass>.progress li.actived .text {
+    color: #fff;
+    font-weight: bold;
+    background-color: #11a43c;
+}
+
+.box-find-pass>.progress li.actived .desc {
+    color: #11a43c;
+}
+
+.box-find-pass>.progress li.passed .line,
+.box-find-pass>.progress li.actived .line {
+    background-color: #11a43c;
+}
+
+.box-find-pass>.progress li .text {
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.box-find-pass>.progress li .desc {
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+.box-find-pass>.progress .line {
+    position: absolute;
+    top: 25px;
+    right: 70px;
+    display: block;
+    width: 210px;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.box-find-pass>.step-content {
+    width: 450px;
+    margin: 20px auto;
+}
+
+.box-find-pass>.step-content .step-info {
+    text-align: left;
+    color: #999;
+    margin: 0 0 10px 100px;
+}
+
+.box-find-pass>.step-content .step-info span {
+    color: #111;
+}
+
+.box-find-pass>.step-content li {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.box-find-pass>.step-content li label {
+    float: left;
+    width: 85px;
+    line-height: 39px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.box-find-pass>.step-content li input {
+    border: 0;
+    width: 350px;
+    height: 39px;
+    background-color: #f0f0f0;
+    padding-left: 10px;
+}
+
+.box-find-pass>.step-content li .phone-code {
+    width: 220px;
+}
+
+.box-find-pass>.step-content li em span {
+    float: right;
+    width: 110px;
+    height: 38px;
+    line-height: 38px;
+    margin-left: 15px;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.box-find-pass>.step-content li em .code-btn {
+    cursor: pointer;
+    display: block;
+    background-color: #11a43c;
+}
+
+.box-find-pass>.step-content li em .count-down {
+    display: none;
+    background-color: #999;
+}
+
+.box-find-pass>.step-content li .error {
+    position: absolute;
+    left: 98px;
+    font-size: 12px;
+    color: #ff3344;
+}
+
+.box-find-pass>.step-content li .tip {
+    position: absolute;
+    right: -250px;
+    top: 0;
+    max-width: 250px;
+    font-size: 12px;
+    text-align: left;
+    padding: 2px 8px;
+    color: #999;
+}
+
+.box-find-pass>.step-content li .find-pass-btn {
+    cursor: pointer;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.box-find-pass>.step-content>p {
+    margin: 20px 0;
+}
+
+.box-find-pass>.step-content .back-btn {
+    color: #fff;
+    background-color: #11a43c;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+.box-find-pass>.step-content li em a:hover, .box-find-pass>.step-content .back-btn:hover, .box-find-pass>.step-content li .find-pass-btn:hover {
+    background-color: #14922d;
+}

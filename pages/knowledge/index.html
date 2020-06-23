@@ -7,136 +7,8 @@
     <title>知识</title>
     <link rel="stylesheet" href="//static.fczx.com/www/css/_reset.css">
     <link rel="stylesheet" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" href="//static.fczx.com/www/css/knowledge/index.css">
 </head>
-<style>
-    .knowledge-item {
-        padding: 30px 0 30px 30px;
-        background-color: #fff;
-        border-radius: 2px;
-        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .knowledge-item .knowledge-title {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .knowledge-left {
-        min-height: 350px;
-    }
-
-    .knowledge-left .menu-item {
-        margin-top: 20px;
-    }
-
-    .knowledge-left .menu-item .sub-title {
-        padding-left: 16px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
-
-    }
-
-    .knowledge-left .menu-item.down .sub-title {
-        background: url("//static.fczx.com/www/assets/icons/triangle-down.png") no-repeat left center;
-    }
-
-    .knowledge-left .menu-item.right .sub-title {
-        background: url("//static.fczx.com/www/assets/icons/triangle-right.png") no-repeat left center;
-    }
-
-    .knowledge-left .menu-item.right ul {
-        display: none;
-    }
-
-    .knowledge-left .menu-item ul {
-        padding-left: 16px;
-        margin-top: 15px;
-    }
-
-    .knowledge-left .menu-item ul>li>a {
-        display: inline-block;
-        min-width: 140px;
-        font: 14px/30px "Miscrosoft Yahei";
-        color: #666;
-    }
-
-    .knowledge-left .menu-item ul>li>a:hover {
-        color: #df2f30;
-    }
-
-    .knowledge-left .menu-item ul>li>a.actived {
-        color: #df2f30;
-        font-weight: bold;
-    }
-
-    .knowledge-right {
-        width: 840px;
-    }
-
-    .knowledge-right .knowledge-cut-line {
-        margin-right: 20px;
-        height: 2px;
-        background-color: #f7f7f7;
-    }
-
-    .knowledge-right ul li {
-        overflow: hidden;
-        margin-right: 20px;
-        padding: 20px 0 20px 20px;
-        border-bottom: 1px solid #f7f7f7;
-        cursor: pointer;
-    }
-
-    .knowledge-right ul li:hover {
-        background-color: #f7f7f7;
-    }
-
-    .knowledge-right .picture {
-        margin-right: 20px;
-        width: 130px;
-        overflow: hidden;
-    }
-
-    .knowledge-right .describe .title {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .knowledge-right .describe .title:hover {
-        text-decoration: underline;
-    }
-
-    .knowledge-right .describe .collect {
-        border-radius: 2px;
-        padding: 4px 6px;
-        margin-left: 20px;
-        color: #3399ff;
-        background-color: #e2f1ff;
-    }
-
-    .knowledge-right .describe .collect:hover {
-        color: #fff;
-        background-color: #3399ff;
-    }
-
-    .knowledge-right .describe .tag a {
-        background-color: #eee;
-        padding: 4px 8px;
-        border-radius: 2px;
-        margin-right: 10px;
-    }
-
-    .knowledge-right .describe .tag a:hover {
-        color: #fff;
-        background-color: #11a43c;
-    }
-
-    .knowledge-right .describe .comment {
-        font-size: 12px;
-        color: #999;
-    }
-</style>
 
 <body>
     <div class="box-content">
@@ -148,12 +20,12 @@
                         <a href="javascript:;" class="sub-title">买房准备</a>
                         <ul>
                             <li>
-                                <a href="" class="actived">购房资格</a>
-                                <a href="">购房能力</a>
+                                <a href="javascript:;" class="actived">购房资格</a>
+                                <a href="javascript:;" class="">购房能力</a>
                             </li>
                             <li>
-                                <a href="">购房政策</a>
-                                <a href="">交易流程</a>
+                                <a href="javascript:;">购房政策</a>
+                                <a href="javascript:;">交易流程</a>
                             </li>
                         </ul>
                     </div>
@@ -161,19 +33,30 @@
                         <a href="javascript:;" class="sub-title">看房选房</a>
                         <ul>
                             <li>
-                                <a href="">选新房技巧</a>
-                                <a href="">选二手房技巧</a>
+                                <a href="javascript:;">选新房技巧</a>
+                                <a href="javascript:;">选二手房技巧</a>
                             </li>
                             <li>
-                                <a href="">选教育地产技巧</a>
-                                <a href="">建筑类型</a>
+                                <a href="javascript:;">选教育地产技巧</a>
+                                <a href="javascript:;">建筑类型</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">面积分类</a>
+                                <a href="javascript:;">房价</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">户型/楼层</a>
+                                <a href="javascript:;">地段/配套</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">收房验房</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="knowledge-right fr">
+                <div class="knowledge-right fr" id="knowledgePurchase">
                     <div class="knowledge-cut-line"></div>
-                    <ul>
+                    <ul class="scroll-content">
                         <li clearfix>
                             <div class="picture fl">
                                 <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
@@ -181,15 +64,15 @@
                             </div>
                             <div class="describe fl">
                                 <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="title">开始：房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">公积金</a>
                                     <a href="">贷款</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
@@ -205,12 +88,12 @@
                                     <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">公积金</a>
                                     <a href="">贷款</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
@@ -226,12 +109,12 @@
                                     <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">户口</a>
                                     <a href="">贷款</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
@@ -247,11 +130,11 @@
                                     <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">贷款</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
@@ -267,12 +150,12 @@
                                     <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">公积金</a>
                                     <a href="">贷款</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
@@ -285,31 +168,51 @@
                             </div>
                             <div class="describe fl">
                                 <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                    <a href="" class="title">结束：房子登记在子女名下 这些风险你想到了么?</a>
                                     <a href="" class="collect">收藏</a>
                                 </p>
-                                <p class="tag mt10">
+                                <p class="tag">
                                     <a href="">房产证</a>
                                     <a href="">公积金</a>
                                     <a href="">贷款</a>
                                     <a href="">房屋产权年限</a>
                                 </p>
-                                <p class="comment mt10">
+                                <p class="comment">
                                     <i>icon</i>
                                     <span>(123)</span>
                                 </p>
                             </div>
                         </li>
                     </ul>
+                    <div class="scroll-bar">
+                        <div class="scroll-slider"></div>
+                    </div>
+                    <div class="check-more"><a href="javascript:;" class="description">查看更多</a></div>
                 </div>
             </div>
         </div>
     </div>
 </body>
 <script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//static.fczx.com/www/js/common/cus-scroll.js" type="text/javascript"></script>
 <script>
+    /*重新计算列表高度*/
+    function updateKnowledgeRightHeight() {
+        let knowledgLeftHeight = $('.knowledge-left').height();
+        $('.knowledge-right').height(knowledgLeftHeight);
+    }
     $(document).ready(function () {
-        $('.menu-item .sub-title').each(function (index) {
+        /*重新计算列表高度*/
+        updateKnowledgeRightHeight();
+        /*买房知识滚动事件*/
+        let knowledgePurchaseInstance = new CustomScrollBar({
+            contentSelector: '.scroll-content',
+            sliderSelector: '.scroll-slider',
+            barSeletor: '.scroll-bar',
+            wheelStep: 20
+        });
+        /*菜单展开收起*/
+        $('.menu-item .sub-title').each(function () {
             $(this).click(function () {
                 let _this = $(this);
                 let _parent = _this.parent();
@@ -323,8 +226,18 @@
                     _parent.addClass('down');
                     _siblings.show();
                 }
+                updateKnowledgeRightHeight();
+                knowledgePurchaseInstance._initSliderHeight();
+            });
+        });
+        /*切换菜单选项*/
+        let menuItemAll = $('.menu-item ul li a');
+        menuItemAll.each(function () {
+            $(this).click(function () {
+                menuItemAll.removeClass('actived')
+                $(this).addClass('actived');
             })
-        })
+        });
     });
 </script>
 

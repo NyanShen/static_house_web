@@ -1,0 +1,180 @@
+.knowledge-item {
+    padding: 30px 0 40px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.knowledge-item .knowledge-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 28px;
+    background: url("../../assets/icons/home28.png") no-repeat left center;
+}
+
+.knowledge-left {
+    min-height: 430px;
+}
+
+.knowledge-left .menu-item {
+    margin-top: 20px;
+}
+
+.knowledge-left .menu-item .sub-title {
+    padding-left: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.knowledge-left .menu-item.down .sub-title {
+    background: url("../../assets/icons/triangle-down.png") no-repeat left center;
+}
+
+.knowledge-left .menu-item.right .sub-title {
+    background: url("../../assets/icons/triangle-right.png") no-repeat left center;
+}
+
+.knowledge-left .menu-item.right ul {
+    display: none;
+}
+
+.knowledge-left .menu-item ul {
+    padding-left: 16px;
+    margin-top: 15px;
+}
+
+.knowledge-left .menu-item ul>li>a {
+    display: inline-block;
+    width: 150px;
+    font: 14px/30px "Miscrosoft Yahei";
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.knowledge-left .menu-item ul>li>a:hover {
+    color: #df2f30;
+}
+
+.knowledge-left .menu-item ul>li>a.actived {
+    color: #df2f30;
+    font-weight: bold;
+}
+
+.knowledge-right {
+    position: relative;
+    width: 840px;
+}
+
+.knowledge-right .knowledge-cut-line {
+    margin-right: 20px;
+    height: 2px;
+    background-color: #f7f7f7;
+}
+
+.knowledge-right .scroll-content {
+    height: 100%;
+    overflow: hidden;
+}
+
+.knowledge-right .scroll-bar {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #fff;
+}
+
+#knowledgePurchase:hover .scroll-bar {
+    display: block;
+}
+
+.knowledge-right .scroll-bar .scroll-slider {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 3px;
+    height: 80px;
+    border-radius: 25%;
+    background-color: #ddd;
+}
+
+.knowledge-right ul li {
+    overflow: hidden;
+    margin-right: 20px;
+    padding: 20px 0 20px 20px;
+    border-bottom: 1px solid #f7f7f7;
+    cursor: pointer;
+}
+
+.knowledge-right ul li:hover {
+    background-color: #f7f7f7;
+}
+
+.knowledge-right .picture {
+    margin-right: 20px;
+    width: 130px;
+    overflow: hidden;
+}
+
+.knowledge-right .describe {
+    max-width: 650px;
+    overflow: hidden;
+}
+
+.knowledge-right .describe .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.knowledge-right .describe .title:hover {
+    text-decoration: underline;
+}
+
+.knowledge-right .describe .collect {
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin-left: 20px;
+    color: #3399ff;
+    background-color: #e2f1ff;
+}
+
+.knowledge-right .describe .collect:hover {
+    color: #fff;
+    background-color: #3399ff;
+}
+
+.knowledge-right .describe .tag a {
+    line-height: 50px;
+    padding: 4px 8px;
+    margin-right: 10px;
+    border-radius: 2px;
+    color: #11a43c;
+    background-color: #eee;
+}
+
+.knowledge-right .describe .tag a:hover {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.knowledge-right .describe .comment {
+    line-height: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+.knowledge-right .check-more {
+    position: relative;
+    top: 8px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.knowledge-right .check-more a:hover {
+    color: #df2f30;
+}
