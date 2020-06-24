@@ -1,3 +1,4 @@
+/*资讯导航*/
 .consult-tab {
     position: relative;
     font-size: 0;
@@ -27,6 +28,37 @@
     border-right: 1px solid #eee;
 }
 
+/*资讯查询*/
+.consult-search {
+    position: relative;
+    margin: 30px 0;
+}
+
+.consult-search .search-input {
+    float: left;
+    width: 350px;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid #eee;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.consult-search .search-btn {
+    float: left;
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #f60;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    letter-spacing: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    color: #fff;
+    background-color: #f60;
+}
 /*咨询列表*/
 
 .consult-list li {
