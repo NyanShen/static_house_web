@@ -231,25 +231,3 @@
 .information-book .fr {
     margin: 10px 5px 0;
 }
-
-.box-footer .about span, .box-footer .about a {
-    color: #fff;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 5px;
-}
-
-.box-footer .about a:hover, .box-footer .record a:hover {
-    color: #11a43c;
-}
-
-.box-footer .copyright, .box-footer .contact, .box-footer .record, .box-footer .record a {
-    height: 25px;
-    line-height: 25px;
-    font-size: 12px;
-    color: #9d9ea8;
-}
-
-.box-footer .record a {
-    padding-left: 10px;
-}

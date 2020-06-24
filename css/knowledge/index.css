@@ -89,11 +89,11 @@
     background-color: #fff;
 }
 
-#knowledgePurchase:hover .scroll-bar {
+#knowledgePurchase .knowledge-right:hover .scroll-bar {
     display: block;
 }
 
-#knowledgeRent:hover .scroll-bar {
+#knowledgeRent .knowledge-right:hover .scroll-bar {
     display: block;
 }
 

@@ -1,10 +1,4 @@
-function toggleToTopBtn(toTopBtn, scrollTop, clientHeight) {
-    if (scrollTop > clientHeight) {
-        toTopBtn.css('display', 'block')
-    } else {
-        toTopBtn.css('display', 'none')
-    }
-}
+//居中图片
 function justifyPicture(child) {
     let maxLeft = child.offsetParent().outerHeight() - child.outerHeight();
     let maxTop = child.offsetParent().outerWidth() - child.outerWidth();
@@ -13,7 +7,7 @@ function justifyPicture(child) {
         top: maxTop / 2 + 'px'
     })
 }
-
+//拖动图片
 function dragPicture(moveObj) {
     let maxLeft = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
     let maxTop = moveObj.offsetParent().outerHeight() - moveObj.outerHeight();
@@ -37,6 +31,14 @@ function dragPicture(moveObj) {
     $(document).on('mouseup', () => {
         $(document).off('mousemove');
     })
+}
+//回到顶部
+function toggleToTopBtn(toTopBtn, scrollTop, clientHeight) {
+    if (scrollTop > clientHeight) {
+        toTopBtn.css('visibility', 'visible');
+    } else {
+        toTopBtn.css('visibility', 'hidden');
+    }
 }
 
 function backToTop() {

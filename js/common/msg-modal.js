@@ -73,7 +73,7 @@
             height: '14px',
             cursor: 'pointer',
             borderRadius: '50%',
-            background: 'url(../images/close14.png) no-repeat',
+            background: 'url(//static.fczx.com/www/assets/icons/close14.png) no-repeat',
             backgroundColor: '#ccc'
         });
         //右上角关闭按钮hover样式

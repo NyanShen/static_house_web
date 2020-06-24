@@ -1,0 +1,31 @@
+/*热门咨询*/
+
+.hot-list li {
+    margin-top: 10px;
+}
+
+.hot-list li span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.hot-list li a {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    margin-left: 5px;
+    max-width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.hot-list li a:hover {
+    color: #333;
+    text-decoration: underline;
+}

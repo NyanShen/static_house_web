@@ -67,7 +67,7 @@ $(document).ready(function () {
     //获取16随机码（授权）
     let authorizationCode = app.randCode(16);
     //切换登录方式
-    $('.login-form .login-tab span').each(function (index) {
+    $('.login-form .login-tab span').each(function () {
         $(this).click(function () {
             $('.actived').removeClass('actived');
             $(this).addClass('actived');
@@ -85,6 +85,18 @@ $(document).ready(function () {
             }
         })
     });
+
+    $('#SMS').click(function () {
+        if ($('#loginByPassSwitch').hasClass('actived')) {
+            $('#loginByPassSwitch').removeClass('actived');
+            $('#loginByCodeSwitch').addClass('actived');
+            loginByPassword = false;
+            $('#findPassBtn').addClass('hide');
+            $('#loginByCodeForm').show();
+            $('#loginByPassForm').hide();
+        }
+    })
+
     //显示隐藏密码
     $('.login-form .login-pass .eyes-icon').click(function () {
         let _this = $(this)
@@ -271,10 +283,9 @@ $(document).ready(function () {
      * 3. 返回fail不作处理，success授权成功，跳转绑定手机号码页面，token微信已绑定直接登录到上次访问页或首页
      * 4. 绑定手机页输入手机号获取验证码，登录并绑定获取token跳上次访问页或首页
      */
-    let redirectUrl = app.apiUrl(`/oauth/redirect?type=1&requestId=${authorizationCode}`);
-    setElementAttr($('#wechat'), 'href', redirectUrl);
 
     $('#wechat').click(function () {
+        window.open(app.apiUrl(`/oauth/redirect?type=1&requestId=${authorizationCode}`));
         let timer = null;
         timer = setInterval(function () {
             app.request({

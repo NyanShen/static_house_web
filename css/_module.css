@@ -1,0 +1,258 @@
+/*分页*/
+
+.pagination {
+    margin: 20px;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li a {
+    border: 1px solid #eee;
+    padding: 8px 16px;
+}
+
+.pagination li a.actived {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.pagination li a:hover:not(.actived) {
+    color: #11a43c;
+    border-color: #11a43c;
+}
+
+/*面包屑*/
+
+.breadcrumb {
+    height: 40px;
+    line-height: 40px;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.breadcrumb a:last-child {
+    color: #11a43c;
+}
+
+.breadcrumb a:hover:not(:last-child) {
+    color: #df2f30;
+}
+
+/*楼盘相关*/
+
+
+.building-related .picture {
+    display: block;
+    width: 160px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.building-related .picture:hover {
+    opacity: 0.9;
+}
+
+.building-related .content {
+    position: relative;
+    width: 650px; /*依赖content-left宽度*/
+    margin-left: 20px;
+}
+
+.building-related .content p {
+    height: 30px;
+    line-height: 30px;
+}
+
+.building-related .title a {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.building-related .title a:hover {
+    color: #df2f30;
+}
+
+.building-related .price {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #ff3344;
+}
+
+.building-related .phone {
+    font-size: 16px;
+    font-weight: bold;
+    color: #11a43c;
+}
+
+.building-related .application {
+    position: relative;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.building-related .application .form-item {
+    position: relative;
+    display: inline-block;
+}
+
+.building-related .application i {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.building-related .application i.username {
+    background: url("../../assets/icons/icon_man.png") no-repeat top center;
+}
+
+.building-related .application i.phoneNumber {
+    background: url("../../assets/icons/icon_phone.png") no-repeat top center;
+}
+
+.building-related .application input[type=text] {
+    height: 30px;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+    padding-left: 28px;
+}
+
+.building-related .application .formError {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.building-related .application .formError::after {
+    position: absolute;
+    top: 28px;
+    content: '';
+    display: block;
+    clear: both;
+    border-style: solid;
+    border-color: #11a43c transparent transparent transparent;
+    border-width: 5px;
+}
+
+.building-related .application a {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+}
+
+.building-related .application a:hover {
+    background-color: #14922d;
+}
+
+/*热门团购*/
+
+.hot-purchase {
+    min-height: 150px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.hot-purchase>.title {
+    font-size: 16px;
+    padding-bottom: 10px;
+    color: #666;
+}
+
+.hot-purchase>.item {
+    border-bottom: 1px dashed #ccc;
+    padding: 5px 5px 10px 5px;
+}
+
+.hot-purchase>.item dt, .hot-purchase .item .tag-1 {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.hot-purchase>.item dt .text-area {
+    color: #666;
+}
+
+.hot-purchase>.item dt .price {
+    float: right;
+    color: #ff3344;
+}
+
+.hot-purchase>.item dt a:hover {
+    color: #df2f30;
+}
+
+.hot-purchase>.item dd {
+    font-size: 12px;
+}
+
+.hot-purchase>.item dd .tag {
+    background-color: #11a43c;
+    color: #fff;
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+
+.hot-purchase>.item .tag-2, .hot-purchase .item.on .tag-1 {
+    display: none;
+}
+
+.hot-purchase>.item.on {
+    background-color: #fff;
+}
+
+.hot-purchase>.item.on .tag-2 {
+    display: block;
+}
+
+.hot-purchase>.item.on .picture-left img {
+    width: 100px;
+    height: 74px;
+}
+
+.hot-purchase .item.on .picture-left img:hover {
+    opacity: 0.9;
+}
+
+.hot-purchase>.item.on .content-right {
+    position: relative;
+    width: 150px;
+    height: 74px;
+    margin-left: 15px;
+}
+
+.hot-purchase>.item.on .content-right p {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.hot-purchase>.item.on .content-right a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.hot-purchase>.item.on .content-right a:hover {
+    background-color: #14922d;
+}

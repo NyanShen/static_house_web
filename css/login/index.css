@@ -105,7 +105,8 @@
     padding-left: 10px;
 }
 
-.login-form .login-option a:hover {
+.login-third .third-link .link-item a:hover,/*第三方登录链接*/
+.login-form .login-option a:hover, .login-third .login-agreement a:hover {
     color: #df2f30;
 }
 
@@ -133,11 +134,11 @@
     color: #666;
 }
 
-.login-third dt {
+.login-third .third-title {
     border-top: 1px solid #f4f4f4;
 }
 
-.login-third dt span {
+.login-third .third-title span {
     display: block;
     width: 120px;
     margin: 0 auto;
@@ -147,16 +148,28 @@
     margin-top: -10px;
 }
 
-.login-third dd p {
-    margin: 10px 0;
+.login-third .third-link .link-item {
+    display: inline-block;
+    padding: 5px;
 }
 
-.login-third dd p a {
+.login-third .third-link .link-item a {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 30px;
+}
+
+.login-third .third-link .link-item a.SMS {
+    background: url('../../assets/icons/icon_sms.png') no-repeat left center;
+}
+
+.login-third .third-link .link-item a.wechat {
+    background: url('../../assets/icons/icon_wx.png') no-repeat left center;
+}
+
+.login-third .login-agreement a {
     color: #6B91B3;
-}
-
-.login-third dd a:hover {
-    color: #df2f30;
 }
 
 /*登录icon*/
