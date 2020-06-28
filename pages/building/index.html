@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/type.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/carousel.css">
-    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/sand-map.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/sand.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
@@ -892,170 +892,233 @@
                 </div>
                 <div class="sand-container clearfix">
                     <div class="sand-content fl" id="sandContent">
-                        <img src="//static.fczx.com/www/assets/images/sand_900x600c.jpg" alt="" id="sandPicture">
+                        <div class="sand-state">
+                            <ul>
+                                <li class="solding">
+                                    <i class="checked"></i>
+                                    <span>在售</span>
+                                </li>
+                                <li class="unsold">
+                                    <i class="checked"></i>
+                                    <span>在售</span>
+                                </li>
+                                <li class="solded">
+                                    <i class="checked"></i>
+                                    <span>在售</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sand-picture" id="sandPicture">
+                            <img src="//static.fczx.com/www/assets/images/sand_900x600c.jpg" alt="">
+                            <div class="sand-icon sand-icon-4">
+                                <a href="" class="unsold">
+                                    <span>4#</span>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div class="sand-icon sand-icon-5">
+                                <a href="" class="solded">
+                                    <span>5#</span>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div class="sand-icon sand-icon-6">
+                                <a href="" class="solding">
+                                    <span>6#</span>
+                                    <i></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sand-memo">
+                            <div class="memo-bg"></div>
+                            <span class="memo-text">楼栋效果图</span>
+                            <span class="memo-hover">拖动图片可以查看其它楼栋信息</span>
+                        </div>
                     </div>
-                    <div class="sand-info fr"></div>
+                    <div class="sand-info fr">
+                        <div class="sand-info-header">
+                            <ul class="sand-info-list">
+                                <li><a href="">1#</a></li>
+                                <li class="actived"><a href="">2#</a></li>
+                                <li><a href="">3#</a></li>
+                                <li><a href="">4#</a></li>
+                                <li><a href="">5#</a></li>
+                                <li><a href="">6#</a></li>
+                            </ul>
+                            <a href="javascript:;" class="arrow prev" id="sandArrowPrev"></a>
+                            <a href="javascript:;" class="arrow next" id="sandArrowNext"></a>
+                        </div>
+                        <div class="sand-info-detail">
+                            <div class="building-detail">
+                                <ul>
+                                    <li><span>单元：1个</span></li>
+                                    <li><span>建筑类型：高层</span></li>
+                                    <li><span>单元：1个</span></li>
+                                    <li><span>建筑类型：高层</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!--沙盘图 end-->
+                <!--位置及周边配套 begin-->
+                <!--位置及周边配套 end-->
+                <!--点评 begin-->
+                <!--点评 end-->
+                <!--购房计算器 begin-->
+                <!--购房计算器 end-->
+                <!--楼盘相册 begin-->
+                <div class="box-building-picture table-detail">
+                    <div class="table-detail-header">
+                        <h3 class="fl">楼盘相册</h3>
+                        <div class="title-list fr">
+                            <a href="">户型(102)</a>
+                            <span>|</span>
+                            <a href="">交通图(3)</a>
+                            <span>|</span>
+                            <a href="">实景图(1)</a>
+                            <span>|</span>
+                            <a href="">效果图(1)</a>
+                            <span>|</span>
+                            <a href="">样板间(1)</a>
+                            <span>|</span>
+                            <a href="">活动现场(2)</a>
+                            <span>|</span>
+                            <a href="">配套图(56)</a>
+                            <span>|</span>
+                            <a href="">证照(6)</a>
+                            <span>|</span>
+                            <a href="">更多<em>></em></a>
+                        </div>
+                    </div>
+                    <div class="buiding-picture-body">
+                        <ul>
+                            <li>
+                                <div class="picture">
+                                    <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <span>熙悦天寰鸟瞰效果图</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="picture">
+                                    <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <span>熙悦天寰鸟瞰效果图</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="picture">
+                                    <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <span>熙悦天寰鸟瞰效果图</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="picture">
+                                    <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <span>熙悦天寰鸟瞰效果图</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="picture">
+                                    <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <span>熙悦天寰鸟瞰效果图</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--楼盘相册 end-->
+                <!---->
             </div>
-            <!--沙盘图 end-->
-            <!--位置及周边配套 begin-->
-            <!--位置及周边配套 end-->
-            <!--点评 begin-->
-            <!--点评 end-->
-            <!--购房计算器 begin-->
-            <!--购房计算器 end-->
-            <!--楼盘相册 begin-->
-            <div class="box-building-picture table-detail">
-                <div class="table-detail-header">
-                    <h3 class="fl">楼盘相册</h3>
-                    <div class="title-list fr">
-                        <a href="">户型(102)</a>
-                        <span>|</span>
-                        <a href="">交通图(3)</a>
-                        <span>|</span>
-                        <a href="">实景图(1)</a>
-                        <span>|</span>
-                        <a href="">效果图(1)</a>
-                        <span>|</span>
-                        <a href="">样板间(1)</a>
-                        <span>|</span>
-                        <a href="">活动现场(2)</a>
-                        <span>|</span>
-                        <a href="">配套图(56)</a>
-                        <span>|</span>
-                        <a href="">证照(6)</a>
-                        <span>|</span>
-                        <a href="">更多<em>></em></a>
-                    </div>
-                </div>
-                <div class="buiding-picture-body">
-                    <ul>
-                        <li>
-                            <div class="picture">
-                                <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>熙悦天寰鸟瞰效果图</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="picture">
-                                <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>熙悦天寰鸟瞰效果图</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="picture">
-                                <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>熙悦天寰鸟瞰效果图</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="picture">
-                                <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>熙悦天寰鸟瞰效果图</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="picture">
-                                <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>熙悦天寰鸟瞰效果图</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        </div>
+        <div class="box-footer">
+            <div class="box-content">
+                <p class="about">
+                    <a href="">关于我们</a>
+                    <span>|</span>
+                    <a href="">联系我们</a>
+                    <span>|</span>
+                    <a href="">加入我们</a>
+                    <span>|</span>
+                    <a href="">网站公告</a>
+                    <span>|</span>
+                    <a href="">帮助中心</a>
+                </p>
+                <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+                <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+                <p class="record">
+                    工信部备案/许可证编号：
+                    <a href="">鲁ICP备14025533-3号</a>
+                    <a href="">鲁公网安备37048102006002号</a>
+                </p>
             </div>
-            <!--楼盘相册 end-->
-            <!---->
         </div>
-    </div>
-    <div class="box-footer">
-        <div class="box-content">
-            <p class="about">
-                <a href="">关于我们</a>
-                <span>|</span>
-                <a href="">联系我们</a>
-                <span>|</span>
-                <a href="">加入我们</a>
-                <span>|</span>
-                <a href="">网站公告</a>
-                <span>|</span>
-                <a href="">帮助中心</a>
-            </p>
-            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
-            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
-            <p class="record">
-                工信部备案/许可证编号：
-                <a href="">鲁ICP备14025533-3号</a>
-                <a href="">鲁公网安备37048102006002号</a>
-            </p>
-        </div>
-    </div>
-    <div class="fix-side">
-        <ul class="fix-bar">
-            <li>
-                <a href="">
-                    <i>icon</i>
-                </a>
-                <div class="bar-popup">
-                    <em><span></span></em>
-                    <span>content</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <i>icon</i>
-                </a>
-                <div class="bar-popup">
-                    <em><span></span></em>
-                    <span>content</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <i>icon</i>
-                </a>
-                <div class="bar-popup">
-                    <em><span></span></em>
-                    <span>content</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <i>icon</i>
-                </a>
-                <div class="bar-popup">
-                    <em><span></span></em>
-                    <span>content</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <i>icon</i>
-                </a>
-                <div class="bar-popup">
-                    <em><span></span></em>
-                    <div class="qr-code">
-                        <img src="//static.fczx.com/www/assets/images/qr_code.jpg" alt="">
-                        <p>房产在线</p>
+        <div class="fix-side">
+            <ul class="fix-bar">
+                <li>
+                    <a href="">
+                        <i>icon</i>
+                    </a>
+                    <div class="bar-popup">
+                        <em><span></span></em>
+                        <span>content</span>
                     </div>
-                </div>
-            </li>
-            <li id="toTopBtn" class="to-top-btn">
-                <a href="javascript:;">
-                    TOP
-                </a> 
-            </li>
-        </ul>
-    </div>
+                </li>
+                <li>
+                    <a href="">
+                        <i>icon</i>
+                    </a>
+                    <div class="bar-popup">
+                        <em><span></span></em>
+                        <span>content</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        <i>icon</i>
+                    </a>
+                    <div class="bar-popup">
+                        <em><span></span></em>
+                        <span>content</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        <i>icon</i>
+                    </a>
+                    <div class="bar-popup">
+                        <em><span></span></em>
+                        <span>content</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        <i>icon</i>
+                    </a>
+                    <div class="bar-popup">
+                        <em><span></span></em>
+                        <div class="qr-code">
+                            <img src="//static.fczx.com/www/assets/images/qr_code.jpg" alt="">
+                            <p>房产在线</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="toTopBtn" class="to-top-btn">
+                    <a href="javascript:;">
+                        TOP
+                    </a>
+                </li>
+            </ul>
+        </div>
 </body>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/carousel.js"></script>
 <script>
