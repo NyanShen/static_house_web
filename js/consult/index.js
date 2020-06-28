@@ -1,15 +1,5 @@
 $(document).ready(function () {
-    /*回到顶部*/
-    backToTop();
 
-    /*热门团购*/
-    $('.hot-purchase>.item').each(function () {
-        $(this).hover(function () {
-            $(this).addClass('on');
-            let siblings = $(this).siblings('.item');
-            siblings.removeClass('on');
-        });
-    });
 
     /*申请优惠*/
     let timer = null;

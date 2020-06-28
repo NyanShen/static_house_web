@@ -1,0 +1,156 @@
+.carousel-show {
+    margin-bottom: 20px;
+}
+
+.carousel-show .item-list,
+.carousel-show .item-list .banner-position {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel-show .item-list li {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 400px;
+    background-color: #ddd;
+}
+
+.carousel-show .item-list img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 400px;
+    margin: auto;
+
+}
+
+.carousel-wrap {
+    position: relative;
+    width: 600px;
+    height: 80px;
+}
+
+.carousel-wrap .current {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 112px;
+    height: 85px;
+    background: url("../../assets/images/carousel-cur.png") no-repeat center center;
+    cursor: pointer;
+    z-index: 103;
+}
+
+.carousel-container {
+    position: relative;
+    width: 600px;
+    height: 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel-container .carousel-list {
+    position: absolute;
+    width: 800px;
+    height: 80px;
+    left: 0;
+}
+
+.carousel-container .carousel-list li {
+    position: relative;
+    float: left;
+    cursor: pointer;
+    width: 112px;
+    height: 80px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.carousel-container .carousel-list li em {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 112px;
+    height: 26px;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 102;
+}
+
+.carousel-container .carousel-list li p {
+    position: absolute;
+    bottom: 0;
+    width: 112px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    z-index: 103;
+}
+
+.carousel-container .carousel-list li p a {
+    color: #fff;
+    font-size: 12px;
+}
+
+.carousel-container .carousel-list li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 80px;
+    z-index: 100;
+}
+
+.carousel-container .carousel-list li img:hover {
+    transform: scale(1.05);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.carousel-container .arrow {
+    position: absolute;
+    width: 22px;
+    height: 33px;
+    z-index: 104;
+    background: url("../../assets/icons/arrow.png");
+}
+
+.carousel-container .arrow.next {
+    background-position: -23px 0;
+    top: 20px;
+    right: 0;
+}
+
+.carousel-container .arrow.next:hover {
+    background-position: -23px -34px;
+}
+
+.carousel-container .arrow.previous {
+    background-position: 0 0;
+    top: 20px;
+    left: 0;
+}
+
+.carousel-container .arrow.previous:hover {
+    background-position: 0 -34px;
+}
+
+.carousel-container .current {
+    position: absolute;
+    left: 0;
+    width: 114px;
+    height: 84px;
+    border: 2px solid #ddd;
+}

@@ -136,6 +136,10 @@
     color: #555;
 }
 
+.knowledge-right .describe .desc {
+    margin: 15px 0;
+}
+
 .knowledge-right .describe .title:hover {
     text-decoration: underline;
 }
@@ -153,7 +157,16 @@
     background-color: #3399ff;
 }
 
-.knowledge-right .describe .tag a {
+.knowledge-right .describe .comment i {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/icons/icon_zan.png") no-repeat center center;
+}
+
+.zs-tag a {
     line-height: 50px;
     padding: 4px 8px;
     margin-right: 10px;
@@ -162,7 +175,7 @@
     background-color: #eee;
 }
 
-.knowledge-right .describe .tag a:hover {
+.zs-tag a:hover {
     color: #fff;
     background-color: #11a43c;
 }
@@ -183,3 +196,95 @@
 .knowledge-right .check-more a:hover {
     color: #df2f30;
 }
+
+/*知识详情*/
+.zs-detail-header {
+    text-align: center;
+    line-height: 30px;
+    padding: 20px 0;
+}
+
+.zs-detail-header .desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.zs-detail-header .desc span {
+    padding: 0 5px;
+}
+
+.zs-detail-content {
+    margin-bottom: 10px;
+    min-height: 200px;
+    overflow: hidden;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+/*
+.zs-share {
+    line-height: 60px;
+    text-align: center;
+}
+
+.zs-share .share-item {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.zs-detail-link a {
+    line-height: 28px;
+    color: #999;
+
+}
+
+.zs-detail-link a:hover {
+    color: #df2f30;
+}
+
+.hot-tags {
+    position: relative;
+    font-size: 0;
+}
+
+.hot-tags li {
+    display: inline-block;
+    width: 96px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    margin: 15px 10px 0 0;
+    background-color: #eee;
+}
+
+.hot-tags li a {
+    display: block;
+    color: #11a43c;
+    padding: 0 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.hot-tags li a:hover {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.zs-related ul li {
+    display: inline-block;
+    width: 400px;
+    margin: 12px 16px 0 0;
+}
+
+.zs-related ul li a:hover {
+    color: #df2f30;
+}
+
+.zs-related ul li p {
+    font-size: 12px;
+    color: #999;
+    line-height: 24px;
+}
+*/

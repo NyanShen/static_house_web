@@ -31,15 +31,23 @@
 /*资讯查询*/
 .consult-search {
     position: relative;
-    margin: 30px 0;
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 3px #f2f2f2;
+}
+
+.consult-search .search-content {
+    width: 470px;
+    margin: 0 auto;
 }
 
 .consult-search .search-input {
     float: left;
     width: 350px;
-    height: 40px;
+    height: 35px;
     padding-left: 10px;
-    border: 1px solid #eee;
+    border: 1px solid #f60;
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -47,7 +55,7 @@
 .consult-search .search-btn {
     float: left;
     width: 120px;
-    height: 40px;
+    height: 35px;
     font-size: 18px;
     text-align: center;
     border: 1px solid #f60;
@@ -60,10 +68,13 @@
     background-color: #f60;
 }
 /*咨询列表*/
-
+.consult-list {
+    overflow: hidden;
+    margin-bottom: 40px;
+}
 .consult-list li {
     border-bottom: 1px dashed #eee;
-    padding: 35px 0;
+    padding: 30px 0;
 }
 
 .consult-list .has-img .item-picture {
@@ -107,12 +118,18 @@
     color: #999;
 }
 
-.consult-refer .refer-content:hover, .consult-list li .title:hover, .consult-list li .desc a:hover {
+.consult-refer .refer-content:hover,
+.consult-list li .title:hover,
+.consult-list li .desc a:hover {
     text-decoration: underline;
 }
 
 .consult-list li .desc a {
     color: #666;
+}
+
+.consult-ad {
+    margin: 30px 0 20px 0;
 }
 
 /*咨询详情*/
@@ -123,7 +140,7 @@
     padding: 10px 0;
 }
 
-.consult-header>.sub-title span {
+.consult-header > .sub-title span {
     margin-right: 10px;
     color: #666;
 }
@@ -165,7 +182,7 @@
     position: relative;
 }
 
-.box-scan>a:hover {
+.box-scan > a:hover {
     color: #df2f30;
 }
 
@@ -204,7 +221,7 @@
 }
 
 .box-scan .scan-to-mobile .scan-to-mobile-desc .title {
-    font: 18px/30px 'Microsoft Yaahei';
+    font: 18px/30px "Microsoft Yaahei";
     color: #ff9900;
     margin-bottom: 20px;
     text-align: left;

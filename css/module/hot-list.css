@@ -13,6 +13,22 @@
     background-color: #11a43c;
 }
 
+.hot-list li span.rank {
+    background-color: #BBB;
+}
+
+.hot-list li span.first {
+    background-color: #f3a90a;
+}
+
+.hot-list li span.second {
+    background-color: #a3b7c9;
+}
+
+.hot-list li span.third {
+    background-color: #d8b99e;
+}
+
 .hot-list li a {
     position: relative;
     top: 4px;

@@ -16,6 +16,7 @@
 
 .pagination li a.actived {
     color: #fff;
+    border-color: #11a43c;
     background-color: #11a43c;
 }
 
@@ -41,6 +42,32 @@
 
 .breadcrumb a:hover:not(:last-child) {
     color: #df2f30;
+}
+
+/*二级导航*/
+
+.second-nav {
+    height: 50px;
+    line-height: 50px;
+    background-color: #f3f3f3;
+}
+
+.second-nav>a {
+    display: inline-block;
+    color: #333;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.second-nav>a:hover {
+    color: #11a43c;
+}
+
+.second-nav>a.actived {
+    color: #11a43c;
+    height: 47px;
+    border-bottom: 3px solid #11a43c;
 }
 
 /*楼盘相关*/
@@ -110,11 +137,11 @@
 }
 
 .building-related .application i.username {
-    background: url("../../assets/icons/icon_man.png") no-repeat top center;
+    background: url("../assets/icons/icon_man.png") no-repeat top center;
 }
 
 .building-related .application i.phoneNumber {
-    background: url("../../assets/icons/icon_phone.png") no-repeat top center;
+    background: url("../assets/icons/icon_phone.png") no-repeat top center;
 }
 
 .building-related .application input[type=text] {

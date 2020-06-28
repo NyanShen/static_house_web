@@ -7,13 +7,66 @@
     <title>知识首页</title>
     <link rel="stylesheet" href="//static.fczx.com/www/css/_common.css">
     <link rel="stylesheet" href="//static.fczx.com/www/css/knowledge/index.css">
+
+    <script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//static.fczx.com/www/js/common/index.js" type="text/javascript"></script>
+    <script src="//static.fczx.com/www/js/common/cus-scroll.js" type="text/javascript"></script>
 </head>
+<style>
+    .load-more {
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .load-more a:hover {
+        color: #df2f30;
+    }
+</style>
 
 <body>
+
+    <!--头部导航栏start-->
+    <div class="home-nav">
+        <div class="nav-content clearfix">
+            <h2 class="nav-logo fl">
+                <a href="/">房产在线<small>Fang.com</small></a>
+            </h2>
+            <div class="nav-city fl">
+                <a href="">襄阳</a>
+            </div>
+            <div class="nav-list fl">
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                    <li><a href="/pages/building" target="_blank">新房</a></li>
+                    <li><a>二手房</a></li>
+                    <li><a>租房</a></li>
+                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                    <li><a>问答</a></li>
+                    <li><a>租房</a></li>
+                    <li><a>海外房产</a></li>
+                </ul>
+            </div>
+            <div class="nav-login fr">
+                <ul>
+                    <li>
+                        <a href="pages/login">登录</a>
+                    </li>
+                    <li>
+                        <a href="pages/login/register.html">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-app fr"></div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+    <!-- 知识分类start -->
     <div class="box-content">
         <div class="mt20">
             <div class="knowledge-item clearfix" id="knowledgePurchase">
-                <div class="knowledge-title"><a href="/pages/knowledge/nav-detail.html">买房知识</a></div>
+                <div class="knowledge-title"><a>买房知识</a></div>
                 <div class="knowledge-left fl">
                     <div class="menu-item down">
                         <a href="javascript:;" class="sub-title">买房准备</a>
@@ -68,142 +121,149 @@
                 </div>
                 <div class="knowledge-right fr">
                     <div class="knowledge-cut-line"></div>
-                    <ul class="scroll-content">
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">开始：房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">公积金</a>
-                                    <a href="">贷款</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">公积金</a>
-                                    <a href="">贷款</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">户口</a>
-                                    <a href="">贷款</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">贷款</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">公积金</a>
-                                    <a href="">贷款</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">结束：房子登记在子女名下 这些风险你想到了么?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">房产证</a>
-                                    <a href="">公积金</a>
-                                    <a href="">贷款</a>
-                                    <a href="">房屋产权年限</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="scroll-content">
+                        <ul>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="/pages/knowledge/detail.html" target="_blank"
+                                            class="title">开始：房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">结束：房子登记在子女名下 这些风险你想到了么?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="load-more">
+                            <a href="javascript:;" class="text-color">加载更多</a>
+                            <span class="hide text-color">没有更多了</span>
+                        </div>
+                    </div>
                     <div class="scroll-bar">
                         <div class="scroll-slider"></div>
                     </div>
-                    <div class="check-more"><a href="javascript:;" class="desc-color">查看更多</a></div>
+                    <!-- <div class="check-more"><a href="javascript:;" class="desc-color">查看更多</a></div> -->
                 </div>
             </div>
             <div class="knowledge-item clearfix" id="knowledgeRent">
-                <div class="knowledge-title"><a href="">租房知识</a></div>
+                <div class="knowledge-title"><a>租房知识</a></div>
                 <div class="knowledge-left fl">
                     <div class="menu-item down">
                         <a href="javascript:;" class="sub-title">租房准备</a>
@@ -230,229 +290,311 @@
                 </div>
                 <div class="knowledge-right fr">
                     <div class="knowledge-cut-line"></div>
-                    <ul class="scroll-content">
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">开始：出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">结构</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li clearfix>
-                            <div class="picture fl">
-                                <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
-                                    width="130px">
-                            </div>
-                            <div class="describe fl">
-                                <p>
-                                    <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
-                                    <a href="" class="collect">收藏</a>
-                                </p>
-                                <p class="tag">
-                                    <a href="">租房</a>
-                                    <a href="">公积金</a>
-                                    <a href="">看房</a>
-                                </p>
-                                <p class="comment">
-                                    <i>icon</i>
-                                    <span>(123)</span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="scroll-content">
+                        <ul>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">开始：出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="desc">
+                                        <span class="desc-color">description</span>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li clearfix>
+                                <div class="picture fl">
+                                    <a href="/pages/knowledge/detail.html" target="_blank">
+                                        <img src="//static.fczx.com/www/assets/images/knowledge_130x98.jpg" alt=""
+                                            width="130px">
+                                    </a>
+                                </div>
+                                <div class="describe fl">
+                                    <p>
+                                        <a href="" class="title">出租房的消防安全隐患有哪些　出租房用什么锁安全?</a>
+                                        <a href="" class="collect">收藏</a>
+                                    </p>
+                                    <p class="zs-tag">
+                                        <a href="">租房</a>
+                                        <a href="">公积金</a>
+                                        <a href="">看房</a>
+                                    </p>
+                                    <p class="comment">
+                                        <i></i>
+                                        <span>(123)</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="load-more">
+                            <a href="javascript:;" class="text-color">加载更多</a>
+                            <span class="hide text-color">没有更多了</span>
+                        </div>
+                    </div>
+
                     <div class="scroll-bar">
                         <div class="scroll-slider"></div>
                     </div>
-                    <div class="check-more"><a href="javascript:;" class="desc-color">查看更多</a></div>
+                    <!-- <div class="check-more"><a href="javascript:;" class="desc-color">查看更多</a></div> -->
                 </div>
             </div>
         </div>
     </div>
+    <!-- 知识分类end -->
+
+    <!--底部start-->
+    <div class="box-footer">
+        <div class="box-content">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="">鲁ICP备14025533-3号</a>
+                <a href="">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部end-->
+
+    <!--右侧固定栏start-->
+    <div class="fix-side">
+        <ul class="fix-bar">
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <span>content</span>
+                </div>
+            </li>
+            <li>
+                <a href="">
+                    <i>icon</i>
+                </a>
+                <div class="bar-popup">
+                    <em><span></span></em>
+                    <div class="qr-code">
+                        <img src="//static.fczx.com/www/assets/images/qr_code.jpg" alt="">
+                        <p>房产在线</p>
+                    </div>
+                </div>
+            </li>
+            <li id="toTopBtn" class="to-top-btn">
+                <a href="javascript:;">
+                    TOP
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--右侧固定栏end-->
 </body>
-<script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="//static.fczx.com/www/js/common/cus-scroll.js" type="text/javascript"></script>
 <script src="//static.fczx.com/www/js/knowledge/index.js" type="text/javascript"></script>
 
 </html>

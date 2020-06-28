@@ -17,33 +17,12 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/type.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/carousel.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/sand-map.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <style>
-        /*导航样式*/
-        .nav {
-            height: 50px;
-            line-height: 50px;
-            background-color: #f3f3f3;
-        }
-
-        .nav>a {
-            display: inline-block;
-            color: #333;
-            padding: 0 20px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .nav>a:hover {
-            color: #11a43c;
-        }
-
-        .nav>a.actived {
-            color: #11a43c;
-            height: 47px;
-            border-bottom: 3px solid #11a43c;
-        }
-
         /*楼盘首页 common*/
         .table-detail {
             margin-top: 20px;
@@ -281,7 +260,7 @@
     <div class="box-wrap">
         <div class="box-content">
             <!--二级导航 begin-->
-            <div class="nav tf">
+            <div class="second-nav tf mb20">
                 <a href="" class="actived">楼盘主页</a>
                 <a href="">详情</a>
                 <a href="">户型</a>
@@ -295,41 +274,128 @@
             <!--二级导航 end-->
 
             <!--楼盘首页 begin-->
-            <div class="box box-building clearfix">
-                <div class="building-slide fl">
-                    <div class="image-show">
-                        <div class="image-list">
-                            <a href="">
-                                <img src="//static.fczx.com/www/assets/images/1400x933.jpg" alt="">
-                            </a>
-                            <a href="">
-                                <img src="//static.fczx.com/www/assets/images/1400x933.jpg" alt="">
-                            </a>
-                            <a href="">
-                                <img src="//static.fczx.com/www/assets/images/1400x933.jpg" alt="">
-                            </a>
-                            <a href="">
-                                <img src="//static.fczx.com/www/assets/images/1400x933.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="scroll-bar">
-                        <ul class="scroll-list">
+            <div class="box-building clearfix mb20">
+                <div class="building-carousel fl">
+                    <div class="carousel-show">
+                        <ul class="item-list" id="carouselShowList">
                             <li>
-                                <p class="scroll_tit">
-                                    <a href="">视频（直播）</a>
-                                </p>
-                                <em></em>
-                                <img src="//static.fczx.com/www/assets/images/112x80.jpg" alt="">
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                                    </a>
+                                </div>
                             </li>
                             <li>
-                                <p class="scroll_tit">
-                                    <a href="">效果图</a>
-                                </p>
-                                <em></em>
-                                <img src="//static.fczx.com/www/assets/images/112x80.jpg" alt="">
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_2.png" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_4.png" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_5.jpg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_6.jpg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_7.jpg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_8.jpg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-position">
+                                    <a href="javascript:;">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_9.png" alt="">
+                                    </a>
+                                </div>
                             </li>
                         </ul>
+                    </div>
+                    <div class="carousel-wrap">
+                        <div class="current" id="carouselCurrent"></div>
+                        <div class="carousel-container" id="carouselContainer">
+                            <ul class="carousel-list" id="carouselList">
+                                <li>
+                                    <p><a href="javascript:;">图1</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图2</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_2.png" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图3</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_3.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图4</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_4.png" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图5</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_5.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图6</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_6.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图7</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_7.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图8</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_8.jpg" alt="">
+                                </li>
+                                <li>
+                                    <p><a href="javascript:;">图9</a></p>
+                                    <em></em>
+                                    <img src="//static.fczx.com/www/assets/images/112x80_9.png" alt="">
+                                </li>
+                            </ul>
+                            <a href="javascript:;" class="arrow previous" id="arrowPrev"></a>
+                            <a href="javascript:;" class="arrow next" id="arrowNext"></a>
+                        </div>
                     </div>
                 </div>
                 <div class="building-attribute fr">
@@ -991,9 +1057,7 @@
         </ul>
     </div>
 </body>
-
-<script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
-<script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/carousel.js"></script>
 <script>
     function initCarouselWidth() {
         let itemLength = $('.box-carousel .carousel-list li').length + 1;
