@@ -1,0 +1,42 @@
+/*楼盘特惠活动/参团展示区*/
+
+.box-activity li {
+    height: 162px;
+    border: 1px solid #eee;
+    background-color: #f4faec;
+}
+
+.box-activity li~li {
+    margin-top: 8px;
+}
+
+.box-activity .activity-image {
+    height: 162px;
+    overflow: hidden;
+}
+
+.box-activity .activity-content {
+    background-color: #cd2a3a;
+    height: 162px;
+    color: #fff;
+}
+
+.box-activity .activity-content .descibe p {
+    line-height: 35px;
+    margin-left: 50px;
+}
+
+.box-activity .activity-content .apply p {
+    font-size: 16px;
+    line-height: 35px;
+    margin-right: 50px;
+}
+
+.box-activity .activity-content .apply .apply-input {
+    cursor: pointer;
+    width: 240px;
+    height: 40px;
+    font-size: 18px;
+    color: #cd2a3a;
+    background-color: #fdd31e;
+}

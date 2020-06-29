@@ -1,0 +1,133 @@
+.bg-delinput {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -10px -10px;
+}
+
+.bg-icon_dun {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -50px -10px;
+}
+
+.bg-icon_eyeclose {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -10px -50px;
+}
+
+.bg-icon_eyeopen {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -50px -50px;
+}
+
+.bg-icon_lock {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -90px -10px;
+}
+
+.bg-icon_man {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -90px -50px;
+}
+
+.bg-icon_phone {
+    width: 20px;
+    height: 20px;
+    background: url('login_sprites.png') -10px -90px;
+}
+
+/*楼盘属性icon*/
+
+.bg-icon_all {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -10px -10px;
+}
+
+.bg-icon_bianjia {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -44px -10px;
+}
+
+.bg-icon_calc {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -10px -44px;
+}
+
+.bg-icon_calendar {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -44px -44px;
+}
+
+.bg-icon_discount_6 {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -78px -10px;
+}
+
+.bg-icon_doc {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -78px -44px;
+}
+
+.bg-icon_index_line {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -10px -78px;
+}
+
+.bg-icon_like {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -44px -78px;
+}
+
+.bg-icon_message_red {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -78px -78px;
+}
+
+.bg-icon_phone13 {
+    width: 9px;
+    height: 13px;
+    background: url('bd_icon_sprites.png') -78px -112px;
+}
+
+.bg-icon_region {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -112px -10px;
+}
+
+.bg-icon_scan_red {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -112px -44px;
+}
+
+.bg-icon_share {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -112px -78px;
+}
+
+.bg-icon_tixing {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -10px -112px;
+}
+
+.bg-icon_fix {
+    width: 14px;
+    height: 14px;
+    background: url('bd_icon_sprites.png') -44px -112px;
+}

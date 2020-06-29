@@ -1,0 +1,124 @@
+/*置业顾问样式*/
+
+.consultant-carousel {
+    position: relative;
+    width: 100%;
+    height: 106px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid #eee;
+}
+
+.consultant-carousel .arrow {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 106px;
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
+.consultant-carousel .arrow.arrow-left {
+    left: 0;
+}
+
+.consultant-carousel .arrow.arrow-right {
+    right: 0;
+}
+
+.consultant-carousel .arrow-left::after {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 43px;
+    border-right: 10px solid #BBB;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.consultant-carousel .arrow-right::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 43px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid #BBB;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.consultant-header>.text-left .desc {
+    font-size: 12px;
+    padding-left: 10px;
+    color: #999;
+}
+.consultant-carousel .consultant-content {
+    position: relative;
+    width: 1158px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.consultant-carousel .consultant-content .consultant-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 4000px;
+    font-size: 0;
+    margin-top: 32px;
+}
+
+.consultant-carousel .consultant-list li {
+    display: inline-block;
+    width: 200px;
+    font-size: 14px;
+    margin-left: 40px;
+}
+
+.consultant-carousel .consultant-list .consultant-info {
+    width: 135px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.consultant-carousel .consultant-list .consultant-info p {
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.consultant-carousel .consultant-list .consultant-info .name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.consultant-carousel .consultant-list .consultant-info a {
+    display: block;
+    width: 70px;
+    font-size: 12px;
+    border: 1px solid #11a43c;
+    padding-left: 10px;
+    color: #11a43c;
+    border-radius: 2px;
+}
+.consultant-carousel .consultant-list .consultant-info i {
+    position: relative;
+    top: 4px;
+    left: -2px;
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: url('../../assets/icons/icon_message_primary.png') no-repeat left center;
+}
+
+.consultant-carousel .consultant-list .consultant-image {
+    margin-right: 12px;
+}
+
+.consultant-carousel .consultant-list .consultant-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

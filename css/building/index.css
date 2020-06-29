@@ -1,115 +1,162 @@
-
 /*楼盘属性*/
 
-.box-building>.building-attribute {
+.box-building>.bd-attribute {
+    font-size: 14px;
     width: 552px;
     height: auto;
 }
 
-.score-point {
-    font-size: 20px;
-    color: #11a43c;
-}
-
-.bold-red {
-    font-weight: bold;
-    color: #11a43c;
-}
-
-.btn-type {
-    line-height: 45px;
-    margin-bottom: 10px;
-}
-
-.btn-type a {
-    padding: 2px 5px;
-}
-
-.btn-type>.btn-zise {
-    border: 1px solid #b68fd8;
-    color: #b68fd8;
-}
-
-.btn-type>.btn-fengse {
-    border: 1px solid #e08585;
-    color: #e08585;
-}
-
-.btn-type>.btn-chengse {
-    border: 1px solid #cc9752;
-    color: #cc9752;
-}
-
-.btn-type>.btn-lanse {
-    border: 1px solid #77be66;
-    color: #77be66;
-}
-
-.btn-type>.btn-lvse {
-    border: 1px solid #b68fd8;
-    color: #b68fd8;
-}
-
 .informaion-li {
-    line-height: 35px;
+    line-height: 38px;
 }
 
-.informaion-li h3 {
+.informaion-li i {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: url('../../assets/icons/bd_icon_sprites.png') no-repeat center center;
+}
+
+.informaion-li-right i {
+    left: 4px;
+    top: 3px;
+}
+
+.informaion-li-left h4 {
+    font-size: 15px;
     display: inline;
 }
 
-.informaion-li>.informaion-li-left .unit {
+.informaion-li-left .unit {
     margin-right: 20px;
 }
 
-.informaion-li>.informaion-li-right a {
-    padding: 0 6px 0 4px;
+.informaion-li-right a {
+    position: relative;
+    font-size: 12px;
+    padding: 2px 5px 2px 20px;
     border: 1px solid transparent;
     color: #999;
 }
 
-.informaion-li>.informaion-li-right a:hover {
+.informaion-li-right a:hover {
+    color: #666;
     border-color: #999;
 }
 
-.informaion-li>.informaion-li-right a.bjtx {
-    color: #11a43c;
+.informaion-li-right .bjtx-link, .informaion-li-right .kptx-link {
+    color: #ff3344;
 }
 
-.informaion-li .more-detail:hover, .informaion-li .informaion-li-ellipsis a:hover, .informaion-li>.informaion-li-right a.bjtx:hover {
-    border-color: #11a43c;
+.informaion-li-right a.kptx-link:hover, .informaion-li-right a.bjtx-link:hover {
+    color: #ff3344;
+    border-color: #ff3344;
 }
 
-.informaion-li .informaion-li-text {
+.informaion-li-left .more-detail:hover, .informaion-li-ellipsis a:hover {
+    color: #ff3344;
+}
+
+.informaion-li-right .kptx {
+    background-position: -44px -10px;
+}
+
+.informaion-li-right .bjtx {
+    background-position: -10px -112px;
+}
+
+.informaion-li-right .price-state-icon {
+    background-position: -78px -44px;
+}
+
+.informaion-li-right .price-check {
+    background-position: -10px -78px;
+}
+
+.informaion-li-right .loan-calculator {
+    background-position: -10px -44px;
+}
+
+.informaion-li-right .hx-all {
+    background-position: -10px -10px;
+}
+
+.informaion-li-right .check-map {
+    background-position: -112px -10px;
+}
+
+.informaion-li-right .house-delivery-icon {
+    background-position: -44px -44px;
+}
+
+.informaion-li-right .house-fix {
+    background-position: -44px -112px;
+}
+
+.informaion-li-text {
+    max-width: 150px;
+    font-size: 13px;
     margin: 0 8px;
-}
-
-.informaion-li .informaion-li-ellipsis {
-    max-width: 358px;
     overflow: hidden;
-    height: 32px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin: 0 10px 0 8px;
 }
 
-.informaion-li .more-detail {
+.informaion-li-ellipsis {
+    max-width: 358px;
+    height: 32px;
+    font-size: 13px;
+    margin: 0 10px 0 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.informaion-li-ellipsis a {
+    padding-right: 5px;
+}
+
+.informaion-li-left .more-detail {
     text-decoration: underline;
 }
 
 .informaion-li-right-normal a {
+    position: relative;
+    display: inline-block;
     font-size: 12px;
-    padding: 4px 6px;
-    overflow: hidden;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    padding: 2px 8px 2px 22px;
+}
+
+.informaion-li-right-normal .collection {
+    background-position: -44px -78px;
+}
+
+.informaion-li-right-normal .share {
+    background-position: -112px -78px;
+}
+
+.informaion-li-right-normal .compare {
+    background-position: -78px -10px;
+}
+
+.informaion-li-right-normal .phone-scan-icon {
+    background-position: -112px -44px;
 }
 
 .informaion-li-right-normal a:hover {
     background-color: #eee;
 }
 
+/*咨询*/
+
 .information-phone {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .information-phone span {
@@ -120,9 +167,18 @@
     position: absolute;
     right: 1px;
     top: 2px;
+    width: 56px;
+    height: 24px;
+    line-height: 24px;
     border: 1px solid #F5C0C0;
     border-radius: 2px;
-    padding: 4px 8px;
+    padding-left: 24px;
+    background: url('../../assets/icons/icon_message_red.png') no-repeat 5px 7px;
+}
+
+.information-phone .scan-wx-icon {
+    padding-left: 22px;
+    background: url('../../assets/icons/icon_scan_red.png') no-repeat 5px 2px;
 }
 
 .information-phone>.fl {
@@ -153,10 +209,68 @@
 
 .information-book a {
     border-radius: 2px;
-    padding: 3px 6px;
+    padding: 3px 8px;
+    color: #fff;
     background-color: #11a43c;
 }
 
 .information-book .fr {
     margin: 10px 5px 0;
+}
+
+/*popup*/
+
+.price-state:hover .price-state-popup {
+    display: block;
+}
+
+.house-delivery:hover .house-delivery-popup {
+    display: block;
+}
+
+.phone-scan:hover .phone-scan-popup {
+    display: block;
+}
+
+.scan-wx:hover .scan-wx-popup {
+    display: block;
+}
+
+.scan-wx-popup {
+    top: -15px;
+    right: 90px;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 235px;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.popup .top-arrow {
+    position: absolute;
+    top: -13px;
+    left: 35px;
+    border-style: solid;
+    border-color: transparent transparent #ddd transparent;
+    border-width: 6px;
+}
+
+.popup .top-arrow span {
+    position: absolute;
+    top: -5px;
+    left: -6px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    border-width: 6px;
+}
+
+.popup p {
+    line-height: 26px;
 }

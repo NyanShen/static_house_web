@@ -1,11 +1,11 @@
 $(document).ready(function () {
     let index = 0;
     let isMoveOver = true;
-    let arrowPrev = $('#arrowPrev');
-    let arrowNext = $('#arrowNext');
-    let carouselList = $('#carouselList');
-    let carouselCurrent = $('#carouselCurrent');
-    let carouselListItems = $('#carouselList li');
+    let arrowPrev = $('#bdArrowPrev');
+    let arrowNext = $('#bdArrowNext');
+    let carouselList = $('#bdCarouselList');
+    let carouselCurrent = $('#bdCarouselCurrent');
+    let carouselListItems = $('#bdCarouselList li');
     let listLength = carouselListItems.length; //轮播总数
     let showLength = 5; // 显示个数
     let stepWidth = 122; // 每个轮播长度
@@ -19,10 +19,10 @@ $(document).ready(function () {
     showCurrentCarousel(index);
 
     function showCurrentCarousel(index) {
-        $('#carouselShowList li').css({
+        $('#bdCarouselShowList li').css({
             display: 'none'
         });
-        $('#carouselShowList li').eq(index).css({
+        $('#bdCarouselShowList li').eq(index).css({
             display: 'block'
         });
     }
@@ -30,7 +30,7 @@ $(document).ready(function () {
     carouselListItems.each(function (index) {
         $(this).click(function () {
             let itemOffset = parseInt($(this).offset().left);
-            let wrapOffset = parseInt($('#carouselContainer').offset().left);
+            let wrapOffset = parseInt($('#bdCarouselContent').offset().left);
             carouselCurrent.css('left', itemOffset - wrapOffset);
             showCurrentCarousel(index);
         })

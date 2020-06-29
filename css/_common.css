@@ -223,7 +223,7 @@
     display: block;
 }
 
-.fix-side .bar-popup {
+.bar-popup {
     display: none;
     position: absolute;
     top: 0;
@@ -236,12 +236,13 @@
     box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
 }
 
-.fix-side .bar-popup .qr-code {
+.bar-popup .qr-code {
+    text-align: center;
     line-height: 12px;
     padding: 10px 0;
 }
 
-.fix-side .bar-popup em {
+.bar-popup em {
     position: absolute;
     display: block;
     top: 18px;
@@ -254,7 +255,7 @@
     box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
 }
 
-.fix-side .bar-popup em span {
+.bar-popup em span {
     position: absolute;
     top: -6px;
     right: 1px;
@@ -299,6 +300,10 @@
     font-size: 18px;
 }
 
+.font-20px {
+    font-size: 20px;
+}
+
 .font-24px {
     font-size: 24px;
 }
@@ -330,6 +335,68 @@
     color: #666;
 }
 
+
+/*扫描到手机*/
+
+.phone-scan-popup {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 20px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.phone-scan-popup .top-arrow {
+    position: absolute;
+    right: 26px;
+    top: -16px;
+    border-style: solid;
+    border-color: transparent transparent #ddd transparent;
+    border-width: 8px;
+}
+
+.phone-scan-popup .top-arrow span {
+    position: absolute;
+    left: -8px;
+    top: -7px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    border-width: 8px;
+}
+
+.phone-scan-popup .describe .title {
+    font: 18px/30px "Microsoft Yaahei";
+    color: #ff9900;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.phone-scan-popup .describe .desc {
+    display: inline-block;
+    line-height: 24px;
+    text-align: left;
+}
+
+.phone-scan-popup .describe i {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    width: 63px;
+    height: 43px;
+    background: url("../assets/icons/computer_mobile_icon.png");
+}
+
+.phone-scan-popup .qrcode {
+    width: 118px;
+    height: 118px;
+    overflow: hidden;
+}
+
 /*others*/
 
 .cut-line {
@@ -352,6 +419,14 @@
 
 .mt20 {
     margin-top: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
 }
 
 .desc-color {
@@ -380,6 +455,55 @@
 
 .hide {
     display: none;
+}
+
+.score-point {
+    font-size: 20px;
+    color: #11a43c;
+}
+
+.bold-primary {
+    font-weight: bold;
+    color: #11a43c;
+}
+
+.bold-red {
+    font-weight: bold;
+    color: #df2f30;
+}
+
+.btn-type {
+    line-height: 45px;
+    margin: 5px 0;
+}
+
+.btn-type a {
+    padding: 2px 5px;
+}
+
+.btn-type>.btn-zise {
+    border: 1px solid #b68fd8;
+    color: #b68fd8;
+}
+
+.btn-type>.btn-fengse {
+    border: 1px solid #e08585;
+    color: #e08585;
+}
+
+.btn-type>.btn-chengse {
+    border: 1px solid #cc9752;
+    color: #cc9752;
+}
+
+.btn-type>.btn-lanse {
+    border: 1px solid #77be66;
+    color: #77be66;
+}
+
+.btn-type>.btn-lvse {
+    border: 1px solid #b68fd8;
+    color: #b68fd8;
 }
 
 /*覆盖浏览器以及标签的一些默认样式*/

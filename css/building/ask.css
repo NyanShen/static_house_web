@@ -1,0 +1,62 @@
+/*楼盘资讯和问答*/
+.box-zxwd>.box-zxwd-left {
+    width: 700px;
+    padding-right: 20px;
+    border-right: 1px solid #e5e5e5;
+}
+
+.box-zxwd>.box-zxwd-left .zx-list li {
+    height: 35px;
+}
+
+.box-zxwd>.box-zxwd-left .zx-list li .zx-left {
+    max-width: 600px;
+    height: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-zxwd>.box-zxwd-left .zx-list a {
+    margin-right: 8px;
+    font-size: 12px;
+    border: 1px solid #11a43c;
+    color: #11a43c;
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+
+.box-zxwd>.box-zxwd-right ul li {
+    margin-bottom: 8px;
+}
+
+.box-zxwd>.box-zxwd-right .wd-list {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.box-zxwd>.box-zxwd-right .wd-list .wd-flag {
+    color: #11a43c;
+}
+
+.box-zxwd>.box-zxwd-right .wd-list .wd-left {
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-zxwd>.box-zxwd-right .wd-area textarea {
+    width: 100%;
+}
+
+.box-zxwd>.box-zxwd-right .wd-area .submit-area {
+    margin-top: 8px;
+}
+
+.box-zxwd>.box-zxwd-right .wd-area .submit-area a {
+    background-color: #11a43c;
+    color: #fff;
+    border-radius: 2px;
+    padding: 4px 8px;
+}

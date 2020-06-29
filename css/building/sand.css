@@ -1,0 +1,249 @@
+.sand-container {
+    min-height: 120px;
+    padding: 20px;
+}
+
+.sand-content {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    cursor: move;
+    border: 1px solid #ddd;
+}
+
+.sand-state {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: 0;
+    z-index: 103;
+}
+
+.sand-state ul li {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 15px;
+    padding-left: 15px;
+    color: #fff;
+}
+
+.sand-state ul li i {
+    position: absolute;
+    top: 6.5px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.sand-state ul li i.checked {
+    background: url("../../assets/icons/state-checked.png") no-repeat center center;
+}
+
+.sand-state ul li.solding {
+    background-color: #FF9832;
+}
+
+.sand-state ul li.unsold {
+    background-color: #409DFB;
+}
+
+.sand-state ul li.solded {
+    background-color: #BBB;
+}
+
+.sand-content .sand-picture {
+    position: relative;
+    width: 900px;
+    height: 600px;
+}
+
+.sand-picture .sand-icon {
+    position: absolute;
+    cursor: pointer;
+}
+
+.sand-picture .sand-icon a {
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.sand-picture .sand-icon a.unsold {
+    background-color: #409DFB;
+}
+
+.sand-picture .sand-icon a.solding {
+    background-color: #FF9832;
+}
+
+.sand-picture .sand-icon a.solded {
+    background-color: #BBB;
+}
+
+.sand-picture .sand-icon:hover a {
+    background-color: #ff3333;
+}
+
+.sand-picture .sand-icon:hover a i {
+    border-color: #ff3333 transparent transparent;
+}
+
+.sand-picture .sand-icon a i {
+    position: absolute;
+    top: 24px;
+    left: 10px;
+    display: block;
+    border-style: solid;
+    border-width: 6px 6px 0;
+}
+
+.sand-picture .sand-icon .unsold i {
+    border-color: #409DFB transparent transparent;
+}
+
+.sand-picture .sand-icon .solding i {
+    border-color: #FF9832 transparent transparent;
+}
+
+.sand-picture .sand-icon .solded i {
+    border-color: #BBB transparent transparent;
+}
+
+/*4*/
+
+.sand-picture .sand-icon-4 {
+    top: 245px;
+    left: 612px;
+}
+
+/*5*/
+
+.sand-picture .sand-icon-5 {
+    top: 195px;
+    left: 512px;
+}
+
+/*6*/
+
+.sand-picture .sand-icon-6 {
+    top: 210px;
+    left: 410px;
+}
+
+.sand-memo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.sand-memo .memo-bg {
+    height: 30px;
+    opacity: .3;
+    background-color: #000;
+}
+
+.sand-memo span {
+    position: absolute;
+    bottom: 0;
+}
+
+.sand-memo span.memo-text {
+    left: 10px;
+}
+
+.sand-memo span.memo-hover {
+    display: none;
+    right: 10px;
+}
+
+.sand-content:hover .sand-memo span.memo-hover {
+    display: block;
+}
+
+/*沙盘点信息*/
+
+.sand-info {
+    margin-right: 20px;
+}
+
+.sand-info-header {
+    position: relative;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #11a43c;
+}
+
+.sand-info-header .arrow {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 42px;
+}
+
+.sand-info-header .arrow.prev {
+    left: 0;
+    background: url('../../assets/icons/arrow_left.png') no-repeat center center;
+}
+
+.sand-info-header .arrow.next {
+    right: 0;
+    background: url('../../assets/icons/arrow_right.png') no-repeat center center;
+}
+
+.sand-info-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 40px;
+    font-size: 0;
+}
+
+.sand-info-list li {
+    display: inline-block;
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+.sand-info-list li.actived {
+    background-color: #11a43c;
+}
+
+.sand-info-list a {
+    display: block;
+}
+
+.sand-info-detail .bd-detail {
+    margin-top: 10px;
+    font-size: 0;
+}
+
+.sand-info-detail .bd-detail li {
+    display: inline-block;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    text-indent: 30px;
+    color: #666;
+}

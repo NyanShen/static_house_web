@@ -1,16 +1,16 @@
-.carousel-show {
+.bd-carousel-show {
     margin-bottom: 20px;
 }
 
-.carousel-show .item-list,
-.carousel-show .item-list .banner-position {
+.bd-carousel-show .item-list,
+.bd-carousel-show .item-list .banner-position {
     position: relative;
     width: 600px;
     height: 400px;
     overflow: hidden;
 }
 
-.carousel-show .item-list li {
+.bd-carousel-show .item-list li {
     display: none;
     position: absolute;
     top: 0;
@@ -20,7 +20,7 @@
     background-color: #ddd;
 }
 
-.carousel-show .item-list img {
+.bd-carousel-show .item-list img {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,13 +31,13 @@
 
 }
 
-.carousel-wrap {
+.bd-carousel-wrap {
     position: relative;
     width: 600px;
     height: 80px;
 }
 
-.carousel-wrap .current {
+.bd-carousel-wrap .current {
     position: absolute;
     left: 0;
     top: -5px;
@@ -48,7 +48,7 @@
     z-index: 103;
 }
 
-.carousel-container {
+.bd-carousel-content {
     position: relative;
     width: 600px;
     height: 80px;
@@ -56,14 +56,14 @@
     overflow: hidden;
 }
 
-.carousel-container .carousel-list {
+.bd-carousel-content .bd-carousel-list {
     position: absolute;
     width: 800px;
     height: 80px;
     left: 0;
 }
 
-.carousel-container .carousel-list li {
+.bd-carousel-content .bd-carousel-list li {
     position: relative;
     float: left;
     cursor: pointer;
@@ -73,7 +73,7 @@
     overflow: hidden;
 }
 
-.carousel-container .carousel-list li em {
+.bd-carousel-content .bd-carousel-list li em {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -84,7 +84,7 @@
     z-index: 102;
 }
 
-.carousel-container .carousel-list li p {
+.bd-carousel-content .bd-carousel-list li p {
     position: absolute;
     bottom: 0;
     width: 112px;
@@ -94,12 +94,12 @@
     z-index: 103;
 }
 
-.carousel-container .carousel-list li p a {
+.bd-carousel-content .bd-carousel-list li p a {
     color: #fff;
     font-size: 12px;
 }
 
-.carousel-container .carousel-list li img {
+.bd-carousel-content .bd-carousel-list li img {
     position: absolute;
     top: 0;
     left: 0;
@@ -110,7 +110,7 @@
     z-index: 100;
 }
 
-.carousel-container .carousel-list li img:hover {
+.bd-carousel-content .bd-carousel-list li img:hover {
     transform: scale(1.05);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
@@ -119,7 +119,7 @@
     -o-transition: all .3s ease;
 }
 
-.carousel-container .arrow {
+.bd-carousel-content .arrow {
     position: absolute;
     width: 22px;
     height: 33px;
@@ -127,27 +127,27 @@
     background: url("../../assets/icons/arrow.png");
 }
 
-.carousel-container .arrow.next {
+.bd-carousel-content .arrow.next {
     background-position: -23px 0;
     top: 20px;
     right: 0;
 }
 
-.carousel-container .arrow.next:hover {
+.bd-carousel-content .arrow.next:hover {
     background-position: -23px -34px;
 }
 
-.carousel-container .arrow.previous {
+.bd-carousel-content .arrow.previous {
     background-position: 0 0;
     top: 20px;
     left: 0;
 }
 
-.carousel-container .arrow.previous:hover {
+.bd-carousel-content .arrow.previous:hover {
     background-position: 0 -34px;
 }
 
-.carousel-container .current {
+.bd-carousel-content .current {
     position: absolute;
     left: 0;
     width: 114px;
