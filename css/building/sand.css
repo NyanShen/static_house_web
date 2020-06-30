@@ -48,11 +48,11 @@
     background: url("../../assets/icons/state-checked.png") no-repeat center center;
 }
 
-.sand-state ul li.solding {
+.sand-state ul li.unsold {
     background-color: #FF9832;
 }
 
-.sand-state ul li.unsold {
+.sand-state ul li.solding {
     background-color: #409DFB;
 }
 
@@ -78,11 +78,11 @@
     color: #fff;
 }
 
-.sand-picture .sand-icon a.unsold {
+.sand-picture .sand-icon a.solding {
     background-color: #409DFB;
 }
 
-.sand-picture .sand-icon a.solding {
+.sand-picture .sand-icon a.unsold {
     background-color: #FF9832;
 }
 
@@ -107,11 +107,11 @@
     border-width: 6px 6px 0;
 }
 
-.sand-picture .sand-icon .unsold i {
+.sand-picture .sand-icon .solding i {
     border-color: #409DFB transparent transparent;
 }
 
-.sand-picture .sand-icon .solding i {
+.sand-picture .sand-icon .unsold i {
     border-color: #FF9832 transparent transparent;
 }
 

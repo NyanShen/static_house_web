@@ -335,6 +335,61 @@
     color: #666;
 }
 
+/*表格详情类型标题*/
+
+.table-detail {
+    margin-top: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.table-detail-header {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+
+.table-detail-header .title-list a:hover {
+    color: #11a43c;
+}
+
+.table-detail-header .title-list span {
+    color: #e5e5e5;
+    margin: 0 10px;
+}
+
+.table-detail-content {
+  padding: 25px;
+}
+
+/*楼盘相册*/
+
+.box-building-picture ul {
+    margin: 15px 0;
+}
+
+.box-building-picture ul li {
+    display: inline-block;
+}
+
+.box-building-picture ul li .picture {
+    width: 214px;
+    height: 121px;
+    margin-left: 18px;
+}
+
+.box-building-picture ul li .picture img {
+    width: 214px;
+    height: 121px;
+}
+
+.box-building-picture ul li .text {
+    text-align: center;
+    margin: 10px 0;
+}
 
 /*扫描到手机*/
 
@@ -504,6 +559,14 @@
 .btn-type>.btn-lvse {
     border: 1px solid #b68fd8;
     color: #b68fd8;
+}
+
+/*百度分享*/
+
+.bdsharebuttonbox .text {
+    font-size: 16px;
+    position: relative;
+    top: 6px;
 }
 
 /*覆盖浏览器以及标签的一些默认样式*/

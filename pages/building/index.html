@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
-    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/type.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/house-type.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/carousel.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/consultant.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/activity.css">
@@ -25,61 +25,13 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <style>
-        /*楼盘首页 common*/
-        .table-detail {
-            margin-top: 20px;
-            border: 1px solid #eee;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
-            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
-        }
 
-        .table-detail-header {
-            height: 50px;
-            line-height: 50px;
-            padding: 0 15px;
-            border-bottom: 1px solid #eee;
-            background-color: #f8f8f8;
-        }
-
-        .table-detail-header .title-list a:hover {
-            color: #11a43c;
-        }
-
-        .table-detail-header .title-list span {
-            color: #e5e5e5;
-            margin: 0 10px;
-        }
-
-        /*楼盘相册*/
-        .box-building-picture ul {
-            margin: 15px 0;
-        }
-
-        .box-building-picture ul li {
-            display: inline-block;
-        }
-
-        .box-building-picture ul li .picture {
-            width: 214px;
-            height: 121px;
-            margin-left: 18px;
-        }
-
-        .box-building-picture ul li .picture img {
-            width: 214px;
-            height: 121px;
-        }
-
-        .box-building-picture ul li .text {
-            text-align: center;
-            margin: 10px 0;
-        }
     </style>
 </head>
 
 <body>
     <!--头部导航栏start-->
-    <div class="home-nav mb20">
+    <div class="home-nav">
         <div class="nav-content clearfix">
             <h2 class="nav-logo fl">
                 <a href="/">房产在线<small>Fang.com</small></a>
@@ -115,12 +67,25 @@
     </div>
     <!--头部导航栏end-->
 
+    <!--楼盘查询start-->
+    <div class="building-search mb20">
+        <div class="box-content">
+            <div class="search-content">
+                <form action="" class="clearfix">
+                    <input type="text" class="search-input" placeholder="楼盘名或地址">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--楼盘查询end-->
+
     <div class="box-content">
         <!--二级导航 begin-->
         <div class="second-nav tf mb20">
-            <a href="" class="actived">楼盘主页</a>
+            <a href="/pages/building" class="actived">楼盘主页</a>
             <a href="">详情</a>
-            <a href="">户型</a>
+            <a href="/pages/building/house-type.html">户型</a>
             <a href="">相册</a>
             <a href="/pages/consult">资讯</a>
             <a href="">周边配套</a>
@@ -518,7 +483,7 @@
         
 
         <!--户型图展示 begin-->
-        <div class="box-hxt table-detail">
+        <div class="box-house-type table-detail">
             <div class="table-detail-header">
                 <h4 class="fl">户型图展示</h4>
                 <div class="title-list fr">
@@ -528,82 +493,84 @@
                     <span>|</span>
                     <a href="">四居(1)</a>
                     <span>|</span>
-                    <a href="">更多<em>></em></a>
+                    <a href="/pages/building/house-type.html">更多<em>></em></a>
                 </div>
             </div>
-            <div class="box-hxt-body clearfix">
-                <a href="">
-                    <div class="box-hxt-image">
-                        <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
-                        <div class="image-tag">在售</div>
-                        <p class="image-text">户型图展示123㎡的户型</p>
-                    </div>
-                    <div class="box-hxt-text">
-                        <p class="clearfix">
-                            <strong class="fl">2室2厅1卫1厨</strong>
-                            <span class="fr">建面123㎡</span>
-                        </p>
-                        <p class="text-tag">
-                            <span>南北通透</span>
-                            <span>客厅朝南</span>
-                            <span>高附赠空间</span>
-                        </p>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="box-hxt-image">
-                        <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
-                        <div class="image-tag">在售</div>
-                        <p class="image-text">户型图展示123㎡的户型</p>
-                    </div>
-                    <div class="box-hxt-text">
-                        <p class="clearfix">
-                            <strong class="fl">2室2厅1卫1厨</strong>
-                            <span class="fr">建面123㎡</span>
-                        </p>
-                        <p class="text-tag">
-                            <span>南北通透</span>
-                            <span>客厅朝南</span>
-                            <span>高附赠空间</span>
-                        </p>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="box-hxt-image">
-                        <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
-                        <div class="image-tag">在售</div>
-                        <p class="image-text">户型图展示123㎡的户型</p>
-                    </div>
-                    <div class="box-hxt-text">
-                        <p class="clearfix">
-                            <strong class="fl">2室2厅1卫1厨</strong>
-                            <span class="fr">建面123㎡</span>
-                        </p>
-                        <p class="text-tag">
-                            <span>南北通透</span>
-                            <span>客厅朝南</span>
-                            <span>高附赠空间</span>
-                        </p>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="box-hxt-image">
-                        <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
-                        <div class="image-tag">在售</div>
-                        <p class="image-text">户型图展示123㎡的户型</p>
-                    </div>
-                    <div class="box-hxt-text">
-                        <p class="clearfix">
-                            <strong class="fl">2室2厅1卫1厨</strong>
-                            <span class="fr">建面123㎡</span>
-                        </p>
-                        <p class="text-tag">
-                            <span>南北通透</span>
-                            <span>客厅朝南</span>
-                            <span>高附赠空间</span>
-                        </p>
-                    </div>
-                </a>
+            <div class="table-detail-content">
+                <div class="house-type-content clearfix">
+                    <a href="">
+                        <div class="house-type-image">
+                            <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="house-type-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="house-type-image">
+                            <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="house-type-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="house-type-image">
+                            <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="house-type-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="house-type-image">
+                            <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
+                            <div class="image-tag">在售</div>
+                            <p class="image-text">户型图展示123㎡的户型</p>
+                        </div>
+                        <div class="house-type-text">
+                            <p class="clearfix">
+                                <strong class="fl">2室2厅1卫1厨</strong>
+                                <span class="fr">建面123㎡</span>
+                            </p>
+                            <p class="text-tag">
+                                <span>南北通透</span>
+                                <span>客厅朝南</span>
+                                <span>高附赠空间</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!--户型图展示 end-->
@@ -624,11 +591,11 @@
                             </li>
                             <li class="unsold">
                                 <i class="checked"></i>
-                                <span>在售</span>
+                                <span>待售</span>
                             </li>
                             <li class="solded">
                                 <i class="checked"></i>
-                                <span>在售</span>
+                                <span>已售</span>
                             </li>
                         </ul>
                     </div>

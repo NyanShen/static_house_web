@@ -1,0 +1,156 @@
+/*楼盘户型图*/
+
+/*户型图展示*/
+
+.house-type-content a {
+    position: relative;
+    display: inline-block;
+    width: 265px;
+}
+
+.house-type-content a~a {
+    margin-left: 25px;
+}
+
+.house-type-image {
+    position: relative;
+    width: 265px;
+    height: 262px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.house-type-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 262px;
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.house-type-image img:hover {
+    transform: scale(1.05);
+}
+
+.house-type-image .image-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 10px;
+    color: #fff;
+}
+
+.house-type-image .image-tag.solding {
+    background: rgba(64, 157, 251, .9);
+}
+
+.house-type-image .image-tag.unsold {
+    background: rgba(255, 152, 50, .9);
+}
+
+.house-type-image .image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    text-align: center;
+}
+
+.house-type-text {
+    margin: 15px 0;
+}
+
+.house-type-text p {
+    margin-top: 5px;
+}
+
+.house-type-text .text-tag span {
+    font-size: 12px;
+    padding: 2px 6px;
+    background-color: #eee;
+}
+
+/*所有户型图列表*/
+
+.house-type-list {
+    margin: 0 -20px;
+}
+
+.house-type-list li {
+    float: left;
+    width: 265px;
+    margin: 20px 20px;
+}
+
+.house-type-text .tag {
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+}
+
+.house-type-nav ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+.house-type-nav ul li a {
+    display: block;
+    padding: 4px 10px;
+    color: #666;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    background-color: #eee;
+}
+
+.house-type-nav ul li a.actived {
+    color: #fff;
+    background-color: #11a43c;
+}
+.house-type-nav ul li a:hover:not(.actived) {
+    color: #11a43c;
+    border-color: #11a43c;
+}
+
+/* 户型图详情 */
+.house-type-detail .detail-nav {
+    padding: 20px 30px;
+    overflow: hidden;
+}
+.house-type-detail .detail-nav ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+.house-type-detail .detail-nav ul li a {
+    display: block;
+    padding: 6px 12px;
+    color: #666;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    background-color: #eee;
+}
+
+
+.house-type-detail .detail-nav ul li a.actived {
+    color: #11a43c;
+    background-color: #fff;
+    border-color: #11a43c;
+}
+
+
+
+.house-type-detail .detail-nav ul li a:hover:not(.actived) {
+    background-color: #fff;
+    border-color: #11a43c;
+}
