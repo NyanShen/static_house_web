@@ -70,9 +70,22 @@
     line-height: 25px;
 }
 
+.comment-item .user-comment .content a:hover {
+    color: #df2f30;
+}
+
 .comment-item .user-comment .descibe {
     font-size: 12px;
     line-height: 35px;
     margin-top: 5px;
     color: #999;
+}
+
+.comment-item .user-comment .descibe i {
+    position: relative;
+    top: 8px;
+    float: left;
+    width: 16px;
+    height: 16px;
+    background: url('../../assets/icons/icon_zan.png') no-repeat center center;
 }

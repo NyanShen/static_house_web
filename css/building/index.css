@@ -232,31 +232,45 @@
     color: #ff3344;
 }
 
-.information-book {
+.information-order {
     margin-top: 11px;
     background-color: #ffe6ec;
 }
 
-.information-book>.fl {
+.information-order .order-item {
+    position: relative;
     width: 50%;
+    height: 50px;
     padding: 5px 0 5px 15px;
     margin: 15px 0;
     border-right: 1px solid #e8e8e8;
 }
 
-.information-book .fl:hover p {
+.information-order .order-item:hover p {
     color: #11a43c;
 }
 
-.information-book a {
+.information-order .order-desc {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.information-order .order-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.information-order .order-btn a {
     border-radius: 2px;
     padding: 3px 8px;
     color: #fff;
     background-color: #11a43c;
-}
-
-.information-book .fr {
-    margin: 10px 5px 0;
 }
 
 /*popup*/

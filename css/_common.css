@@ -4,7 +4,7 @@
     width: 100%;
     min-width: 1200px;
 }
-
+action
 .box-header {
     width: 1200px;
     margin: 20px auto 20px;
@@ -351,6 +351,8 @@
     border-bottom: 1px solid #eee;
     background-color: #f8f8f8;
 }
+
+.box-title,
 .table-detail-header .title {
     font-size: 18px;
     font-weight: bold;
