@@ -20,7 +20,9 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/carousel.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/consultant.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/activity.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/dynamic.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/sand.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/comment.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
@@ -68,7 +70,7 @@
     <!--头部导航栏end-->
 
     <!--楼盘查询start-->
-    <div class="building-search mb20">
+    <div class="building-search mb10">
         <div class="box-content">
             <div class="search-content">
                 <form action="" class="clearfix">
@@ -81,6 +83,19 @@
     <!--楼盘查询end-->
 
     <div class="box-content">
+        <!-- 面包屑start -->
+        <div class="breadcrumb">
+            <span>当前位置： </span>
+            <a href="/">房产在线</a>
+            <span>></span>
+            <a href="">新房</a>
+            <span>></span>
+            <a href="">楼盘主页</a>
+            <span>></span>
+            <a href="">楼盘属性名称</a>
+        </div>
+
+        <!-- 面包屑end -->
         <!--二级导航 begin-->
         <div class="second-nav tf mb20">
             <a href="/pages/building" class="actived">楼盘主页</a>
@@ -240,7 +255,7 @@
                 <div class="informaion-li clearfix">
                     <div class="informaion-li-left fl">
                         <h4>均价：</h4>
-                        <span class="bold-primary font-24px">41000</span>
+                        <span class="bold-red font-24px">41000</span>
                         <span class="unit">元/m²</span>
                     </div>
                     <div class="informaion-li-right fl">
@@ -480,12 +495,51 @@
         </div>
         <!--楼盘特惠活动/参团展示区 end-->
 
-        
+        <!-- 楼盘动态start -->
+        <div class="box-dynamic table-detail">
+            <div class="table-detail-header">
+                <a href="" class="title">楼盘动态</a>
+                <div class="title-list fr">
+                    <a href="/pages/building/house-type.html">更多动态<em>>></em></a>
+                </div>
+            </div>
+            <div class="table-detail-content">
+                <ul class="dynamic-content">
+                    <li>
+                        <p class="dynamic-header">
+                            <span class="tag">动态</span>
+                            <a href="" class="title">天恒水岸壹号项目目前洋房产品10#在售</a>
+                            <span class="desc-color">2020-06-28</span>
+                        </p>
+                        <p class="dynamic-descide">
+                            <a href="" class="desc">
+                                天恒水岸壹号项目目前洋房产品10#在售，房源产权70年，洋房产品建面约122㎡和139㎡，在售洋房产品价格约41000元/㎡-45000元/㎡，欲了解项目最新信息可...
+                                <span class="link">[阅读全文]</span>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dynamic-header">
+                            <span class="tag primary">资讯</span>
+                            <a href="" class="title">天恒水岸壹号项目目前洋房产品10#在售</a>
+                            <span class="desc-color">2020-06-28</span>
+                        </p>
+                        <p class="dynamic-descide">
+                            <a href="" class="desc">
+                                天恒水岸壹号项目目前洋房产品10#在售，房源产权70年，洋房产品建面约122㎡和139㎡，在售洋房产品价格约41000元/㎡-45000元/㎡，欲了解项目最新信息可...
+                                <span class="link">[阅读全文]</span>
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 楼盘动态end -->
 
         <!--户型图展示 begin-->
         <div class="box-house-type table-detail">
             <div class="table-detail-header">
-                <h4 class="fl">户型图展示</h4>
+                <a href="" class="title">户型图展示</a>
                 <div class="title-list fr">
                     <a href="">二居(1)</a>
                     <span>|</span>
@@ -579,9 +633,9 @@
         <!--沙盘图 begin-->
         <div class="box-sand table-detail">
             <div class="table-detail-header">
-                <h3 class="fl">北京华发·中央公园楼栋信息</h3>
+                <a href="" class="title">北京华发·中央公园楼栋信息</a>
             </div>
-            <div class="sand-container clearfix">
+            <div class="table-detail-content clearfix">
                 <div class="sand-content fl" id="sandContent">
                     <div class="sand-state">
                         <ul>
@@ -655,14 +709,88 @@
         </div>
         <!--位置及周边配套 begin-->
         <!--位置及周边配套 end-->
-        <!--点评 begin-->
-        <!--点评 end-->
+        <!--用户点评 begin-->
+        <div class="box-comment table-detail">
+            <div class="table-detail-header clearfix">
+                <a href="" class="title">北京华发·中央公园楼栋信息<span class="title-desc">（共10条点评）</span></a>
+                <div class="title-list fr">
+                    <a href="">更多<em>>></em></a>
+                </div>
+            </div>
+            <div class="table-detail-content">
+                <ul class="comment-content">
+                    <li class="comment-header clearfix">
+                        <div class="comment-category fl">
+                            <a href="">全部（10）</a>
+                            <a href="">有图（3）</a>
+                        </div>
+                        <div class="comment-action fr">
+                            <span class="action-desc">写点评赚房票</span>
+                            <a href="#" class="action-btn"><i></i>我要点评</a>
+                        </div>
+                    </li>
+                    <li class="comment-item clearfix">
+                        <div class="user-icon">
+                            <a href="">
+                                <img src="//static.fczx.com/www/assets/images/105x105.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="user-comment">
+                            <div class="content">
+                                <a href="">
+                                    开盘价格是41000元/平方米吗，在这个片区来说，相对来说价格非常合适，有竞争力，我作为备选之一啦.
+
+                                </a>
+                            </div>
+                            <div class="descibe clearfix">
+                                <div class="publish-info fl">
+                                    <span class="name">楼市游客</span>
+                                    <span class="time">2020-06-21 12:50:13</span>
+                                </div>
+                                <div class="action fr">
+                                    <span><i></i>有用（100）</span>
+                                    <span><i></i>回复（202301）</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="comment-item clearfix">
+                        <div class="user-icon">
+                            <a href="">
+                                <img src="//static.fczx.com/www/assets/images/105x105.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="user-comment">
+                            <div class="content">
+                                <a href="">
+                                    开盘价格是41000元/平方米吗，在这个片区来说，相对来说价格非常合适，有竞争力，我作为备选之一啦.
+                                    开盘价格是41000元/平方米吗，在这个片区来说，相对来说价格非常合适，有竞争力，我作为备选之一啦.
+                                    开盘价格是41000元/平方米吗，在这个片区来说，相对来说价格非常合适，有竞争力，我作为备选之一啦.
+
+                                </a>
+                            </div>
+                            <div class="descibe clearfix">
+                                <div class="publish-info fl">
+                                    <span class="name">楼市游客</span>
+                                    <span class="time">2020-06-21 12:50:13</span>
+                                </div>
+                                <div class="action fr">
+                                    <span><i></i>有用（100）</span>
+                                    <span><i></i>回复（202301）</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--用户点评 end-->
         <!--购房计算器 begin-->
         <!--购房计算器 end-->
         <!--楼盘相册 begin-->
         <div class="box-building-picture table-detail">
             <div class="table-detail-header">
-                <h3 class="fl">楼盘相册</h3>
+                <a href="" class="title">楼盘相册</a>
                 <div class="title-list fr">
                     <a href="">户型(102)</a>
                     <span>|</span>
@@ -680,49 +808,49 @@
                     <span>|</span>
                     <a href="">证照(6)</a>
                     <span>|</span>
-                    <a href="">更多<em>></em></a>
+                    <a href="">更多<em>>></em></a>
                 </div>
             </div>
-            <div class="buiding-picture-body">
-                <ul>
+            <div class="table-detail-content">
+                <ul class="buiding-picture-content">
                     <li>
-                        <div class="picture">
+                        <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                        </div>
+                        </a>
                         <div class="text">
-                            <span>熙悦天寰鸟瞰效果图</span>
+                            <a href="javascript:;">熙悦天寰鸟瞰效果图</a>
                         </div>
                     </li>
                     <li>
-                        <div class="picture">
+                        <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                        </div>
+                        </a>
                         <div class="text">
-                            <span>熙悦天寰鸟瞰效果图</span>
+                            <a href="javascript:;">熙悦天寰鸟瞰效果图</a>
                         </div>
                     </li>
                     <li>
-                        <div class="picture">
+                        <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                        </div>
+                        </a>
                         <div class="text">
-                            <span>熙悦天寰鸟瞰效果图</span>
+                            <a href="javascript:;">熙悦天寰鸟瞰效果图</a>
                         </div>
                     </li>
                     <li>
-                        <div class="picture">
+                        <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                        </div>
+                        </a>
                         <div class="text">
-                            <span>熙悦天寰鸟瞰效果图</span>
+                            <a href="javascript:;">熙悦天寰鸟瞰效果图</a>
                         </div>
                     </li>
                     <li>
-                        <div class="picture">
+                        <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
-                        </div>
+                        </a>
                         <div class="text">
-                            <span>熙悦天寰鸟瞰效果图</span>
+                            <a href="javascript:;">熙悦天寰鸟瞰效果图</a>
                         </div>
                     </li>
                 </ul>

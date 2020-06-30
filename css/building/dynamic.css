@@ -1,0 +1,43 @@
+.dynamic-content li {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.dynamic-content li .dynamic-header {
+    line-height: 35px;
+}
+
+.dynamic-content li .dynamic-header .tag {
+    padding: 0 10px;
+    margin-right: 20px;
+    border: 1px solid #ff3344;
+    border-radius: 2px;
+    color: #ff3344;
+}
+
+.dynamic-content li .dynamic-header .tag.primary {
+    color: #11a43c;
+    border-color: #11a43c;
+}
+
+.dynamic-content li .dynamic-header .title {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.dynamic-content li .dynamic-header .title:hover {
+    color: #df2f30;
+}
+
+.dynamic-content li .dynamic-descide .desc{
+    color: #666;
+    line-height: 25px;
+}
+
+.dynamic-content li .dynamic-descide .link {
+    margin-left: 10px;
+    color: #df2f30;
+}

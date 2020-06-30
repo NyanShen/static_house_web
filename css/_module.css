@@ -30,6 +30,7 @@
 .breadcrumb {
     height: 40px;
     line-height: 40px;
+    color: #666;
 }
 
 .breadcrumb span {
@@ -38,6 +39,10 @@
 
 .breadcrumb a:last-child {
     color: #11a43c;
+}
+
+.breadcrumb a {
+    color: #666;
 }
 
 .breadcrumb a:hover:not(:last-child) {
@@ -72,7 +77,6 @@
 
 /*楼盘相关*/
 
-
 .building-related .picture {
     display: block;
     width: 160px;
@@ -86,7 +90,8 @@
 
 .building-related .content {
     position: relative;
-    width: 650px; /*依赖content-left宽度*/
+    width: 650px;
+    /*依赖content-left宽度*/
     margin-left: 20px;
 }
 

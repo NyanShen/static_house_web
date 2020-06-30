@@ -347,9 +347,25 @@
 .table-detail-header {
     height: 50px;
     line-height: 50px;
-    padding: 0 15px;
+    padding: 0 25px;
     border-bottom: 1px solid #eee;
     background-color: #f8f8f8;
+}
+.table-detail-header .title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
+}
+
+.table-detail-header .title:hover {
+    color: #df2f30;
+}
+
+.table-detail-header .title-desc {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 10px;
+    color: #999;
 }
 
 .table-detail-header .title-list a:hover {
@@ -367,28 +383,41 @@
 
 /*楼盘相册*/
 
-.box-building-picture ul {
-    margin: 15px 0;
+.buiding-picture-content {
+    margin: 0 -20px;
 }
 
-.box-building-picture ul li {
+.buiding-picture-content li {
+    margin: 10px;
     display: inline-block;
 }
 
-.box-building-picture ul li .picture {
+.buiding-picture-content .picture {
+    display: block;
+    position: relative;
     width: 214px;
     height: 121px;
-    margin-left: 18px;
+    overflow: hidden;
+    background-color: #f7f7f7;
 }
 
-.box-building-picture ul li .picture img {
+.buiding-picture-content .picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     width: 214px;
-    height: 121px;
 }
 
-.box-building-picture ul li .text {
+.buiding-picture-content .picture img:hover {
+    transform: scale(1.05);
+}
+
+.buiding-picture-content .text {
+    margin-top: 10px;
     text-align: center;
-    margin: 10px 0;
 }
 
 /*扫描到手机*/
