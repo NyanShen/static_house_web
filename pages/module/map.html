@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度地图预研</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+</head>
+
+<body>
+    <div class="box-content mt30">
+        <div class="box-surround table-detail">
+            <div class="table-detail-header">
+                <a href="" class="title">周边配套</a>
+            </div>
+            <div class="surround-content">
+                <div class="surround-map" id="surround-map"></div>
+                <div class="surround-mark">
+                    <div class="surround-mark-tab">
+                        <ul class="mark-tab-list">
+                            <li class="actived">交通</li>
+                            <li>教育</li>
+                            <li>医院</li>
+                            <li>购物</li>
+                            <li>银行</li>
+                        </ul>
+                    </div>
+                    <div class="surround-mark-content">
+                        <div class="mark-item" id="traffic">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">地铁</li>
+                                    <li>公交</li>
+                                    <li>停车场</li>
+                                    <li>加油站</li>
+                                </ul>
+                            </div>
+                            <div class="item-content">
+                                <ul class="item-list">
+                                    <li>
+                                        <p class="clearfix">
+                                            <span class="location fl"><i></i>良乡大学城</span>
+                                            <span class="distance fr">600米</span>
+                                        </p>
+                                        <p class="address">地址：</p>
+                                    </li>
+                                    <li>
+                                        <p class="clearfix">
+                                            <span class="location fl"><i></i>良乡大学城</span>
+                                            <span class="distance fr">600米</span>
+                                        </p>
+                                        <p class="address">地址：</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // 创建Map实例
+        let map = new BMap.Map("surround-map");
+        let point = new BMap.Point(112.141744, 32.097901);
+        map.centerAndZoom(point, 15);
+        map.enableScrollWheelZoom(true);
+        map.addControl(new BMap.NavigationControl());
+
+        // 设定1000米圆形范围
+        let circle = new BMap.Circle(point, 1000, { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.1 });
+        map.addOverlay(circle);
+
+        //范围内检索关键字
+        let options = {};
+        options.renderOptions = { map, autoViewport: false, selectFirstResult: false, panel: '#traffic' };
+        options.onSearchComplete = function (results) {
+            let resultList = [];
+            console.log(results)
+            for (let item of results.Ir) {
+                let distance = `${parseInt(map.getDistance(point, item.point))} 米`;
+                resultList.push({ location: item.title, address: item.address, distance });
+            }
+        }
+        let local = new BMap.LocalSearch(map, options);
+        local.searchNearby('公交', point, 1000);
+    </script>
+</body>
+
+</html>
