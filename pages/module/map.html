@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="surround-mark-content" id="surroundMarkContent">
-                        <div class="mark-item" id="traffic">
+                        <div class="mark-item has-tag" id="traffic">
                             <div class="item-tab">
                                 <ul>
                                     <li class="actived">公交</li>
@@ -39,18 +39,10 @@
                                     <li>加油站</li>
                                 </ul>
                             </div>
-                            <div class="item-content">
-                                <ul class="item-list">
-                                </ul>
-                            </div>
+                            <ul class="item-list">
+                            </ul>
                         </div>
-                        <div class="mark-item" id="business">
-                            <div class="item-content">
-                                <ul class="item-list">
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mark-item" id="school">
+                        <div class="mark-item has-tag" id="business">
                             <div class="item-tab">
                                 <ul>
                                     <li class="actived">超市</li>
@@ -59,21 +51,20 @@
                                     <li>银行</li>
                                 </ul>
                             </div>
-                            <div class="item-content">
-                                <ul class="item-list">
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                        <div class="mark-item" id="school">
+                            <ul class="item-list">
 
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
                         <div class="mark-item" id="hospital">
-                            <div class="item-content">
-                                <ul class="item-list">
-                                </ul>
-                            </div>
+                            <ul class="item-list">
+                            </ul>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -86,36 +77,52 @@
         let lat = 32.097901;
         let mapId = "surround-map";
         let firstContentList = $('#surroundMarkContent .mark-item');
-        let secondContentList = $('#surroundMarkContent .mark-item .item-content .item-list');
+        let secondContentList = $('#surroundMarkContent .mark-item .item-list');
+        // 实例化自定义地图函数
         let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
+
+        // 初始化地图搜索结果
         firstContentList.eq(0).show();
+        surroundMap._searchNearby('公交', '#traffic .item-list');
 
-        surroundMap._searchNearby('公交', '#traffic .item-content .item-list');
-
-        function searchCallback(resultList) {
-            $('#traffic .item-list li').each(function (index) {
+        // 搜索列表自定义信息弹窗
+        function searchCallback(currentSelector, resultList) {
+            $(`${currentSelector} li`).each(function (index) {
                 $(this).click(function () {
                     let currentItem = resultList[index];
                     surroundMap._openInfoWindow(currentItem);
                 })
             });
         }
-        //todo: 分情况处理一级菜单和二级菜单
+        //一级菜单事件处理及判断二级菜单
         $('#surroundMarkTab>li').each(function (index) {
             $(this).click(function () {
                 $(this).siblings().removeClass('actived');
                 $(this).addClass('actived');
                 firstContentList.hide();
-                firstContentList.eq(index).show();
+                // 获取一级菜单对应的content
+                let targetContent = firstContentList.eq(index);
+                targetContent.show();
+                // 判断是否有二级菜单
+                let secondTab = targetContent.find('.item-tab li');
+                let targetContentId = targetContent.attr("id");
+                let contentSelector = `#${targetContentId} .item-list`
+                if (secondTab.length > 0) {
+                    let mapKey = secondTab.first().text();
+                    surroundMap._searchNearby(mapKey, contentSelector);
+                    return;
+                }
+                surroundMap._searchNearby($(this).text(), contentSelector);
             });
         });
-        //todo: 二级菜单分不同id做处理
-        $('#surroundMarkContent .item-tab li').each(function (index) {
+        //二级菜单点击事件处理
+        $('#surroundMarkContent .item-tab li').each(function () {
             $(this).click(function () {
                 $(this).siblings().removeClass('actived');
                 $(this).addClass('actived');
-                console.log($(this))
-                surroundMap._searchNearby($(this).text(), '#traffic .item-content .item-list');
+                //获取目标父元素
+                let targetId = $(this).parents('.mark-item').attr('id');
+                surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
             });
         });
     });
