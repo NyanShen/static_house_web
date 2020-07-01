@@ -22,15 +22,14 @@
                 <div class="surround-map" id="surround-map"></div>
                 <div class="surround-mark">
                     <div class="surround-mark-tab">
-                        <ul class="mark-tab-list">
+                        <ul class="mark-tab-list" id="surroundMarkTab">
                             <li class="actived">交通</li>
-                            <li>教育</li>
+                            <li>商业</li>
+                            <li>学校</li>
                             <li>医院</li>
-                            <li>购物</li>
-                            <li>银行</li>
                         </ul>
                     </div>
-                    <div class="surround-mark-content">
+                    <div class="surround-mark-content" id="surroundMarkContent">
                         <div class="mark-item" id="traffic">
                             <div class="item-tab">
                                 <ul>
@@ -42,59 +41,84 @@
                             </div>
                             <div class="item-content">
                                 <ul class="item-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mark-item" id="business">
+                            <div class="item-content">
+                                <ul class="item-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mark-item" id="school">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">超市</li>
+                                    <li>公园</li>
+                                    <li>餐饮</li>
+                                    <li>银行</li>
+                                </ul>
+                            </div>
+                            <div class="item-content">
+                                <ul class="item-list">
 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mark-item" id="hospital">
+                            <div class="item-content">
+                                <ul class="item-list">
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </body>
-
+<script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
 <script type="text/javascript">
 
-    // 创建Map实例
-    let map = new BMap.Map("surround-map");
-    let point = new BMap.Point(112.141744, 32.097901);
-    map.centerAndZoom(point, 15);
-    map.enableScrollWheelZoom(true);
-    map.addControl(new BMap.NavigationControl());
+    $(document).ready(function () {
+        let lng = 112.141744;
+        let lat = 32.097901;
+        let mapId = "surround-map";
+        let firstContentList = $('#surroundMarkContent .mark-item');
+        let secondContentList = $('#surroundMarkContent .mark-item .item-content .item-list');
+        let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
+        firstContentList.eq(0).show();
 
-    // 设定1000米圆形范围
-    let circle = new BMap.Circle(point, 1000, { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.1 });
-    map.addOverlay(circle);
+        surroundMap._searchNearby('公交', '#traffic .item-content .item-list');
 
-    //范围内检索关键字
-    let options = {};
-    options.renderOptions = { map, autoViewport: false, selectFirstResult: false };
-    options.onSearchComplete = function (results) {
-        let resultList = [];
-        console.log(results)
-        for (let item of results.Ir) {
-            let distance = parseInt(map.getDistance(point, item.point));
-            resultList.push({ location: item.title, address: item.address, distance });
+        function searchCallback(resultList) {
+            $('#traffic .item-list li').each(function (index) {
+                $(this).click(function () {
+                    let currentItem = resultList[index];
+                    surroundMap._openInfoWindow(currentItem);
+                })
+            });
         }
-        insertSearchResult('#traffic .item-content .item-list', resultList)
-    }
-    let local = new BMap.LocalSearch(map, options);
-    local.searchNearby('公交', point, 1000);
-
-    function insertSearchResult(selector, resultList) {
-        let _html = '';
-        for (const item of resultList) {
-            _html = _html +
-                `<li>
-                    <p class="clearfix">
-                        <span class="location fl"><i></i>${item.location}</span>
-                        <span class="distance fr">${item.distance}米</span>
-                    </p>
-                    <p class="address">${item.address}</p>
-                </li>`;
-        }
-        $(selector).html(_html);
-    }
+        //todo: 分情况处理一级菜单和二级菜单
+        $('#surroundMarkTab>li').each(function (index) {
+            $(this).click(function () {
+                $(this).siblings().removeClass('actived');
+                $(this).addClass('actived');
+                firstContentList.hide();
+                firstContentList.eq(index).show();
+            });
+        });
+        //todo: 二级菜单分不同id做处理
+        $('#surroundMarkContent .item-tab li').each(function (index) {
+            $(this).click(function () {
+                $(this).siblings().removeClass('actived');
+                $(this).addClass('actived');
+                console.log($(this))
+                surroundMap._searchNearby($(this).text(), '#traffic .item-content .item-list');
+            });
+        });
+    });
 </script>
 
 </html>
