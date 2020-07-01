@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+    <script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
 </head>
 
@@ -33,28 +34,15 @@
                         <div class="mark-item" id="traffic">
                             <div class="item-tab">
                                 <ul>
-                                    <li class="actived">地铁</li>
-                                    <li>公交</li>
+                                    <li class="actived">公交</li>
+                                    <li>地铁</li>
                                     <li>停车场</li>
                                     <li>加油站</li>
                                 </ul>
                             </div>
                             <div class="item-content">
                                 <ul class="item-list">
-                                    <li>
-                                        <p class="clearfix">
-                                            <span class="location fl"><i></i>良乡大学城</span>
-                                            <span class="distance fr">600米</span>
-                                        </p>
-                                        <p class="address">地址：</p>
-                                    </li>
-                                    <li>
-                                        <p class="clearfix">
-                                            <span class="location fl"><i></i>良乡大学城</span>
-                                            <span class="distance fr">600米</span>
-                                        </p>
-                                        <p class="address">地址：</p>
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -63,32 +51,50 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        // 创建Map实例
-        let map = new BMap.Map("surround-map");
-        let point = new BMap.Point(112.141744, 32.097901);
-        map.centerAndZoom(point, 15);
-        map.enableScrollWheelZoom(true);
-        map.addControl(new BMap.NavigationControl());
-
-        // 设定1000米圆形范围
-        let circle = new BMap.Circle(point, 1000, { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.1 });
-        map.addOverlay(circle);
-
-        //范围内检索关键字
-        let options = {};
-        options.renderOptions = { map, autoViewport: false, selectFirstResult: false, panel: '#traffic' };
-        options.onSearchComplete = function (results) {
-            let resultList = [];
-            console.log(results)
-            for (let item of results.Ir) {
-                let distance = `${parseInt(map.getDistance(point, item.point))} 米`;
-                resultList.push({ location: item.title, address: item.address, distance });
-            }
-        }
-        let local = new BMap.LocalSearch(map, options);
-        local.searchNearby('公交', point, 1000);
-    </script>
 </body>
+
+<script type="text/javascript">
+
+    // 创建Map实例
+    let map = new BMap.Map("surround-map");
+    let point = new BMap.Point(112.141744, 32.097901);
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom(true);
+    map.addControl(new BMap.NavigationControl());
+
+    // 设定1000米圆形范围
+    let circle = new BMap.Circle(point, 1000, { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.1 });
+    map.addOverlay(circle);
+
+    //范围内检索关键字
+    let options = {};
+    options.renderOptions = { map, autoViewport: false, selectFirstResult: false };
+    options.onSearchComplete = function (results) {
+        let resultList = [];
+        console.log(results)
+        for (let item of results.Ir) {
+            let distance = parseInt(map.getDistance(point, item.point));
+            resultList.push({ location: item.title, address: item.address, distance });
+        }
+        insertSearchResult('#traffic .item-content .item-list', resultList)
+    }
+    let local = new BMap.LocalSearch(map, options);
+    local.searchNearby('公交', point, 1000);
+
+    function insertSearchResult(selector, resultList) {
+        let _html = '';
+        for (const item of resultList) {
+            _html = _html +
+                `<li>
+                    <p class="clearfix">
+                        <span class="location fl"><i></i>${item.location}</span>
+                        <span class="distance fr">${item.distance}米</span>
+                    </p>
+                    <p class="address">${item.address}</p>
+                </li>`;
+        }
+        $(selector).html(_html);
+    }
+</script>
 
 </html>
