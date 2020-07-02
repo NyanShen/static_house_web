@@ -13,6 +13,11 @@ $(document).ready(function () {
     let pointCurWidth = stepWidth - (listLength - showLength) * stepWidth;
     let pointPicWidth = (showLength - listLength) * stepWidth;
 
+    if (listLength > 4) {
+        arrowPrev.show();
+        arrowNext.show();
+    }
+
     //初始化图片列表实际长度
     carouselList.css('width', (listLength + 1) * stepWidth + 'px');
 

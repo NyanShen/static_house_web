@@ -120,6 +120,7 @@
 }
 
 .bd-carousel-content .arrow {
+    display: none;
     position: absolute;
     width: 22px;
     height: 33px;

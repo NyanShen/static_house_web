@@ -9,123 +9,129 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
     <script src="//static.fczx.com/www/js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
 </head>
 
 <body>
-    <div class="box-content mt30">
-        <div class="box-surround table-detail">
-            <div class="table-detail-header">
-                <a href="" class="title">周边配套</a>
-            </div>
-            <div class="surround-content">
-                <div class="surround-map" id="surround-map"></div>
-                <div class="surround-mark">
-                    <div class="surround-mark-tab">
-                        <ul class="mark-tab-list" id="surroundMarkTab">
-                            <li class="actived">交通</li>
-                            <li>商业</li>
-                            <li>学校</li>
-                            <li>医院</li>
-                        </ul>
-                    </div>
-                    <div class="surround-mark-content" id="surroundMarkContent">
-                        <div class="mark-item has-tag" id="traffic">
-                            <div class="item-tab">
-                                <ul>
-                                    <li class="actived">公交</li>
-                                    <li>地铁</li>
-                                    <li>停车场</li>
-                                    <li>加油站</li>
+    <div class="mt30">
+        <div class="box-content">
+            <div class="box-surround table-detail">
+                <div class="table-detail-header">
+                    <a href="" class="title">周边配套</a>
+                </div>
+                <div class="surround-content">
+                    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+                    <script type="text/javascript"
+                        src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+                    <div class="surround-map" id="surround-map"></div>
+                    <div class="surround-mark">
+                        <div class="surround-mark-tab">
+                            <ul class="mark-tab-list" id="surroundMarkTab">
+                                <li class="actived">交通</li>
+                                <li>商业</li>
+                                <li>学校</li>
+                                <li>医院</li>
+                            </ul>
+                        </div>
+                        <div class="surround-mark-content" id="surroundMarkContent">
+                            <div class="mark-item has-tag" id="traffic">
+                                <div class="item-tab">
+                                    <ul>
+                                        <li class="actived">公交</li>
+                                        <li>地铁</li>
+                                        <li>停车场</li>
+                                        <li>加油站</li>
+                                    </ul>
+                                </div>
+                                <ul class="item-list">
                                 </ul>
                             </div>
-                            <ul class="item-list">
-                            </ul>
-                        </div>
-                        <div class="mark-item has-tag" id="business">
-                            <div class="item-tab">
-                                <ul>
-                                    <li class="actived">超市</li>
-                                    <li>公园</li>
-                                    <li>餐饮</li>
-                                    <li>银行</li>
+                            <div class="mark-item has-tag" id="business">
+                                <div class="item-tab">
+                                    <ul>
+                                        <li class="actived">超市</li>
+                                        <li>公园</li>
+                                        <li>餐饮</li>
+                                        <li>银行</li>
+                                    </ul>
+                                </div>
+                                <ul class="item-list">
                                 </ul>
                             </div>
-                            <ul class="item-list">
-                            </ul>
-                        </div>
-                        <div class="mark-item" id="school">
-                            <ul class="item-list">
-
-                            </ul>
-                        </div>
-                        <div class="mark-item" id="hospital">
-                            <ul class="item-list">
-                            </ul>
+                            <div class="mark-item" id="school">
+                                <ul class="item-list">
+    
+                                </ul>
+                            </div>
+                            <div class="mark-item" id="hospital">
+                                <ul class="item-list">
+                                </ul>
+                            </div>
                         </div>
                     </div>
+    
+                    <script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
+                    <script type="text/javascript">
+    
+                        $(document).ready(function () {
+                            let lng = 112.141744;
+                            let lat = 32.097901;
+                            let mapId = "surround-map";
+                            let firstContentList = $('#surroundMarkContent .mark-item');
+                            let secondContentList = $('#surroundMarkContent .mark-item .item-list');
+                            // 实例化自定义地图函数
+                            let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
+    
+                            // 初始化地图搜索结果
+                            firstContentList.eq(0).show();
+                            surroundMap._searchNearby('公交', '#traffic .item-list');
+    
+                            // 搜索列表自定义信息弹窗
+                            function searchCallback(currentSelector, resultList) {
+                                $(`${currentSelector} li`).each(function (index) {
+                                    $(this).click(function () {
+                                        let currentItem = resultList[index];
+                                        surroundMap._openInfoWindow(currentItem);
+                                    })
+                                });
+                            }
+                            //一级菜单事件处理及判断二级菜单
+                            $('#surroundMarkTab>li').each(function (index) {
+                                $(this).click(function () {
+                                    $(this).siblings().removeClass('actived');
+                                    $(this).addClass('actived');
+                                    firstContentList.hide();
+                                    // 获取一级菜单对应的content
+                                    let targetContent = firstContentList.eq(index);
+                                    targetContent.show();
+                                    // 判断是否有二级菜单
+                                    let secondTab = targetContent.find('.item-tab li');
+                                    let targetContentId = targetContent.attr("id");
+                                    let contentSelector = `#${targetContentId} .item-list`
+                                    if (secondTab.length > 0) {
+                                        let mapKey = secondTab.first().text();
+                                        surroundMap._searchNearby(mapKey, contentSelector);
+                                        return;
+                                    }
+                                    surroundMap._searchNearby($(this).text(), contentSelector);
+                                });
+                            });
+                            //二级菜单点击事件处理
+                            $('#surroundMarkContent .item-tab li').each(function () {
+                                $(this).click(function () {
+                                    $(this).siblings().removeClass('actived');
+                                    $(this).addClass('actived');
+                                    //获取目标父元素
+                                    let targetId = $(this).parents('.mark-item').attr('id');
+                                    surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
+                                });
+                            });
+                        });
+                    </script>
+    
                 </div>
             </div>
         </div>
     </div>
 </body>
-<script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        let lng = 112.141744;
-        let lat = 32.097901;
-        let mapId = "surround-map";
-        let firstContentList = $('#surroundMarkContent .mark-item');
-        let secondContentList = $('#surroundMarkContent .mark-item .item-list');
-        // 实例化自定义地图函数
-        let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
-
-        // 初始化地图搜索结果
-        firstContentList.eq(0).show();
-        surroundMap._searchNearby('公交', '#traffic .item-list');
-
-        // 搜索列表自定义信息弹窗
-        function searchCallback(currentSelector, resultList) {
-            $(`${currentSelector} li`).each(function (index) {
-                $(this).click(function () {
-                    let currentItem = resultList[index];
-                    surroundMap._openInfoWindow(currentItem);
-                })
-            });
-        }
-        //一级菜单事件处理及判断二级菜单
-        $('#surroundMarkTab>li').each(function (index) {
-            $(this).click(function () {
-                $(this).siblings().removeClass('actived');
-                $(this).addClass('actived');
-                firstContentList.hide();
-                // 获取一级菜单对应的content
-                let targetContent = firstContentList.eq(index);
-                targetContent.show();
-                // 判断是否有二级菜单
-                let secondTab = targetContent.find('.item-tab li');
-                let targetContentId = targetContent.attr("id");
-                let contentSelector = `#${targetContentId} .item-list`
-                if (secondTab.length > 0) {
-                    let mapKey = secondTab.first().text();
-                    surroundMap._searchNearby(mapKey, contentSelector);
-                    return;
-                }
-                surroundMap._searchNearby($(this).text(), contentSelector);
-            });
-        });
-        //二级菜单点击事件处理
-        $('#surroundMarkContent .item-tab li').each(function () {
-            $(this).click(function () {
-                $(this).siblings().removeClass('actived');
-                $(this).addClass('actived');
-                //获取目标父元素
-                let targetId = $(this).parents('.mark-item').attr('id');
-                surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
-            });
-        });
-    });
-</script>
 
 </html>

@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     /*申请优惠*/
     let timer = null;
     let username = $('#username');

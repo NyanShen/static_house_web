@@ -128,12 +128,14 @@
     margin-top: 20px;
 }
 
-.building-related .application .form-item {
+/*一行表单提交报错提示popup*/
+
+.form-item {
     position: relative;
     display: inline-block;
 }
 
-.building-related .application i {
+.form-item i {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -141,25 +143,39 @@
     height: 20px;
 }
 
-.building-related .application i.username {
+.form-item i.username {
     background: url("../assets/icons/icon_man.png") no-repeat top center;
 }
 
-.building-related .application i.phoneNumber {
+.form-item i.phoneNumber {
     background: url("../assets/icons/icon_phone.png") no-repeat top center;
 }
 
-.building-related .application input[type=text] {
+.form-item input[type=text] {
     height: 30px;
-    border: 1px solid #ddd;
-    margin-right: 20px;
+    border: 1px solid #eee;
+    margin-right: 10px;
     padding-left: 28px;
 }
 
-.building-related .application .formError {
+.form-item a {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+}
+
+.form-item a:hover {
+    background-color: #14922d;
+}
+
+/*一行表单提交报错提示popup*/
+
+.formError {
     display: none;
     position: absolute;
-    bottom: 30px;
+    top: -28px;
     left: 20px;
     font-size: 12px;
     padding: 6px 8px;
@@ -168,7 +184,7 @@
     background-color: #11a43c;
 }
 
-.building-related .application .formError::after {
+.formError::after {
     position: absolute;
     top: 28px;
     content: '';
@@ -177,18 +193,6 @@
     border-style: solid;
     border-color: #11a43c transparent transparent transparent;
     border-width: 5px;
-}
-
-.building-related .application a {
-    height: 30px;
-    padding: 5px 10px;
-    border-radius: 2px;
-    background-color: #11a43c;
-    color: #fff;
-}
-
-.building-related .application a:hover {
-    background-color: #14922d;
 }
 
 /*热门团购*/

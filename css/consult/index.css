@@ -47,7 +47,7 @@
     width: 350px;
     height: 35px;
     padding-left: 10px;
-    border: 1px solid #f60;
+    border: 1px solid #ff9900;
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -58,14 +58,14 @@
     height: 35px;
     font-size: 18px;
     text-align: center;
-    border: 1px solid #f60;
+    border: 1px solid #ff9900;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     letter-spacing: 10px;
     cursor: pointer;
     overflow: hidden;
     color: #fff;
-    background-color: #f60;
+    background-color: #ff9900;
 }
 /*咨询列表*/
 .consult-list {

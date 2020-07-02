@@ -17,7 +17,7 @@
     width: 350px;
     height: 35px;
     padding-left: 10px;
-    border: 1px solid #f60;
+    border: 1px solid #ff9900;
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -29,14 +29,14 @@
     height: 35px;
     font-size: 18px;
     text-align: center;
-    border: 1px solid #f60;
+    border: 1px solid #ff9900;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     letter-spacing: 10px;
     cursor: pointer;
     overflow: hidden;
     color: #fff;
-    background-color: #f60;
+    background-color: #ff9900;
 }
 
 /*楼盘属性*/
@@ -289,6 +289,7 @@
 
 .scan-wx:hover .scan-wx-popup {
     display: block;
+    z-index: 10;
 }
 
 .scan-wx-popup {
@@ -328,4 +329,52 @@
 
 .popup p {
     line-height: 26px;
+}
+
+/*楼盘标签集合*/
+
+.box-tag {
+    min-height: 80px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.tag-nav {
+    height: 40px;
+    line-height: 40px;
+    font-size: 0;
+    background-color: #f2f2f2;
+}
+
+.tag-nav li {
+    width: 100px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 2px solid #f2f2f2;
+    cursor: pointer;
+}
+
+.tag-nav li.actived {
+    color: #11a43c;
+    border-color: #11a43c;
+}
+
+.tag-content {
+    margin: 0 -15px;
+    padding: 10px 25px;
+    font-size: 12px;
+}
+
+.tag-content li {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.tag-content li a:hover {
+    color: #ff3344;
 }

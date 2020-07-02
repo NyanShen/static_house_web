@@ -4,8 +4,8 @@
     width: 100%;
     min-width: 1200px;
 }
-action
-.box-header {
+
+action .box-header {
     width: 1200px;
     margin: 20px auto 20px;
 }
@@ -328,11 +328,12 @@ action
     position: absolute;
     right: 0;
     top: 12px;
+    font-size: 12px;
+    color: #666;
 }
 
 .line-title>.more:hover {
     text-decoration: underline;
-    color: #666;
 }
 
 /*表格详情类型标题*/
@@ -352,8 +353,7 @@ action
     background-color: #f8f8f8;
 }
 
-.box-title,
-.table-detail-header .title {
+.box-title, .table-detail-header .title {
     font-size: 18px;
     font-weight: bold;
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
@@ -370,6 +370,10 @@ action
     color: #999;
 }
 
+.table-detail-header .title-list {
+    float: right;
+}
+
 .table-detail-header .title-list a:hover {
     color: #11a43c;
 }
@@ -380,7 +384,7 @@ action
 }
 
 .table-detail-content {
-  padding: 25px;
+    padding: 25px;
 }
 
 /*楼盘相册*/
@@ -400,6 +404,7 @@ action
     width: 214px;
     height: 121px;
     overflow: hidden;
+    margin-bottom: 10px;
     background-color: #f7f7f7;
 }
 
@@ -417,9 +422,24 @@ action
     transform: scale(1.05);
 }
 
+.buiding-picture-content p {
+    line-height: 25px;
+}
+
 .buiding-picture-content .text {
-    margin-top: 10px;
     text-align: center;
+}
+
+.buiding-picture-content .title {
+    font-weight: bold;
+}
+
+/*声明免责*/
+
+.box-statement {
+    font-size: 12px;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
 }
 
 /*扫描到手机*/
@@ -481,6 +501,18 @@ action
     width: 118px;
     height: 118px;
     overflow: hidden;
+}
+
+/*空内容样式*/
+
+.empty-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-container .empty-text {
+    line-height: 40px;
+    color: #999;
 }
 
 /*others*/
@@ -555,7 +587,7 @@ action
 
 .bold-red {
     font-weight: bold;
-    color: #df2f30;
+    color: #f34;
 }
 
 .btn-type {
@@ -645,6 +677,12 @@ textarea, input {
     outline: none;
     border-color: #e5e5e5;
     border-radius: 2px;
+}
+
+textarea::placeholder {
+    color: #888;
+    font-size: 12px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
 }
 
 em {

@@ -4,12 +4,12 @@
     position: relative;
     width: 100%;
     height: 106px;
-    overflow: hidden;
     margin-top: 15px;
     border: 1px solid #eee;
 }
 
 .consultant-carousel .arrow {
+    display: none;
     position: absolute;
     top: 0;
     width: 20px;
@@ -56,8 +56,8 @@
 .consultant-carousel .consultant-content {
     position: relative;
     width: 1158px;
-    height: 100%;
-    overflow: hidden;
+    height: 350px;
+    overflow-x: hidden;
 }
 
 .consultant-carousel .consultant-content .consultant-list {
@@ -78,10 +78,8 @@
 }
 
 .consultant-carousel .consultant-list .consultant-info {
+    position: relative;
     width: 135px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .consultant-carousel .consultant-list .consultant-info p {
@@ -121,4 +119,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+
+.consultant-carousel .consultant-info .consultant-scan-popup {
+    display: block;
+    position: absolute;
+    top: 48px;
+    right: 25px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 10;
 }

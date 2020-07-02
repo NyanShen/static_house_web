@@ -1,3 +1,8 @@
+
+.box-dynamic {
+   width: 650px;
+}
+
 .dynamic-content li {
     padding-bottom: 20px;
     margin-bottom: 25px;
@@ -35,9 +40,11 @@
 .dynamic-content li .dynamic-descide .desc{
     color: #666;
     line-height: 25px;
+    font-size: 12px;
 }
 
 .dynamic-content li .dynamic-descide .link {
     margin-left: 10px;
     color: #df2f30;
+    font-size: 12px;
 }
