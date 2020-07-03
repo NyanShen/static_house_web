@@ -82,12 +82,8 @@
     width: 135px;
 }
 
-.consultant-carousel .consultant-list .consultant-info p {
-    line-height: 20px;
-    margin-bottom: 5px;
-}
-
 .consultant-carousel .consultant-list .consultant-info .name {
+    line-height: 26px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -97,18 +93,15 @@
     width: 70px;
     font-size: 12px;
     border: 1px solid #11a43c;
-    padding-left: 10px;
+    padding: 2px 0 2px 10px;
     color: #11a43c;
     border-radius: 2px;
 }
 .consultant-carousel .consultant-list .consultant-info i {
-    position: relative;
-    top: 4px;
-    left: -2px;
     float: left;
     width: 14px;
     height: 14px;
-    background: url('../../assets/icons/icon_message_primary.png') no-repeat left center;
+    background: url('../../assets/icons/icon_message_primary.png') no-repeat -1px 2px;
 }
 
 .consultant-carousel .consultant-list .consultant-image {
@@ -122,11 +115,6 @@
 }
 
 .consultant-carousel .consultant-info .consultant-scan-popup {
-    display: block;
-    position: absolute;
-    top: 48px;
-    right: 25px;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 10;
+    top: 54px;
+    right: 30px;
 }

@@ -141,12 +141,64 @@
                     </div>
                     <div class="arrow arrow-left"></div>
                     <div class="arrow arrow-right"></div>
-                    <div class="detail-content clearfix">
-                        <div class="fl"></div>
-                        <div class="fr"></div>
+                    <div class="htd-content clearfix">
+                        <div class="detail-picture fl">
+                            <a href="" class="image">
+                                <img src="//static.fczx.com/www/assets/images/hous_type_1400x1122.png" alt="">
+                            </a>
+                            <div class="icons">
+                                <a href="javascript:;" title="全屏查看" id="fullscreenBtn"><i class="icon-fullscreen"></i></a>
+                            </div>
+                        </div>
+                        <div class="detail-text fr">
+                            <p class="title">高层G1户型</p>
+                            <div class="btn-type">
+                                <a class="btn-zise">高层</a>
+                                <a class="btn-fengse">户型朝南</a>
+                            </div>
+                            <div class="desc">
+                                <p>
+                                    <span class="field">居  室：</span>
+                                    <span class="value">4室2厅2卫1厨</span>
+                                </p>
+                                <p>
+                                    <span class="field">建筑面积：</span>
+                                    <span class="value">139㎡</span>
+                                </p>
+                                <p>
+                                    <span class="field">销售状态：</span>
+                                    <span class="value">在售</span>
+                                </p>
+                                <p>
+                                    <span class="field">建筑面积：</span>
+                                    <span class="value">约138.00㎡</span>
+                                </p>
+                                <div class="cut-line"></div>
+                                <p>
+                                    <span class="field">参考总价：</span>
+                                    <span class="bold-red">348.5</span>
+                                    <span class="value">万元/套</span>
+                                </p>
+                                <div class="cut-line"></div>
+                            </div>
+                            <div class="contact">
+                                <p><span class="score-point">咨询电话：  4008982461</span></p>
+                                <p class="desc-color">致电售楼处了解项目更多信息</p>
+                                <div class="scan-icon">
+                                    <i></i>
+                                    <div class="bar-popup scan-ht-popup">
+                                        <em><span></span></em>
+                                        <div class="qr-code">
+                                            <img src="//static.fczx.com/www/assets/images/qr_code.jpg" alt="">
+                                            <p>微信扫码打电话</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
         <!--户型图展示 end-->
 
@@ -245,7 +297,40 @@
             </div>
         </div>
         <!--底部footer end-->
-
+        <!-- 户型图全屏图end -->
+        <div class="fullscreen" id="fullscreen">
+            <div class="close-btn" id="closeIcon">
+                <i></i>
+            </div>
+            <div class="screen-content">
+                <div class="screen-picture">
+                    <img src="//static.fczx.com/www/assets/images/hous_type_1400x1122.png" alt="">
+                </div>
+                <div class="arrow arrow-left"></div>
+                <div class="arrow arrow-right"></div>
+            </div>
+            <div class="screen-carousel">
+                <ul class="screen-picture-list">
+                    <li>
+                        <img src="//static.fczx.com/www/assets/images/112x80_4.png" alt="">
+                    </li>
+                </ul>
+            </div> 
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#closeIcon').click(function () {
+                        $('#fullscreen').hide();
+                    });
+                })
+            </script>
+        </div>
+        <!-- 户型图全屏图start -->
 </body>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fullscreenBtn').click(function () {
+            $('#fullscreen').show();
+        });
+    })
+</script>
 </html>

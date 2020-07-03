@@ -227,7 +227,7 @@ action .box-header {
     display: none;
     position: absolute;
     top: 0;
-    right: 54px;
+    right: 46px;
     padding: 0 10px;
     border: 1px solid #eee;
     border-radius: 2px;
@@ -242,7 +242,11 @@ action .box-header {
     padding: 10px 0;
 }
 
-.bar-popup em {
+.bar-popup .qr-code p {
+    line-height: 20px;
+}
+
+.bar-popup>em {
     position: absolute;
     display: block;
     top: 18px;
@@ -255,7 +259,7 @@ action .box-header {
     box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
 }
 
-.bar-popup em span {
+.bar-popup>em span {
     position: absolute;
     top: -6px;
     right: 1px;
@@ -263,6 +267,31 @@ action .box-header {
     border-width: 6px 0 6px 6px;
     border-style: solid;
     border-color: transparent transparent transparent #fff;
+}
+
+.bar-popup .top-arrow {
+    position: absolute;
+    display: block;
+    top: -6px;
+    right: 60px;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #eee transparent;
+    box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
+}
+
+.bar-popup .top-arrow em {
+    position: absolute;
+    display: block;
+    top: 1px;
+    right: -6px;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
 }
 
 /*float*/
@@ -390,7 +419,7 @@ action .box-header {
 /*楼盘相册*/
 
 .buiding-picture-content {
-    margin: 0 -20px;
+    margin: 0 -10px;
 }
 
 .buiding-picture-content li {
@@ -401,7 +430,7 @@ action .box-header {
 .buiding-picture-content .picture {
     display: block;
     position: relative;
-    width: 214px;
+    width: 210px;
     height: 121px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -630,6 +659,103 @@ action .box-header {
     font-size: 16px;
     position: relative;
     top: 6px;
+}
+
+/*全屏默认设置*/
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+}
+
+.fullscreen .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.fullscreen .close-btn i {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url('../assets/icons/icon_close32.png') no-repeat center center;
+}
+
+.screen-content {
+    min-width: 95%;
+    margin: 20px auto;
+}
+
+.screen-content .screen-picture {
+    position: relative;
+    text-align: center;
+}
+
+.screen-content .screen-picture img {
+    max-height: 825px;
+}
+
+.screen-content .arrow {
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+}
+
+.screen-content .arrow.arrow-left {
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/icons/icon_lefts.png') no-repeat center center;
+}
+.screen-content .arrow.arrow-left:hover {
+    background: url('../assets/icons/icon_lefts_hv.png') no-repeat center center;
+}
+
+.screen-content .arrow.arrow-right {
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/icons/icon_rights.png') no-repeat center center;
+}
+
+.screen-content .arrow.arrow-right:hover {
+    background: url('../assets/icons/icon_rights_hv.png') no-repeat center center;
+}
+
+.screen-carousel {
+    height: 80px;
+    width: 95%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.screen-carousel .screen-picture-list {
+    width: 4000px;
+    height: 80px;
+}
+
+.screen-carousel .screen-picture-list li {
+    position: relative;
+    float: left;
+    cursor: pointer;
+    width: 112px;
+    height: 80px;
+    margin-right: 10px;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.screen-carousel .screen-picture-list li img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /*覆盖浏览器以及标签的一些默认样式*/

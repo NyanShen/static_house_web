@@ -1,18 +1,14 @@
-/*资讯查询*/
+/*楼盘查询*/
 
-.building-search {
-    position: relative;
-    padding: 20px 0;
-    border-bottom: 1px solid #f2f2f2;
-    background-color: #f7f7f7;
-    box-shadow: 0 0 3px #f2f2f2;
+.box-search {
+    margin: 20px 0;
 }
 
-.building-search .search-content {
-    width: 470px;
+.search-content {
+    width: 580px;
 }
 
-.building-search .search-input {
+.search-content .search-input {
     float: left;
     width: 350px;
     height: 35px;
@@ -23,7 +19,7 @@
     border-bottom-right-radius: 0;
 }
 
-.building-search .search-btn {
+.search-content .search-btn {
     float: left;
     width: 120px;
     height: 35px;
@@ -37,6 +33,24 @@
     overflow: hidden;
     color: #fff;
     background-color: #ff9900;
+}
+
+.search-content .search-by-map {
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #666;
+}
+
+.search-content .search-by-map:hover {
+    color: #ff9900;
+}
+
+.search-content .search-by-map i {
+    float: left;
+    width: 24px;
+    height: 35px;
+    background: url("../../assets/icons/icon_map.png") no-repeat center 6px;
 }
 
 /*楼盘属性*/
