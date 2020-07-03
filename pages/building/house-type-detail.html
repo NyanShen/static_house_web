@@ -66,18 +66,29 @@
     </div>
     <!--头部导航栏end-->
 
-    <!--楼盘查询start-->
-    <div class="building-search mb20">
-        <div class="box-content">
-            <div class="search-content">
-                <form action="" class="clearfix">
+    <!--楼盘面包屑及查询start-->
+    <div class="box-search">
+        <div class="box-content clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="">新房</a>
+                <span>></span>
+                <a href="">楼盘主页</a>
+                <span>></span>
+                <a href="">楼盘属性名称</a>
+            </div>
+            <!-- 面包屑end -->
+            <div class="search-content clearfix fr">
+                <form action="" class="search-form clearfix fl">
                     <input type="text" class="search-input" placeholder="楼盘名或地址">
                     <input type="submit" class="search-btn" value="搜索">
                 </form>
+                <a href="" class="search-by-map fr"><i></i>地图找房</a>
             </div>
         </div>
     </div>
-    <!--楼盘查询end-->
+    <!--楼盘面包屑及查询end-->
 
     <div class="box-content">
         <!--二级导航 begin-->
@@ -105,7 +116,7 @@
                 </ul>
             </div>
             <div class="box-content-shadow mt20">
-                <div class="house-type-detail clearfix">
+                <div class="house-type-detail">
                     <div class="detail-nav">
                         <ul class="clearfix">
                             <li>
@@ -128,8 +139,14 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="arrow arrow-left"></div>
+                    <div class="arrow arrow-right"></div>
+                    <div class="detail-content clearfix">
+                        <div class="fl"></div>
+                        <div class="fr"></div>
+                    </div>
                 </div>
-            </div>
+            </div> 
         </div>
         <!--户型图展示 end-->
 
