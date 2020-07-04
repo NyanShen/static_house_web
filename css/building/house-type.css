@@ -139,6 +139,91 @@
     border-color: #11a43c;
 }
 
+/*户型图顾问*/
+
+.consult-contact .consult {
+    position: relative;
+    width: 860px;
+    height: 135px;
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+}
+
+.consult-contact .consult .title-name {
+    font-size: 16px;
+    color: #666;
+}
+
+.consult-contact .arrow i {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 15px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.consult-contact .arrow .arrow-left {
+    right: 40px;
+    background: url('../../assets/icons/squre_left.png') no-repeat center center;
+}
+.consult-contact .arrow .arrow-right {
+    background: url('../../assets/icons/squre_right.png') no-repeat center center;
+}
+
+.consult-contact .consult-hidden {
+    position: relative;
+    width: 820px;
+    height: 80px;
+    overflow-x: hidden;
+}
+
+.consult-contact .consultant-hidden-list {
+    top: 16px;
+    margin: 0 -20px;
+}
+
+.consult-contact .consultant-hidden-list li {
+    width: 185px;
+    margin-left: 30px;
+}
+
+.consult-contact .consultant-hidden-list .consultant-info {
+    width: 100px;
+}
+
+.consult-contact .consult-content {
+    position: relative;
+    width: 820px;
+    height: 80px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.consult-contact .contact {
+    height: 135px;
+    width: 320px;
+    padding: 20px;
+    background-color: #f5fdf6;
+}
+
+.consult-contact .contact p {
+    line-height: 30px;
+}
+
+.consult-contact .contact .scan-wx {
+    font-size: 12px;
+    color: #ff3344;
+    cursor: pointer;
+}
+
+.consult-contact .contact .scan-wx i {
+    float: left;
+    width: 20px;
+    height: 25px;
+    background: url('../../assets/icons/icon_scan_red.png') no-repeat left 9px;
+}
+
 /* 户型图详情 */
 
 .house-type-detail {
@@ -199,9 +284,11 @@
     background-color: #fff;
     border-color: #11a43c;
 }
+
 .htd-content {
     margin: 25px 0;
 }
+
 .htd-content .detail-picture {
     position: relative;
     width: 700px;
@@ -250,7 +337,7 @@
     margin-top: 20px;
 }
 
-.htd-content .detail-text .desc p{
+.htd-content .detail-text .desc p {
     margin: 20px 0;
 }
 
@@ -264,6 +351,7 @@
     height: 80px;
     background-color: #f5fdf6;
     padding: 10px 20px;
+    margin: 20px 0;
 }
 
 .htd-content .detail-text .contact p {
@@ -278,16 +366,41 @@
     cursor: pointer;
 }
 
-.htd-content .detail-text .scan-icon i{
+.htd-content .detail-text .scan-icon i {
     display: block;
     width: 30px;
     height: 30px;
     background: url('../../assets/icons/icon_code.png') no-repeat center 6px;
 }
+
 .htd-content .detail-text .scan-icon:hover .scan-ht-popup {
     display: block;
+    z-index: 12;
 }
+
 .scan-ht-popup {
     top: -8px;
     right: 24px;
+}
+
+/*详情顾问列表*/
+
+.consultants .sub-title {
+    text-align: center;
+    margin-top: -20px;
+}
+
+.consultants .sub-title .title-name {
+    padding: 2px 10px;
+    color: #666;
+    background-color: #fff;
+}
+
+.consultants .consultant-list li {
+    margin: 10px;
+    padding: 0 5px;
+}
+
+.consultants .consultant-list .consultant-info {
+    width: 100px;
 }

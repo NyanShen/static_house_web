@@ -1,17 +1,17 @@
 $(document).ready(function () {
     /*在线咨询popup*/
-    $('.consultant-list li .consultant-info').each(function(index) {
+    $('.consultant-hidden-list li .consultant-info').each(function(index) {
         $(this).hover(function() {
-            $(this).children('.consultant-scan-popup').eq(index).show();
+            $(this).children('.consultant-scan-popup').show();
         }, function() {
-            $(this).children('.consultant-scan-popup').eq(index).hide();
+            $(this).children('.consultant-scan-popup').hide();
         })
     })
     /*置业顾问轮播*/
-    let consultantCarouselList = $('.consultant-list');
+    let consultantCarouselList = $('.consultant-hidden-list');
     let consultantArrowLeft = $('.consultant-carousel>.arrow-left');
     let consultantArrowRight = $('.consultant-carousel>.arrow-right');
-    let consultantListLength = $('.consultant-list li').length;
+    let consultantListLength = $('.consultant-hidden-list li').length;
     let consultantItemWidth = 240;
     let consultantStepWidth = 1200;
     let consultantShowLength = 5;

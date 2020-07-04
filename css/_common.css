@@ -10,13 +10,13 @@ action .box-header {
     margin: 20px auto 20px;
 }
 
-.box-header>a {
+.box-header > a {
     font-size: 28px;
     font-weight: bold;
     color: #11a43c;
 }
 
-.box-header>span {
+.box-header > span {
     font-size: 18px;
     color: #666;
     padding-left: 10px;
@@ -82,18 +82,23 @@ action .box-header {
     color: #666;
 }
 
-.box-footer .about span, .box-footer .about a {
+.box-footer .about span,
+.box-footer .about a {
     color: #fff;
     height: 30px;
     line-height: 30px;
     margin: 0 5px;
 }
 
-.box-footer .about a:hover, .box-footer .record a:hover {
+.box-footer .about a:hover,
+.box-footer .record a:hover {
     color: #11a43c;
 }
 
-.box-footer .copyright, .box-footer .contact, .box-footer .record, .box-footer .record a {
+.box-footer .copyright,
+.box-footer .contact,
+.box-footer .record,
+.box-footer .record a {
     height: 25px;
     line-height: 25px;
     font-size: 12px;
@@ -124,33 +129,34 @@ action .box-header {
     background-color: #11a43c;
 }
 
-.home-nav>.nav-content {
+.home-nav > .nav-content {
     width: 1200px;
     margin: 0 auto;
 }
 
-.home-nav>.nav-content>.nav-logo, .home-nav>.nav-content li {
+.home-nav > .nav-content > .nav-logo,
+.home-nav > .nav-content li {
     display: inline-block;
     height: 50px;
     line-height: 50px;
     padding: 0 10px;
 }
 
-.home-nav>.nav-content>.nav-city {
+.home-nav > .nav-content > .nav-city {
     height: 50px;
     line-height: 50px;
     padding-right: 5px;
 }
 
-.home-nav>.nav-content>.nav-city a {
+.home-nav > .nav-content > .nav-city a {
     position: relative;
     border: 1px solid #eee;
     border-radius: 2px;
     padding: 3px 20px 3px 12px;
 }
 
-.home-nav>.nav-content>.nav-city a::after {
-    content: '';
+.home-nav > .nav-content > .nav-city a::after {
+    content: "";
     position: absolute;
     right: 5px;
     top: 10px;
@@ -160,22 +166,22 @@ action .box-header {
     border-right: 5px solid transparent;
 }
 
-.home-nav>.nav-content>.nav-list li:hover {
+.home-nav > .nav-content > .nav-list li:hover {
     background-color: #14922d;
 }
 
-.home-nav>.nav-content a {
+.home-nav > .nav-content a {
     font-weight: bold;
     padding: 15px 0;
     color: #fff;
 }
 
-.home-nav>.nav-content>.nav-login {
+.home-nav > .nav-content > .nav-login {
     padding-left: 15px;
     background: url("//static.fczx.com/www/assets/icons/user.png") no-repeat left center;
 }
 
-.home-nav>.nav-content>.nav-login li a:hover {
+.home-nav > .nav-content > .nav-login li a:hover {
     text-decoration: underline;
 }
 
@@ -206,13 +212,13 @@ action .box-header {
     line-height: 48px;
     text-align: center;
     background-color: #fff;
-    box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
+    box-shadow: 0 0 10px 0 rgba(20, 34, 67, 0.1);
     margin-bottom: 5px;
 }
 
 .fix-side li:hover {
     background-color: #11a43c;
-    box-shadow: 0 0 10px 0 rgba(17, 164, 60, .1);
+    box-shadow: 0 0 10px 0 rgba(17, 164, 60, 0.1);
 }
 
 .fix-side .to-top-btn:hover a {
@@ -233,7 +239,7 @@ action .box-header {
     border-radius: 2px;
     color: #666;
     background-color: #fff;
-    box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
+    box-shadow: 0 0 10px 0 rgba(20, 34, 67, 0.1);
 }
 
 .bar-popup .qr-code {
@@ -246,7 +252,7 @@ action .box-header {
     line-height: 20px;
 }
 
-.bar-popup>em {
+.bar-popup > em {
     position: absolute;
     display: block;
     top: 18px;
@@ -256,10 +262,10 @@ action .box-header {
     border-width: 6px 0 6px 6px;
     border-style: solid;
     border-color: transparent transparent transparent #eee;
-    box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
+    box-shadow: 0 0 10px 0 rgba(20, 34, 67, 0.1);
 }
 
-.bar-popup>em span {
+.bar-popup > em span {
     position: absolute;
     top: -6px;
     right: 1px;
@@ -279,7 +285,7 @@ action .box-header {
     border-width: 0 6px 6px 6px;
     border-style: solid;
     border-color: transparent transparent #eee transparent;
-    box-shadow: 0 0 10px 0 rgba(20, 34, 67, .1);
+    box-shadow: 0 0 10px 0 rgba(20, 34, 67, 0.1);
 }
 
 .bar-popup .top-arrow em {
@@ -304,7 +310,8 @@ action .box-header {
     float: right;
 }
 
-.fl, .fr {
+.fl,
+.fr {
     display: inline;
 }
 
@@ -344,7 +351,7 @@ action .box-header {
     border-bottom: 1px solid #ddd;
 }
 
-.line-title>.title-name {
+.line-title > .title-name {
     font-size: 16px;
     font-weight: bold;
     height: 40px;
@@ -353,7 +360,7 @@ action .box-header {
     border-bottom: 3px solid #11a43c;
 }
 
-.line-title>.more {
+.line-title > .more {
     position: absolute;
     right: 0;
     top: 12px;
@@ -361,7 +368,7 @@ action .box-header {
     color: #666;
 }
 
-.line-title>.more:hover {
+.line-title > .more:hover {
     text-decoration: underline;
 }
 
@@ -370,8 +377,8 @@ action .box-header {
 .table-detail {
     margin-top: 20px;
     border: 1px solid #eee;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .table-detail-header {
@@ -382,7 +389,8 @@ action .box-header {
     background-color: #f8f8f8;
 }
 
-.box-title, .table-detail-header .title {
+.box-title,
+.table-detail-header .title {
     font-size: 18px;
     font-weight: bold;
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
@@ -430,7 +438,7 @@ action .box-header {
 .buiding-picture-content .picture {
     display: block;
     position: relative;
-    width: 210px;
+    width: 209px;
     height: 121px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -462,6 +470,64 @@ action .box-header {
 .buiding-picture-content .title {
     font-weight: bold;
 }
+
+/*置业顾问公共样式*/
+
+.consultant-hidden-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 4000px;
+}
+
+.consultant-list li {
+    float: left;
+    width: 180px;
+}
+
+.consultant-hidden-list li {
+    float: left;
+    width: 200px;
+}
+
+.consultant-info {
+    position: relative;
+    width: 135px;
+}
+
+.consultant-info .name {
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.consultant-info a {
+    display: block;
+    width: 70px;
+    font-size: 12px;
+    border: 1px solid #11a43c;
+    padding: 2px 0 2px 10px;
+    color: #11a43c;
+    border-radius: 2px;
+}
+.consultant-info i {
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: url('../assets/icons/icon_message_primary.png') no-repeat -1px 2px;
+}
+
+.consultant-image {
+    margin-right: 12px;
+}
+
+.consultant-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 
 /*声明免责*/
 
@@ -628,27 +694,27 @@ action .box-header {
     padding: 2px 5px;
 }
 
-.btn-type>.btn-zise {
+.btn-type > .btn-zise {
     border: 1px solid #b68fd8;
     color: #b68fd8;
 }
 
-.btn-type>.btn-fengse {
+.btn-type > .btn-fengse {
     border: 1px solid #e08585;
     color: #e08585;
 }
 
-.btn-type>.btn-chengse {
+.btn-type > .btn-chengse {
     border: 1px solid #cc9752;
     color: #cc9752;
 }
 
-.btn-type>.btn-lanse {
+.btn-type > .btn-lanse {
     border: 1px solid #77be66;
     color: #77be66;
 }
 
-.btn-type>.btn-lvse {
+.btn-type > .btn-lvse {
     border: 1px solid #b68fd8;
     color: #b68fd8;
 }
@@ -664,6 +730,7 @@ action .box-header {
 /*全屏默认设置*/
 
 .fullscreen {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -684,12 +751,18 @@ action .box-header {
     display: block;
     width: 32px;
     height: 32px;
-    background: url('../assets/icons/icon_close32.png') no-repeat center center;
+    background: url("../assets/icons/icon_close32.png") no-repeat center center;
 }
 
 .screen-content {
-    min-width: 95%;
+    width: 95%;
+    height: 100%;
     margin: 20px auto;
+    overflow-y: auto;
+}
+
+.screen-content::-webkit-scrollbar {
+    display: none;
 }
 
 .screen-content .screen-picture {
@@ -697,42 +770,66 @@ action .box-header {
     text-align: center;
 }
 
-.screen-content .screen-picture img {
-    max-height: 825px;
-}
-
 .screen-content .arrow {
     position: absolute;
     top: 40%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
 .screen-content .arrow.arrow-left {
     left: 0;
-    width: 50px;
-    height: 50px;
-    background: url('../assets/icons/icon_lefts.png') no-repeat center center;
-}
-.screen-content .arrow.arrow-left:hover {
-    background: url('../assets/icons/icon_lefts_hv.png') no-repeat center center;
+    background: url("../assets/icons/icon_lefts.png") no-repeat center center;
 }
 
 .screen-content .arrow.arrow-right {
     right: 0;
-    width: 50px;
-    height: 50px;
-    background: url('../assets/icons/icon_rights.png') no-repeat center center;
+    background: url("../assets/icons/icon_rights.png") no-repeat center center;
+}
+
+.screen-content .arrow.arrow-left:hover {
+    background: url("../assets/icons/icon_lefts_hv.png") no-repeat center center;
 }
 
 .screen-content .arrow.arrow-right:hover {
-    background: url('../assets/icons/icon_rights_hv.png') no-repeat center center;
+    background: url("../assets/icons/icon_rights_hv.png") no-repeat center center;
 }
 
 .screen-carousel {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
     height: 80px;
-    width: 95%;
-    margin: 20px auto;
     overflow: hidden;
+}
+
+.screen-carousel .arrow {
+    position: absolute;
+    top: 25px;
+    width: 22px;
+    height: 33px;
+    cursor: pointer;
+    background: url("../assets/icons/arrow.png") no-repeat center center;
+}
+
+.screen-carousel .arrow.arrow-left {
+    left: 0;
+    background-position: 0 0;
+}
+
+.screen-carousel .arrow.arrow-right {
+    right: 0;
+    background-position: -23px 0;
+}
+
+.screen-carousel .arrow.arrow-left:hover {
+    background-position: 0 -34px;
+}
+
+.screen-carousel .arrow.arrow-right:hover {
+    background-position: -23px -34px;
 }
 
 .screen-carousel .screen-picture-list {
@@ -776,9 +873,7 @@ form, fieldset, legend, input, textarea, button,
 /* 表单元素 */
 
 table, thead, tbody, th, tr, td
-/* 表格元素 */
-
-    {
+/* 表格元素 */ {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -787,7 +882,7 @@ table, thead, tbody, th, tr, td
 
 body {
     font-size: 14px;
-    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei"!important;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei" !important;
 }
 
 a {
@@ -799,7 +894,8 @@ ul {
     list-style: none;
 }
 
-textarea, input {
+textarea,
+input {
     outline: none;
     border-color: #e5e5e5;
     border-radius: 2px;
