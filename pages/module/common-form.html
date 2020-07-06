@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+</head>
+<style>
+    .box-modal {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+        position: fixed;
+        width: 600px;
+        min-height: 150px;
+        background-color: #fff;
+    }
+    .modal-header {
+        height: 55px;
+        line-height: 55px;
+        padding: 0 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .modal-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #11a43c;
+    }
+    .modal-form {
+        width: 320px;
+        margin: 25px auto;
+    }
+
+    .modal-form .form-item {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .modal-form .form-item input[type=text] {
+        width: 100%;
+        height: 35px;
+    }
+
+    .modal-form .form-item-code input[type=text] {
+        width: 215px;
+    }
+
+    .modal-form .form-item-code input[type=button] {
+        width: 90px;
+        height: 35px;
+        line-height: 35px;
+        color: #666;
+        cursor: pointer;
+    }
+
+    .modal-form .form-item a{
+        display: block;
+        line-height: 35px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="box-modal">
+        <div class="modal-content">
+            <div class="modal-header clearfix">
+                <span class="modal-title fl">title name</span>
+                <span class="modal-close fr">icon</span>
+            </div>
+            <div class="modal-form">
+                <div class="form-item">
+                    <input type="text" placeholder="请输入姓名">
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="请输入手机号码">
+                </div>
+
+                <div class="form-item form-item-code">
+                    <input type="text" placeholder="请输入手机验证码">
+                    <input type="button" value="获取验证码">
+                </div>
+                <div class="form-item">
+                    <a href="javascript:;" class="form-btn">提交</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var clientWidh = document.documentElement.clientWidth; //屏幕宽
+    var boxWidth = $(".modal-content").width();
+    //让提示框居中
+    $(".modal-content").css({
+        top: 100 + "px",
+        left: (clientWidh - boxWidth) / 2 + "px"
+    });
+</script>
+
+</html>
