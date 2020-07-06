@@ -1,0 +1,47 @@
+.house-detail .detail-item {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.house-detail .detail-item .title {
+    color: #333;
+    font-size: 18px;
+}
+
+.house-detail .detail-item .item-list {
+    margin-top: 15px;
+}
+
+.house-detail .detail-item .item-list li {
+    display: inline-block;
+    width: 800px;
+    line-height: 25px;
+    padding: 5px 0;
+}
+
+.house-detail .detail-item .basic-item-list li {
+    width: 395px;
+}
+
+.house-detail .detail-item .field {
+    margin-right: 5px;
+    color: #999;
+}
+
+.house-detail .detail-item .link {
+    color: #666;
+    padding-right: 10px;
+}
+
+.house-detail .detail-item .intro {
+    margin-top: 15px;
+    color: #666;
+    text-indent: 20px;
+    line-height: 25px;
+}
+
+.house-detail .detail-item .link:hover {
+    color: #ff3344;
+}

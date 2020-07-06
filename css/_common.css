@@ -5,7 +5,7 @@
     min-width: 1200px;
 }
 
-action .box-header {
+.box-header {
     width: 1200px;
     margin: 20px auto 20px;
 }
@@ -618,6 +618,19 @@ action .box-header {
     margin-bottom: 10px;
 }
 
+.cut-line-dashed {
+    border-bottom: 1px dashed #f4f4f4;
+    clear: both;
+}
+
+.vertical-bar {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background-color: #11a43c;
+    margin-right: 5px;
+}
+
 .mb10 {
     margin-bottom: 10px;
 }
@@ -640,6 +653,14 @@ action .box-header {
 
 .mb30 {
     margin-bottom: 30px;
+}
+
+.primary-color {
+    color: #11a43c;
+}
+
+.tip-color {
+    color: #ff3344;
 }
 
 .desc-color {

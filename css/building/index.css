@@ -392,3 +392,50 @@
 .tag-content li a:hover {
     color: #ff3344;
 }
+
+/*楼盘二维码标题*/
+
+.bd-title {
+    margin: 10px 0 20px 0;
+}
+
+.bd-title .picture {
+    width: 64px;
+    height: 64px;
+}
+
+.bd-title .picture img {
+    width: 64px;
+    height: 64px;
+}
+
+.bd-title .text {
+    margin-left: 20px;
+}
+
+.bd-title .text .title-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+}
+
+.bd-title .text .title-name:hover {
+    color: #df2f30;
+}
+
+.bd-title .text .tags {
+    margin-top: 15px;
+}
+
+.bd-title .text .tags span {
+    color: #666;
+    background-color: #f2f2f2;
+    padding: 2px 8px;
+    margin-right: 10px;
+}
+
+.bd-title .text .tags .solding {
+    color: #fff;
+    background-color: #409DFB;
+}

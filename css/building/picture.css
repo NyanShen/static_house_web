@@ -1,0 +1,211 @@
+/*相册菜单*/
+
+.picture-menu {
+    width: 255px;
+    padding: 5px 20px 20px 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.picture-menu li {
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.picture-menu li.actived a {
+    color: #df2f30;
+    font-weight: bold;
+}
+
+.picture-menu li:hover a {
+    color: #df2f30;
+}
+
+/*相册显示框*/
+
+.picture-show {
+    width: 922px;
+    padding: 0 20px 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.picture-show .toggle {
+    display: block;
+    text-align: right;
+    line-height: 40px;
+    color: #666;
+    cursor: pointer;
+}
+
+.picture-show .toggle i {
+    float: right;
+    width: 20px;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.picture-show .toggle-pic i {
+    background: url('../../assets/icons/pic.png') no-repeat right 9px;
+}
+
+.picture-show .toggle-list i {
+    background: url('../../assets/icons/list.png') no-repeat right 9px;
+}
+
+.picture-show .toggle:hover span {
+    color: #df2f30;
+}
+
+/*x相册显示列表*/
+
+.picture-list {
+    margin: 0 -12px;
+}
+
+.picture-list li {
+    float: left;
+    margin: 0 12px 20px 12px;
+}
+
+.picture-list li .image {
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    border: 1px solid #f7f7f7;
+    background-color: #f7f7f7;
+}
+
+.picture-list li .image:hover {
+    border-color: #11a43c;
+}
+
+.picture-list li .image img {
+    position: absolute;
+    max-width: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.picture-list li .text {
+    display: block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #666;
+}
+
+.picture-list li .text:hover {
+    color: #df2f30;
+}
+
+/*相册高清显示*/
+.picture-carousel  {
+    display: none;
+    position: relative;
+}
+
+.picture-carousel .picture-count {
+    position: absolute;
+    top: -32px;
+    font-size: 16px;
+}
+
+.picture-count .current {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff3344;
+}
+
+.picture-carousel .carousel-show {
+    position: relative;
+    width: 880px;
+    height: 600px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.picture-carousel .carousel-show a img {
+    position: absolute;
+    max-width: 880px;
+    max-height: 600px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.picture-carousel .carousel-show .arrow {
+    position: absolute;
+    top: 45%;
+    width: 25px;
+    height: 80px;
+}
+
+.picture-carousel .carousel-show .arrow-left {
+    left: 10px;
+    background: url('../../assets/icons/left50.png') no-repeat center center;
+}
+
+.picture-carousel .carousel-show .arrow-right {
+    right: 10px;
+    background: url('../../assets/icons/right50.png') no-repeat center center;
+}
+
+.picture-carousel .carousel-content {
+    position: relative;
+    width: 825px;
+    height: 80px;
+    margin: 0 25px;
+}
+
+.picture-carousel .carousel-content .arrow {
+    position: absolute;
+    top: 0;
+    width: 18px;
+    height: 80px;
+}
+
+.picture-carousel .carousel-content .arrow-left {
+    left: -25px;
+    background: url('../../assets/icons/left_white.png') no-repeat center center;
+    background-color: #ddd;
+}
+
+.picture-carousel .carousel-content .arrow-left:hover, .picture-carousel .carousel-content .arrow-right:hover {
+    background-color: #ccc;
+}
+
+.picture-carousel .carousel-content .arrow-right {
+    right: -30px;
+    background: url('../../assets/icons/right_white.png') no-repeat center center;
+    background-color: #ddd;
+}
+
+.picture-carousel .carousel-list li {
+    position: relative;
+    float: left;
+    width: 112px;
+    height: 80px;
+    overflow: hidden;
+    border: 2px solid #f7f7f7;
+    background-color: #f7f7f7;
+}
+
+.picture-carousel .carousel-list li img {
+    position: absolute;
+    max-width: 120px;
+    max-height: 80px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}

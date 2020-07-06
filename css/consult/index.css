@@ -74,7 +74,7 @@
 }
 .consult-list li {
     border-bottom: 1px dashed #eee;
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .consult-list .has-img .item-picture {
@@ -126,10 +126,6 @@
 
 .consult-list li .desc a {
     color: #666;
-}
-
-.consult-ad {
-    margin: 30px 0 20px 0;
 }
 
 /*咨询详情*/
