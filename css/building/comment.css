@@ -1,7 +1,11 @@
 /*点评列表*/
+
 .comment-header {
-  min-height: 40px;
-  line-height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
 }
 
 .comment-category a {
@@ -27,7 +31,7 @@
     background-color: #11a43c;
 }
 
-.comment-action .action-btn i{
+.comment-action .action-btn i {
     position: absolute;
     top: 8px;
     left: 12px;
@@ -41,51 +45,161 @@
     color: #11a43c;
 }
 
-.comment-content li {
+.comment-list li {
     padding-bottom: 20px;
     margin-bottom: 25px;
     border-bottom: 1px dashed #ddd;
 }
 
-.comment-item .user-icon {
+.comment-list .user-icon {
     float: left;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
 }
 
-.comment-item .user-icon img {
-    width: 60px;
-    height: 60px;
+.comment-list .user-icon img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 
-.comment-item .user-comment {
+ .user-comment {
     float: left;
     width: 1068px;
     margin-left: 20px;
 }
 
-.comment-item .user-comment .content {
-    line-height: 25px;
+ .user-comment .name {
+    display: block;
+    color: #666;
 }
 
-.comment-item .user-comment .content a:hover {
+ .user-comment .content {
+    line-height: 20px;
+    margin: 8px 0;
+}
+
+ .user-comment .picture {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+ .user-comment .picture a {
+    float: left;
+    width: 80px;
+    height: 60px;
+    margin-right: 5px;
+}
+
+ .user-comment a:hover {
     color: #df2f30;
 }
 
-.comment-item .user-comment .descibe {
+ .user-comment .publish {
     font-size: 12px;
-    line-height: 35px;
-    margin-top: 5px;
     color: #999;
 }
 
-.comment-item .user-comment .descibe i {
-    position: relative;
-    top: 8px;
+ .user-comment .action {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+ .user-comment .action i {
     float: left;
     width: 16px;
     height: 16px;
-    background: url('../../assets/icons/icon_zan.png') no-repeat center center;
+}
+
+ .user-comment .action:hover span {
+    color: #df2f30;
+}
+
+ .user-comment .action-zan i {
+    background: url('../../assets/icons/zan_grey.png') no-repeat center center;
+}
+
+ .user-comment .action-zan:hover i {
+    background: url('../../assets/icons/zan_full.png') no-repeat center center;
+}
+
+ .user-comment .action-zan-actived span {
+    cursor: text;
+    color: #df2f30;
+}
+
+ .user-comment .action-zan-actived i {
+    cursor: text;
+    background: url('../../assets/icons/zan_holl.png') no-repeat center center;
+}
+
+/*评论详情列表*/
+
+.comment-content .user-comment {
+    width: 770px;
+}
+
+.comment-footer {
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+
+.comment-footer a {
+    color: #999;
+    padding-right: 20px;
+    background: url('../../assets/icons/down_grey.png') no-repeat right center;
+}
+
+.comment-footer a:hover {
+    color: #df2f30;
+}
+
+/*区域热评楼盘*/
+.hot-pic-list li{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.hot-pic-list li .content {
+    margin-left: 20px;
+    width: 182px;
+}
+
+.hot-pic-list li .item-picture {
+    position: relative;
+    display: block;
+    width: 95px;
+    height: 70px;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+.hot-pic-list li .item-picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.hot-pic-list li .item-title {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+.hot-pic-list li .item-title:hover {
+    color: #df2f30;
+}
+
+.hot-pic-list li .count {
+    display: block;
+    color: #f90;
+    margin: 5px 0;
 }

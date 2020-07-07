@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>周边配套</title>
+    <meta name="keywords" content="周边配套">
+    <meta name="description" content="周边配套">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/surround.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!--头部导航栏start-->
+    <div class="home-nav">
+        <div class="nav-content clearfix">
+            <h2 class="nav-logo fl">
+                <a href="/">房产在线<small>Fang.com</small></a>
+            </h2>
+            <div class="nav-city fl">
+                <a href="">襄阳</a>
+            </div>
+            <div class="nav-list fl">
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                    <li><a href="/pages/building" target="_blank">新房</a></li>
+                    <li><a>二手房</a></li>
+                    <li><a>租房</a></li>
+                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                    <li><a>问答</a></li>
+                    <li><a>租房</a></li>
+                    <li><a>海外房产</a></li>
+                </ul>
+            </div>
+            <div class="nav-login fr">
+                <ul>
+                    <li>
+                        <a href="/pages/login">登录</a>
+                    </li>
+                    <li>
+                        <a href="/pages/login/register.html">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-app fr"></div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+
+    <!--楼盘面包屑及查询start-->
+    <div class="box-content">
+        <div class="box-search clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="">新房</a>
+                <span>></span>
+                <a href="">楼盘主页</a>
+                <span>></span>
+                <a href="">楼盘属性名称</a>
+            </div>
+            <!-- 面包屑end -->
+            <div class="search-content clearfix fr">
+                <form action="" class="search-form clearfix fl">
+                    <input type="text" class="search-input" placeholder="楼盘名或地址">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+                <a href="" class="search-by-map fr"><i></i>地图找房</a>
+            </div>
+        </div>
+    </div>
+    <!--楼盘面包屑及查询end-->
+    <div class="cut-line"></div>
+
+    <!-- 楼盘标题start -->
+    <div class="box-content clearfix">
+        <div class="bd-title fl">
+            <div class="picture fl">
+                <a href="">
+                    <img src="//static.fczx.com/www/assets/images/bd_qrcode.png" alt="">
+                </a>
+            </div>
+            <div class="text fl">
+                <p>
+                    <a href="" class="title-name">福星惠誉·京澜誉府</a>
+                    <span class="desc-color">别名：福星苑小区</span>
+                </p>
+                <p class="tags">
+                    <span class="solding">在售</span>
+                    <span>普通住宅</span>
+                    <span>小户型</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 楼盘标题end -->
+
+    <div class="box-content">
+        <!--二级导航 begin-->
+        <div class="second-nav tf mb20">
+            <a href="/pages/building">楼盘主页</a>
+            <a href="/pages/building/detail.html">详情</a>
+            <a href="/pages/building/house-type.html">户型</a>
+            <a href="/pages/building/picture.html">相册</a>
+            <a href="/pages/consult">资讯</a>
+            <a href="/pages/building/surround.html" class="actived">周边配套</a>
+            <a href="/pages/building/comment.html">点评</a>
+            <a href="/pages/building/ask.html">问答</a>
+        </div>
+        <!--二级导航 end-->
+
+        <!--周边配套 begin-->
+        <div class="surround-content">
+            <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+            <script type="text/javascript"
+                src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+            <div class="surround-map" id="surround-map"></div>
+            <div class="surround-mark">
+                <div class="surround-mark-tab">
+                    <ul class="mark-tab-list" id="surroundMarkTab">
+                        <li class="actived">交通</li>
+                        <li>商业</li>
+                        <li>学校</li>
+                        <li>医院</li>
+                    </ul>
+                </div>
+                <div class="surround-mark-content" id="surroundMarkContent">
+                    <div class="mark-item has-tag" id="traffic">
+                        <div class="item-tab">
+                            <ul>
+                                <li class="actived">公交</li>
+                                <li>地铁</li>
+                                <li>停车场</li>
+                                <li>加油站</li>
+                            </ul>
+                        </div>
+                        <ul class="item-list">
+                        </ul>
+                    </div>
+                    <div class="mark-item has-tag" id="business">
+                        <div class="item-tab">
+                            <ul>
+                                <li class="actived">超市</li>
+                                <li>公园</li>
+                                <li>餐饮</li>
+                                <li>银行</li>
+                            </ul>
+                        </div>
+                        <ul class="item-list">
+                        </ul>
+                    </div>
+                    <div class="mark-item" id="school">
+                        <ul class="item-list">
+
+                        </ul>
+                    </div>
+                    <div class="mark-item" id="hospital">
+                        <ul class="item-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    let lng = 112.141744;
+                    let lat = 32.097901;
+                    let mapId = "surround-map";
+                    let firstContentList = $('#surroundMarkContent .mark-item');
+                    let secondContentList = $('#surroundMarkContent .mark-item .item-list');
+                    // 实例化自定义地图函数
+                    let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
+
+                    // 初始化地图搜索结果
+                    firstContentList.eq(0).show();
+                    surroundMap._searchNearby('公交', '#traffic .item-list');
+
+                    // 搜索列表自定义信息弹窗
+                    function searchCallback(currentSelector, resultList) {
+                        $(`${currentSelector} li`).each(function (index) {
+                            $(this).click(function () {
+                                let currentItem = resultList[index];
+                                surroundMap._openInfoWindow(currentItem);
+                            })
+                        });
+                    }
+                    //一级菜单事件处理及判断二级菜单
+                    $('#surroundMarkTab>li').each(function (index) {
+                        $(this).click(function () {
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+                            firstContentList.hide();
+                            // 获取一级菜单对应的content
+                            let targetContent = firstContentList.eq(index);
+                            targetContent.show();
+                            // 判断是否有二级菜单
+                            let secondTab = targetContent.find('.item-tab li');
+                            let targetContentId = targetContent.attr("id");
+                            let contentSelector = `#${targetContentId} .item-list`
+                            if (secondTab.length > 0) {
+                                let mapKey = secondTab.first().text();
+                                surroundMap._searchNearby(mapKey, contentSelector);
+                                return;
+                            }
+                            surroundMap._searchNearby($(this).text(), contentSelector);
+                        });
+                    });
+                    //二级菜单点击事件处理
+                    $('#surroundMarkContent .item-tab li').each(function () {
+                        $(this).click(function () {
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+                            //获取目标父元素
+                            let targetId = $(this).parents('.mark-item').attr('id');
+                            surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
+                        });
+                    });
+                });
+            </script>
+
+        </div>
+        <!--周边配套 end-->
+
+        <!--配套相册 begin-->
+        <div class="box-building-picture table-detail mb20">
+            <div class="table-detail-header">
+                <a href="" class="title">周边实拍</a>
+                <div class="title-list">
+                    <a href="">更多<em>>></em></a>
+                </div>
+            </div>
+            <div class="table-detail-content">
+                <ul class="buiding-picture-content">
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="javascript:;">熙悦天寰鸟瞰配套图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="javascript:;">熙悦天寰鸟瞰配套图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="javascript:;">熙悦天寰鸟瞰配套图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="javascript:;">熙悦天寰鸟瞰配套图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/building_pic_214x160.jpg" alt="">
+                        </a>
+                        <div class="text">
+                            <a href="javascript:;">熙悦天寰鸟瞰配套图</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--配套相册 end-->
+    </div>
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="about">
+                <a href="">关于我们</a>
+                <span>|</span>
+                <a href="">联系我们</a>
+                <span>|</span>
+                <a href="">加入我们</a>
+                <span>|</span>
+                <a href="">网站公告</a>
+                <span>|</span>
+                <a href="">帮助中心</a>
+            </p>
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="">鲁ICP备14025533-3号</a>
+                <a href="">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+.current-price .title-name {
+    font-size: 20px;
+    color: #333;
+    height: 35px;
+    line-height: 35px;
+}
+
+.current-price p {
+    margin-bottom: 8px;
+}
+
+.current-price .field {
+    color: #999;
+}
+
+.current-price .keywords {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f34;
+}
+
+.price-retio {
+    margin: 20px 0;
+}
+
+.price-retio ul {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.price-retio li {
+    display: inline-block;
+    width: 275px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.retio-item-middle {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+.price-retio li p {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+}
+
+.price-retio li .retio {
+    margin-left: 20px;
+}
+
+.price-ratio-chart {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
