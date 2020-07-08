@@ -11,8 +11,8 @@ $(document).ready(function () {
     });
 });
 
-//居中图片
-function justifyPicture(child) {
+//居中元素
+function justifyElement(child) {
     let maxLeft = child.offsetParent().outerHeight() - child.outerHeight();
     let maxTop = child.offsetParent().outerWidth() - child.outerWidth();
     child.css({
@@ -20,6 +20,7 @@ function justifyPicture(child) {
         top: maxTop / 2 + 'px'
     })
 }
+
 //拖动图片
 function dragPicture(moveObj) {
     let maxLeft = moveObj.offsetParent().outerWidth() - moveObj.outerWidth();
@@ -68,4 +69,72 @@ function backToTop() {
             scrollTop: 0
         }, 500)
     })
+}
+
+// 设置元素超时隐藏
+let timer = null;
+function setShowTimeout(element, time = 2000) {
+    timer = setTimeout(function () {
+        element.hide();
+        clearTimeout(timer);
+    }, time);
+}
+
+//设置标签属性值
+function setElementAttr(ele, attr, val) {
+    ele.attr(attr, val)
+}
+
+//清空错误文字
+function clearErrorText(element) {
+    element.text('');
+}
+
+//校验不能为空的字段
+function validateRequired(element, errorElement, name) {
+    let count = 0;
+    if (!element.val()) {
+        count++;
+        errorElement.text(`${name}不能为空`);
+    }
+    return count;
+}
+
+//校验手机号码
+function validatePhone(element, errorElement, name) {
+    let count = 0;
+    let regExpInstance = new RegExp('^1[34589]\\d{9}$');
+    if (!element.val()) {
+        count++;
+        errorElement.text(`${name}不能为空`);
+        return count
+    }
+    if (!regExpInstance.test(element.val())) {
+        count++;
+        errorElement.text(`请输入正确的${name}`);
+    }
+    return count
+}
+
+//校验器匹配
+function validateMapper(fieldId, validateType, rules = {}) {
+    let element = $(`#${fieldId}`);
+    let errorElement = $(`#${fieldId}Error`);
+    switch (validateType) {
+        case 'required':
+            return validateRequired(element, errorElement, nameMapper[fieldId]);
+        case 'phone':
+            return validatePhone(element, errorElement, nameMapper[fieldId]);
+        default:
+            return 0
+    }
+}
+
+//校验
+function validator(validateItems) {
+    let count = 0;
+    validateItems.forEach(item => {
+        count = count + validateMapper(item.fieldId, item.type);
+    });
+    return count;
 }

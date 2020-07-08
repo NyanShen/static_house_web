@@ -1,44 +1,31 @@
 $(document).ready(function () {
 
     /*申请优惠*/
-    let timer = null;
-    let username = $('#username');
-    let phoneNumber = $('#phoneNumber');
-    let usernameError = $('#usernameError');
-    let phoneNumberError = $('#phoneNumberError');
+
     $('#applicationBtn').click(function () {
-        if (!username.val()) {
-            usernameError.text('请填写用户信息');
-            usernameError.show();
-            setShowTimeout(usernameError);
-            return;
-        }
-        if (!phoneNumber.val()) {
-            phoneNumberError.text('请填写手机号码');
-            phoneNumberError.show();
-            setShowTimeout(phoneNumberError);
-            return;
-        }
+        $.FormModal.userForm({ title: '申请优惠', callback: applicationCallback, username: 'Nyan', phone: '13928454036' });
+    });
+
+    function applicationCallback(username, phoneNumber) {
+        console.log(username, phoneNumber)
         app.request({
             url: app.areaApiUrl('/test/test'),
             data: {
-                username: username.val(),
-                mobile: phoneNumber.val()
+                username: username,
+                mobile: phoneNumber
             },
             type: 'GET',
             dataType: 'json',
             headers: {},
             done: function (res) {
-                console.log(res)
             }
-        });       
-    });
-
-    function setShowTimeout(element) {
-        timer = setTimeout(function(){
-            element.hide();
-            clearTimeout(timer);
-        }, 2000);
+        });
     }
 
+    /*参团*/
+
+    $('.hot-purchase .on .join').click(function () {
+
+        $.FormModal.userForm({ title: '特惠参团', message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导' });
+    })
 });

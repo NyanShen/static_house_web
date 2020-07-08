@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/comment.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <style>
 
@@ -1194,6 +1195,31 @@
                 </div>
                 <div class="calculator-result">
                     <p class="sub-title">计算结果</p>
+                    <div class="box-chart">
+                        <div class="chart-pip fl" id="loanPipChart"></div>
+                        <div class="chart-text fl">
+                            <p class="month-pay">月均还款 <span class="price">743</span> 元</p>
+                            <ul class="legend">
+                                <li class="legend-pay">
+                                    <i class="legend-icon blue"></i>
+                                    <span>参考首付：14万（2成）</span>
+                                </li>
+                                <li class="legend-pay">
+                                    <i class="legend-icon primary"></i>
+                                    <span>贷款金额：58万（8成）</span>
+                                </li>
+                                <li class="legend-pay">
+                                    <i class="legend-icon yellow"></i>
+                                    <span>支付利息：52.8万</span><br>
+                                    <span>（利率公积金3.25%，商业性4.90%）</span>
+                                </li>
+                            </ul>
+                            <p class="remark">备注：以等额本息计算结果，数据仅供参考</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator-btn">
+                    <a href="javascript:;">开始计算</a>
                 </div>
             </div>
         </div>
@@ -1487,7 +1513,7 @@
     $(document).ready(function () {
         /*沙盘图*/
         let child = $('#sandPicture');
-        justifyPicture(child);
+        justifyElement(child);
         dragPicture(child);
         /*回到顶部*/
         backToTop();

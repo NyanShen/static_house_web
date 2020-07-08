@@ -1,5 +1,5 @@
 (function () {
-    $.MsgNodal = {
+    $.MsgModal = {
         Alert: function (title, message, okText='确定') {
             GenerateHtml("alert", title, message, okText);
             btnOk();

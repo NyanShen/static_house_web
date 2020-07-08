@@ -9,60 +9,6 @@ let nameMapper = {
     password: "密码"
 }
 
-//设置标签属性值
-function setElementAttr(ele, attr, val) {
-    ele.attr(attr, val)
-}
-//清空错误文字
-function clearErrorText(element) {
-    element.text('');
-}
-//校验不能为空的字段
-function validateRequired(element, errorElement, name) {
-    let count = 0;
-    if (!element.val()) {
-        count++;
-        errorElement.text(`${name}不能为空`);
-    }
-    return count;
-}
-//校验手机号码
-function validatePhone(element, errorElement, name) {
-    let count = 0;
-    let regExpInstance = new RegExp('^1[34589]\\d{9}$');
-    if (!element.val()) {
-        count++;
-        errorElement.text(`${name}不能为空`);
-        return count
-    }
-    if (!regExpInstance.test(element.val())) {
-        count++;
-        errorElement.text(`请输入正确的${name}`);
-    }
-    return count
-}
-//校验器匹配
-function validateMapper(fieldId, validateType, rules = {}) {
-    let element = $(`#${fieldId}`);
-    let errorElement = $(`#${fieldId}Error`);
-    switch (validateType) {
-        case 'required':
-            return validateRequired(element, errorElement, nameMapper[fieldId]);
-        case 'phone':
-            return validatePhone(element, errorElement, nameMapper[fieldId]);
-        default:
-            return 0
-    }
-}
-//校验
-function validator(validateItems) {
-    let count = 0;
-    validateItems.forEach(item => {
-        count = count + validateMapper(item.fieldId, item.type);
-    });
-    return count;
-}
-
 $(document).ready(function () {
     //获取16随机码（授权）
     let authorizationCode = app.randCode(16);
@@ -166,7 +112,7 @@ $(document).ready(function () {
     });
 
     function confirmModel({ message, okText, url }) {
-        $.MsgNodal.Confirm('提示', message, function () {
+        $.MsgModal.Confirm('提示', message, function () {
             window.location.href = url
         }, okText);
     }

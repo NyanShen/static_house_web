@@ -138,6 +138,24 @@
     color: #11a43c;
 }
 
+.building-related .desc {
+    font-size: 12px;
+    color: #999;
+    padding-left: 10px;
+}
+
+.building-related .application-btn {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: #11a43c;
+    color: #fff;
+}
+
+.building-related .application-btn:hover {
+    background-color: #14922d;
+}
+
 .building-related .application {
     position: relative;
     height: 30px;
@@ -358,6 +376,7 @@ table th, table td {
 }
 
 /*右边通用列表格式*/
+
 .table-type-list {
     border: 1px solid #eee;
     padding: 10px;
@@ -369,13 +388,12 @@ table th, table td {
     margin-bottom: 8px;
 }
 
-.table-type-list dt,
-.table-type-list dd {
+.table-type-list dt, .table-type-list dd {
     height: 34px;
     line-height: 34px;
 }
 
-.table-type-list dl span{
+.table-type-list dl span {
     display: inline-block;
     color: #666;
     white-space: nowrap;
@@ -387,7 +405,7 @@ table th, table td {
 
 .table-type-list dt span {
     color: #999;
-} 
+}
 
 .table-type-list dd .list-item {
     display: block;
@@ -401,6 +419,7 @@ table th, table td {
 .table-type-list .price {
     width: 80px;
 }
+
 .table-type-list .area {
     width: 60px;
 }

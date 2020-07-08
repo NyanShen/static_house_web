@@ -439,3 +439,222 @@
     color: #fff;
     background-color: #409DFB;
 }
+
+/*房贷计算*/
+
+.calculator-content {
+    position: relative;
+    min-height: 250px;
+}
+
+.calculator-content .calculator-btn {
+    position: absolute;
+    top: 40%;
+    left: 548px;
+    width: 100px;
+    height: 75px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.calculator-content .calculator-btn a {
+    display: block;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 20px;
+    border-right: 2px;
+    background-color: #11a43c;
+}
+
+.calculator-content .calculator-btn a:hover {
+    background-color: #14922d;
+}
+
+.calculator-content .sub-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.calculator-condition {
+    float: left;
+    width: 600px;
+    padding: 25px;
+    border-right: 1px solid #f2f2f2;
+}
+
+.calculator-result {
+    float: left;
+    width: 560px;
+    padding: 25px;
+}
+
+.select-item {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.select-item .select-label {
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 15px;
+    text-align: right;
+    color: #999;
+}
+
+.select-item .select-content {
+    position: relative;
+    width: 320px;
+    height: 40px;
+}
+
+.select-item .fixed-text {
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+}
+
+.select-item .fixed-text .price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.select-item .fixed-text .desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.select-item .select-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-item .select-text i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background: url('../../assets/icons/triangle-down32.png') no-repeat center center;
+}
+
+.select-item .select-list {
+    display: none;
+    position: absolute;
+    top: 38px;
+    width: 320px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    color: #666;
+    cursor: pointer;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.select-item .select-list li {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.select-item .select-list li:hover {
+    background-color: #f5fdf6;
+}
+
+.select-item-loan {
+    display: none;
+    height: 100px;
+}
+
+.loan-content .loan-item {
+    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.loan-content .loan-total {
+    font-size: 12px;
+    color: #999;
+}
+
+.loan-content .loan-label {
+    color: #999;
+}
+
+.loan-content .loan-input {
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+    padding-left: 10px;
+}
+
+/*计算结果*/
+
+.box-chart {
+    height: 215px;
+    margin: auto 0;
+    padding-left: 50px;
+}
+
+.calculator-result .chart-pip {
+    width: 215px;
+    height: 215px;
+}
+
+.calculator-result .chart-text {
+    width: 240px;
+}
+
+.chart-text .month-pay {
+    font-size: 18px;
+    color: #666;
+}
+
+.chart-text .month-pay .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.chart-text .legend li {
+    margin-top: 20px;
+    color: #666;
+}
+
+.chart-text .remark {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #999;
+}
+
+.chart-text .legend-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+}
+
+.chart-text .legend-icon.blue {
+    background: url('../../assets/icons/circle_blue.png') no-repeat center center;
+}
+
+.chart-text .legend-icon.primary {
+    background: url('../../assets/icons/circle_primary.png') no-repeat center center;
+}
+
+.chart-text .legend-icon.yellow {
+    background: url('../../assets/icons/circle_yellow.png') no-repeat center center;
+}
