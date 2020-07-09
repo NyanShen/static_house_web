@@ -33,13 +33,11 @@
 .box-content .content-left {
     position: relative;
     width: 840px;
-    overflow: hidden;
 }
 
 .box-content .content-right {
     position: relative;
     width: 320px;
-    overflow: hidden;
 }
 
 /*右侧广告*/

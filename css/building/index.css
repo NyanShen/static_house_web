@@ -61,6 +61,11 @@
     height: auto;
 }
 
+.bd-attribute .title-desc {
+    color: #666;
+    margin: 0 15px 0 10px;
+}
+
 .informaion-li {
     line-height: 38px;
 }
@@ -571,7 +576,7 @@
 }
 
 .select-item .select-list li:hover {
-    background-color: #f5fdf6;
+    background-color: #e5fbe8;
 }
 
 .select-item-loan {

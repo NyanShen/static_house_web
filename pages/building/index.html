@@ -105,7 +105,7 @@
             <a href="/pages/building/detail.html">详情</a>
             <a href="/pages/building/house-type.html">户型</a>
             <a href="/pages/building/picture.html">相册</a>
-            <a href="/pages/consult">资讯</a>
+            <a href="/pages/building/news.html">资讯</a>
             <a href="/pages/building/surround.html">周边配套</a>
             <a href="/pages/building/prices.html">房价走势</a>
             <a href="/pages/building/comment.html">点评</a>
@@ -240,8 +240,8 @@
             </div>
             <div class="bd-attribute fr">
                 <div class="title">
-                    <h1 style="display: inline;">楼盘属性名称</h1>
-                    <span style="margin-right: 15px;">别名：xxxx, xxxxx</span>
+                    <h1 style="display: inline;">福星惠誉·京澜誉府</h1>
+                    <span class="title-desc">别名：福星苑小区</span>
                     <a href="">
                         <span class="score-point">4.3</span>
                         <span>/5分</span>
@@ -262,7 +262,7 @@
                         <span class="unit">元/m²</span>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href="" class="bjtx-link"><i class="bjtx"></i>变价提醒</a>
+                        <a href="javascript:void(0);" class="bjtx-link"><i class="bjtx"></i>变价提醒</a>
                         <a href="javascript:void(0);" class="price-state">
                             <i class="price-state-icon"></i>
                             <span>价格说明</span>
@@ -275,8 +275,8 @@
                                 <p>价格有效期：14天</p>
                             </div>
                         </a>
-                        <a href=""><i class="price-check"></i>查看价格走势</a>
-                        <a href=""><i class="loan-calculator"></i>贷款计算器</a>
+                        <a href="/pages/building/prices.html"><i class="price-check"></i>查看价格走势</a>
+                        <a href="#loanCalculator"><i class="loan-calculator"></i>贷款计算器</a>
                     </div>
                 </div>
                 <div class="informaion-li clearfix">
@@ -289,7 +289,7 @@
                         <a href="">三居(建面380㎡)</a>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href=""><i class="hx-all"></i>全部</a>
+                        <a href="/pages/building/house-type.html"><i class="hx-all"></i>全部</a>
                     </div>
                 </div>
                 <div class="informaion-li clearfix">
@@ -300,7 +300,7 @@
                         <span>海淀北部地区西北旺镇亮甲店村村东</span>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href=""><i class="check-map"></i>查看地图</a>
+                        <a href="/pages/building/surround.html"><i class="check-map"></i>查看地图</a>
                     </div>
                 </div>
                 <div class="informaion-li clearfix">
@@ -311,7 +311,7 @@
                         <span>B区已于2018年5月1日推出新房源</span>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href="" class="kptx-link"><i class="kptx"></i>开盘提醒</a>
+                        <a href="javascript:void(0);" class="kptx-link"><i class="kptx"></i>开盘提醒</a>
                         <a href="javascript:void(0);" class="house-delivery">
                             <i class="house-delivery-icon"></i>
                             <span>交房时间</span>
@@ -323,7 +323,7 @@
                                 <p>交房详情： 预计2022年3月31日交房</p>
                             </div>
                         </a>
-                        <a href=""><i class="house-fix"></i>我要装修</a>
+                        <!-- <a href=""><i class="house-fix"></i>我要装修</a> -->
                     </div>
                 </div>
                 <div class="informaion-li clearfix">
@@ -336,7 +336,7 @@
                 </div>
                 <div class="informaion-li clearfix mb10">
                     <div class="informaion-li-left fl">
-                        <a href="" class="more-detail">更多详细信息>></a>
+                        <a href="/pages/building/detail.html" class="more-detail">更多详细信息>></a>
                     </div>
                     <div class="informaion-li-right-normal fr clearfix">
                         <a href=""><i class="collection"></i>收藏</a>
@@ -394,7 +394,7 @@
                             <p title="置业顾问1对1服务" class="desc-color">置业顾问1对1服务</p>
                         </div>
                         <div class="order-btn fr">
-                            <a href="">预约看房</a>
+                            <a href="javascript:;" class="reservation" data-title="楼盘属性名称">预约看房</a>
                         </div>
                     </div>
                     <div class="order-item fr">
@@ -402,7 +402,7 @@
                             <p title="全天候直通售楼处" class="text-color">全天候直通售楼处</p>
                         </div>
                         <div class="order-btn fr">
-                            <a href="">领券</a>
+                            <a href="javascript:;" class="coupon" data-message="购房优惠券特价370万/套起">领券</a>
                         </div>
                     </div>
                 </div>
@@ -627,17 +627,17 @@
                         <span class="formError" id="contentError"></span>
                     </div>
                     <div class="form-item">
-                        <i class="username"></i>
+                        <i class="name-icon"></i>
                         <input type="text" name="username" id="username" value="" placeholder="姓名">
                         <span class="formError" id="usernameError"></span>
                     </div>
                     <div class="form-item">
-                        <i class="phoneNumber"></i>
+                        <i class="phone-icon"></i>
                         <input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="手机号码">
                         <span class="formError" id="phoneNumberError"></span>
                     </div>
                     <div class="form-item">
-                        <a href="javascript:;" id="wdBtn">提交问卷</a>
+                        <a href="javascript:;" id="wdBtn" class="submit-btn30">提交问卷</a>
                     </div>
                     <script type="text/javascript">
                         $(document).ready(function () {
@@ -1067,7 +1067,7 @@
         </div>
         <!--用户点评 end-->
         <!--购房计算器 begin-->
-        <div class="box-calculator table-detail">
+        <div class="box-calculator table-detail" id="loanCalculator">
             <div class="table-detail-header clearfix">
                 <a href="" class="title">北京华发·中央公园房贷计算</a>
             </div>
@@ -1507,27 +1507,9 @@
     </div>
     <!--右边固定栏 end-->
 </body>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/carousel.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/consultant.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/calculator.js"></script>
-<script>
-
-    $(document).ready(function () {
-        /*沙盘图*/
-        let child = $('#sandPicture');
-        justifyElement(child);
-        dragPicture(child);
-        /*回到顶部*/
-        backToTop();
-
-        /*我要点评*/
-        $('#commentBtn').click(function() {
-            let modalParams = {
-                title: '注册登录后再评论哦'
-            }
-            $.FormModal.loginForm(modalParams);
-        })
-    });
-</script>
 
 </html>

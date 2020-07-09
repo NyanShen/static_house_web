@@ -162,7 +162,7 @@
     margin-top: 20px;
 }
 
-/*一行表单提交报错提示popup*/
+/*用户名手机提交表单*/
 
 .form-item {
     position: relative;
@@ -171,25 +171,31 @@
 
 .form-item i {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 8px;
+    left: 8px;
     width: 20px;
     height: 20px;
+    background: url('//static.fczx.com/www/assets/icons/login_sprites.png') no-repeat;
 }
 
-.form-item i.username {
-    background: url("../assets/icons/icon_man.png") no-repeat top center;
+.form-item i.name-icon {
+    background-position: -90px -50px;
 }
 
-.form-item i.phoneNumber {
-    background: url("../assets/icons/icon_phone.png") no-repeat top center;
+.form-item i.phone-icon {
+    background-position: -10px -90px;
+}
+
+.form-item .code-icon {
+    background-position: -50px -10px;
 }
 
 .form-item input[type=text] {
-    height: 30px;
+    width: 197px;
+    height: 35px;
     border: 1px solid #eee;
     margin-right: 10px;
-    padding-left: 28px;
+    padding-left: 35px;
 }
 
 .form-item a {
@@ -198,6 +204,7 @@
     line-height: 35px;
     border-radius: 2px;
     text-align: center;
+    padding: 0 12px;
     background-color: #11a43c;
     color: #fff;
 }
@@ -432,4 +439,115 @@ table th, table td {
 
 .table-type-list .area {
     width: 60px;
+}
+
+/*右侧小表单：帮你找房*/
+
+.find-house {
+    margin: 20px 10px;
+}
+
+.select-house {
+    font-size: 0;
+    margin: 0 -12px 10px -12px;
+}
+
+.select-content-sm {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    margin: 5px 10px;
+    color: #666;
+    cursor: pointer;
+}
+
+.select-content-sm span {
+    padding-left: 10px;
+}
+
+.select-content-sm i {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    width: 12px;
+    height: 20px;
+    background: url('../assets/icons/down12.png') no-repeat center center;
+}
+
+.select-content-sm:hover i {
+    background: url('../assets/icons/down12_hv.png') no-repeat center center;
+}
+
+.select-content-sm .select-list {
+    display: none;
+    position: absolute;
+    top: 28px;
+    left: -1px;
+    width: 130px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.select-content-sm .select-list li {
+    padding-left: 10px;
+    white-space: nowrap;
+}
+
+.select-content-sm .select-list li:hover {
+    background-color: #e5fbe8;
+}
+
+.form-item-sm {
+    margin-bottom: 15px;
+}
+
+.form-item-sm .label-control {
+    float: left;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    color: #666;
+}
+
+.form-item-sm input[type=text] {
+    width: 198px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+}
+
+.form-item-code-sm input[type=text] {
+    width: 100px;
+}
+
+.form-item-sm input[type=button] {
+    width: 86px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin-left: 6px;
+    cursor: pointer;
+    color: #666;
+}
+
+.btn-common {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background-color: #11a43c;
+    cursor: pointer;
+}
+
+.btn-common:hover {
+    background-color: #14922d;
 }

@@ -20,8 +20,8 @@
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
-    <style>
-    </style>
+    <script type="text/javascript" src="//static.fczx.com/www/js/building/find-house.js"></script>
+
 </head>
 
 <body>
@@ -118,8 +118,9 @@
             <a href="/pages/building/detail.html">详情</a>
             <a href="/pages/building/house-type.html">户型</a>
             <a href="/pages/building/picture.html">相册</a>
-            <a href="/pages/consult">资讯</a>
+            <a href="/pages/building/news.html">资讯</a>
             <a href="/pages/building/surround.html">周边配套</a>
+            <a href="/pages/building/prices.html">房价走势</a>
             <a href="/pages/building/comment.html">点评</a>
             <a href="/pages/building/ask.html" class="actived">问答</a>
         </div>
@@ -185,7 +186,85 @@
             </div>
         </div>
         <div class="content-right fr">
-            
+            <div class="table-type-list">
+                <div class="title">帮你找房</div>
+                <div class="cut-line"></div>
+                <div class="find-house">
+                    <div class="select-house" id="selectPreferHouse">
+                        <div class="select-content-sm">
+                            <span>意向区域</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>樊城区</li>
+                                <li>襄城区</li>
+                                <li>襄州区</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>购房面积</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>50M²以下</li>
+                                <li>50-70M²</li>
+                                <li>70-100M²</li>
+                                <li>100-130M²</li>
+                                <li>130-160M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>800M²以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>预算总价</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>30万以下</li>
+                                <li>30-50万</li>
+                                <li>50-80万</li>
+                                <li>80-100万</li>
+                                <li>100-200万</li>
+                                <li>300万及以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>意向户型</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>一室</li>
+                                <li>二室</li>
+                                <li>三室</li>
+                                <li>四室</li>
+                                <li>五室</li>
+                                <li>五室以上</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control">手机号码：</label>
+                        <input type="text" name="" id="" value="">
+                    </div>
+                    <div class="form-item-sm form-item-code-sm">
+                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i style="margin-left: 7px;"></i>码：</label>
+                        <input type="text" name="" id="" value="">
+                        <input type="button" name="" id="" value="发送验证码">
+                    </div>
+                    <div class="form-item-sm">
+                        <input type="submit" name="" id="" value="一键找房" class="btn-common">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--问答列表 end-->
