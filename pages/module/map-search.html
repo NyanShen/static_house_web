@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图找房</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <style>
+        .map-search-menu {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .map-search-menu {
+            padding: 0 25px;
+        }
+
+        .map-search-menu .menu-item {
+            position: relative;
+            float: left;
+            min-width: 60px;
+            color: #666;
+        }
+
+        .map-search-menu .item-select {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+        .map-search-menu .item-select .item-name {
+            padding: 5px 30px 5px 20px;
+        }
+
+        .map-search-menu .item-select .item-icon {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            width: 12px;
+            height: 20px;
+            background: url('//static.fczx.com/www/assets/icons/down12.png') no-repeat center center;
+        }
+
+        .map-search-menu .item-select:hover .item-icon {
+            background: url('//static.fczx.com/www/assets/icons/down12_hv.png') no-repeat center center;
+        }
+
+        .map-search-menu .item-select-list {
+            position: absolute;
+            top: 50px;
+            width: 125px;
+            background-color: #fff;
+            border: 1px solid #f2f2f2;
+            padding-top: 12px;
+            z-index: 12;
+            cursor: pointer;
+        }
+
+        .map-search-menu .item-select-list li {
+            height: 28px;
+            line-height: 28px;
+            padding-left: 15px;
+        }
+
+        .map-search-menu .item-select-list li:hover {
+            background-color: #e5fbe8;
+        }
+
+        .map-search-menu .switch-list {
+            position: relative;
+        }
+
+        .map-search-menu .switch-list .item-select-list {
+            width: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home-nav">
+        <div class="nav-content clearfix">
+            <h2 class="nav-logo fl">
+                <a href="/">房产在线<small>Fang.com</small></a>
+            </h2>
+            <div class="nav-city fl">
+                <a href="">襄阳</a>
+            </div>
+            <div class="nav-list fl">
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                    <li><a href="/pages/building" target="_blank">新房</a></li>
+                    <li><a>二手房</a></li>
+                    <li><a>租房</a></li>
+                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                    <li><a>问答</a></li>
+                    <li><a>租房</a></li>
+                    <li><a>海外房产</a></li>
+                </ul>
+            </div>
+            <div class="nav-login fr">
+                <ul>
+                    <li>
+                        <a href="pages/login">登录</a>
+                    </li>
+                    <li>
+                        <a href="pages/login/register.html">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-app fr"></div>
+        </div>
+    </div>
+    <div class="box-map-search">
+        <div class="map-search-menu clearfix">
+            <div class="menu-list fl">
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span class="item-name">区域</span>
+                        <i class="item-icon"></i>
+                    </div>
+                    <ul class="item-select-list">
+                        <li>全部</li>
+                        <li>樊城区</li>
+                        <li>襄城区</li>
+                        <li>襄州区</li>
+                        <li>高新区</li>
+                        <li>宜城</li>
+                        <li>老河口</li>
+                        <li>东津</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span class="item-name">户型</span>
+                        <i class="item-icon"></i>
+                    </div>
+                    <ul class="item-select-list">
+                        <li>全部</li>
+                        <li>一室</li>
+                        <li>二室</li>
+                        <li>三室</li>
+                        <li>四室</li>
+                        <li>五室</li>
+                        <li>五室以上</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span class="item-name">面积</span>
+                        <i class="item-icon"></i>
+                    </div>
+                    <ul class="item-select-list">
+                        <li>全部</li>
+                        <li>50平米一下</li>
+                        <li>50-70平米</li>
+                        <li>70-90平米</li>
+                        <li>90-110平米</li>
+                        <li>110-130平米</li>
+                        <li>130-150平米</li>
+                        <li>150-200平米</li>
+                        <li>200-300平米</li>
+                        <li>300平米以上</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span class="item-name">类型</span>
+                        <i class="item-icon"></i>
+                    </div>
+                    <ul class="item-select-list">
+                        <li>全部</li>
+                        <li>住宅</li>
+                        <li>别墅</li>
+                        <li>商住</li>
+                        <li>商铺</li>
+                        <li>写字楼</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span class="item-name">预算</span>
+                        <i class="item-icon"></i>
+                    </div>
+                    <ul class="item-select-list">
+                        <li>全部</li>
+                        <li>30万以下</li>
+                        <li>30-50万</li>
+                        <li>50-100万</li>
+                        <li>100-200万</li>
+                        <li>300万以上</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="switch-list fr">
+                <div class="item-select">
+                    <i class="switch-icon"></i>
+                    <a href="" class="item-name">列表</a>
+                </div>
+                <ul class="item-select-list">
+                    <li><a href="">新房</a></li>
+                    <li><a href="">二手房</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="map-search-content">
+            <div id="mapContainer"></div>
+            <div class="map-search-default"></div>
+        </div>
+    </div>
+</body>
+
+</html>
