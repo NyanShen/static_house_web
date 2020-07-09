@@ -1,13 +1,15 @@
 $(document).ready(function () {
 
     /*申请优惠*/
-
     $('#applicationBtn').click(function () {
-        $.FormModal.userForm({ title: '申请优惠', callback: applicationCallback, username: 'Nyan', phone: '13928454036' });
+        let modalParams = {
+            title: '申请优惠',
+            callback: applicationCallback
+        };
+        $.FormModal.userForm(modalParams);
     });
 
     function applicationCallback(username, phoneNumber) {
-        console.log(username, phoneNumber)
         app.request({
             url: app.areaApiUrl('/test/test'),
             data: {
@@ -24,8 +26,28 @@ $(document).ready(function () {
 
     /*参团*/
 
-    $('.hot-purchase .on .join').click(function () {
+    $('.hot-purchase .join').click(function () {
+        let modalParams = {
+            title: $(this).attr('data-title'),
+            callback: joinCallback,
+            message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导'
+        }
+        $.FormModal.userForm(modalParams);
+    });
+    
 
-        $.FormModal.userForm({ title: '特惠参团', message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导' });
-    })
+    function joinCallback(username, phoneNumber) {
+        app.request({
+            url: app.areaApiUrl('/test/test'),
+            data: {
+                username: username,
+                mobile: phoneNumber
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+            }
+        });
+    }
 });

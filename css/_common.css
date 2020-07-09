@@ -748,6 +748,16 @@
     top: 6px;
 }
 
+/*协议*/
+.agreement {
+    font-size: 12px;
+    color: #999;
+}
+
+.agreement a {
+    color: #6B91B3;
+}
+
 /*全屏默认设置*/
 
 .fullscreen {

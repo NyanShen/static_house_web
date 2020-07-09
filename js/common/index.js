@@ -117,7 +117,7 @@ function validatePhone(element, errorElement, name) {
 }
 
 //校验器匹配
-function validateMapper(fieldId, validateType, rules = {}) {
+function validateMapper(fieldId, validateType, nameMapper, rules = {}) {
     let element = $(`#${fieldId}`);
     let errorElement = $(`#${fieldId}Error`);
     switch (validateType) {
@@ -131,10 +131,10 @@ function validateMapper(fieldId, validateType, rules = {}) {
 }
 
 //校验
-function validator(validateItems) {
+function validator(validateItems, nameMapper) {
     let count = 0;
     validateItems.forEach(item => {
-        count = count + validateMapper(item.fieldId, item.type);
+        count = count + validateMapper(item.fieldId, item.type, nameMapper);
     });
     return count;
 }

@@ -5,14 +5,20 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
 }
 
-.modal-content {
+.modal-wrapper {
     position: fixed;
     top: 250px;
     width: 600px;
     min-height: 150px;
     background-color: #fff;
+}
+
+.modal-content {
+    position: relative;
+    padding: 0 25px;
 }
 
 .modal-header {
@@ -33,28 +39,27 @@
     background: url('//static.fczx.com/www/assets/icons/close.png') no-repeat center center;
 }
 
-.modal-title {
+.modal-title {  
     font-size: 20px;
-    font-weight: bold;
-    color: #11a43c;
+    color: #666;
 }
 
 .modal-message {
     padding: 0 20px;
-    margin-top: 20px;
-    color: #666;
+    margin-top: 15px;
+    color: #f90;
 }
 
 /*模态框表单*/
 .modal-form {
     width: 320px;
-    margin: 25px auto;
+    margin: 25px auto 30px;
 }
 
 .modal-form .form-item {
     position: relative;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .modal-form .form-item i {
@@ -100,8 +105,9 @@
     cursor: pointer;
 }
 
-.modal-form .form-item a {
-    display: block;
-    line-height: 35px;
-    text-align: center;
+/*登录样式调整*/
+
+
+.modal-content .login-form {
+    margin-left: 50px;
 }

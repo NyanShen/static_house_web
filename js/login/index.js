@@ -1,15 +1,14 @@
-//记录登录方式
-let loginByPassword = true;
-let loginByBindPhone = false;
-//登录校验规则
-let nameMapper = {
-    phone: '手机号码',
-    phoneCode: '手机验证码',
-    account: "登录账号",
-    password: "密码"
-}
-
 $(document).ready(function () {
+    //记录登录方式
+    let loginByPassword = true;
+    let loginByBindPhone = false;
+    //登录校验规则
+    let nameMapper = {
+        phone: '手机号码',
+        phoneCode: '手机验证码',
+        account: "登录账号",
+        password: "密码"
+    }
     //获取16随机码（授权）
     let authorizationCode = app.randCode(16);
     //切换登录方式
@@ -93,7 +92,7 @@ $(document).ready(function () {
         let errorCount = validator([{
             fieldId: 'phone',
             type: 'phone'
-        }]);
+        }], nameMapper);
         if (errorCount) return;
         let params = { message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' }
         let url = loginByBindPhone ? '/user/bind-code' : '/user/login-code';
@@ -105,7 +104,7 @@ $(document).ready(function () {
         let errorCount = validator([{
             fieldId: 'phone',
             type: 'phone'
-        }]);
+        }], nameMapper);
         if (errorCount) return;
         let params = { message: '您输入的手机号已注册，请直接登录', okText: '去登录', url: '/pages/login.html' }
         getPhoneCodeByType($(this), '/user/register-code', confirmModel, params)
@@ -172,7 +171,7 @@ $(document).ready(function () {
                     fieldId: 'password',
                     type: 'required',
                 }
-            ])
+            ], nameMapper)
             count = count + errorCount;
             if (count) return
             app.request({
@@ -199,7 +198,7 @@ $(document).ready(function () {
                     fieldId: 'phoneCode',
                     type: 'required',
                 }
-            ])
+            ], nameMapper)
             count = count + errorCount;
             if (count) return;
 
@@ -295,7 +294,7 @@ $(document).ready(function () {
                 fieldId: 'password',
                 type: 'required',
             }
-        ])
+        ], nameMapper)
         count = count + errorCount;
 
         if (count) return
@@ -334,7 +333,7 @@ $(document).ready(function () {
                 fieldId: 'phone',
                 type: 'phone'
             }
-        ])
+        ], nameMapper)
         count = count + errorCount;
         if (count) return;
         app.request({
@@ -371,7 +370,7 @@ $(document).ready(function () {
                 fieldId: 'password',
                 type: 'required',
             }
-        ])
+        ], nameMapper)
         count = count + errorCount;
         if (count) return;
 

@@ -193,15 +193,25 @@
 }
 
 .form-item a {
-    height: 30px;
-    padding: 5px 10px;
+    display: block;
+    height: 35px;
+    line-height: 35px;
     border-radius: 2px;
+    text-align: center;
     background-color: #11a43c;
     color: #fff;
 }
 
 .form-item a:hover {
     background-color: #14922d;
+}
+
+.form-item .error {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    font-size: 12px;
+    color: #ff3344;
 }
 
 /*一行表单提交报错提示popup*/

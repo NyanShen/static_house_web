@@ -28,6 +28,8 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
     <style>
 
     </style>
@@ -1003,7 +1005,7 @@
                     </div>
                     <div class="comment-action fr">
                         <span class="action-desc">写点评赚房票</span>
-                        <a href="#" class="action-btn"><i></i>我要点评</a>
+                        <a href="javascript:;" class="action-btn" id="commentBtn"><i></i>我要点评</a>
                     </div>
                 </div>
                 <ul class="comment-list">
@@ -1517,6 +1519,14 @@
         dragPicture(child);
         /*回到顶部*/
         backToTop();
+
+        /*我要点评*/
+        $('#commentBtn').click(function() {
+            let modalParams = {
+                title: '注册登录后再评论哦'
+            }
+            $.FormModal.loginForm(modalParams);
+        })
     });
 </script>
 

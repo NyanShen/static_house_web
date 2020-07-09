@@ -20,6 +20,7 @@
 }
 
 .login-form {
+    width: 450px;
     min-height: 240px;
     padding: 40px 35px 20px 35px;
 }
