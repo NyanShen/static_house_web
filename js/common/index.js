@@ -138,3 +138,111 @@ function validator(validateItems, nameMapper) {
     });
     return count;
 }
+
+/*模块轮播*/
+
+(function (win) {
+    function CustomCarousel(params) {
+        this._init(params)
+    }
+
+    $.extend(CustomCarousel.prototype, {
+        _init: function (params) {
+            let _this = this;
+            _this.params = {
+                listSelector: '', //轮播列表选择器
+                leftSelector: '', //左轮播按钮选择器
+                rightSelector: '', //右轮播按钮选择器
+                itemWith: 0, //每个轮播的宽度
+                stepWith: 0, //每次轮播步长
+                pointItemWidth: 0, //轮播判断点
+                showItemCount: 5, //显示轮播个数
+                totalItemCount: 0, //轮播总个数
+                isMoveOver: true, //是否完成位移
+                initHiddenArrow: true, //左右按钮（初始化）是否显示
+            }
+            $.extend(true, _this.params, params || {});
+            _this._initDomEvent();
+            _this._initListWith();
+            return _this;
+        },
+        _initDomEvent: function () {
+            let _this = this;
+            let params = this.params;
+            this.$list = $(params.listSelector);
+            this.$left = $(params.leftSelector);
+            this.$right = $(params.rightSelector);
+
+            //默认整块轮播
+            if (params.pointItemWidth === 0) {
+                params.pointItemWidth = (1 - this.getTotalPage(params)) * params.stepWith;
+            }
+
+            if (params.initHiddenArrow) {
+                this._showArrow(params);
+            }
+
+            this.$left.click(function () {
+                if (params.isMoveOver) {
+                    _this._movePrev(params);
+                }
+            });
+
+            this.$right.click(function () {
+                if (params.isMoveOver) {
+                    _this._moveNext(params);
+                }
+            });
+        },
+        _initListWith: function () {
+            let params = this.params;
+            this.$list.css('width', `${(params.totalItemCount + 1) * params.itemWith}px`);
+        },
+        _showArrow: function (params) {
+            let _this = this;
+            //如果总的轮播个数大于显示的轮播个数就显示arrow
+            if (params.totalItemCount > params.showItemCount) {
+                _this.$left.show();
+                _this.$right.show();
+            } else {
+                _this.$left.hide();
+                _this.$right.hide();
+            }
+        },
+        _movePrev: function (params) {
+            let _this = this;
+            let $list = _this.$list;
+            let itemLeft = parseFloat($list.css('left'));
+            if (itemLeft === 0) {
+                $list.css('left', `${params.pointItemWidth}px`);
+            } else {
+                params.isMoveOver = false;
+                let newItemLeft = itemLeft + params.stepWith;
+                $list.animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params))
+            }
+            return _this;
+        },
+        _moveNext: function (params) {
+            let _this = this;
+            let $list = _this.$list;
+            let itemLeft = parseFloat($list.css('left'));
+            if (itemLeft === params.pointItemWidth) {
+                $list.css('left', 0);
+            } else {
+                params.isMoveOver = false;
+                let newItemLeft = itemLeft - params.stepWith;
+                $list.animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params))
+            }
+            return _this;
+        },
+        resetMoveOver: function (params) {
+            params.isMoveOver = true;
+        },
+        getTotalPage: function (params) {
+            let totalPage = 0;
+            totalPage = Math.ceil(params.totalItemCount / params.showItemCount);
+            return totalPage;
+        }
+    })
+    win.CustomCarousel = CustomCarousel;
+})(window)

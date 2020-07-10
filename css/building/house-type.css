@@ -5,7 +5,7 @@
 .house-type-content a {
     position: relative;
     display: inline-block;
-    width: 265px;
+    width: 264px;
 }
 
 .house-type-content a~a {
@@ -14,7 +14,7 @@
 
 .house-type-image {
     position: relative;
-    width: 265px;
+    width: 264px;
     height: 262px;
     overflow: hidden;
     margin-bottom: 10px;

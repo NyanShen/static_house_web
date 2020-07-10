@@ -817,23 +817,23 @@
                     </div>
                     <div class="sand-picture" id="sandPicture">
                         <img src="//static.fczx.com/www/assets/images/sand_900x600c.jpg" alt="">
-                        <div class="sand-icon sand-icon-4">
-                            <a href="" class="unsold">
-                                <span>4#</span>
-                                <i></i>
-                            </a>
+                        <div class="sand-item unsold" data-id="1" style="top:121px; left:327px">
+                            <span>1#</span><i></i>
                         </div>
-                        <div class="sand-icon sand-icon-5">
-                            <a href="" class="solded">
-                                <span>5#</span>
-                                <i></i>
-                            </a>
+                        <div class="sand-item unsold" data-id="2" style="top:122px; left:464px">
+                            <span>2#</span><i></i>
                         </div>
-                        <div class="sand-icon sand-icon-6">
-                            <a href="" class="solding">
-                                <span>6#</span>
-                                <i></i>
-                            </a>
+                        <div class="sand-item unsold" data-id="3" style="top:92px; left:594px">
+                            <span>3#</span><i></i>
+                        </div>
+                        <div class="sand-item unsold" data-id="4" style="top:240px; left:615px">
+                            <span>4#</span><i></i>
+                        </div>
+                        <div class="sand-item solded" data-id="5" style="top:185px; left:516px">
+                            <span>5#</span><i></i>
+                        </div>
+                        <div class="sand-item solding" data-id="6" style="top:200px; left:415px">
+                            <span>6#</span><i></i>
                         </div>
                     </div>
                     <div class="sand-memo">
@@ -845,25 +845,43 @@
                 <div class="sand-info fr">
                     <div class="sand-info-header">
                         <ul class="sand-info-list">
-                            <li><a href="">1#</a></li>
-                            <li class="actived"><a href="">2#</a></li>
-                            <li><a href="">3#</a></li>
-                            <li><a href="">4#</a></li>
-                            <li><a href="">5#</a></li>
-                            <li><a href="">6#</a></li>
+                            <li class="actived" data-id="1">1#</li>
+                            <li data-id="2">2#</li>
+                            <li data-id="3">3#</li>
+                            <li data-id="4">4#</li>
+                            <li data-id="5">5#</li>
+                            <li data-id="6">6#</li>
                         </ul>
                         <a href="javascript:;" class="arrow prev" id="sandArrowPrev"></a>
                         <a href="javascript:;" class="arrow next" id="sandArrowNext"></a>
                     </div>
-                    <div class="sand-info-detail mt20">
+                    <div class="sand-info-content mt20">
                         <ul class="bd-detail">
                             <li><span>单元：1个</span></li>
                             <li><span>建筑类型：高层</span></li>
-                        </ul>
-                        <ul class="bd-detail">
                             <li><span>电梯数：1梯12户</span></li>
                             <li><span>楼层：30层</span></li>
+                            <li><span>户数：1</span></li>
                         </ul>
+                        <div class="hx-wrap">
+                            <div class="hx-title">
+                                <span>1#</span>
+                            </div>
+                            <ul class="hx-list">
+                                <li>
+                                    <span>H115㎡高层户型</span>
+                                    <span>3室2厅2卫1厨</span>
+                                    <span>115㎡</span>
+                                    <a href="" class="check">查看</a>
+                                </li>
+                                <li>
+                                    <span>B115㎡高层户型</span>
+                                    <span>3室2厅2卫1厨</span>
+                                    <span>115㎡</span>
+                                    <a href=""class="check">查看</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1508,6 +1526,7 @@
     <!--右边固定栏 end-->
 </body>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/sand.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/carousel.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/consultant.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/calculator.js"></script>

@@ -61,78 +61,65 @@
     height: 600px;
 }
 
-.sand-picture .sand-icon {
+.sand-picture .sand-item {
     position: absolute;
     cursor: pointer;
 }
 
-.sand-picture .sand-icon a {
+.sand-picture .sand-item {
     font-size: 12px;
     padding: 6px 8px;
     border-radius: 2px;
     color: #fff;
 }
 
-.sand-picture .sand-icon a.solding {
+.sand-picture .solding {
     background-color: #409DFB;
 }
 
-.sand-picture .sand-icon a.unsold {
+.sand-picture .unsold {
     background-color: #FF9832;
 }
 
-.sand-picture .sand-icon a.solded {
+.sand-picture .solded {
     background-color: #BBB;
 }
 
-.sand-picture .sand-icon:hover a {
-    background-color: #ff3333;
+.sand-picture .sand-item:hover {
+    background-color: #11a43c;
 }
 
-.sand-picture .sand-icon:hover a i {
-    border-color: #ff3333 transparent transparent;
+.sand-picture .sand-item:hover i {
+    border-color: #11a43c transparent transparent;
 }
 
-.sand-picture .sand-icon a i {
+.sand-picture .sand-item.actived {
+    background-color: #11a43c;
+}
+
+.sand-picture .sand-item.actived i {
+    border-color: #11a43c transparent transparent;
+}
+
+.sand-picture .sand-item i {
     position: absolute;
-    top: 24px;
-    left: 10px;
+    top: 26px;
+    left: 8px;
     display: block;
     border-style: solid;
-    border-width: 6px 6px 0;
+    border-width: 8px 8px 0;
 }
 
-.sand-picture .sand-icon .solding i {
+.sand-picture .solding i {
     border-color: #409DFB transparent transparent;
 }
 
-.sand-picture .sand-icon .unsold i {
+.sand-picture .unsold i {
     border-color: #FF9832 transparent transparent;
 }
 
-.sand-picture .sand-icon .solded i {
+.sand-picture .solded i {
     border-color: #BBB transparent transparent;
-}
-
-/*4*/
-
-.sand-picture .sand-icon-4 {
-    top: 245px;
-    left: 612px;
-}
-
-/*5*/
-
-.sand-picture .sand-icon-5 {
-    top: 195px;
-    left: 512px;
-}
-
-/*6*/
-
-.sand-picture .sand-icon-6 {
-    top: 210px;
-    left: 410px;
 }
 
 .sand-memo {
@@ -173,7 +160,10 @@
 /*沙盘点信息*/
 
 .sand-info {
+    width: 500px;
+    height: 400px;
     margin-right: 20px;
+    overflow: hidden;
 }
 
 .sand-info-header {
@@ -181,33 +171,39 @@
     width: 500px;
     height: 40px;
     line-height: 40px;
-    overflow: hidden;
     background-color: #f2f2f2;
     border-bottom: 2px solid #11a43c;
 }
 
 .sand-info-header .arrow {
+    display: none;
     position: absolute;
     top: 0;
     width: 20px;
-    height: 42px;
+    height: 40px;
 }
 
 .sand-info-header .arrow.prev {
     left: 0;
     background: url('../../assets/icons/arrow_left.png') no-repeat center center;
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .sand-info-header .arrow.next {
     right: 0;
     background: url('../../assets/icons/arrow_right.png') no-repeat center center;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.sand-info-header .arrow:hover {
+    background-color: rgba(0, 0, 0, .3);
 }
 
 .sand-info-list {
     position: absolute;
     top: 0;
     left: 0;
-    width: 1200px;
+    width: 4000px;
     height: 40px;
     font-size: 0;
 }
@@ -218,22 +214,27 @@
     width: 100px;
     height: 40px;
     text-align: center;
+    color: #666;
+    cursor: pointer;
 }
 
 .sand-info-list li.actived {
+    color: #fff;
     background-color: #11a43c;
 }
+
+.sand-info-list li.actived a
 
 .sand-info-list a {
     display: block;
 }
 
-.sand-info-detail .bd-detail {
+.sand-info-content .bd-detail {
     margin-top: 10px;
     font-size: 0;
 }
 
-.sand-info-detail .bd-detail li {
+.sand-info-content .bd-detail li {
     display: inline-block;
     width: 50%;
     height: 30px;
@@ -241,4 +242,43 @@
     font-size: 14px;
     text-indent: 30px;
     color: #666;
+}
+
+.hx-wrap {
+    margin-top: 20px;
+}
+.hx-wrap .hx-title {
+    font-size: 16px;
+    color: #666;
+    background-color: #f2f2f2;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 15px;
+    border-left: 3px solid #11a43c;
+}
+
+.hx-wrap .hx-list {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.hx-wrap .hx-list li {
+    padding: 6px 0 6px 20px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.hx-wrap .hx-list li:hover {
+    background-color: #e5fbe8;
+}
+
+.hx-wrap .hx-list li span {
+    display: inline-block;
+    width: 125px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.hx-wrap .hx-list li .check {
+    color: #FF3344;
 }

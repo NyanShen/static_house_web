@@ -1,8 +1,5 @@
 $(document).ready(function () {
-    /*沙盘图*/
-    let child = $('#sandPicture');
-    justifyElement(child);
-    dragPicture(child);
+    
     /*回到顶部*/
     backToTop();
 
