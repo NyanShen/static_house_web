@@ -32,13 +32,13 @@
         }
 
         .map-search-menu .item-select .item-name {
-            padding: 5px 30px 5px 20px;
+            padding: 5px 35px 5px 20px;
         }
 
         .map-search-menu .item-select .item-icon {
             position: absolute;
             top: 15px;
-            right: 10px;
+            right: 15px;
             width: 12px;
             height: 20px;
             background: url('//static.fczx.com/www/assets/icons/down12.png') no-repeat center center;
@@ -49,19 +49,28 @@
         }
 
         .map-search-menu .item-select-list {
+            display: none;
             position: absolute;
             top: 50px;
             width: 125px;
             background-color: #fff;
             border: 1px solid #f2f2f2;
-            padding-top: 12px;
+            border-top: 0;
             z-index: 12;
             cursor: pointer;
         }
 
+        .map-search-menu .menu-item:hover {
+            background-color: #f7f7f7;
+        }
+
+        .map-search-menu .menu-item:hover .item-select-list {
+            display: block;
+        }
+
         .map-search-menu .item-select-list li {
-            height: 28px;
-            line-height: 28px;
+            height: 30px;
+            line-height: 30px;
             padding-left: 15px;
         }
 
@@ -71,6 +80,10 @@
 
         .map-search-menu .switch-list {
             position: relative;
+        }
+
+        .map-search-menu .switch-list:hover .item-select-list {
+            display: block;
         }
 
         .map-search-menu .switch-list .item-select-list {
