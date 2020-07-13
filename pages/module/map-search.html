@@ -52,7 +52,7 @@
             display: none;
             position: absolute;
             top: 50px;
-            width: 125px;
+            width: 120px;
             background-color: #fff;
             border: 1px solid #f2f2f2;
             border-top: 0;
@@ -82,14 +82,114 @@
             position: relative;
         }
 
+        .map-search-menu .switch-list .switch-name {
+            display: block;
+            width: 68px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            padding-left: 15px;
+            background: url('//static.fczx.com/www/assets/icons/list.png') no-repeat 15px center;
+        }
+
+        .map-search-menu .switch-list .switch-name:hover {
+            color: #ff3344;
+            background: url('//static.fczx.com/www/assets/icons/list_hv.png') no-repeat 15px center;
+            background-color: #f7f7f7;
+        }
+
         .map-search-menu .switch-list:hover .item-select-list {
             display: block;
         }
 
         .map-search-menu .switch-list .item-select-list {
-            width: 75px;
+            width: 82px;
+        }
+
+        /*地图搜索内容*/
+        .map-search-content {
+            position: relative;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f7f7f7;
+        }
+
+        .map-list-wrap {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 380px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+        }
+
+        .map-list-wrap .fold-btn {
+            position: absolute;
+            top: 50%;
+            right: 380px;
+            width: 30px;
+            height: 65px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+        }
+
+        .map-list-wrap .fold-btn i{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url('//static.fczx.com/www/assets/icons/triangle-right.png') no-repeat center center;
+        }
+
+        .mli-item {
+            width: 340px;
+            padding: 20px 0;
+            margin: 0 auto;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mli-img {
+            position: relative;
+            width: 136px;
+            height: 104px;
+            overflow: hidden;
+        }
+
+        .mli-detail {
+            margin-left: 20px;
+        }
+
+        .mli-detail .house-name a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .mli-detail .house-price {
+            font-weight: 700;
+            color: #ff3344;
+            margin: 6px 0;
+        }
+
+        .mli-detail .house-type {
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        .mli-detail .house-tags span {
+            font-size: 12px;
+            padding: 3px 8px;
+            color: #999;
+            background-color: #f7f7f7;
         }
     </style>
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
 </head>
 
 <body>
@@ -209,10 +309,7 @@
                 </div>
             </div>
             <div class="switch-list fr">
-                <div class="item-select">
-                    <i class="switch-icon"></i>
-                    <a href="" class="item-name">列表</a>
-                </div>
+                <a href="" class="switch-name">列表</a>
                 <ul class="item-select-list">
                     <li><a href="">新房</a></li>
                     <li><a href="">二手房</a></li>
@@ -220,10 +317,59 @@
             </div>
         </div>
         <div class="map-search-content">
-            <div id="mapContainer"></div>
-            <div class="map-search-default"></div>
+            <div class="map-container" id="mapContainer"></div>
+            <div class="map-list-wrap">
+                <div class="fold-btn">
+                    <i class="open"></i>
+                </div>
+                <div class="map-list-content">
+                    <div class="map-list-menu"></div>
+                    <ul class="map-list">
+                        <li>
+                            <div class="mli-item clearfix">
+                                <div class="mli-img fl">
+                                    <a href="">
+                                        <img src="//static.fczx.com/www/assets/images/200x150.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mli-detail fl">
+                                    <div class="house-name">
+                                        <a href="">金隅上城郡</a>
+                                    </div>
+                                    <div class="house-price">
+                                        <span>800万元/套</span>
+                                    </div>
+                                    <div class="house-type">
+                                        <span>
+                                            一居<em> | </em>
+                                            二居
+                                        </span>
+                                        <span>118-140㎡</span>
+                                    </div>
+                                    <div class="house-tags">
+                                        <span>在售</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        setContentHeight();
+        function setContentHeight() {
+            let clientHeight = $(document).height();
+            $('.map-search-content').css('height', `${clientHeight - 100}px`);
+        }
+
+        $(window).resize(function () {
+            setContentHeight();
+        });
+    })
+</script>
 
 </html>
