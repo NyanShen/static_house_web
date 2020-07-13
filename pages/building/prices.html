@@ -21,6 +21,7 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/building/find-house.js"></script>
     <style>
     </style>
 </head>
@@ -249,36 +250,186 @@
             <div class="table-type-list">
                 <div class="title">同价位楼盘</div>
                 <div class="cut-line"></div>
-                <dl>
-                    <dt>
-                        <span class="name">楼盘名称</span>
-                        <span class="price">价格</span>
-                        <span class="area">区域</span>
-                    </dt>
-                    <dd>
-                        <a href="" class="list-item">
-                            <span class="name">首开香溪郡楼盘名称</span>
-                            <span class="price">
-                                <b class="tip-color">41000</b>元/㎡
-                            </span>
-                            <span class="area">通州区域</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="" class="list-item">
-                            <span class="name">首开香溪郡楼盘名称</span>
-                            <span class="price">
-                                <b class="tip-color">41000</b>元/㎡
-                            </span>
-                            <span class="area">通州区域</span>
-                        </a>
-                    </dd>
-                </dl>
+                <ul class="hot-pic-list mt20">
+                    <li>
+                        <div class="clearfix">
+                            <a href="" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="table-type-list mt20">
+                <div class="title">帮你找房</div>
+                <div class="cut-line"></div>
+                <div class="find-house">
+                    <div class="select-house" id="selectPreferHouse">
+                        <div class="select-content-sm">
+                            <span>意向区域</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>樊城区</li>
+                                <li>襄城区</li>
+                                <li>襄州区</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>购房面积</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>50M²以下</li>
+                                <li>50-70M²</li>
+                                <li>70-100M²</li>
+                                <li>100-130M²</li>
+                                <li>130-160M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>800M²以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>预算总价</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>30万以下</li>
+                                <li>30-50万</li>
+                                <li>50-80万</li>
+                                <li>80-100万</li>
+                                <li>100-200万</li>
+                                <li>300万及以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>意向户型</span>
+                            <input type="text" name="" id="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>一室</li>
+                                <li>二室</li>
+                                <li>三室</li>
+                                <li>四室</li>
+                                <li>五室</li>
+                                <li>五室以上</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control">手机号码：</label>
+                        <input type="text" name="" id="" value="">
+                    </div>
+                    <div class="form-item-sm form-item-code-sm">
+                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i
+                                style="margin-left: 7px;"></i>码：</label>
+                        <input type="text" name="" id="" value="">
+                        <input type="button" name="" id="" value="发送验证码">
+                    </div>
+                    <div class="form-item-sm">
+                        <input type="submit" name="" id="" value="一键找房" class="btn-common">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!--房价走势 end-->
-
+    <div class="box-content mt20">
+        <!-- 楼盘标签集合start -->
+        <div class="box-tag mb20">
+            <div class="tag-nav">
+                <ul>
+                    <li class="actived">附近楼盘</li>
+                    <li>热门楼盘</li>
+                    <li>相关楼盘</li>
+                    <li>新开楼盘</li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">附近楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">热门楼盘·水岸壹号</a></li>
+                    <li><a href="">热门楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">相关楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">新开楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    let tagNav = $('.box-tag .tag-nav li');
+                    let tagContenet = $('.box-tag .tag-content');
+                    tagContenet.hide();
+                    tagContenet.first().show();
+                    tagNav.each(function (index) {
+                        $(this).hover(function () {
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+                            tagContenet.hide();
+                            tagContenet.eq(index).show();
+                        })
+                    })
+                })
+            </script>
+        </div>
+        <!-- 楼盘标签集合end -->
+    
+        <!-- 免责声明start -->
+        <div class="box-statement mb20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
     <!--底部footer start-->
     <div class="box-content">
         <div class="box-footer">
@@ -317,7 +468,7 @@
             yAxis: {
                 min: 0,
                 max: 60000,
-                label: {show: true}
+                label: { show: true }
             },
             series: [
                 {

@@ -371,7 +371,7 @@
     overflow: hidden;
     display: inline-block;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #666;
     border-bottom: 2px solid #f2f2f2;
@@ -496,14 +496,14 @@
 }
 
 .select-item {
-    height: 40px;
-    margin-bottom: 15px;
+    height: 35px;
+    margin-bottom: 12px;
 }
 
 .select-item .select-label {
     width: 80px;
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
     margin-right: 15px;
     text-align: right;
     color: #999;
@@ -512,13 +512,13 @@
 .select-item .select-content {
     position: relative;
     width: 320px;
-    height: 40px;
+    height: 35px;
 }
 
 .select-item .fixed-text {
     width: 100%;
     height: 100%;
-    line-height: 40px;
+    line-height: 35px;
 }
 
 .select-item .fixed-text .price {
@@ -535,7 +535,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    line-height: 40px;
+    line-height: 35px;
     border: 1px solid #ddd;
     padding: 0 10px;
     color: #666;
@@ -547,19 +547,19 @@
 
 .select-item .select-text i {
     position: absolute;
+    top: 0;
     right: 10px;
-    top: 10px;
     width: 20px;
-    height: 20px;
-    background: url('../../assets/icons/triangle-down32.png') no-repeat center center;
+    height: 35px;
+    background: url('../../assets/icons/down28_grey.png') no-repeat center center;
 }
 
 .select-item .select-list {
     display: none;
     position: absolute;
-    top: 38px;
+    top: 34px;
     width: 320px;
-    max-height: 500px;
+    max-height: 320px;
     overflow-y: auto;
     border: 1px solid #ddd;
     color: #666;
@@ -610,9 +610,9 @@
 /*计算结果*/
 
 .box-chart {
-    height: 215px;
+    height: 250px;
     margin: auto 0;
-    padding-left: 50px;
+    padding: 10px 0 20px 50px;
 }
 
 .calculator-result .chart-pip {

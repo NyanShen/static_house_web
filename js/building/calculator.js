@@ -18,8 +18,18 @@ $(document).ready(function () {
     $('.calculator-condition .select-content .select-list li').each(function () {
         $(this).click(function () {
             let text = $(this).text();
+            let dataType = $(this).attr('data-type');
             let targetText = $(this).parents('.select-content');
             targetText.find('span').text(text);
+            targetText.find('input').attr('value', text);
+
+            if (!dataType) return;
+
+            if (dataType === 'type_03') {
+                $('.select-item-loan').show();
+            } else {
+                $('.select-item-loan').hide();
+            }
         });
     });
 
@@ -35,9 +45,9 @@ $(document).ready(function () {
                     position: 'center'
                 },
                 data: [
-                    { value: 16, name: '参考首付', itemStyle: {color: '#11a43c'} },
-                    { value: 36, name: '贷款金额', itemStyle: {color: '#409DFB'} },
-                    { value: 32.5, name: '支付利息', itemStyle: {color: '#ff9900'} }
+                    { value: 16, name: '参考首付', itemStyle: { color: '#11a43c' } },
+                    { value: 36, name: '贷款金额', itemStyle: { color: '#409DFB' } },
+                    { value: 32.5, name: '支付利息', itemStyle: { color: '#ff9900' } }
                 ]
             }
         ]

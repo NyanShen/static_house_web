@@ -394,6 +394,65 @@
         <!--配套相册 end-->
     </div>
 
+    <div class="box-content mt20">
+        <!-- 楼盘标签集合start -->
+        <div class="box-tag mb20">
+            <div class="tag-nav">
+                <ul>
+                    <li class="actived">附近楼盘</li>
+                    <li>热门楼盘</li>
+                    <li>相关楼盘</li>
+                    <li>新开楼盘</li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">附近楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">热门楼盘·水岸壹号</a></li>
+                    <li><a href="">热门楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">相关楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <div class="tag-content">
+                <ul>
+                    <li><a href="">新开楼盘·水岸壹号</a></li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    let tagNav = $('.box-tag .tag-nav li');
+                    let tagContenet = $('.box-tag .tag-content');
+                    tagContenet.hide();
+                    tagContenet.first().show();
+                    tagNav.each(function (index) {
+                        $(this).hover(function () {
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+                            tagContenet.hide();
+                            tagContenet.eq(index).show();
+                        })
+                    })
+                })
+            </script>
+        </div>
+        <!-- 楼盘标签集合end -->
+    
+        <!-- 免责声明start -->
+        <div class="box-statement mb20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
+
     <!--底部footer start-->
     <div class="box-content">
         <div class="box-footer">
