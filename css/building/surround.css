@@ -1,0 +1,108 @@
+.surround-left {
+    width: 820px;
+    border: 1px solid #f2f2f2;
+}
+
+.surround-right {
+    width: 350px;
+}
+
+.surround-dynamic {
+    padding: 0 10px;
+}
+
+.subscrib-text {
+    color: #444;
+    font-size: 16px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    text-indent: 30px;
+}
+
+/*周边特色*/
+
+.surround-feature {
+    height: 127px;
+}
+
+.surround-feature .feature-title {
+    height: 100%;
+    font-size: 16px;
+    color: #11a43c;
+    padding: 18px 8px;
+    background-color: #f7f7f7;
+}
+
+.surround-feature .featrue-list {
+    height: 100%;
+    padding: 25px 0;
+}
+
+.surround-feature .featrue-item {
+    float: left;
+    height: 75px;
+    width: 262px;
+    overflow: hidden;
+    padding-left: 20px;
+    border-right: 1px solid #f2f2f2;
+}
+
+.surround-feature .featrue-item:last-child {
+    border: 0;
+}
+
+.featrue-item-icon {
+    position: relative;
+    width: 50px;
+    height: 100%;
+}
+
+.featrue-item-icon .icon {
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: url('../../assets/icons/map50.png') no-repeat center center;
+}
+
+.featrue-item-desc {
+    padding-left: 10px;
+    line-height: 25px;
+}
+
+.featrue-item-desc .title {
+    font-size: 16px;
+    color: #333;
+}
+
+.featrue-item-desc .text {
+    color: #666;
+}
+
+/*致电联系*/
+
+.box-contact {
+    height: 127px;
+    padding: 20px 10px 20px 30px;
+    background-color: #f5fdf6;
+}
+
+.box-contact .contact-desc {
+    margin: 5px 0 8px 0;
+    color: #999;
+}
+
+.box-contact .contact-btn {
+    display: block;
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 5px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #11a43c;
+}
+
+.box-contact .contact-btn:hover {
+    background-color: #14922d;
+}

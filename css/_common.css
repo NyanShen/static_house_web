@@ -350,11 +350,11 @@
 }
 
 .line-title > .title-name {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     height: 40px;
     line-height: 40px;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
     border-bottom: 3px solid #11a43c;
 }
 
@@ -426,18 +426,20 @@
 
 .buiding-picture-content {
     margin: 0 -10px;
+    font-size: 0;
 }
 
 .buiding-picture-content li {
-    margin: 10px;
+    font-size: 14px;
     display: inline-block;
+    margin: 16px;
 }
 
 .buiding-picture-content .picture {
     display: block;
     position: relative;
-    width: 209px;
-    height: 121px;
+    width: 200px;
+    height: 150px;
     overflow: hidden;
     margin-bottom: 10px;
     background-color: #f7f7f7;
@@ -450,7 +452,6 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 214px;
 }
 
 .buiding-picture-content .picture img:hover {
@@ -606,6 +607,32 @@
 .empty-container .empty-text {
     line-height: 40px;
     color: #999;
+}
+
+.subscrib-list li {
+    float: left;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    margin: 15px 0 0 9px;
+}
+
+/*右边设置中间按钮*/
+.center-btn {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.center-btn a{
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #11a43c;
+}
+
+.center-btn a:hover {
+    background-color: #14922d;
 }
 
 /*others*/
