@@ -40,6 +40,83 @@
     width: 320px;
 }
 
+/*面包屑*/
+
+.breadcrumb {
+    height: 35px;
+    line-height: 35px;
+    color: #666;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.breadcrumb a:last-child {
+    color: #999;
+    cursor: text;
+}
+
+.breadcrumb a {
+    color: #666;
+}
+
+.breadcrumb a:hover:not(:last-child) {
+    color: #df2f30;
+}
+
+/*通用查询*/
+
+.box-search {
+    margin: 20px 0;
+}
+
+.search-content .search-input {
+    float: left;
+    width: 350px;
+    height: 35px;
+    padding-left: 10px;
+    border: 1px solid #ff9900;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-content .search-btn {
+    float: left;
+    width: 120px;
+    height: 35px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ff9900;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    letter-spacing: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    color: #fff;
+    background-color: #ff9900;
+}
+
+.search-content .search-by-map {
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #666;
+    margin-left: 20px;
+}
+
+.search-content .search-by-map:hover {
+    color: #ff9900;
+}
+
+.search-content .search-by-map i {
+    float: left;
+    width: 24px;
+    height: 35px;
+    background: url("../assets/icons/icon_map.png") no-repeat center 6px;
+}
+
 /*右侧广告*/
 
 .content-right .ad {
@@ -386,7 +463,7 @@
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
 }
 
-.table-detail-header .title:hover {
+.table-detail-header a:hover {
     color: #df2f30;
 }
 
@@ -399,10 +476,6 @@
 
 .table-detail-header .title-list {
     float: right;
-}
-
-.table-detail-header .title-list a:hover {
-    color: #11a43c;
 }
 
 .table-detail-header .title-list span {
@@ -644,6 +717,7 @@
     height: 72px;
     background: url('../assets/icons/icon_video_m.png') no-repeat center center;
 }
+
 /*others*/
 
 .cut-line {
@@ -671,6 +745,14 @@
 
 .mt10 {
     margin-top: 10px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.mt15 {
+    margin-top: 15px;
 }
 
 .mb20 {
@@ -711,6 +793,11 @@
 
 .required-red {
     color: #df2f30;
+}
+
+.small-desc {
+    font-size: 12px;
+    color: #999;
 }
 
 .block {

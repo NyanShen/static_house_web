@@ -41,6 +41,8 @@
 }
 
 .comment-action .action-desc {
+    position: relative;
+    top: 5px;
     font-size: 12px;
     color: #11a43c;
 }
@@ -92,10 +94,6 @@
     margin-right: 5px;
 }
 
- .user-comment a:hover {
-    color: #df2f30;
-}
-
  .user-comment .publish {
     font-size: 12px;
     color: #999;
@@ -140,20 +138,3 @@
     width: 770px;
 }
 
-.comment-footer {
-    text-align: center;
-    height: 35px;
-    line-height: 35px;
-    border: 1px solid #eee;
-    border-radius: 2px;
-}
-
-.comment-footer a {
-    color: #999;
-    padding-right: 20px;
-    background: url('../../assets/icons/down_grey.png') no-repeat right center;
-}
-
-.comment-footer a:hover {
-    color: #df2f30;
-}

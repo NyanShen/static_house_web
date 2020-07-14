@@ -44,8 +44,8 @@
                 </div>
                 <div class="agreement">
                     我已阅读并接受
-                    <a href="">《房产在线服务协议》</a>及
-                    <a href="">《隐私权政策》</a>
+                    <a href="javascript:void(0);">《房产在线服务协议》</a>及
+                    <a href="javascript:void(0);">《隐私权政策》</a>
                 </div>
             </div>
         </div>
@@ -125,8 +125,8 @@
                         </div>
                         <div class="login-agreement">
                             我已阅读并接受
-                            <a href="">《房产在线服务协议》</a>及
-                            <a href="">《隐私权政策》</a>
+                            <a href="javascript:void(0);">《房产在线服务协议》</a>及
+                            <a href="javascript:void(0);">《隐私权政策》</a>
                         </div>
                     </div>
             </div>

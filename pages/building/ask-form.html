@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>问答</title>
-    <meta name="keywords" content="问答">
-    <meta name="description" content="问答">
+    <title>楼盘提问</title>
+    <meta name="keywords" content="楼盘提问">
+    <meta name="description" content="楼盘提问">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -131,61 +131,20 @@
     <div class="box-content clearfix">
         <div class="content-left fl">
             <div class="wd-header clearfix">
-                <div class="title fl">
-                    关于【 <span>福星惠誉·京澜誉府</span> 】 的<span class="primary-color">109</span>个问题
-                </div>
-                <div class="action fr">
-                    <a href="/pages/building/ask-form.html" class="action-btn">我要提问</a>
+                <div class="question-text fl">
+                    <p class="content">
+                        对【<span>福星惠誉·京澜誉府</span>】提问
+                    </p>
                 </div>
             </div>
-            <div class="ask-content">
-                <ul class="ask-list">
-                    <li>
-                        <p class="question">
-                            <i></i>
-                            <a href="javascript:void(0);">现108平米的还有吗</a>
-                        </p>
-                        <p class="answer">
-                            <i></i>
-                            <span class="text-color">还有的，价格绝对比你自己去买的便宜，住宅还有楼层可选，随时联系我</span>
-                        </p>
-                        <div class="publish clearfix">
-                            <span class="time fl">发布于2020-07-07</span>
-                            <a href="/pages/building/answer-list.html" class="desc-color fr">查看7个回答>></a>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="question">
-                            <i></i>
-                            <a href="javascript:void(0);">现108平米的还有吗</a>
-                        </p>
-                        <p class="answer">
-                            <i></i>
-                            <span class="text-color">还有的，价格绝对比你自己去买的便宜，住宅还有楼层可选，随时联系我</span>
-                        </p>
-                        <div class="publish clearfix">
-                            <span class="time fl">发布于2020-07-07</span>
-                            <a href="" class="desc-color fr">查看7个回答>></a>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="question">
-                            <i></i>
-                            <a href="javascript:void(0);">现108平米的还有吗</a>
-                        </p>
-                        <p class="answer">
-                            <i></i>
-                            <span class="text-color">还有的，价格绝对比你自己去买的便宜，住宅还有楼层可选，随时联系我</span>
-                        </p>
-                        <div class="publish clearfix">
-                            <span class="time fl">发布于2020-07-07</span>
-                            <a href="" class="desc-color fr">查看7个回答>></a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="left-load-more">
-                <a href="javascript:;">加载更多</a>
+            <div class="wd-form">
+                <textarea name="" id="askArea" cols="30" rows="10" placeholder="在这里写下你的疑问或你想知道的问题吧"
+                    maxlength="150"></textarea>
+                <p class="text-count">
+                    <span class="count">0</span>/150字
+                    <span class="limit"></span>
+                </p>
+                <a href="javascript:;" class="action-btn">提交问题</a>
             </div>
         </div>
         <div class="content-right fr">
@@ -259,7 +218,8 @@
                         <input type="text" name="" id="" value="">
                     </div>
                     <div class="form-item-sm form-item-code-sm">
-                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i style="margin-left: 7px;"></i>码：</label>
+                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i
+                                style="margin-left: 7px;"></i>码：</label>
                         <input type="text" name="" id="" value="">
                         <input type="button" name="" id="" value="发送验证码">
                     </div>
@@ -322,7 +282,7 @@
             </script>
         </div>
         <!-- 楼盘标签集合end -->
-    
+
         <!-- 免责声明start -->
         <div class="box-statement mb20">
             <strong class="title-color">免责声明：</strong>
@@ -345,5 +305,12 @@
     <!--底部footer end-->
 
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        let askArea = $('#askArea');
+        inputListener(askArea, 150);
+    });
+</script>
 
 </html>

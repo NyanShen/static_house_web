@@ -1,6 +1,14 @@
 
 .box-dynamic {
    width: 650px;
+   height: 400px;
+   border: 1px solid #eee;
+   padding: 0 15px;
+}
+
+.dynamic-wrap {
+    height: 325px;
+    overflow: hidden;
 }
 
 .dynamic-content li {

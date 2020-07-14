@@ -139,6 +139,35 @@ function validator(validateItems, nameMapper) {
     return count;
 }
 
+//监听输入框输入文字个数
+function inputListener(inputElement, maxLength) {
+    let flag = true;
+    inputElement.on('compositionstart', function () {
+        flag = false;
+    });
+
+    inputElement.on('compositionend', function () {
+        flag = true;
+    });
+
+    inputElement.on('input', function () {
+        setTimeout(function () {
+            if (flag) {
+                let textnum = inputElement.val().replace(/\s+/g, "").length;
+                $('.text-count .count').text(textnum);
+                if (textnum < maxLength) {
+                    $('.text-count .limit').text('');
+                    $('.text-count .count').css('color', '#999');
+                }
+                if (textnum === maxLength) {
+                    $('.text-count .limit').text(`您最多只能输入${maxLength}字`);
+                    $('.text-count .count').css('color', '#ff3344');
+                }
+            }
+        }, 100);
+    });
+}
+
 /*模块轮播*/
 
 (function (win) {
@@ -246,3 +275,27 @@ function validator(validateItems, nameMapper) {
     })
     win.CustomCarousel = CustomCarousel;
 })(window)
+
+//自动调整图片大小
+
+function resizeImage(imgElement, maxWidth, maxHeight) {
+    imgElement.on('load', function () {
+        let ratio = 0;
+        let width = imgElement.width();
+        let height = imgElement.height();
+        if (width > maxWidth) {
+            ratio = maxWidth / width;
+            imgElement.css({
+                width: maxWidth,
+                height: ratio * height
+            });
+        }
+        if (height > maxHeight) {
+            ratio = maxHeight / height;
+            imgElement.css({
+                width: ratio * width,
+                height: maxHeight
+            });
+        }
+    });
+}

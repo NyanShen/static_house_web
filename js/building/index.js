@@ -1,7 +1,13 @@
 $(document).ready(function () {
-    
+
     /*回到顶部*/
     backToTop();
+
+    /*我的相册图片大小计算*/
+
+    $('.buiding-picture-content .picture img').each(function() {
+        resizeImage($(this), 200, 150);
+    });
 
     /*变价提醒，开盘提醒 */
     $('.bjtx-link, .kptx-link').click(function () {
@@ -11,7 +17,8 @@ $(document).ready(function () {
             message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码'
         }
         $.FormModal.userForm(modalParams);
-    })
+    });
+
     /*预约看房*/
     $('.reservation').click(function () {
         let modalParams = {
@@ -19,7 +26,8 @@ $(document).ready(function () {
             okText: '立即申请'
         }
         $.FormModal.userForm(modalParams);
-    })
+    });
+
     /*领券*/
     $('.coupon').click(function () {
         let modalParams = {
@@ -28,12 +36,13 @@ $(document).ready(function () {
             okText: '立即获取'
         }
         $.FormModal.userForm(modalParams);
-    })
+    });
+
     /*我要点评*/
     $('#commentBtn').click(function () {
         let modalParams = {
             title: '注册登录后再评论哦'
         }
         $.FormModal.loginForm(modalParams);
-    })
+    });
 });

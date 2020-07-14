@@ -1,0 +1,91 @@
+/*楼盘动态详情导航*/
+
+.news-nav {
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 20px;
+}
+
+.news-nav .nav-img {
+    width: 180px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.nav-content {
+    margin-left: 20px;
+    width: 400px;
+}
+
+.nav-content .name {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-content .name:hover {
+    color: #ff3344;
+    text-decoration: underline;
+}
+
+.nav-content p {
+    margin-top: 12px;
+}
+
+.nav-content .contact {
+    font-weight: bold;
+    color: #11a43c;
+}
+
+.nav-detail .price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ff3344;
+}
+
+.nav-detail .detail-btn {
+    padding: 4px 10px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.nav-detail .detail-btn:hover {
+    background-color: #14922d;
+}
+
+/*楼盘动态内容详情*/
+
+.news-content {
+    width: 100%;
+    min-height: 250px;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.news-content .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.news-content .state {
+    font-size: 12px;
+}
+
+.news-content .date {
+    color: #999;
+    margin-left: 10px;
+}
+
+.news-content .state a:hover {
+    color: #ff3344;
+}
+
+.news-content .content {
+    margin: 20px 0;
+    color: #666;
+}

@@ -1,57 +1,3 @@
-/*楼盘查询*/
-
-.box-search {
-    margin: 20px 0;
-}
-
-.search-content {
-    width: 580px;
-}
-
-.search-content .search-input {
-    float: left;
-    width: 350px;
-    height: 35px;
-    padding-left: 10px;
-    border: 1px solid #ff9900;
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.search-content .search-btn {
-    float: left;
-    width: 120px;
-    height: 35px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid #ff9900;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    letter-spacing: 10px;
-    cursor: pointer;
-    overflow: hidden;
-    color: #fff;
-    background-color: #ff9900;
-}
-
-.search-content .search-by-map {
-    height: 35px;
-    line-height: 35px;
-    font-size: 15px;
-    color: #666;
-}
-
-.search-content .search-by-map:hover {
-    color: #ff9900;
-}
-
-.search-content .search-by-map i {
-    float: left;
-    width: 24px;
-    height: 35px;
-    background: url("../../assets/icons/icon_map.png") no-repeat center 6px;
-}
 
 /*楼盘属性*/
 
@@ -427,22 +373,6 @@
 
 .bd-title .text .title-name:hover {
     color: #df2f30;
-}
-
-.bd-title .text .tags {
-    margin-top: 15px;
-}
-
-.bd-title .text .tags span {
-    color: #666;
-    background-color: #f2f2f2;
-    padding: 2px 8px;
-    margin-right: 10px;
-}
-
-.bd-title .text .tags .solding {
-    color: #fff;
-    background-color: #409DFB;
 }
 
 /*房贷计算*/
