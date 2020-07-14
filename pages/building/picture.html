@@ -166,12 +166,12 @@
                             poster="//static.fczx.com/www/assets/images/1400x933_1.jpg"
                             src="http://hi1grvrcg7xin1ne6w8.exp.bcevod.com/mda-jiup54dm5ty6r832/mda-jiup54dm5ty6r832.mp4"></video>
                     </div> -->
-                    <a href="" class="arrow arrow-left"></a>
-                    <a href="" class="arrow arrow-right"></a>
+                    <a href="javascript:void(0);" class="arrow arrow-left"></a>
+                    <a href="javascript:void(0);" class="arrow arrow-right"></a>
                 </div>
                 <div class="carousel-content">
                     <ul class="carousel-list clearfix">
-                        <li>
+                        <li class="actived">
                             <a href="javascript:void(0);">
                                 <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
                             </a>
@@ -456,21 +456,53 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
+        let currentIndex = 0;
         let showImage = $('.picture-carousel .carousel-show img');
         let listItems = $('.picture-carousel .carousel-list li');
         let listImages = $('.picture-carousel .carousel-list li img');
+        let listItemsCount = listItems.length;
+        //疑问:这js打开浏览器控制台就失控了???image on load
         resizeImage(showImage, 840, 600);
+        
+        // showImage.on('load', function () {
+        //     resizeImage(showImage, 840, 600);
+        // });
 
-        listImages.each(function (index) {
+        //没有on load 的打开浏览器控制台不生效， 有on load 的不打开浏览器不生效
+        listImages.each(function () {
+            resizeImage($(this), 135, 95);
+        });
+
+        listItems.each(function (index) {
             let $this = $(this);
-            resizeImage($this, 135, 95);
             $this.click(function () {
-                listItems.siblings().removeClass('actived');
-                listItems.eq(index).addClass('actived');
-                showImage.attr('src', $this.attr('src'));
-                showImage.attr('style', '');
+                currentIndex = index;
+                setCurrentItem(currentIndex);
             });
         });
+
+        $('.picture-carousel .carousel-show .arrow-left').click(function () {
+            if (currentIndex <= 0) {
+                return;
+            }
+            currentIndex = currentIndex - 1;
+            setCurrentItem(currentIndex);
+        });
+        $('.picture-carousel .carousel-show .arrow-right').click(function () {
+            if (currentIndex >= listItemsCount - 1) {
+                return;
+            }
+            currentIndex = currentIndex + 1;
+            setCurrentItem(currentIndex);
+        });
+
+        function setCurrentItem(currentIndex) {
+            listItems.siblings().removeClass('actived');
+            listItems.eq(currentIndex).addClass('actived');
+            imgSrc = listImages.eq(currentIndex).attr('src');
+            showImage.attr('src', imgSrc);
+            showImage.attr('style', '');
+        }
 
         $('#toggleBtn').click(function () {
             if ($(this).hasClass('toggle-pic')) {
