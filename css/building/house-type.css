@@ -26,24 +26,6 @@
     height: 158px;
 }
 
-.house-type-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    max-height: 262px;
-    transition: all .3s;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-}
-
-.house-type-all .house-type-image img {
-    max-height: 158px;
-}
-
 .house-type-image img:hover {
     transform: scale(1.05);
 }
@@ -224,6 +206,21 @@
     background: url('../../assets/icons/icon_scan_red.png') no-repeat left 9px;
 }
 
+.consult-contact .contact-btn {
+    display: block;
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 5px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #11a43c;
+}
+
+.consult-contact .contact-btn:hover {
+    background-color: #14922d;
+}
+
 /* 户型图详情 */
 
 .house-type-detail {
@@ -237,35 +234,48 @@
     top: 20px;
     width: 15px;
     height: 52px;
-    background-color: #eee;
+    cursor: pointer;
 }
 
+
 .house-type-detail .arrow.arrow-left {
-    left: 8px;
+    left: 5px;
+    background: url('../../assets/icons/left_white.png') no-repeat center center;
+    background-color: #ccc;
 }
 
 .house-type-detail .arrow.arrow-right {
-    right: 8px;
+    right: 5px;
+    background: url('../../assets/icons/right_white.png') no-repeat center center;
+    background-color: #ccc;
+}
+
+.house-type-detail .arrow:hover {
+    background-color: #ddd;
 }
 
 .house-type-detail .detail-nav {
+    position: relative;
     width: 1170px;
+    height: 52px;
     overflow: hidden;
 }
 
-.house-type-detail .detail-nav ul {
+.house-type-detail .detail-nav .hx-nav-list {
+    position: absolute;
+    left: 0;
     margin: 0 -5px;
     width: 4000px;
 }
 
-.house-type-detail .detail-nav ul li {
+.house-type-detail .hx-nav-list li {
     float: left;
     width: 175px;
     text-align: center;
     margin: 0 10px;
 }
 
-.house-type-detail .detail-nav ul li a {
+.house-type-detail .hx-nav-list li a {
     display: block;
     padding: 6px;
     color: #666;
@@ -274,13 +284,13 @@
     background-color: #eee;
 }
 
-.house-type-detail .detail-nav ul li a.actived {
+.house-type-detail .hx-nav-list li a.actived {
     color: #11a43c;
     background-color: #fff;
     border-color: #11a43c;
 }
 
-.house-type-detail .detail-nav ul li a:hover:not(.actived) {
+.house-type-detail .hx-nav-list li a:hover:not(.actived) {
     background-color: #fff;
     border-color: #11a43c;
 }
@@ -307,11 +317,6 @@
     overflow: hidden;
     border: 1px solid #f7f7f7;
     background-color: #f7f7f7;
-}
-
-.htd-content .detail-picture a img {
-    width: 100%;
-    height: 100%;
 }
 
 .htd-content .detail-picture .icons {

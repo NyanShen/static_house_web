@@ -85,7 +85,7 @@
                     <input type="text" class="search-input" placeholder="楼盘名或地址">
                     <input type="submit" class="search-btn" value="搜索">
                 </form>
-                <a href="" class="search-by-map fr"><i></i>地图找房</a>
+                <a href="javascript:void(0);" class="search-by-map fr"><i></i>地图找房</a>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
             </div>
             <div class="text fl">
                 <p>
-                    <a href="" class="title-name">福星惠誉·京澜誉府</a>
+                    <a href="javascript:void(0);" class="title-name">福星惠誉·京澜誉府</a>
                     <span class="desc-color">别名：福星苑小区</span>
                 </p>
                 <p class="tags">
@@ -134,14 +134,14 @@
         <div class="box-house-type mb20">
             <div class="house-type-nav">
                 <ul class="clearfix">
-                    <li><a href="" class="actived">全部（5）</a></li>
+                    <li><a href="javascript:void(0);" class="actived">全部（5）</a></li>
                     <li><a href="javascript:void(0);">二居（3）</a></li>
                     <li><a href="javascript:void(0);">三居（1）</a></li>
                     <li><a href="javascript:void(0);">四居（1）</a></li>
                 </ul>
             </div>
             <div class="house-type-all clearfix">
-                <ul class="house-type-list">
+                <ul class="house-type-list center-image">
                     <li>
                         <a href="/pages/building/house-type-detail.html" target="_blank">
                             <div class="house-type-image">
@@ -238,15 +238,15 @@
             <div class="pagination pagination-right hide">
                 <ul>
                     <li class="total">共有5个户型</li>
-                    <li><a href="" class="disabled">上一页</a></li>
-                    <li><a href="" class="actived">1</a></li>
-                    <li><a href="" class="">2</a></li>
-                    <li><a href="" class="">下一页</a></li>
+                    <li><a href="javascript:void(0);" class="disabled">上一页</a></li>
+                    <li><a href="javascript:void(0);" class="actived">1</a></li>
+                    <li><a href="javascript:void(0);" class="">2</a></li>
+                    <li><a href="javascript:void(0);" class="">下一页</a></li>
                 </ul>
             </div>
         </div>
         <!--户型图展示 end-->
-        
+
         <!--置业顾问 begin-->
         <div class="consult-contact clearfix">
             <div class="consult fl">
@@ -363,7 +363,7 @@
             <div class="contact fr">
                 <p><span class="score-point">咨询电话：  4008982461</span></p>
                 <p class="desc-color">致电售楼处了解项目更多信息</p>
-                <p class="scan-wx"><i></i>微信扫码拨号</p>
+                <a href="javascript:void(0);" class="contact-btn" id="contactBtn">致电售楼处</a>
             </div>
         </div>
         <!--置业顾问 end-->
@@ -418,7 +418,7 @@
             </script>
         </div>
         <!-- 楼盘标签集合end -->
-    
+
         <!-- 免责声明start -->
         <div class="box-statement mb20">
             <strong class="title-color">免责声明：</strong>
@@ -441,5 +441,12 @@
     <!--底部footer end-->
 
 </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.house-type-all .house-type-image img').each(function () {
+            resizeImage($(this), 208, 158);
+        });
+    });
+</script>
 
 </html>

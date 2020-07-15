@@ -20,17 +20,6 @@
     background-color: #ddd;
 }
 
-.bd-carousel-show .item-list img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 400px;
-    margin: auto;
-
-}
-
 .bd-carousel-wrap {
     position: relative;
     width: 600px;
@@ -71,6 +60,7 @@
     height: 80px;
     margin-right: 10px;
     overflow: hidden;
+    background-color: #f7f7f7;
 }
 
 .bd-carousel-content .bd-carousel-list li em {
@@ -99,24 +89,8 @@
     font-size: 12px;
 }
 
-.bd-carousel-content .bd-carousel-list li img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 80px;
-    z-index: 100;
-}
-
 .bd-carousel-content .bd-carousel-list li img:hover {
     transform: scale(1.05);
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
 }
 
 .bd-carousel-content .arrow {

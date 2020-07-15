@@ -83,15 +83,15 @@
     height: 150px;
     overflow: hidden;
     margin-left: 20px;
-    border: 1px solid #f4f4f4;
+    background-color: #f7f7f7;
 }
 
 .consult-list .has-img .item-picture img {
     position: absolute;
-    width: 222px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .consult-list .has-img .item-picture img:hover {

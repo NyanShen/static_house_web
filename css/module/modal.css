@@ -40,11 +40,12 @@
 }
 
 .modal-title {  
-    font-size: 20px;
+    font-size: 22px;
     color: #666;
 }
 
 .modal-message {
+    font-size: 16px;
     padding: 0 20px;
     margin-top: 15px;
     color: #f90;

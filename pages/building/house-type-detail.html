@@ -84,14 +84,14 @@
                     <input type="text" class="search-input" placeholder="楼盘名或地址">
                     <input type="submit" class="search-btn" value="搜索">
                 </form>
-                <a href="" class="search-by-map fr"><i></i>地图找房</a>
+                <a href="javascript:void(0);" class="search-by-map fr"><i></i>地图找房</a>
             </div>
         </div>
     </div>
     <!--楼盘面包屑及查询end-->
 
     <div class="cut-line"></div>
-    
+
     <!-- 楼盘标题start -->
     <div class="box-content clearfix">
         <div class="bd-title fl">
@@ -102,7 +102,7 @@
             </div>
             <div class="text fl">
                 <p>
-                    <a href="" class="title-name">福星惠誉·京澜誉府</a>
+                    <a href="javascript:void(0);" class="title-name">福星惠誉·京澜誉府</a>
                     <span class="desc-color">别名：福星苑小区</span>
                 </p>
                 <p class="tags">
@@ -133,7 +133,7 @@
         <div class="box-house-type">
             <div class="house-type-nav">
                 <ul class="clearfix">
-                    <li><a href="" class="actived">全部（5）</a></li>
+                    <li><a href="javascript:void(0);" class="actived">全部（5）</a></li>
                     <li><a href="javascript:void(0);">二居（3）</a></li>
                     <li><a href="javascript:void(0);">三居（1）</a></li>
                     <li><a href="javascript:void(0);">四居（1）</a></li>
@@ -142,9 +142,9 @@
             <div class="box-content-shadow mt20">
                 <div class="house-type-detail">
                     <div class="detail-nav">
-                        <ul class="clearfix">
+                        <ul class="hx-nav-list clearfix">
                             <li>
-                                <a href="" class="actived">
+                                <a href="javascript:void(0);" class="actived">
                                     <p>A4户型</p>
                                     <p>建筑面积：约208m²</p>
                                 </a>
@@ -163,11 +163,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="arrow arrow-left"></div>
-                    <div class="arrow arrow-right"></div>
+                    <div class="arrow arrow-left" id="hxArrowLeft"></div>
+                    <div class="arrow arrow-right" id="hxArrowRight"></div>
                     <div class="htd-content clearfix">
-                        <div class="detail-picture fl">
-                            <a href="" class="image">
+                        <div class="detail-picture center-image fl">
+                            <a href="javascript:void(0);" class="image">
                                 <img src="//static.fczx.com/www/assets/images/hous_type_1400x1122.png" alt="">
                             </a>
                             <div class="icons">
@@ -306,7 +306,7 @@
         <!--楼盘相册 begin-->
         <div class="box-building-picture table-detail mb20">
             <div class="table-detail-header">
-                <a href="" class="title">楼盘相册</a>
+                <a href="javascript:void(0);" class="title">楼盘相册</a>
                 <div class="title-list fr">
                     <a href="javascript:void(0);">户型(102)</a>
                     <span>|</span>
@@ -328,7 +328,7 @@
                 </div>
             </div>
             <div class="table-detail-content">
-                <ul class="buiding-picture-content">
+                <ul class="buiding-picture-content center-image">
                     <li>
                         <a href="javascript:;" class="picture">
                             <img src="//static.fczx.com/www/assets/images/200x150.jpg" alt="">
@@ -424,7 +424,7 @@
             </script>
         </div>
         <!-- 楼盘标签集合end -->
-    
+
         <!-- 免责声明start -->
         <div class="box-statement mb20">
             <strong class="title-color">免责声明：</strong>
@@ -469,7 +469,7 @@
             <div class="arrow arrow-right"></div>
         </div>
         <div class="screen-carousel">
-            <ul class="screen-picture-list">
+            <ul class="screen-picture-list center-image">
                 <li>
                     <img src="//static.fczx.com/www/assets/images/112x80_4.png" alt="">
                 </li>
@@ -489,10 +489,20 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
+        let htDetailImage = $('.htd-content .detail-picture img');
+        resizeImage(htDetailImage, 700, 680);
         $('#fullscreenBtn').click(function () {
             $('#fullscreen').show();
         });
-    })
+        /*户型列表超过长度逻辑*/
+        let listSelector = '.hx-nav-list';
+        let leftSelector = '#hxArrowLeft';
+        let rightSelector = '#hxArrowRight';
+        let totalItemCount = $('.hx-nav-list li').length;
+        let itemWith = 195;
+        let stepWith = 1170;
+        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWith });
+    });
 </script>
 
 </html>

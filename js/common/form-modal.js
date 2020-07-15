@@ -15,13 +15,15 @@
     }
 
     function generateUserFormHtml(title, okText, message, username, phone) {
-        let _html = `<div class="box-modal" id="boxModal">
+        let _html = '';
+        let _html_header = `<div class="box-modal" id="boxModal">
         <div class="modal-wrapper" id="modalWrapper">
             <div class="modal-header clearfix">
                 <span class="modal-title fl">${title}</span>
                 <span class="modal-close fr"></span>
-            </div>
-            <div class="modal-message">${message}</div>
+            </div>`;
+        let _html_message = `<div class="modal-message">${message}</div>`;
+        let _html_form = `
             <div class="modal-form">
                 <div class="form-item">
                     <i class="name-icon"></i>
@@ -47,9 +49,9 @@
                     <a href="javascript:void(0);">《房产在线服务协议》</a>及
                     <a href="javascript:void(0);">《隐私权政策》</a>
                 </div>
-            </div>
-        </div>
-    </div>`;
+            </div>`;
+        let _html_footer = `</div></div>`;
+        _html = _html_header + _html_message + _html_form + _html_footer;
         $("body").append(_html);
         generateModalFormCss();
         modalFormEvent(phone);

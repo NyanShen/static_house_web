@@ -3,11 +3,32 @@ $(document).ready(function () {
     /*回到顶部*/
     backToTop();
 
-    /*我的相册图片大小计算*/
+    /**楼盘主页相册轮播 */
+    $('.bd-carousel-show .item-list img').each(function () {
+        resizeImage($(this), 600, 400);
+    });
 
-    $('.buiding-picture-content .picture img').each(function() {
+    $('.bd-carousel-content .bd-carousel-list img').each(function () {
+        resizeImage($(this), 112, 80);
+    });
+
+    /*楼盘相册*/
+
+    $('.buiding-picture-content .picture img').each(function () {
         resizeImage($(this), 200, 150);
     });
+
+    /*同价位楼盘图*/
+    $('.hot-pic-list li .item-picture img').each(function () {
+        resizeImage($(this), 95, 70);
+    });
+
+    /*户型图列表*/
+
+    $('.house-type-content .house-type-image img').each(function () {
+        resizeImage($(this), 264, 262);
+    });
+
 
     /*变价提醒，开盘提醒 */
     $('.bjtx-link, .kptx-link').click(function () {
@@ -44,5 +65,21 @@ $(document).ready(function () {
             title: '注册登录后再评论哦'
         }
         $.FormModal.loginForm(modalParams);
+    });
+
+    $('#contactBtn').click(function () {
+        let modalParams = {
+            title: '注册登录后再评论哦'
+        }
+        $.FormModal.loginForm(modalParams);
+    });
+
+    $('#subscribBtn').click(function () {
+        let modalParams = {
+            title: '订阅信息',
+            message: '一键订阅: 变价通知、开盘通知、优惠通知、最新动态、看房团通知',
+            okText: '立即订阅'
+        }
+        $.FormModal.userForm(modalParams);
     });
 });

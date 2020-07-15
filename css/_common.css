@@ -125,12 +125,15 @@
     /*依赖conten-right*/
     height: 210px;
     overflow: hidden;
+    background-color: #f7f7f7;
 }
 
 .content-right .ad img {
-    width: 320px;
-    /*依赖conten-right*/
-    height: 210px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .content-right .ad img:hover {
@@ -508,15 +511,6 @@
     overflow: hidden;
     margin-bottom: 10px;
     background-color: #f7f7f7;
-}
-
-.buiding-picture-content .picture img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .buiding-picture-content .picture img:hover {
@@ -1001,11 +995,18 @@
     overflow: hidden;
 }
 
-.screen-carousel .screen-picture-list li img {
+/*统一居中图片*/
+.center-image img{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
 }
 
 /*覆盖浏览器以及标签的一些默认样式*/

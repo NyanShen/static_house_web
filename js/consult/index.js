@@ -1,7 +1,19 @@
 $(document).ready(function () {
 
+    //计算图片显示大小
+    //列表图片
+    $('.consult-list .item-picture img').each(function () {
+        resizeImage($(this), 222, 150);
+    });
+
+    //广告图片
+    resizeImage($('.content-right .ad img'), 320, 210);
+
+    //相关楼盘
+    resizeImage($('.building-related .picture img'), 160, 120);
+    
     /*申请优惠*/
-    $('#applicationBtn').click(function () {
+    $('#applicationBtn').on('click', function () {
         let modalParams = {
             title: '申请优惠',
             callback: applicationCallback
@@ -26,7 +38,7 @@ $(document).ready(function () {
 
     /*参团*/
 
-    $('.hot-purchase .join').click(function () {
+    $('.hot-purchase .join').on('click', function () {
         let modalParams = {
             title: $(this).attr('data-title'),
             callback: joinCallback,
@@ -34,7 +46,7 @@ $(document).ready(function () {
         }
         $.FormModal.userForm(modalParams);
     });
-    
+
 
     function joinCallback(username, phoneNumber) {
         app.request({

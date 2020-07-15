@@ -458,6 +458,7 @@
     overflow: hidden;
     border: 2px solid #f7f7f7;
     background-color: #f7f7f7;
+    cursor: pointer;
 }
 
 .picture-carousel .carousel-list li.actived {

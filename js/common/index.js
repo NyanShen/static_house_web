@@ -279,23 +279,33 @@ function inputListener(inputElement, maxLength) {
 //自动调整图片大小
 
 function resizeImage(imgElement, maxWidth, maxHeight) {
-    imgElement.on('load', function () {
-        let ratio = 0;
-        let width = imgElement.width();
-        let height = imgElement.height();
-        if (width > maxWidth) {
-            ratio = maxWidth / width;
+    let ratio = maxWidth / maxHeight;
+    let imgSrc = imgElement.attr('src');
+    getImageRealSize(imgSrc, function (width, height) {
+        let imgRatio = width / height;
+        if (ratio > imgRatio) {
+            imgElement.css({
+                width: width * (maxHeight / height),
+                height: maxHeight
+            });
+        } else {
             imgElement.css({
                 width: maxWidth,
-                height: ratio * height
-            });
-        }
-        if (height > maxHeight) {
-            ratio = maxHeight / height;
-            imgElement.css({
-                width: ratio * width,
-                height: maxHeight
+                height: height * (maxWidth / width)
             });
         }
     });
+}
+
+function getImageRealSize(imgSrc, callback) {
+    let img = new Image();
+    img.src = imgSrc;
+    //如果图片被缓存则取缓存图片，否则待图片加载完毕在获取
+    if (img.complete) {
+        callback(img.width, img.height);
+    } else {
+        img.onload = function () {
+            callback(img.width, img.height);
+        };
+    }
 }

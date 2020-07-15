@@ -70,10 +70,20 @@
 /*楼盘相关*/
 
 .building-related .picture {
+    position: relative;
     display: block;
     width: 160px;
     height: 120px;
     overflow: hidden;
+    background-color: #f7f7f7;
+}
+
+.building-related .picture img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .building-related .picture:hover {
@@ -147,7 +157,7 @@
 
 .form-item i {
     position: absolute;
-    top: 8px;
+    top: 10px;
     left: 8px;
     width: 20px;
     height: 20px;
@@ -548,17 +558,6 @@ table th, table td {
     height: 70px;
     background-color: #f4f4f4;
     overflow: hidden;
-}
-
-.hot-pic-list li .item-picture img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    margin: auto;
 }
 
 .hot-pic-list li a {
