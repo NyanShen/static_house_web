@@ -55,15 +55,10 @@
     background-color: #BBB;
 }
 
-.sand-content .sand-picture {
-    position: relative;
-    width: 900px;
-    height: 600px;
-}
-
 .sand-picture .sand-item {
     position: absolute;
     cursor: pointer;
+    background-color: #f7f7f7;
 }
 
 .sand-picture .sand-item {
@@ -71,6 +66,7 @@
     padding: 6px 8px;
     border-radius: 2px;
     color: #fff;
+    background-color: #409DFB;
 }
 
 .sand-picture .solding {
@@ -108,6 +104,7 @@
     display: block;
     border-style: solid;
     border-width: 8px 8px 0;
+    border-color: #409DFB transparent transparent;
 }
 
 .sand-picture .solding i {
@@ -223,9 +220,8 @@
     background-color: #11a43c;
 }
 
-.sand-info-list li.actived a
 
-.sand-info-list a {
+.sand-info-list .arrow {
     display: block;
 }
 
@@ -240,8 +236,13 @@
     height: 30px;
     line-height: 30px;
     font-size: 14px;
-    text-indent: 30px;
-    color: #666;
+    text-indent: 20px;
+    color: #999;
+}
+
+.sand-info-content .bd-detail li span {
+    color: #333;
+    padding-left: 10px;
 }
 
 .hx-wrap {
@@ -263,13 +264,11 @@
 }
 
 .hx-wrap .hx-list li {
-    padding: 6px 0 6px 20px;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
     border-bottom: 1px solid #eee;
     color: #666;
-}
-
-.hx-wrap .hx-list li:hover {
-    background-color: #e5fbe8;
 }
 
 .hx-wrap .hx-list li span {
@@ -280,5 +279,7 @@
 }
 
 .hx-wrap .hx-list li .check {
+    position: relative;
+    bottom: 12px;
     color: #FF3344;
 }

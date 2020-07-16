@@ -8,9 +8,6 @@ $(document).ready(function () {
 
     //广告图片
     resizeImage($('.content-right .ad img'), 320, 210);
-
-    //相关楼盘
-    resizeImage($('.building-related .picture img'), 160, 120);
     
     /*申请优惠*/
     $('#applicationBtn').on('click', function () {

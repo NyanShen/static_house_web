@@ -1,0 +1,203 @@
+/*新楼查询条件*/
+.newhouse-filter {
+    min-height: 150px;
+    border: 1px solid #ddd;
+}
+/*新楼导航*/
+
+.newhouse-nav .nav-list {
+    height: 41px;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.newhouse-nav .nav-item {
+    padding: 0 20px;
+    border-right: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.newhouse-nav .nav-item.actived {
+    background-color: #fff;
+    color: #ff3344;
+}
+
+.newhouse-nav .nav-item:hover {
+    color: #ff3344;
+    background-color: #fff;
+}
+
+.newhouse-nav .nav-rank {
+    position: relative;
+    font-size: 12px;
+    color: #666;
+}
+
+.newhouse-nav .rank-item {
+    float: left;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.newhouse-nav .rank-item:hover {
+    color: #ff3344;
+}
+
+.newhouse-nav .rank-up {
+    padding-right: 15px;
+    background: url('../../assets/icons/rank_up.png') no-repeat right center;
+}
+
+.newhouse-nav .rank-down {
+    padding-right: 15px;
+    background: url('../../assets/icons/rank_down.png') no-repeat right center;
+}
+
+.newhouse-nav .page-control {
+    position: relative;
+    float: right;
+    padding: 0 20px;
+    margin-left: 20px;
+}
+
+.newhouse-nav .page-control .arrow {
+    position: absolute;
+    top: 0;
+    width: 14px;
+    height: 42px;
+}
+
+.newhouse-nav .page-control .arrow-left {
+    left: 2px;
+    background: url('../../assets/icons/left12.png') no-repeat left center;
+}
+
+.newhouse-nav .page-control .arrow-left:hover {
+    background: url('../../assets/icons/left12_hv.png') no-repeat left center;
+}
+
+.newhouse-nav .page-control .arrow-right {
+    right: 2px;
+    background: url('../../assets/icons/right12.png') no-repeat left center;
+}
+
+.newhouse-nav .page-control .arrow-right:hover {
+    background: url('../../assets/icons/right12_hv.png') no-repeat left center;
+}
+
+/*新房列表项*/
+
+.newhouse-item {
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.newhouse-item:hover {
+    background-color: #fcfcfc;
+}
+
+.newhouse-item .picture {
+    position: relative;
+    width: 168px;
+    height: 125px;
+    overflow: hidden;
+}
+
+.newhouse-item .picture .tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    padding: 0 8px;
+    color: #fff;
+    background-color: #f60;
+}
+
+.newhouse-item .picture .icon-c {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.newhouse-item .picture .icon-b {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.newhouse-item .picture .icon-b span {
+    position: relative;
+    top: -2px;
+    margin-right: 5px;
+}
+
+.newhouse-item .picture .image {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('../../assets/icons/pic_white.png') no-repeat center center;
+}
+
+.newhouse-item .picture .comment {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('../../assets/icons/sms_white.png') no-repeat center center;
+}
+
+.newhouse-item .picture .video {
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    background-image: url('../../assets/icons/icon_video_m.png');
+}
+
+.newhouse-item .content-c {
+    width: 450px;
+    padding-left: 20px;
+}
+
+.newhouse-item .content-c .house-name {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.newhouse-item .content-c p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 14px;
+    color: #666;
+}
+
+.newhouse-item .content-r {
+    width: 200px;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: right;
+}
+
+.newhouse-item .content-r .house-price span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff3344;
+}
+
+.newhouse-item .content-r .house-contact {
+    font-weight: bold;
+    color: #666;
+}

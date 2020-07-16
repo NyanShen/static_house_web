@@ -16,72 +16,13 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/list.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
-    <style>
-        .newhouse-item {
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
 
-        .newhouse-item:hover {
-            background-color: #f9f9f9;
-        }
-
-        .newhouse-item .picture {
-            position: relative;
-            width: 168px;
-            height: 120px;
-            overflow: hidden;
-        }
-
-        .newhouse-item .picture .tag {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 12px;
-            padding: 0 8px;
-            color: #fff;
-            background-color: #f60;
-        }
-
-        .newhouse-item .picture .icon-b {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-        }
-
-        .newhouse-item .content-c {
-            width: 520px;
-            padding-left: 20px;
-        }
-
-        .newhouse-item .content-c .house-name {
-            display: block;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .newhouse-item .content-c p {
-            margin-top: 10px;
-            color: #666;
-        }
-
-        .newhouse-item .content-r {
-            width: 120px;
-            padding-left: 20px;
-        }
-
-        .newhouse-item .content-r .house-price span {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff3344;
-        }
-    </style>
 </head>
 
 <body>
@@ -98,7 +39,7 @@
                 <ul>
                     <li><a href="/">首页</a></li>
                     <li><a href="/pages/consult" target="_blank">资讯</a></li>
-                    <li><a href="/pages/building" target="_blank">新房</a></li>
+                    <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
                     <li><a>二手房</a></li>
                     <li><a>租房</a></li>
                     <li><a href="/pages/knowledge" target="_blank">知识</a></li>
@@ -145,18 +86,46 @@
         </div>
     </div>
     <!--楼盘面包屑及查询end-->
-
+    <div class="cut-line"></div>
     <!-- 新盘列表 start -->
-    <div class="box-content clearfix">
+    <div class="box-content clearfix mt20">
         <div class="content-left fl">
+            <!-- 新楼条件查询start -->
+            <div class="newhouse-filter">
+                
+            </div>
+            <!-- 新楼条件查询end -->
+            <!-- 新房导航start -->
+            <div class="newhouse-nav mt20">
+                <ul class="nav-list clearfix">
+                    <li class="nav-item actived fl">
+                        <span>全部楼盘<span class="list-count">(200)</span></span>
+                    </li>
+                    <li class="nav-item fl">
+                        <span>优惠楼盘<span class="list-count"></span></span>
+                    </li>
+                    <li class="nav-rank clearfix fr">
+                        <span class="rank-item default">默认排序</span>
+                        <span class="rank-item price rank-up">价格</span>
+                        <span class="rank-item open-time rank-down">开盘时间</span>
+                        <div class="page-control">
+                            <a href="javascript:void(0);" class="arrow arrow-left"></a>
+                            <span><em class="tip-color">1</em>/10</span>
+                            <a href="javascript:void(0);" class="arrow arrow-right"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 新房导航end -->
             <div class="newhouse-content">
                 <ul class="newhouse-list center-image">
                     <li class="newhouse-item clearfix">
                         <div class="picture fl">
                             <a href="/pages/building/index.html">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168" height="120">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
+                                    height="125">
                                 <span class="tag">推荐</span>
-                                <i class="icon-b"></i>
+                                <i class="icon-c"></i>
                             </a>
                         </div>
                         <div class="content-c fl">
@@ -182,6 +151,81 @@
                             </p>
                             <p class="house-contact">
                                 <span></span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="newhouse-item clearfix">
+                        <div class="picture fl">
+                            <a href="/pages/building/index.html">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
+                                    height="125">
+                                <span class="tag">推荐</span>
+                                <i class="icon-c video"></i>
+                            </a>
+                        </div>
+                        <div class="content-c fl">
+                            <a href="/pages/building/index.html" class="house-name">福星惠誉·京澜誉府</a>
+                            <p class="house-type">
+                                <span>2居/ 3居/ 4居/ 5居/ 5居以上</span>
+                                <span>-</span>
+                                <span class="size"> 85~139平米</span>
+                            </p>
+                            <p class="house-location">
+                                <span class="area">[区域名]</span>
+                                <span class="nearby">地铁良乡大学城站南约900米，地铁良乡大学城站南约900米</span>
+                            </p>
+                            <p class="tags">
+                                <span class="solding">在售</span>
+                                <span>住宅</span>
+                            </p>
+                        </div>
+                        <div class="content-r fr">
+                            <p class="house-price">
+                                <span>41000</span>
+                                <em class="small-desc">元/㎡</em>
+                            </p>
+                            <p class="house-contact">
+                                <span></span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="newhouse-item clearfix">
+                        <div class="picture fl">
+                            <a href="/pages/building/index.html">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
+                                    height="125">
+                                <span class="tag"></span>
+                                <div class="icon-b">
+                                    <i class="image"></i>
+                                    <span>12</span>
+                                    <i class="comment"></i>
+                                    <span>1</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-c fl">
+                            <a href="/pages/building/index.html" class="house-name">福星惠誉·京澜誉府</a>
+                            <p class="house-type">
+                                <span>2居/ 3居/ 4居/ 5居/ 5居以上</span>
+                                <span>-</span>
+                                <span class="size"> 85~139平米</span>
+                            </p>
+                            <p class="house-location">
+                                <span class="area">[区域名 子区域]</span>
+                                <span class="nearby">地铁良乡大学城站南约900米</span>
+                            </p>
+                            <p class="tags">
+                                <span class="solding">在售</span>
+                                <span>住宅</span>
+                            </p>
+                        </div>
+                        <div class="content-r fr">
+                            <p class="house-price">
+                                <span>41000</span>
+                                <em class="small-desc">元/㎡</em>
+                            </p>
+                            <p class="house-contact">
+                                <span>400 890 1122 <span class="font-12px">转</span> 21800</span>
                             </p>
                         </div>
                     </li>
@@ -266,7 +310,7 @@
     <!--右边固定栏 end-->
 </body>
 <script>
-    
+
 </script>
 
 </html>

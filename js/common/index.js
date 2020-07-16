@@ -297,7 +297,9 @@ function resizeImage(imgElement, maxWidth, maxHeight) {
     });
 }
 
+//获取图片实际大小
 function getImageRealSize(imgSrc, callback) {
+    if (!imgSrc) return;
     let img = new Image();
     img.src = imgSrc;
     //如果图片被缓存则取缓存图片，否则待图片加载完毕在获取
@@ -309,3 +311,4 @@ function getImageRealSize(imgSrc, callback) {
         };
     }
 }
+

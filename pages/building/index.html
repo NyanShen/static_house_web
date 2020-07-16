@@ -49,7 +49,7 @@
                 <ul>
                     <li><a href="/">首页</a></li>
                     <li><a href="/pages/consult" target="_blank">资讯</a></li>
-                    <li><a href="/pages/building" target="_blank">新房</a></li>
+                    <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
                     <li><a>二手房</a></li>
                     <li><a>租房</a></li>
                     <li><a href="/pages/knowledge" target="_blank">知识</a></li>
@@ -764,30 +764,15 @@
                             </li>
                             <li class="solded">
                                 <i class="checked"></i>
-                                <span>已售</span>
+                                <span>售完</span>
                             </li>
                         </ul>
                     </div>
                     <div class="sand-picture" id="sandPicture">
-                        <img src="//static.fczx.com/www/assets/images/sand_900x600c.jpg" alt="">
-                        <div class="sand-item unsold" data-id="1" style="top:121px; left:327px">
+                        <img src="" alt="">
+                        <!-- <div class="sand-item unsold" data-id="1" style="top:121px; left:327px">
                             <span>1#</span><i></i>
-                        </div>
-                        <div class="sand-item unsold" data-id="2" style="top:122px; left:464px">
-                            <span>2#</span><i></i>
-                        </div>
-                        <div class="sand-item unsold" data-id="3" style="top:92px; left:594px">
-                            <span>3#</span><i></i>
-                        </div>
-                        <div class="sand-item unsold" data-id="4" style="top:240px; left:615px">
-                            <span>4#</span><i></i>
-                        </div>
-                        <div class="sand-item solded" data-id="5" style="top:185px; left:516px">
-                            <span>5#</span><i></i>
-                        </div>
-                        <div class="sand-item solding" data-id="6" style="top:200px; left:415px">
-                            <span>6#</span><i></i>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="sand-memo">
                         <div class="memo-bg"></div>
@@ -797,43 +782,23 @@
                 </div>
                 <div class="sand-info fr">
                     <div class="sand-info-header">
-                        <ul class="sand-info-list">
-                            <li class="actived" data-id="1">1#</li>
-                            <li data-id="2">2#</li>
-                            <li data-id="3">3#</li>
-                            <li data-id="4">4#</li>
-                            <li data-id="5">5#</li>
-                            <li data-id="6">6#</li>
-                        </ul>
+                        <ul class="sand-info-list" id="sandInfoList"></ul>
                         <a href="javascript:;" class="arrow prev" id="sandArrowPrev"></a>
                         <a href="javascript:;" class="arrow next" id="sandArrowNext"></a>
                     </div>
                     <div class="sand-info-content mt20">
                         <ul class="bd-detail">
-                            <li><span>单元：1个</span></li>
-                            <li><span>建筑类型：高层</span></li>
-                            <li><span>电梯数：1梯12户</span></li>
-                            <li><span>楼层：30层</span></li>
-                            <li><span>户数：1</span></li>
+                            <li class="open-time"></li>
+                            <li class="deliver-time"></li>
+                            <li class="plan-households"></li>
+                            <li class="elevator-ratio"></li>
+                            <li class="storey-height"></li>
                         </ul>
                         <div class="hx-wrap">
                             <div class="hx-title">
-                                <span>1#</span>
+                                <span id="currentSandItem"></span>
                             </div>
-                            <ul class="hx-list">
-                                <li>
-                                    <span>H115㎡高层户型</span>
-                                    <span>3室2厅2卫1厨</span>
-                                    <span>115㎡</span>
-                                    <a href="javascript:void(0);" class="check">查看</a>
-                                </li>
-                                <li>
-                                    <span>B115㎡高层户型</span>
-                                    <span>3室2厅2卫1厨</span>
-                                    <span>115㎡</span>
-                                    <a href="javascript:void(0);" class="check">查看</a>
-                                </li>
-                            </ul>
+                            <ul class="hx-list" id="sandHouseTypeList"></ul>
                         </div>
                     </div>
                 </div>
