@@ -22,7 +22,54 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <style>
+        .newhouse-filter {
+            position: relative;
+            min-height: 150px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
 
+        .filter-item {
+            padding: 15px;
+        }
+
+        .filter-label {
+            float: left;
+            width: 50px;
+            color: #666;
+        }
+
+        .data-list {
+            float: left;
+            width: 745px;
+        }
+
+        .data-list a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .data-list a:hover:not(:first-child) {
+            color: #ff3344;
+        }
+
+        .data-list a:first-child {
+            font-weight: bold;
+            color: #11a43c;
+        }
+
+        .current-filter {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            padding-left: 15px;
+            background-color: #f7f7f7;
+        }
+    </style>
 </head>
 
 <body>
@@ -92,7 +139,33 @@
         <div class="content-left fl">
             <!-- 新楼条件查询start -->
             <div class="newhouse-filter">
-                
+                <div class="filter-item clearfix">
+                    <label class="filter-label">区域</label>
+                    <div class="data-list">
+                        <a href="#no">全部</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">谷城</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城</a>
+                        <a href="">樊城区</a>
+                        <a href="">樊城襄州</a>
+                    </div>
+                </div>
+                <div class="current-filter clearfix">
+                    <span class="fl">当前条件：</span>
+                    <div class="filter-list fl">
+                        <a href="">樊城区</a>
+                    </div>
+                    <a href="">清空全部</a>
+                </div>
             </div>
             <!-- 新楼条件查询end -->
             <!-- 新房导航start -->
