@@ -22,54 +22,7 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
-    <style>
-        .newhouse-filter {
-            position: relative;
-            min-height: 150px;
-            font-size: 12px;
-            border: 1px solid #ddd;
-        }
 
-        .filter-item {
-            padding: 15px;
-        }
-
-        .filter-label {
-            float: left;
-            width: 50px;
-            color: #666;
-        }
-
-        .data-list {
-            float: left;
-            width: 745px;
-        }
-
-        .data-list a {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .data-list a:hover:not(:first-child) {
-            color: #ff3344;
-        }
-
-        .data-list a:first-child {
-            font-weight: bold;
-            color: #11a43c;
-        }
-
-        .current-filter {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 35px;
-            line-height: 35px;
-            padding-left: 15px;
-            background-color: #f7f7f7;
-        }
-    </style>
 </head>
 
 <body>
@@ -134,15 +87,21 @@
     </div>
     <!--楼盘面包屑及查询end-->
     <div class="cut-line"></div>
-    <!-- 新盘列表 start -->
+
+    <!-- 新楼条件查询start -->
     <div class="box-content clearfix mt20">
-        <div class="content-left fl">
-            <!-- 新楼条件查询start -->
-            <div class="newhouse-filter">
+        <div class="newhouse-filter">
+            <div class="filter-menu">
+                <ul class="filter-menu-list clearfix">
+                    <li class="actived">区域找房</li>
+                    <li>户型找房</li>
+                </ul>
+            </div>
+            <div class="filter-content">
                 <div class="filter-item clearfix">
-                    <label class="filter-label">区域</label>
+                    <label class="filter-label">区域：</label>
                     <div class="data-list">
-                        <a href="#no">全部</a>
+                        <a href="#no" class="actived">全部</a>
                         <a href="">樊城区</a>
                         <a href="">樊城区</a>
                         <a href="">樊城区</a>
@@ -157,19 +116,132 @@
                         <a href="">樊城</a>
                         <a href="">樊城区</a>
                         <a href="">樊城襄州</a>
+                        <a href="">樊城</a>
+                        <a href="">樊城</a>
                     </div>
                 </div>
-                <div class="current-filter clearfix">
-                    <span class="fl">当前条件：</span>
-                    <div class="filter-list fl">
-                        <a href="">樊城区</a>
+                <div class="filter-item clearfix">
+                    <label class="filter-label">地铁：</label>
+                    <div class="data-list">
+                        <a href="" class="actived">全部</a>
+                        <a href="">一号线</a>
                     </div>
-                    <a href="">清空全部</a>
+                </div>
+                <div class="filter-item clearfix">
+                    <label class="filter-label">单价：</label>
+                    <div class="data-list">
+                        <div class="data-list">
+                            <a href="" class="actived">全部</a>
+                            <a href="">20000以下</a>
+                            <a href="">20000-30000</a>
+                            <a href="">100000以上</a>
+                            <span>单价(元/平)</span>
+                            <input type="text" id="unitPriceFloor" value="">
+                            <span>-</span>
+                            <input type="text" id="unitPriceCeil" value="">
+                            <input type="button" value="确定">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item clearfix">
+                    <label class="filter-label">总价：</label>
+                    <div class="data-list">
+                        <a href="" class="actived">全部</a>
+                        <a href="">100万以下</a>
+                        <a href="">100-300</a>
+                        <a href="">300-500</a>
+                        <a href="">500-800</a>
+                        <a href="">800-1000</a>
+                        <a href="">1000-2000</a>
+                        <a href="">2000万以上</a>
+                        <span>总价(万元)</span>
+                        <input type="text" id="totalPriceFloor" value="">
+                        <span>-</span>
+                        <input type="text" id="totalPriceCeil" value="">
+                        <input type="button" value="确定">
+                    </div>
+                </div>
+                <div class="filter-item clearfix">
+                    <label class="filter-label">户型：</label>
+                    <div class="data-list">
+                        <a href="" class="actived">全部</a>
+                        <a href=""><i></i>一居</a>
+                        <a href=""><i></i>两居</a>
+                        <a href=""><i></i>三居</a>
+                        <a href=""><i></i>四居</a>
+                        <a href=""><i></i>五居</a>
+                        <a href=""><i></i>五居以上</a>
+                    </div>
+                </div>
+                <div class="filter-item clearfix">
+                    <label class="filter-label">面积：</label>
+                    <div class="data-list">
+                        <a href="" class="actived">全部</a>
+                        <a href=""><i></i>60m²以下</a>
+                        <a href=""><i></i>60-80m²</a>
+                        <a href=""><i></i>80-100m²</a>
+                        <a href=""><i></i>100-120m²</a>
+                        <a href=""><i></i>120-150m²</a>
+                        <a href=""><i></i>150-200m²</a>
+                        <a href=""><i></i>200m²以上</a>
+                    </div>
+                </div>
+                <div class="filter-item more-filter clearfix">
+                    <label class="filter-label">更多：</label>
+                    <div class="select-filter">
+                        <div class="select-status">
+                            <span>销售状态</span>
+                            <i class="select-icon"></i>
+                        </div>
+                        <ul class="select-list">
+                            <li class="item">全部</li>
+                            <li class="item">在售</li>
+                            <li class="item">待售</li>
+                            <li class="item">售完</li>
+                        </ul>
+                    </div>
+                    <div class="select-filter">
+                        <div class="select-status">
+                            <span>物业类型</span>
+                            <i class="select-icon"></i>
+                        </div>
+                        <ul class="select-list">
+                            <li class="item">全部</li>
+                            <li class="item">住宅</li>
+                            <li class="item">商铺</li>
+                            <li class="item">别墅</li>
+                            <li class="item">写字楼</li>
+                        </ul>
+                    </div>
+                    <div class="select-filter">
+                        <div class="select-status">
+                            <span>特色</span>
+                            <i class="select-icon"></i>
+                        </div>
+                        <ul class="select-list">
+                            <li class="item">全部</li>
+                            <li class="item">小户型</li>
+                            <li class="item">低总价</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-item current-filter clearfix">
+                    <span class="fl">当前条件:</span>
+                    <div class="filter-selected fl">
+                        <a href="" class="selected-item">樊城区</a>
+                    </div>
+                    <a href="" class="filter-clear">清空全部</a>
                 </div>
             </div>
-            <!-- 新楼条件查询end -->
+        </div>
+    </div>
+    <!-- 新楼条件查询end -->
+    <!-- 新盘列表 start -->
+    <div class="box-content clearfix mt20">
+        <div class="content-left fl">
+
             <!-- 新房导航start -->
-            <div class="newhouse-nav mt20">
+            <div class="newhouse-nav">
                 <ul class="nav-list clearfix">
                     <li class="nav-item actived fl">
                         <span>全部楼盘<span class="list-count">(200)</span></span>
@@ -304,8 +376,68 @@
                     </li>
                 </ul>
             </div>
+            
+            <div class="pagination mt20">
+                <ul>
+                    <li><a href="javascript:;">首页</a></li>
+                    <li><a href="javascript:;">上一页</a></li>
+                    <li><a href="javascript:;">1</a></li>
+                    <li><a href="javascript:;" class="actived">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;">5</a></li>
+                    <li><a href="javascript:;">6</a></li>
+                    <li><a href="javascript:;">7</a></li>
+                    <li><a href="javascript:;">8</a></li>
+                    <li><a href="javascript:;">下一页</a></li>
+                    <li><a href="javascript:;">尾页</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="content-right fr"></div>
+        <div class="content-right fr">
+            <div class="table-type-list">
+                <div class="title">区域热门楼盘</div>
+                <div class="cut-line"></div>
+                <ul class="hot-pic-list center-image mt20">
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <!-- 新盘列表 end -->
     <!--底部footer start-->

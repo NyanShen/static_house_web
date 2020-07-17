@@ -1,7 +1,192 @@
 /*新楼查询条件*/
-.newhouse-filter {
+
+.filter-menu-list {
+    height: 40px;
+    font-size: 15px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.filter-menu-list li {
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.filter-menu-list li:last-child {
+    border-right: 1px solid #ddd;
+}
+
+.filter-menu-list li.actived {
+    font-weight: bold;
+    border-top: 2px solid #11a43c;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    color: #333;
+}
+
+.filter-content {
+    position: relative;
     min-height: 150px;
+    font-size: 12px;
     border: 1px solid #ddd;
+    border-top: 0;
+}
+
+.filter-item {
+    line-height: 28px;
+    padding: 10px 20px 0 20px;
+}
+
+.filter-label {
+    float: left;
+    width: 55px;
+    color: #999;
+}
+
+.data-list {
+    float: left;
+    width: 1100px;
+}
+
+.data-list a {
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.data-list a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+.data-list a.actived {
+    font-weight: bold;
+    color: #f60;
+}
+
+.data-list i {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 14px;
+    background: url('../../assets/icons/check.png') no-repeat left center;
+}
+
+.data-list input[type=text] {
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #eee;
+    color: #666;
+}
+
+.data-list input[type=button] {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 15px;
+    margin-left: 10px;
+    border: 1px solid #eee;
+    color: #333;
+    cursor: pointer;
+}
+
+.data-list .action-btn {
+    padding: 5px 15px;
+    border: 1px solid #eee;
+}
+
+.data-list span {
+    color: #999;
+    padding: 0 5px;
+}
+
+.more-filter {
+    padding-bottom: 15px;
+}
+
+.more-filter .select-filter {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+}
+
+.select-filter .select-status {
+    position: relative;
+    width: 120px;
+    border: 1px solid #eee;
+    padding: 0 20px 0 10px;
+    cursor: pointer;
+}
+
+.select-filter .select-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    background: url('../../assets/icons/down12.png') no-repeat center center;
+}
+
+.select-filter .select-status:hover .select-icon {
+    background: url('../../assets/icons/down12_hv.png') no-repeat center center;
+}
+
+.select-filter .select-list {
+    display: none;
+    position: absolute;
+    top: 29px;
+    width: 100%;
+    max-height: 320px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.select-filter:hover .select-list {
+    display: block;
+    z-index: 12;
+}
+
+.select-filter .item {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.select-filter .item:hover {
+    background-color: #f7f7f7;
+}
+
+.current-filter {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 0;
+    background-color: #f7f7f7;
+}
+
+.current-filter .filter-clear {
+    padding-left: 16px;
+    background: url('../../assets/icons/clear.png') no-repeat left center;
+}
+
+.current-filter .filter-clear:hover {
+    color: #f60;
+}
+
+.filter-selected {
+    margin: 0 20px;
+}
+
+.filter-selected .selected-item {
+    border: 1px solid #ffb281;
+    padding: 0 20px 0 5px;
+    background: url('../../assets/icons/clear_hv.png') no-repeat right center;
 }
 /*新楼导航*/
 
