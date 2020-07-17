@@ -1,14 +1,18 @@
 (function () {
     $.MsgModal = {
-        Alert: function (title, message, okText='确定') {
+        Alert: function (title, message, okText = '确定') {
             GenerateHtml("alert", title, message, okText);
             btnOk();
             btnNo();
         },
-        Confirm: function (title, message, callback, okText='确定', cancelText='取消') {
+        Confirm: function (title, message, callback, okText = '确定', cancelText = '取消') {
             GenerateHtml("confirm", title, message, okText, cancelText);
             btnOk(callback);
             btnNo();
+        },
+        Success: function (message, description, callback, okText = '确定') {
+            GenerateSuccessHtml(message, description, okText, callback);
+            btnClose(callback);
         }
     }
     //生成Html
@@ -151,6 +155,84 @@
     var btnNo = function () {
         $("#modalBtnNo,#modalIcon").click(function () {
             $("#modalBox,#modalContent").remove();
+        });
+    }
+
+    //成功模态框
+    function GenerateSuccessHtml(message, description, okText) {
+        let _html = `
+        <div class="box-modal" id="boxModal">
+            <div class="success-wrapper" id="successWrapper">
+                <div class="success-close"></div>
+                <img src="//static.fczx.com/www/assets/icons/check120.png" alt="" width="120px" height="120px">
+                <div class="success-mess">${message}</div>
+                <div class="success-desc">${description}</div>
+                <input type="button" value="${okText}" class="success-btn">
+            </div>
+        </div>`;
+        $("body").append(_html);
+        GenerateSuccessCss();
+    };
+
+    function GenerateSuccessCss() {
+        $("#boxModal").css({
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            zIndex: '9999'
+        });
+        $('.success-wrapper').css({
+            position: 'absolute',
+            top: '200px',
+            width: '400px',
+            textAlign: 'center',
+            padding: '25px',
+            backgroundColor: '#fff',
+            zIndex: '9999'
+        });
+        $('.success-mess').css({
+            fontSize: '18px',
+            marginBottom: '10px',
+            color: '#333'
+        });
+        $('.success-desc').css({
+            color: '#999',
+            marginBottom: '15px'
+        });
+        $('.success-btn').css({
+            width: '100px',
+            padding: '5px 20px',
+            marginBottom: '10px',
+            color: '#fff',
+            backgroundColor: '#11a43c',
+            cursor: 'pointer'
+        });
+        $('.success-close').css({
+            position: 'absolute',
+            top: '10px',
+            right: '12px',
+            width: '25px',
+            height: '25px',
+            background: 'url(//static.fczx.com/www/assets/icons/close.png) no-repeat center center',
+            cursor: 'pointer'
+        });
+        let _widht = document.documentElement.clientWidth; //屏幕宽
+        let successWrapper = $("#successWrapper");
+        //让提示框居中
+        successWrapper.css({
+            left: (_widht - 400) / 2 + "px"
+        });
+    }
+
+    function btnClose(callback) {
+        $(".success-close,.success-btn").click(function () {
+            $("#boxModal").remove();
+            if (typeof (callback) == 'function') {
+                callback();
+            }
         });
     }
 })();

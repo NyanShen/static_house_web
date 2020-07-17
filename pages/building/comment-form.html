@@ -19,8 +19,10 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/ask.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
-    <script type="text/javascript" src="//static.fczx.com/www/js/building/find-house.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/find-house.js"></script>
 
 </head>
 
@@ -137,14 +139,14 @@
                     </p>
                 </div>
             </div>
-            <div class="wd-form">
-                <textarea name="" id="commentArea" cols="30" rows="10" placeholder="您可以从楼盘价格，周边配套，小区环境，交通地段等角度进行点评哦！（15-500字）"
-                    maxlength="150"></textarea>
+            <div class="wd-form tf">
+                <textarea name="" id="commentArea" rows="10" placeholder="您可以从楼盘价格，周边配套，小区环境，交通地段等角度进行点评哦！（15-500字）"
+                    maxlength="500"></textarea>
                 <p class="text-count">
-                    <span class="count">0</span>/500字
+                    <span class="count">0</span>/500字 （至少15个字）
                     <span class="limit"></span>
                 </p>
-                <a href="javascript:;" class="action-btn">提交点评</a>
+                <a href="javascript:;" class="action-btn" id="houseCommentBtn">提交点评</a>
             </div>
         </div>
         <div class="content-right fr">
@@ -224,7 +226,7 @@
                         <input type="button" name="" id="" value="发送验证码">
                     </div>
                     <div class="form-item-sm">
-                        <input type="submit" name="" id="" value="一键找房" class="btn-common">
+                        <input type="submit" name="" id="findHouseBtn" value="一键找房" class="btn-common">
                     </div>
                 </div>
             </div>
@@ -264,22 +266,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    let tagNav = $('.box-tag .tag-nav li');
-                    let tagContenet = $('.box-tag .tag-content');
-                    tagContenet.hide();
-                    tagContenet.first().show();
-                    tagNav.each(function (index) {
-                        $(this).hover(function () {
-                            $(this).siblings().removeClass('actived');
-                            $(this).addClass('actived');
-                            tagContenet.hide();
-                            tagContenet.eq(index).show();
-                        })
-                    })
-                })
-            </script>
+
         </div>
         <!-- 楼盘标签集合end -->
 
@@ -310,6 +297,31 @@
     $(document).ready(function () {
         let commentArea = $('#commentArea');
         inputListener(commentArea, 500);
+        $('#houseCommentBtn').click(function () {
+            let textnum = commentArea.val().replace(/\s+/g, "").length;
+
+            if (textnum < 15) {
+                alert('点评字数不少于15字，请填写完毕在提交吧');
+                return;
+            }
+
+            app.request({
+                url: app.areaApiUrl('/house/comment'),
+                data: {
+                    fang_house_id: '194',
+                    content: commentArea.val(),
+                    image_path: ''
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    $.MsgModal.Success('点评成功', '关闭弹窗返回评论列表查看评论', function () {
+                        window.location.href = "/pages/building/comment.html";
+                    });
+                }
+            });
+        });
     });
 </script>
 

@@ -78,6 +78,9 @@
     height: 14px;
     background: url('../../assets/icons/check.png') no-repeat left center;
 }
+.data-list a.actived i {
+    background: url('../../assets/icons/check_hv.png') no-repeat left center;
+}
 
 .data-list input[type=text] {
     width: 80px;
@@ -180,15 +183,61 @@
 }
 
 .filter-selected {
-    margin: 0 20px;
+    margin: 0 10px 0 20px;
 }
 
 .filter-selected .selected-item {
     border: 1px solid #ffb281;
     padding: 0 20px 0 5px;
+    margin-right: 8px;
     background: url('../../assets/icons/clear_hv.png') no-repeat right center;
 }
+
 /*新楼导航*/
+
+/* 新楼未搜索到结果 推荐楼盘导航 */
+
+.newhouse-empty {
+    padding: 20px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.newhouse-empty .empty-content {
+    padding: 0 8px;
+    color: #ff6600;
+}
+
+.newhouse-empty p {
+    line-height: 40px;
+}
+
+.newhouse-empty .empty-content em {
+    padding: 0 5px;
+    color: #ff6600;
+}
+
+.newhouse-empty input[type=button] {
+    padding: 6px 25px;
+    margin-top: 8px;
+    color: #fff;
+    background-color: #11a43c;
+    cursor: pointer;
+}
+
+.newhouse-empty input[type=button]:hover {
+    background-color: #14922d;
+}
+
+.newhouse-refer-nav {
+    height: 39px;
+    line-height: 36px;
+    padding-left: 20px;
+    border: 1px solid #ddd;
+    border-top-color: #11a43c;
+    border-top-width: 2px;
+    color: #666;
+}
 
 .newhouse-nav .nav-list {
     height: 41px;
@@ -205,12 +254,13 @@
 }
 
 .newhouse-nav .nav-item.actived {
+    font-weight: bold;
     background-color: #fff;
-    color: #ff3344;
+    color: #11a43c;
 }
 
 .newhouse-nav .nav-item:hover {
-    color: #ff3344;
+    color: #11a43c;
     background-color: #fff;
 }
 

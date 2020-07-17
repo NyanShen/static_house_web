@@ -9,6 +9,20 @@ $(document).ready(function () {
             siblings.removeClass('on');
         });
     });
+
+    /*标签集合*/
+    let tagNav = $('.box-tag .tag-nav li');
+    let tagContenet = $('.box-tag .tag-content');
+    tagContenet.hide();
+    tagContenet.first().show();
+    tagNav.each(function (index) {
+        $(this).hover(function () {
+            $(this).siblings().removeClass('actived');
+            $(this).addClass('actived');
+            tagContenet.hide();
+            tagContenet.eq(index).show();
+        })
+    });
 });
 
 //居中元素

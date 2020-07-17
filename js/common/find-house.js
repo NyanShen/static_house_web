@@ -17,4 +17,8 @@ $(document).ready(function () {
             $(this).parents('.select-list').hide();
         });
     });
+
+    $('#findHouseBtn').click(function(){
+
+    });
 });

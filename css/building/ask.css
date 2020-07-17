@@ -165,7 +165,10 @@
 .wd-form textarea {
     width: 100%;
     border: 1px solid #eee;
+    font-size: 14px;
+    line-height: 25px;
     padding: 10px;
+    color: #666;
 }
 
 .wd-form .text-count {

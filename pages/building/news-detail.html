@@ -303,22 +303,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    let tagNav = $('.box-tag .tag-nav li');
-                    let tagContenet = $('.box-tag .tag-content');
-                    tagContenet.hide();
-                    tagContenet.first().show();
-                    tagNav.each(function (index) {
-                        $(this).hover(function () {
-                            $(this).siblings().removeClass('actived');
-                            $(this).addClass('actived');
-                            tagContenet.hide();
-                            tagContenet.eq(index).show();
-                        })
-                    })
-                })
-            </script>
+           
         </div>
         <!-- 楼盘标签集合end -->
     

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>success</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/modal.css">
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+</head>
+<style>
+    .success-wrapper {
+        position: absolute;
+        top: 200px;
+        width: 400px;
+        text-align: center;
+        padding: 25px;
+        background-color: #fff;
+    }
+
+    .success-mess {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .success-desc {
+        color: #999;
+        margin-bottom: 15px;
+    }
+
+    .success-btn {
+        width: 100px;
+        padding: 5px 20px;
+        margin-bottom: 10px;
+        color: #fff;
+        background-color: #11a43c;
+        cursor: pointer;
+    }
+
+    .success-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 25px;
+        height: 25px;
+        background: url('//static.fczx.com/www/assets/icons/close.png') no-repeat center center;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="box-modal">
+        <div class="success-wrapper" id="successWrapper">
+            <div class="success-close"></div>
+            <img src="//static.fczx.com/www/assets/icons/check120.png" alt="" width="120px" height="120px">
+            <div class="success-mess">提交成功</div>
+            <div class="success-desc">点击确定返回</div>
+            <input type="button" value="确定" class="success-btn">
+        </div>
+    </div>
+</body>
+<script>
+    var clientWidh = document.documentElement.clientWidth; //屏幕宽
+    let _widht = document.documentElement.clientWidth; //屏幕宽
+    let successWrapper = $("#successWrapper");
+    //让提示框居中
+    successWrapper.css({
+        left: (_widht - 400) / 2 + "px"
+    });
+</script>
+
+</html>
