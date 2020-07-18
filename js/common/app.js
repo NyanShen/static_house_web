@@ -1,7 +1,7 @@
 /*公共请求处理文件*/
 var app = app || {};
 
-app.getHostCity = function(){
+app.getHostCity = function () {
     var host = window.location.host.split('.');
     return host[0];
 };
@@ -48,6 +48,7 @@ app.getToken = function () {
 
 /**
  *  url, data, type, done, pagination
+ *  isFile 是否上传文件
  */
 app.request = function (params) {
     params.headers['X-Token'] = app.getToken();
@@ -65,7 +66,7 @@ app.request = function (params) {
             params.data[i] = null;
         }
     });
-    $.ajax({
+    var ajaxOptions = {
         url: params.url,
         data: params.data,
         type: params.type,
@@ -78,21 +79,11 @@ app.request = function (params) {
                 params.done.call(this, msg);
             } else {
                 $.MsgModal.Alert('提示', msg.message)
-                // layer.msg(msg.message, {
-                //     offset: '200px'
-                //     , icon: 2
-                //     , time: 3000
-                // });
             }
         },
         error: function (response) {
             if (response.status == 404) {
                 alert('接口不存在');
-                // layer.msg('接口不存在', {
-                //     offset: '200px'
-                //     , icon: 2
-                //     , time: 3000
-                // });
             } else if (response.status == 302) {
                 location.href = response.responseJSON.message;
             } else if (response.status == 401) {
@@ -100,22 +91,16 @@ app.request = function (params) {
             } else {
                 if (typeof response.responseJSON != 'undefined') {
                     $.MsgModal.Alert('提示', response.responseJSON.message)
-                    // layer.msg(response.responseJSON.message, {
-                    //     offset: '200px'
-                    //     , icon: 2
-                    //     , time: 3000
-                    // });
                 } else {
                     alert('系统正在开小差，请稍后再试');
-                    // layer.msg('系统正在开小差，请稍后再试', {
-                    //     offset: '200px'
-                    //     , icon: 2
-                    //     , time: 3000
-                    // });
                 }
             }
         }
-    })
+    };
+    if (params.isFile) {
+        $.extend(true, ajaxOptions, { processData: false, contentType: false });
+    }
+    $.ajax(ajaxOptions);
 };
 
 //根据长度生成随机码
@@ -147,3 +132,9 @@ app.date = function (timestamp, fmt) {
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 };
+
+//文件限制常数
+app.FILE_LIMIT = {
+    IMAGE_ACCEPT: ["bmp", "jpg", "png", "jpeg"],
+    SIZE_10: 1024 * 1024 * 10 //10M
+}
