@@ -146,6 +146,21 @@
                     <span class="count">0</span>/500字 （至少15个字）
                     <span class="limit"></span>
                 </p>
+                <p>
+                <div class="upload-btn mb10" id="uploadBtn">
+                    <span class="upload-text">上传图片</span>
+                    <i class="upload-icon"></i>
+                </div>
+                <span class="upload-desc">（请上传小于10M的图片）</span>
+                <input id="uploadImageBtn" name="" type="file" value="上传" style="display: none;" />
+                </p>
+                <div class="upload-image mb10" id="uploadImageWrap">
+                    <div class="image-mask" id="imageClearBtn">
+                        <span class="image-clear">点击删除</span>
+                    </div>
+                    <div class="image-clear"></div>
+                    <img src="" alt="" width="95" height="75">
+                </div>
                 <a href="javascript:;" class="action-btn" id="houseCommentBtn">提交点评</a>
             </div>
         </div>
@@ -297,6 +312,56 @@
     $(document).ready(function () {
         let commentArea = $('#commentArea');
         inputListener(commentArea, 500);
+
+        /*上传图片*/
+        let uploadImage = $('#uploadImageWrap img');
+        $('#uploadBtn').click(function () {
+            $('#uploadImageBtn').click();
+        });
+
+        $('#uploadImageBtn').on('change', function (event) {
+            let file = event.target.files[0];
+            console.log(file)
+            if (!file) return;
+            if (file.size > app.FILE_LIMIT.SIZE_10) {
+                alert(`您上传的图片有点大哦，请上传小于10M的图片`);
+                return;
+            }
+            let lastIndex = file.name.lastIndexOf(".");
+            let fileType = file.name.substring(lastIndex + 1);
+            if (app.FILE_LIMIT.IMAGE_ACCEPT.indexOf(fileType) === -1) {
+                alert(`请您上传图片格式的文件哦`);
+                return;
+            }
+            let formData = new FormData();
+            formData.append('file', file);
+            uploadImageRequest(formData);
+        });
+
+        /*上传图片接口*/
+        function uploadImageRequest(formData) {
+            app.request({
+                url: app.areaApiUrl('/file/upload'),
+                data: formData,
+                type: 'POST',
+                dataType: 'json',
+                isFile: true,
+                headers: {},
+                done: function ({ data }) {
+                    uploadImage.attr('src', data);
+                    $('#uploadImageWrap').show();
+                    $('.upload-text').text('重新上传');
+                }
+            });
+        }
+        // 删除图片
+        $('#imageClearBtn').click(function () {
+            uploadImage.attr('src', '');
+            $('#uploadImageWrap').hide();
+            $('.upload-text').text('上传图片');
+        });
+
+        /*提交评论*/
         $('#houseCommentBtn').click(function () {
             let textnum = commentArea.val().replace(/\s+/g, "").length;
 
@@ -310,7 +375,7 @@
                 data: {
                     fang_house_id: '194',
                     content: commentArea.val(),
-                    image_path: ''
+                    image_path: uploadImage.attr('src')
                 },
                 type: 'POST',
                 dataType: 'json',
