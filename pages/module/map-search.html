@@ -121,8 +121,7 @@
         .map-list-wrap {
             position: absolute;
             top: 0;
-            right: 0;
-            width: 380px;
+            left: 0;
             height: 100%;
             background-color: #fff;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
@@ -131,25 +130,40 @@
         .map-list-wrap .fold-btn {
             position: absolute;
             top: 50%;
-            right: 380px;
+            left: 380px;
             width: 30px;
             height: 65px;
             background-color: #fff;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+            cursor: pointer;
         }
 
-        .map-list-wrap .fold-btn i{
+        .map-list-wrap .fold-btn i {
             display: block;
             width: 100%;
             height: 100%;
+        }
+
+        .open {
+            background: url('//static.fczx.com/www/assets/icons/triangle-left.png') no-repeat center center;
+        }
+
+        .close {
             background: url('//static.fczx.com/www/assets/icons/triangle-right.png') no-repeat center center;
         }
 
+        .map-list-content {
+            width: 380px;
+        }
+
         .mli-item {
-            width: 340px;
-            padding: 20px 0;
-            margin: 0 auto;
+            padding: 20px;
             border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .mli-item:hover {
+            background-color: #f7f7f7;
         }
 
         .mli-img {
@@ -185,6 +199,18 @@
             padding: 3px 8px;
             color: #999;
             background-color: #f7f7f7;
+        }
+
+        .map-list-empty {
+            display: none;
+            width: 380px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .empty-text {
+            color: #666;
+            margin-top: 15px;
         }
     </style>
 
@@ -323,7 +349,6 @@
                     <i class="open"></i>
                 </div>
                 <div class="map-list-content">
-                    <div class="map-list-menu"></div>
                     <ul class="map-list">
                         <li>
                             <div class="mli-item clearfix">
@@ -354,6 +379,12 @@
                         </li>
                     </ul>
                 </div>
+                <div class="map-list-empty">
+                    <div class="empty-content">
+                        <img src="//static.fczx.com/www/assets/icons/house_empty.png" alt="">
+                        <p class="empty-text">很抱歉，没有找到符合条件的房源信息！</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -369,6 +400,20 @@
         $(window).resize(function () {
             setContentHeight();
         });
+
+        $('.fold-btn').click(function () {
+            if ($('.fold-btn i').hasClass('open')) {
+                $(this).css('left', 0);
+                $('.fold-btn i').removeClass('open');
+                $('.fold-btn i').addClass('close');
+                $('.map-list-content').hide();
+            } else {
+                $(this).css('left', '380px');
+                $('.fold-btn i').removeClass('close');
+                $('.fold-btn i').addClass('open');
+                $('.map-list-content').show();
+            }
+        })
     })
 </script>
 
