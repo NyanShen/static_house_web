@@ -28,6 +28,7 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
     <style>
@@ -262,7 +263,7 @@
                         <span class="unit">元/m²</span>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href="javascript:void(0);" class="bjtx-link"><i class="bjtx"></i>变价提醒</a>
+                        <a href="javascript:void(0);" class="bjtx-link" data-type="1"><i class="bjtx"></i>变价提醒</a>
                         <a href="javascript:void(0);" class="price-state">
                             <i class="price-state-icon"></i>
                             <span>价格说明</span>
@@ -311,7 +312,7 @@
                         <span>B区已于2018年5月1日推出新房源</span>
                     </div>
                     <div class="informaion-li-right fl">
-                        <a href="javascript:void(0);" class="kptx-link"><i class="kptx"></i>开盘提醒</a>
+                        <a href="javascript:void(0);" class="kptx-link" data-type="2"><i class="kptx"></i>开盘提醒</a>
                         <a href="javascript:void(0);" class="house-delivery">
                             <i class="house-delivery-icon"></i>
                             <span>交房时间</span>
@@ -391,7 +392,7 @@
                             <p title="置业顾问1对1服务" class="desc-color">置业顾问1对1服务</p>
                         </div>
                         <div class="order-btn fr">
-                            <a href="javascript:;" class="reservation" data-title="楼盘属性名称">预约看房</a>
+                            <a href="javascript:;" class="reservation" data-title="楼盘属性名称" data-type="3">预约看房</a>
                         </div>
                     </div>
                     <div class="order-item fr">
@@ -869,10 +870,11 @@
                             let lng = 112.141744;
                             let lat = 32.097901;
                             let mapId = "surround-map";
+                            let centerName = '襄阳吾悦广场';
                             let firstContentList = $('#surroundMarkContent .mark-item');
                             let secondContentList = $('#surroundMarkContent .mark-item .item-list');
                             // 实例化自定义地图函数
-                            let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback);
+                            let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback, centerName);
 
                             // 初始化地图搜索结果
                             firstContentList.eq(0).show();
@@ -928,7 +930,8 @@
         <!--用户点评 begin-->
         <div class="box-comment table-detail">
             <div class="table-detail-header clearfix">
-                <a href="/pages/building/comment.html" class="title">北京华发·中央公园用户点评<span class="title-desc">（共10条点评）</span></a>
+                <a href="/pages/building/comment.html" class="title">北京华发·中央公园用户点评<span
+                        class="title-desc">（共10条点评）</span></a>
                 <div class="title-list">
                     <a href="javascript:void(0);">更多<em>>></em></a>
                 </div>
@@ -1342,7 +1345,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
         <!-- 楼盘概述start -->

@@ -326,3 +326,22 @@ function getImageRealSize(imgSrc, callback) {
     }
 }
 
+/*集客会掉函数*/
+function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) {
+    app.request({
+        url: app.areaApiUrl('/house/customer'),
+        data: {
+            real_name: username,
+            mobile: phoneNumber,
+            randCode: phoneCode,
+            type: type,
+            fang_house_id: houseId,
+        },
+        type: 'POST',
+        dataType: 'json',
+        headers: {},
+        done: function () {
+            $.MsgModal.Success('恭喜您，已订阅成功！','感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
+        }
+    });
+}

@@ -185,7 +185,12 @@ $(document).ready(function () {
                 headers: {},
                 done: function (res) {
                     app.setToken(res.data);
-                    window.location.href = '/';
+                    let backUrl = app.getUrlParam('backUrl');
+                    if (backUrl) {
+                        window.location.href = backUrl;
+                    } else {
+                        window.location.href = '/';
+                    }
                 }
             });
         } else {
@@ -214,7 +219,12 @@ $(document).ready(function () {
                 headers: {},
                 done: function (res) {
                     app.setToken(res.data);
-                    window.location.href = '/';
+                    let backUrl = app.getUrlParam('backUrl');
+                    if (backUrl) {
+                        window.location.href = backUrl;
+                    } else {
+                        window.location.href = '/';
+                    }
                 }
             });
         }
@@ -253,7 +263,12 @@ $(document).ready(function () {
                     if (res.data && res.data !== 'success' && res.data !== 'fail') {
                         clearInterval(timer);
                         app.setToken(res.data);
-                        window.location.href = '/';
+                        let backUrl = app.getUrlParam('backUrl');
+                        if (backUrl) {
+                            window.location.href = backUrl;
+                        } else {
+                            window.location.href = '/';
+                        }
                     }
                 }
             });

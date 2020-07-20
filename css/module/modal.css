@@ -39,7 +39,7 @@
     background: url('//static.fczx.com/www/assets/icons/close.png') no-repeat center center;
 }
 
-.modal-title {  
+.modal-title {
     font-size: 22px;
     color: #666;
 }
@@ -52,6 +52,7 @@
 }
 
 /*模态框表单*/
+
 .modal-form {
     width: 320px;
     margin: 25px auto 30px;
@@ -79,12 +80,21 @@
     width: 90px;
     height: 40px;
     line-height: 40px;
+    padding: 0 10px;
+}
+
+.modal-form .form-item-code .phone-code-btn {
     color: #666;
     cursor: pointer;
 }
 
-/*登录样式调整*/
+.modal-form .form-item-code .count-down {
+    display: none;
+    color: #fff;
+    background-color: #999;
+}
 
+/*登录样式调整*/
 
 .modal-content .login-form {
     margin-left: 50px;

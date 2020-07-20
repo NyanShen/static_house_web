@@ -6,216 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>地图找房</title>
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
-    <style>
-        .map-search-menu {
-            width: 100%;
-            height: 50px;
-            border-bottom: 1px solid #f2f2f2;
-        }
-
-        .map-search-menu {
-            padding: 0 25px;
-        }
-
-        .map-search-menu .menu-item {
-            position: relative;
-            float: left;
-            min-width: 60px;
-            color: #666;
-        }
-
-        .map-search-menu .item-select {
-            position: relative;
-            height: 50px;
-            line-height: 50px;
-            cursor: pointer;
-        }
-
-        .map-search-menu .item-select .item-name {
-            padding: 5px 35px 5px 20px;
-        }
-
-        .map-search-menu .item-select .item-icon {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 12px;
-            height: 20px;
-            background: url('//static.fczx.com/www/assets/icons/down12.png') no-repeat center center;
-        }
-
-        .map-search-menu .item-select:hover .item-icon {
-            background: url('//static.fczx.com/www/assets/icons/down12_hv.png') no-repeat center center;
-        }
-
-        .map-search-menu .item-select-list {
-            display: none;
-            position: absolute;
-            top: 50px;
-            width: 120px;
-            background-color: #fff;
-            border: 1px solid #f2f2f2;
-            border-top: 0;
-            z-index: 12;
-            cursor: pointer;
-        }
-
-        .map-search-menu .menu-item:hover {
-            background-color: #f7f7f7;
-        }
-
-        .map-search-menu .menu-item:hover .item-select-list {
-            display: block;
-        }
-
-        .map-search-menu .item-select-list li {
-            height: 30px;
-            line-height: 30px;
-            padding-left: 15px;
-        }
-
-        .map-search-menu .item-select-list li:hover {
-            background-color: #e5fbe8;
-        }
-
-        .map-search-menu .switch-list {
-            position: relative;
-        }
-
-        .map-search-menu .switch-list .switch-name {
-            display: block;
-            width: 68px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            padding-left: 15px;
-            background: url('//static.fczx.com/www/assets/icons/list.png') no-repeat 15px center;
-        }
-
-        .map-search-menu .switch-list .switch-name:hover {
-            color: #ff3344;
-            background: url('//static.fczx.com/www/assets/icons/list_hv.png') no-repeat 15px center;
-            background-color: #f7f7f7;
-        }
-
-        .map-search-menu .switch-list:hover .item-select-list {
-            display: block;
-        }
-
-        .map-search-menu .switch-list .item-select-list {
-            width: 82px;
-        }
-
-        /*地图搜索内容*/
-        .map-search-content {
-            position: relative;
-        }
-
-        .map-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: #f7f7f7;
-        }
-
-        .map-list-wrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
-        }
-
-        .map-list-wrap .fold-btn {
-            position: absolute;
-            top: 50%;
-            left: 380px;
-            width: 30px;
-            height: 65px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
-            cursor: pointer;
-        }
-
-        .map-list-wrap .fold-btn i {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .open {
-            background: url('//static.fczx.com/www/assets/icons/triangle-left.png') no-repeat center center;
-        }
-
-        .close {
-            background: url('//static.fczx.com/www/assets/icons/triangle-right.png') no-repeat center center;
-        }
-
-        .map-list-content {
-            width: 380px;
-        }
-
-        .mli-item {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-        }
-
-        .mli-item:hover {
-            background-color: #f7f7f7;
-        }
-
-        .mli-img {
-            position: relative;
-            width: 136px;
-            height: 104px;
-            overflow: hidden;
-        }
-
-        .mli-detail {
-            margin-left: 20px;
-        }
-
-        .mli-detail .house-name a {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .mli-detail .house-price {
-            font-weight: 700;
-            color: #ff3344;
-            margin: 6px 0;
-        }
-
-        .mli-detail .house-type {
-            color: #999;
-            margin-bottom: 6px;
-        }
-
-        .mli-detail .house-tags span {
-            font-size: 12px;
-            padding: 3px 8px;
-            color: #999;
-            background-color: #f7f7f7;
-        }
-
-        .map-list-empty {
-            display: none;
-            width: 380px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .empty-text {
-            color: #666;
-            margin-top: 15px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map-search.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/map-search.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js"></script>
+
+    <style>
+        .circle-bubble {
+            margin-top: 25px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .circle-bubble .name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .circle-bubble .count {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+
+        .house-bubble {
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .house-bubble .triangle-down {
+            position: absolute;
+            left: 40%;
+            border-width: 8px;
+            border-style: solid;
+            border-color: #11a43c transparent transparent transparent;
+            opacity: .9;
+        }
+
+        .house-bubble:hover .triangle-down {
+            border-color: #f60 transparent transparent transparent;
+        }
+
+        .house-bubble .price {
+            font-weight: bold;
+        }
+
+        .house-bubble em {
+            padding: 0 10px;
+            color: #ccc;
+        }
+    </style>
 </head>
 
 <body>
@@ -413,7 +261,11 @@
                 $('.fold-btn i').addClass('open');
                 $('.map-list-content').show();
             }
-        })
+        });
+
+        let lng = 113.658221;
+        let lat = 34.780377;
+        new SearchMap({ lng, lat })
     })
 </script>
 

@@ -38,7 +38,8 @@
                 <div class="form-item form-item-code">
                     <i class="code-icon"></i>
                     <input type="text" placeholder="请输入手机验证码" id="phoneCode" value="">
-                    <input type="button" value="获取验证码">
+                    <input class="phone-code-btn" type="button" value="获取验证码" id="commonPhoneCodeBtn">
+                    <input class="count-down" type="button" value="" id="countdown">
                     <span class="formError" id="phoneCodeError"></span>
                 </div>
                 <div class="form-item">
@@ -162,6 +163,35 @@
                 $('.form-item-code').hide();
             }
         });
+        $('#commonPhoneCodeBtn').click(function () {
+            let _this = $(this);
+            let countdown = $('#countdown');
+            app.request({
+                url: app.apiUrl('/common/send-code'),
+                data: {
+                    mobile: $('#phone').val()
+                },
+                type: 'GET',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    let second = 5;
+                    _this.hide();
+                    countdown.show();
+                    countdown.val(`${second} 秒`);
+                    let interval = setInterval(function () {
+                        second--;
+                        countdown.val(`${second} 秒`);
+                        if (second <= 0) {
+                            countdown.hide();
+                            _this.show();
+                            _this.val('重发验证码');
+                            clearInterval(interval);
+                        }
+                    }, 1000)
+                }
+            });
+        });
     }
 
     function validateForm(fieldId, type) {
@@ -181,19 +211,18 @@
     }
 
     function submitForm(callback) {
-        let username = $('#username').val();
-        let phone = $('#phone').val();
-        let phoneCode = $('#phoneCode').val();
-
         $("#modalFormBtn").click(function () {
+            let username = $('#username').val();
+            let phone = $('#phone').val();
+            let phoneCode = $('#phoneCode').val();
             let errorCount = validateForm('username', 'required');
             if (errorCount) return;
             let phoneErrorCount = validateForm('phone', 'phone');
             if (phoneErrorCount) return;
-            $("#boxModal").remove();
             if (typeof (callback) == 'function') {
                 callback(username, phone, phoneCode);
             }
+            $("#boxModal").remove();
         });
     }
 

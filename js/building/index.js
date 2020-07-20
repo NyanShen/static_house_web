@@ -1,3 +1,6 @@
+/**
+ * {'1': '变价提醒', '2': '开盘提醒', '3': '预约看房', '4': '一键找房', '5': '参与团购', '6': '参与折扣', '7': '一键订阅'}
+ */
 $(document).ready(function () {
 
     /*回到顶部*/
@@ -32,19 +35,27 @@ $(document).ready(function () {
 
     /*变价提醒，开盘提醒 */
     $('.bjtx-link, .kptx-link').click(function () {
+        let type = $(this).attr('data-type');
         let modalParams = {
             title: `${$(this).text()}`,
             okText: '立即订阅',
-            message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码'
+            message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer('194', type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });
 
     /*预约看房*/
     $('.reservation').click(function () {
+        let type = $(this).attr('data-type');
         let modalParams = {
             title: `${$(this).attr('data-title')}`,
-            okText: '立即申请'
+            okText: '立即申请',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer('194', type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });
@@ -75,10 +86,14 @@ $(document).ready(function () {
     });
 
     $('#subscribBtn').click(function () {
+        let type = $(this).attr('data-type');
         let modalParams = {
             title: '订阅信息',
             message: '一键订阅: 变价通知、开盘通知、优惠通知、最新动态、看房团通知',
-            okText: '立即订阅'
+            okText: '立即订阅',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer('194', type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });

@@ -1,5 +1,5 @@
 (function (win) {
-    function SurroundMap(mapId, lng, lat, searchCallback, options = {}) {
+    function SurroundMap(mapId, lng, lat, searchCallback, centerName = '', options = {}) {
         // 创建Map实例
         let _this = this;
         let map = new BMap.Map(mapId);
@@ -32,6 +32,7 @@
                 });
             }
             //需要改变this指向
+            _this._setCenterLabel(map, point, centerName);
             _this._insertSearchResult(_this._currentSelector, resultList);
             searchCallback(_this._currentSelector, resultList);
         }
@@ -47,6 +48,25 @@
     SurroundMap.prototype = {
         constructor: SurroundMap,
         _range: 1000,
+        _setCenterLabel: function (map, point, centerName) {
+            let labelTemplate = `<div class="surround-bubble">
+            <p>${centerName}</p>
+            <div class="triangle-down"></div>
+            </div>`;
+            let centerLabel = new BMap.Label(labelTemplate, {
+                position: point,
+                offset: new BMap.Size(-45, -40)
+            });
+
+            centerLabel.setStyle({
+                height: "35px", //高度
+                border: "0",  //边
+                backgroundColor: "rgba(17,164,60)",
+                borderRadius: "4px",
+                cursor: "pointer"
+            });
+            map.addOverlay(centerLabel);
+        },
         _searchNearby: function (keymaps, currentSelector) {
             let localSearch = this._local;
             let range = this._range;

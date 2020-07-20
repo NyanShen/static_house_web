@@ -593,3 +593,24 @@
 .chart-text .legend-icon.yellow {
     background: url('../../assets/icons/circle_yellow.png') no-repeat center center;
 }
+
+/*周边配套中心点*/
+
+.surround-bubble {
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.surround-bubble .triangle-down {
+    position: absolute;
+    top: 35px;
+    left: 40%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #11a43c transparent transparent transparent;
+}

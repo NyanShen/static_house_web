@@ -87,7 +87,8 @@ app.request = function (params) {
             } else if (response.status == 302) {
                 location.href = response.responseJSON.message;
             } else if (response.status == 401) {
-                location.href = app.jumpUrl('/pages/login.html');
+                var backUrl = encodeURI(location.href);
+                location.href = app.jumpUrl(`/pages/login/index.html?backUrl=${backUrl}`);
             } else {
                 if (typeof response.responseJSON != 'undefined') {
                     $.MsgModal.Alert('提示', response.responseJSON.message)
