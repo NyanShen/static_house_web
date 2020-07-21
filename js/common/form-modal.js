@@ -181,7 +181,7 @@
                 dataType: 'json',
                 headers: {},
                 done: function () {
-                    let second = 5;
+                    let second = 60;
                     _this.hide();
                     countdown.show();
                     countdown.val(`${second} 秒`);
@@ -198,22 +198,6 @@
                 }
             });
         });
-    }
-
-    function validateForm(fieldId, type) {
-        let count = 0;
-        let nameMapper = {
-            username: '姓名',
-            phone: '手机号码'
-        }
-        let errorCount = validator([{ fieldId, type, }], nameMapper);
-        count = count + errorCount;
-        if (count) {
-            errorElement = $(`#${fieldId}Error`);
-            errorElement.show();
-            setShowTimeout(errorElement);
-        }
-        return count
     }
 
     function submitForm(callback, loginName, loginPhone) {

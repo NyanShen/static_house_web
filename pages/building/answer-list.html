@@ -170,7 +170,7 @@
                     <div class="select-house" id="selectPreferHouse">
                         <div class="select-content-sm">
                             <span>意向区域</span>
-                            <input type="text" name="" id="" hidden>
+                            <input type="text" name="" id="preferRegin" value="" hidden>
                             <i></i>
                             <ul class="select-list">
                                 <li>樊城区</li>
@@ -180,7 +180,7 @@
                         </div>
                         <div class="select-content-sm">
                             <span>购房面积</span>
-                            <input type="text" name="" id="" hidden>
+                            <input type="text" name="" id="houseArea" value="" hidden>
                             <i></i>
                             <ul class="select-list">
                                 <li>50M²以下</li>
@@ -203,7 +203,7 @@
                         </div>
                         <div class="select-content-sm">
                             <span>预算总价</span>
-                            <input type="text" name="" id="" hidden>
+                            <input type="text" name="" id="totalPrice" hidden>
                             <i></i>
                             <ul class="select-list">
                                 <li>30万以下</li>
@@ -216,7 +216,7 @@
                         </div>
                         <div class="select-content-sm">
                             <span>意向户型</span>
-                            <input type="text" name="" id="" hidden>
+                            <input type="text" name="" id="preferHouseType" hidden>
                             <i></i>
                             <ul class="select-list">
                                 <li>一室</li>
@@ -230,12 +230,16 @@
                     </div>
                     <div class="form-item-sm">
                         <label class="label-control">手机号码：</label>
-                        <input type="text" name="" id="" value="">
+                        <input type="text" name="" id="phone" value="">
+                        <span class="formError" id="phoneError"></span>
                     </div>
                     <div class="form-item-sm form-item-code-sm">
-                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i style="margin-left: 7px;"></i>码：</label>
-                        <input type="text" name="" id="" value="">
-                        <input type="button" name="" id="" value="发送验证码">
+                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i
+                                style="margin-left: 7px;"></i>码：</label>
+                        <input type="text" name="" id="phoneCode" value="">
+                        <input type="button" name="" id="phoneCodeBtn" value="发送验证码">
+                        <input class="count-down" type="button" value="" id="countdown">
+                        <span class="formError" id="phoneCodeError"></span>
                     </div>
                     <div class="form-item-sm">
                         <input type="submit" name="" id="findHouseBtn" value="一键找房" class="btn-common">

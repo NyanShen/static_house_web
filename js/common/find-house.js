@@ -18,7 +18,45 @@ $(document).ready(function () {
         });
     });
 
-    $('#findHouseBtn').click(function(){
-
+    $('#phoneCodeBtn').click(function () {
+        let _this = $(this);
+        let errorCount = validateForm('phone', 'phone');
+        if (errorCount) return;
+        let countdown = $('#countdown');
+            app.request({
+                url: app.apiUrl('/common/send-code'),
+                data: {
+                    mobile: $('#phone').val()
+                },
+                type: 'GET',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    let second = 60;
+                    _this.hide();
+                    countdown.show();
+                    countdown.val(`${second} 秒`);
+                    let interval = setInterval(function () {
+                        second--;
+                        countdown.val(`${second} 秒`);
+                        if (second <= 0) {
+                            countdown.hide();
+                            _this.show();
+                            _this.val('重发验证码');
+                            clearInterval(interval);
+                        }
+                    }, 1000)
+                }
+            });
     });
+
+    $('#findHouseBtn').click(function () {
+        let errorCount = 0;
+        errorCount = validateForm('phone', 'phone');
+        if (errorCount) return;
+        errorCount = validateForm('phoneCode', 'required');
+        if (errorCount) return;
+        
+    });
+
 });

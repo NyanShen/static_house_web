@@ -492,6 +492,7 @@ table th, table td {
 }
 
 .form-item-sm {
+    position: relative;
     margin-bottom: 15px;
 }
 
@@ -522,8 +523,14 @@ table th, table td {
     line-height: 30px;
     font-size: 12px;
     margin-left: 6px;
+    padding: 0 10px;
     cursor: pointer;
-    color: #666;
+}
+
+.form-item-sm .count-down {
+    display: none;
+    color: #fff;
+    background-color: #999;
 }
 
 .btn-common {

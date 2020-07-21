@@ -178,6 +178,24 @@ function validator(validateItems, nameMapper) {
     return count;
 }
 
+
+function validateForm(fieldId, type) {
+    let count = 0;
+    let nameMapper = {
+        username: '姓名',
+        phone: '手机号码',
+        phoneCode: '验证码'
+    }
+    let errorCount = validator([{ fieldId, type, }], nameMapper);
+    count = count + errorCount;
+    if (count) {
+        errorElement = $(`#${fieldId}Error`);
+        errorElement.show();
+        setShowTimeout(errorElement);
+    }
+    return count
+}
+
 //监听输入框输入文字个数
 function inputListener(inputElement, maxLength) {
     let flag = true;
