@@ -1,10 +1,10 @@
 (function () {
     $.FormModal = {
         userForm: function (params) {
-            const { username = '', phone = '' } = params;
+            const { loginName = '', loginPhone = '' } = params;
             const { title, callback, okText = '提交', message = '' } = params;
-            generateUserFormHtml(title, okText, message, username, phone);
-            submitForm(callback);
+            generateUserFormHtml(title, okText, message, loginName, loginPhone);
+            submitForm(callback, loginName, loginPhone);
             closeModal();
         },
         loginForm: function (params) {
@@ -14,7 +14,7 @@
         }
     }
 
-    function generateUserFormHtml(title, okText, message, username, phone) {
+    function generateUserFormHtml(title, okText, message, loginName, loginPhone) {
         let _html = '';
         let _html_header = `<div class="box-modal" id="boxModal">
         <div class="modal-wrapper" id="modalWrapper">
@@ -22,17 +22,23 @@
                 <span class="modal-title fl">${title}</span>
                 <span class="modal-close fr"></span>
             </div>`;
-        let _html_message = `<div class="modal-message">${message}</div>`;
+        let _html_message = `<p class="modal-sms">${message}</p>`;
+        let _html_phone = `
+        <p class="modal-user-info">姓<i style="margin:0 9px"></i>名：${loginName}</p>
+        <p class="modal-user-info">手机号：${loginPhone}</p>
+        <div class="modal-btn">
+            <a href="javascript:;" id="modalPhoneBtn">${okText}</a>
+        </div>`;
         let _html_form = `
             <div class="modal-form">
                 <div class="form-item">
                     <i class="name-icon"></i>
-                    <input type="text" placeholder="请输入姓名" id="username" value="${username}">
+                    <input type="text" placeholder="请输入姓名" id="username" value="">
                     <span class="formError" id="usernameError"></span>
                 </div>
                 <div class="form-item">
                     <i class="phone-icon"></i>
-                    <input type="text" placeholder="请输入手机号码" id="phone" value="${phone}">
+                    <input type="text" placeholder="请输入手机号码" id="phone" value="">
                     <span class="formError" id="phoneError"></span>
                 </div>
                 <div class="form-item form-item-code">
@@ -52,10 +58,16 @@
                 </div>
             </div>`;
         let _html_footer = `</div></div>`;
-        _html = _html_header + _html_message + _html_form + _html_footer;
+        _html = _html_header + _html_message;
+        if (loginPhone) {
+            _html = _html + _html_phone + _html_footer;
+        } else {
+            _html = _html + _html_form;
+        }
+        _html = _html + _html_footer;
         $("body").append(_html);
         generateModalFormCss();
-        modalFormEvent(phone);
+        modalFormEvent();
     }
 
     function generateLoginFormHtml(title) {
@@ -154,17 +166,11 @@
         });
     }
 
-    function modalFormEvent(phone) {
-        $('#phone').change(function () {
-            let currentPhone = $(this).val();
-            if (parseInt(phone) != parseInt(currentPhone)) {
-                $('.form-item-code').show();
-            } else {
-                $('.form-item-code').hide();
-            }
-        });
+    function modalFormEvent() {
         $('#commonPhoneCodeBtn').click(function () {
             let _this = $(this);
+            let errorCount = validateForm('phone', 'phone');
+            if (errorCount) return;
             let countdown = $('#countdown');
             app.request({
                 url: app.apiUrl('/common/send-code'),
@@ -210,7 +216,13 @@
         return count
     }
 
-    function submitForm(callback) {
+    function submitForm(callback, loginName, loginPhone) {
+        $("#modalPhoneBtn").click(function () {
+            if (typeof (callback) == 'function') {
+                callback(loginName, loginPhone, '123456');
+            }
+            $("#boxModal").remove();
+        });
         $("#modalFormBtn").click(function () {
             let username = $('#username').val();
             let phone = $('#phone').val();

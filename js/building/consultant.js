@@ -2,8 +2,10 @@ $(document).ready(function () {
     /*在线咨询popup*/
     $('.consultant-hidden-list li .consultant-info').each(function (index) {
         $(this).hover(function () {
+            $('.consultant-carousel .consultant-content').css('height', '320px');
             $(this).children('.consultant-scan-popup').show();
         }, function () {
+            $('.consultant-carousel .consultant-content').css('height', '106px');
             $(this).children('.consultant-scan-popup').hide();
         })
     })

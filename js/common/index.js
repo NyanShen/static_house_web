@@ -1,6 +1,7 @@
 $(document).ready(function () {
     /*回到顶部*/
     backToTop();
+    
     /*热门团购*/
     $('.hot-purchase>.item').each(function () {
         $(this).hover(function () {
@@ -10,6 +11,30 @@ $(document).ready(function () {
         });
     });
 
+    /*参团*/
+    $('.hot-purchase .join').on('click', function () {
+        let modalParams = {
+            title: $(this).attr('data-title'),
+            callback: joinCallback,
+            message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导'
+        }
+        $.FormModal.userForm(modalParams);
+    });
+
+    function joinCallback(username, phoneNumber) {
+        app.request({
+            url: app.areaApiUrl('/test/test'),
+            data: {
+                username: username,
+                mobile: phoneNumber
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+            }
+        });
+    }
     /*标签集合*/
     let tagNav = $('.box-tag .tag-nav li');
     let tagContenet = $('.box-tag .tag-content');
@@ -341,7 +366,7 @@ function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) 
         dataType: 'json',
         headers: {},
         done: function () {
-            $.MsgModal.Success('恭喜您，已订阅成功！','感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
+            $.MsgModal.Success('恭喜您，已订阅成功！', '感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
         }
     });
 }

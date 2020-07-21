@@ -33,11 +33,11 @@
     margin-right: 50px;
 }
 
-.box-activity .activity-content .apply .apply-input {
-    cursor: pointer;
+.box-activity .activity-content .apply-btn {
     width: 240px;
     height: 40px;
     font-size: 18px;
     color: #cd2a3a;
     background-color: #fdd31e;
+    cursor: pointer;
 }

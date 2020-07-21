@@ -33,30 +33,4 @@ $(document).ready(function () {
         });
     }
 
-    /*参团*/
-
-    $('.hot-purchase .join').on('click', function () {
-        let modalParams = {
-            title: $(this).attr('data-title'),
-            callback: joinCallback,
-            message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导'
-        }
-        $.FormModal.userForm(modalParams);
-    });
-
-
-    function joinCallback(username, phoneNumber) {
-        app.request({
-            url: app.areaApiUrl('/test/test'),
-            data: {
-                username: username,
-                mobile: phoneNumber
-            },
-            type: 'GET',
-            dataType: 'json',
-            headers: {},
-            done: function (res) {
-            }
-        });
-    }
 });

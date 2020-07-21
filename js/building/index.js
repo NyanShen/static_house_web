@@ -51,8 +51,11 @@ $(document).ready(function () {
     $('.reservation').click(function () {
         let type = $(this).attr('data-type');
         let modalParams = {
-            title: `${$(this).attr('data-title')}`,
-            okText: '立即申请',
+            title: `预约看房`,
+            okText: '立即预约',
+            loginName:'Nyan',
+            loginPhone: '13418897654',
+            message: `预约楼盘【${$(this).attr('data-title')}】`,
             callback: function (username, phone, phoneCode) {
                 callbackHouseCustomer('194', type, username, phone, phoneCode);
             }
@@ -66,6 +69,16 @@ $(document).ready(function () {
             title: '获取优惠券',
             message: `${$(this).attr('data-message')}`,
             okText: '立即获取'
+        }
+        $.FormModal.userForm(modalParams);
+    });
+
+    // 申请活动报名
+    $('#applyBtn').click(function () {
+        let modalParams = {
+            title: `【${$(this).attr('data-title')}】活动报名`,
+            message: `${$(this).attr('data-message')}`,
+            okText: '立即报名'
         }
         $.FormModal.userForm(modalParams);
     });
@@ -85,6 +98,7 @@ $(document).ready(function () {
         $.FormModal.loginForm(modalParams);
     });
 
+    /**一键订阅 */
     $('#subscribBtn').click(function () {
         let type = $(this).attr('data-type');
         let modalParams = {

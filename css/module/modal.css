@@ -23,15 +23,15 @@
 
 .modal-header {
     position: relative;
-    height: 55px;
-    line-height: 55px;
-    padding: 0 20px;
-    border-bottom: 1px solid #eee;
+    height: 65px;
+    line-height: 65px;
+    margin: 0 20px;
+    border-bottom: 2px solid #11a43c;
 }
 
 .modal-close {
     position: absolute;
-    top: 20px;
+    top: 25px;
     right: 20px;
     width: 18px;
     height: 18px;
@@ -40,22 +40,47 @@
 }
 
 .modal-title {
-    font-size: 22px;
-    color: #666;
+    font-size: 24px;
+    color: #11a43c;
 }
 
-.modal-message {
-    font-size: 16px;
-    padding: 0 20px;
-    margin-top: 15px;
+.modal-sms {
+    font-size: 18px;
+    margin: 25px;
     color: #f90;
+}
+
+.modal-user-info {
+    margin-top: 15px;
+    padding: 0 25px;
+    font-size: 16px;
+    color: #999;
+}
+
+.modal-btn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 35px 0 30px 0;
+}
+
+.modal-btn a {
+    display: inline-block;
+    width: 60%;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.modal-btn a:hover {
+    background-color: #14922d;
 }
 
 /*模态框表单*/
 
 .modal-form {
-    width: 320px;
+    width: 400px;
     margin: 25px auto 30px;
+    text-align: center;
 }
 
 .modal-form .form-item {
@@ -68,16 +93,12 @@
     width: 100%;
 }
 
-.modal-form .form-item-code {
-    display: none;
-}
-
 .modal-form .form-item-code input[type=text] {
-    width: 215px;
+    width: 285px;
 }
 
 .modal-form .form-item-code input[type=button] {
-    width: 90px;
+    width: 100px;
     height: 40px;
     line-height: 40px;
     padding: 0 10px;
@@ -95,7 +116,11 @@
 }
 
 /*登录样式调整*/
-
+.modal-login-form {
+    width: 320px;
+    margin: 25px auto 30px;
+    text-align: center;
+}
 .modal-content .login-form {
     margin-left: 50px;
 }
