@@ -30,38 +30,51 @@
 
 <body>
     <!--头部导航栏start-->
-    <div class="home-nav">
+    <div class="main-nav">
         <div class="nav-content clearfix">
-            <h2 class="nav-logo fl">
-                <a href="/">房产在线<small>Fang.com</small></a>
-            </h2>
-            <div class="nav-city fl">
-                <a href="javascript:void(0);">襄阳</a>
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a>二手房</a></li>
+                        <li><a>租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a>问答</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-list fl">
-                <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
-                    <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
-                    <li><a>二手房</a></li>
-                    <li><a>租房</a></li>
-                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
-                    <li><a>问答</a></li>
-                    <li><a>租房</a></li>
-                    <li><a>海外房产</a></li>
-                </ul>
+            <div class="nav-right fr">
+                <div class="nav-item login-link hide" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/index.html" class="login-btn">Nyan</a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="">我的消息</a>
+                        <a href="">我的回答</a>
+                        <a href="">看房记录</a>
+                        <a href="" class="logout">退出</a>
+                    </div>
+                </div>
             </div>
-            <div class="nav-login fr">
-                <ul>
-                    <li>
-                        <a href="/pages/login">登录</a>
-                    </li>
-                    <li>
-                        <a href="/pages/login/register.html">注册</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-app fr"></div>
         </div>
     </div>
     <!--头部导航栏end-->
@@ -162,10 +175,10 @@
                         </div>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="/pages/building/house-type-detail.html" target="_blank">
                             <div class="house-type-image">
-                                <img src="//static.fczx.com/www/assets/images/house_type_detail_220x150.png" alt="">
-                                <div class="image-tag unsold">待售</div>
+                                <img src="//static.fczx.com/www/assets/images/house_type_262x262c.jpg" alt="">
+                                <div class="image-tag solding">在售</div>
                                 <p class="image-text">户型图展示123㎡的户型</p>
                             </div>
                         </a>
@@ -175,7 +188,8 @@
                                 <span class="fr">建面123㎡</span>
                             </p>
                             <p>
-                                <span class="bold-red">约430万</span>
+                                <span class="bold-red">约470万</span>
+                                <span class="tag">主推</span>
                             </p>
                         </div>
                     </li>
@@ -235,7 +249,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="pagination pagination-right hide">
+            <div class="pagination pagination-right hide" id="houseTypePagination">
                 <ul>
                     <li class="total">共有5个户型</li>
                     <li><a href="javascript:void(0);" class="disabled">上一页</a></li>
@@ -253,12 +267,12 @@
                 <div class="title tf clearfix">
                     <span class="title-name fl">置业顾问</span>
                     <div class="arrow fr">
-                        <i class="arrow-left"></i>
-                        <i class="arrow-right"></i>
+                        <i class="arrow-left" id="arrowLeft"></i>
+                        <i class="arrow-right" id="arrowRight"></i>
                     </div>
                 </div>
                 <div class="consult-content">
-                    <div class="consult-hidden">
+                    <div class="consult-hidden" id="consultHidden">
                         <ul class="consultant-hidden-list">
                             <li>
                                 <div class="consultant-image fl">
@@ -400,7 +414,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
 
@@ -431,6 +445,31 @@
         $('.house-type-all .house-type-image img').each(function () {
             resizeImage($(this), 208, 158);
         });
+
+        /*每一页显示10条，判断总数是否大于10条*/
+        let totalCount = 11; //todo
+        if (totalCount > 10) {
+            $('#houseTypePagination').show();
+        }
+
+        /*在线咨询popup*/
+        $('#consultHidden .consultant-info').each(function (index) {
+            $(this).hover(function () {
+                $('#consultHidden').css('height', '320px');
+                $(this).children('.consultant-scan-popup').show();
+            }, function () {
+                $('#consultHidden').css('height', '106px');
+                $(this).children('.consultant-scan-popup').hide();
+            })
+        });
+        /*置业顾问轮播*/
+        let listSelector = '#consultHidden .consultant-hidden-list';
+        let leftSelector = '#arrowLeft';
+        let rightSelector = '#arrowRight';
+        let totalItemCount = $('#consultHidden .consultant-hidden-list li').length;
+        let itemWith = 215;
+        let stepWith = 860;
+        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWith });
     });
 </script>
 

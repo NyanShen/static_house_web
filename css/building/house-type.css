@@ -147,10 +147,13 @@
 
 .consult-contact .arrow .arrow-left {
     right: 40px;
-    background: url('../../assets/icons/squre_left.png') no-repeat center center;
+    background: url('../../assets/icons/arrow_left.png') no-repeat center center;
+    background-color: #ccc;
 }
+
 .consult-contact .arrow .arrow-right {
-    background: url('../../assets/icons/squre_right.png') no-repeat center center;
+    background: url('../../assets/icons/arrow_right.png') no-repeat center center;
+    background-color: #ccc;
 }
 
 .consult-contact .consult-hidden {
@@ -236,7 +239,6 @@
     height: 52px;
     cursor: pointer;
 }
-
 
 .house-type-detail .arrow.arrow-left {
     left: 5px;
@@ -402,10 +404,17 @@
 }
 
 .consultants .consultant-list li {
+    position: relative;
     margin: 10px;
     padding: 0 5px;
 }
 
 .consultants .consultant-list .consultant-info {
     width: 100px;
+}
+
+.consultant-info .consultant-scan-popup {
+    top: 54px;
+    right: 0;
+    z-index: 12;
 }

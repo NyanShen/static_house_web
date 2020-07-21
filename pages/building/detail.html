@@ -28,38 +28,51 @@
 
 <body>
     <!--头部导航栏start-->
-    <div class="home-nav">
+    <div class="main-nav">
         <div class="nav-content clearfix">
-            <h2 class="nav-logo fl">
-                <a href="/">房产在线<small>Fang.com</small></a>
-            </h2>
-            <div class="nav-city fl">
-                <a href="javascript:void(0);">襄阳</a>
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a>二手房</a></li>
+                        <li><a>租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a>问答</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-list fl">
-                <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
-                    <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
-                    <li><a>二手房</a></li>
-                    <li><a>租房</a></li>
-                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
-                    <li><a>问答</a></li>
-                    <li><a>租房</a></li>
-                    <li><a>海外房产</a></li>
-                </ul>
+            <div class="nav-right fr">
+                <div class="nav-item login-link hide" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/index.html" class="login-btn">Nyan</a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="">我的消息</a>
+                        <a href="">我的回答</a>
+                        <a href="">看房记录</a>
+                        <a href="" class="logout">退出</a>
+                    </div>
+                </div>
             </div>
-            <div class="nav-login fr">
-                <ul>
-                    <li>
-                        <a href="/pages/login">登录</a>
-                    </li>
-                    <li>
-                        <a href="/pages/login/register.html">注册</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-app fr"></div>
         </div>
     </div>
     <!--头部导航栏end-->
@@ -231,14 +244,32 @@
                             <th>发证时间</th>
                             <th>绑定楼栋</th>
                         </thead>
-                        <tbody>
+                        <tbody class="tbody-apart">
                             <tr>
                                 <td>鄂襄审批预售字（2020）32号</td>
                                 <td>2020-06-01</td>
                                 <td>襄阳市高新区长虹北路79号新城吾悦广场A区1幢 </td>
                             </tr>
                         </tbody>
+                        <tbody class="tbody-all">
+                            <tr>
+                                <td>鄂襄审批预售字（2020）32号</td>
+                                <td>2020-06-01</td>
+                                <td>襄阳市高新区长虹北路79号新城吾悦广场A区1幢 </td>
+                            </tr>
+                            <tr>
+                                <td>鄂襄审批预售字（2022）32号</td>
+                                <td>2022-06-01</td>
+                                <td>襄阳市高新区长虹北路79号新城吾悦广场A区1幢 </td>
+                            </tr>
+                        </tbody>
                     </table>
+                    <div class="table-toggle">
+                        <div class="toggle-btn off" id="toggleSoldBtn" data-type="sold">
+                            <span>展开</span>
+                            <i></i>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="detail-item">
@@ -282,7 +313,7 @@
                         </tbody>
                     </table>
                     <div class="table-toggle">
-                        <div class="toggle-btn off" id="togglePriceBtn">
+                        <div class="toggle-btn off" id="togglePriceBtn" data-type="price">
                             <span>展开</span>
                             <i></i>
                         </div>
@@ -435,8 +466,8 @@
                     </dd>
                     <dd class="tag-2 clearfix">
                         <div class="picture-left fl">
-                            <a href="javascript:void(0);"><img src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg"
-                                    alt=""></a>
+                            <a href="javascript:void(0);"><img
+                                    src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg" alt=""></a>
                         </div>
                         <div class="content-right fl">
                             <p>建面约82-177㎡城央瞰湖美宅，火爆热</p>
@@ -456,8 +487,8 @@
                     </dd>
                     <dd class="tag-2 clearfix">
                         <div class="picture-left fl">
-                            <a href="javascript:void(0);"><img src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg"
-                                    alt=""></a>
+                            <a href="javascript:void(0);"><img
+                                    src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg" alt=""></a>
                         </div>
                         <div class="content-right fl">
                             <p>建面约82-177㎡城央瞰湖美宅，火爆热</p>
@@ -476,8 +507,8 @@
                     </dd>
                     <dd class="tag-2 clearfix">
                         <div class="picture-left fl">
-                            <a href="javascript:void(0);"><img src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg"
-                                    alt=""></a>
+                            <a href="javascript:void(0);"><img
+                                    src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg" alt=""></a>
                         </div>
                         <div class="content-right fl">
                             <p>建面约82-177㎡城央瞰湖美宅，火爆热</p>
@@ -496,8 +527,8 @@
                     </dd>
                     <dd class="tag-2 clearfix">
                         <div class="picture-left fl">
-                            <a href="javascript:void(0);"><img src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg"
-                                    alt=""></a>
+                            <a href="javascript:void(0);"><img
+                                    src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg" alt=""></a>
                         </div>
                         <div class="content-right fl">
                             <p>建面约82-177㎡城央瞰湖美宅，火爆热</p>
@@ -516,8 +547,8 @@
                     </dd>
                     <dd class="tag-2 clearfix">
                         <div class="picture-left fl">
-                            <a href="javascript:void(0);"><img src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg"
-                                    alt=""></a>
+                            <a href="javascript:void(0);"><img
+                                    src="//static.fczx.com/www/assets/images/consult_hot_purchase.jpg" alt=""></a>
                         </div>
                         <div class="content-right fl">
                             <p>建面约82-177㎡城央瞰湖美宅，火爆热</p>
@@ -591,10 +622,10 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
-    
+
         <!-- 免责声明start -->
         <div class="box-statement mb20">
             <strong class="title-color">免责声明：</strong>
@@ -620,19 +651,21 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#togglePriceBtn').click(function () {
+
+        $('#togglePriceBtn, #toggleSoldBtn').click(function () {
+            let type = $(this).attr('data-type');
             if ($(this).hasClass('off')) {
                 $(this).removeClass('off');
                 $(this).addClass('on')
-                $('#togglePriceBtn span').text('收起');
-                $('.box-price-table .tbody-apart').hide();
-                $('.box-price-table .tbody-all').show();
+                $(this).children('span').text('收起');
+                $(`.box-${type}-table .tbody-apart`).hide();
+                $(`.box-${type}-table .tbody-all`).show();
             } else {
                 $(this).removeClass('on');
                 $(this).addClass('off')
-                $('#togglePriceBtn span').text('展开');
-                $('.box-price-table .tbody-all').hide();
-                $('.box-price-table .tbody-apart').show();
+                $(this).children('span').text('展开');
+                $(`.box-${type}-table .tbody-all`).hide();
+                $(`.box-${type}-table .tbody-apart`).show();
             }
         });
     });

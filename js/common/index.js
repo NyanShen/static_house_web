@@ -1,7 +1,7 @@
 $(document).ready(function () {
     /*回到顶部*/
     backToTop();
-    
+
     /*热门团购*/
     $('.hot-purchase>.item').each(function () {
         $(this).hover(function () {
@@ -48,6 +48,8 @@ $(document).ready(function () {
             tagContenet.eq(index).show();
         })
     });
+
+    /*登录注册&用户中心*/
 });
 
 //居中元素

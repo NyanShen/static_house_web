@@ -195,39 +195,52 @@
 
 /*首页头部导航*/
 
-.home-nav {
+.main-nav {
     position: relative;
     height: 50px;
     min-width: 1200px;
     background-color: #11a43c;
 }
 
-.home-nav>.nav-content {
+.main-nav>.nav-content {
     width: 1200px;
     margin: 0 auto;
 }
 
-.home-nav>.nav-content>.nav-logo, .home-nav>.nav-content li {
-    display: inline-block;
+.main-nav .nav-item {
+    position: relative;
+    float: left;
     height: 50px;
     line-height: 50px;
+}
+
+.main-nav .nav-logo {
+    display: block;
+    height: 100%;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.main-nav .nav-logo small {
+    vertical-align: -2px;
+    padding-left: 3px;
+}
+
+.main-nav .nav-city {
     padding: 0 10px;
 }
 
-.home-nav>.nav-content>.nav-city {
-    height: 50px;
-    line-height: 50px;
-    padding-right: 5px;
-}
-
-.home-nav>.nav-content>.nav-city a {
+.main-nav .nav-city .city-name {
     position: relative;
     border: 1px solid #eee;
     border-radius: 2px;
     padding: 3px 20px 3px 12px;
+    font-size: 12px;
+    color: #fff;
 }
 
-.home-nav>.nav-content>.nav-city a::after {
+.main-nav .nav-city .city-name::after {
     content: "";
     position: absolute;
     right: 5px;
@@ -238,23 +251,74 @@
     border-right: 5px solid transparent;
 }
 
-.home-nav>.nav-content>.nav-list li:hover {
+.main-nav>.nav-content li {
+    display: inline-block;
+}
+
+.main-nav .nav-list li:hover {
     background-color: #14922d;
 }
 
-.home-nav>.nav-content a {
+.main-nav .nav-list>li>a {
+    display: block;
     font-weight: bold;
-    padding: 15px 0;
     color: #fff;
+    padding: 0 10px;
 }
 
-.home-nav>.nav-content>.nav-login {
+.main-nav .nav-right {
+    position: relative;
     padding-left: 15px;
-    background: url("//static.fczx.com/www/assets/icons/user.png") no-repeat left center;
+    background: url("//static.fczx.com/www/assets/icons/user.png") no-repeat 5px center;
 }
 
-.home-nav>.nav-content>.nav-login li a:hover {
+.main-nav .nav-right .login-btn {
+    font-weight: bold;
+    color: #fff;
+    padding-left: 12px;
+}
+
+.main-nav .nav-right li a:hover {
     text-decoration: underline;
+}
+
+.main-nav .nav-right:hover .user-center {
+    display: block;
+}
+
+.main-nav .user-center {
+    display: none;
+    width: 120px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 0 0 4px 4px;
+}
+
+.main-nav .user-center .logout {
+    border-top: 1px solid #ddd;
+}
+
+.main-nav .user-center .triangle-up {
+    position: absolute;
+    top: -16px;
+    left: 30px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.main-nav .user-center a {
+    display: block;
+    padding: 8px 0;
+    color: #666;
+}
+
+.main-nav .user-center a:hover {
+    color: #11a43c;
 }
 
 /*左边固定栏*/

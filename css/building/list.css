@@ -44,6 +44,14 @@
     padding: 10px 20px 0 20px;
 }
 
+.filter-regin {
+    line-height: 28px;
+    border: 1px solid #f60;
+    border-radius: 2px;
+    margin: 0 20px;
+    padding: 0 10px;
+}
+
 .filter-label {
     float: left;
     width: 55px;

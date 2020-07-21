@@ -12,38 +12,51 @@
 </head>
 
 <body>
-    <div class="home-nav">
+    <div class="main-nav">
         <div class="nav-content clearfix">
-            <h2 class="nav-logo fl">
-                <a href="/">房产在线<small>Fang.com</small></a>
-            </h2>
-            <div class="nav-city fl">
-                <a href="javascript:void(0);">襄阳</a>
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a>二手房</a></li>
+                        <li><a>租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a>问答</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-list fl">
-                <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/pages/consult" target="_blank">资讯</a></li>
-                    <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
-                    <li><a>二手房</a></li>
-                    <li><a>租房</a></li>
-                    <li><a href="/pages/knowledge" target="_blank">知识</a></li>
-                    <li><a>问答</a></li>
-                    <li><a>租房</a></li>
-                    <li><a>海外房产</a></li>
-                </ul>
+            <div class="nav-right fr">
+                <div class="nav-item login-link hide" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/index.html" class="login-btn">Nyan</a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="">我的消息</a>
+                        <a href="">我的回答</a>
+                        <a href="">看房记录</a>
+                        <a href="" class="logout">退出</a>
+                    </div>
+                </div>
             </div>
-            <div class="nav-login fr">
-                <ul>
-                    <li>
-                        <a href="pages/login">登录</a>
-                    </li>
-                    <li>
-                        <a href="pages/login/register.html">注册</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-app fr"></div>
         </div>
     </div>
 </body>
