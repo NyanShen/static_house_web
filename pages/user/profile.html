@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>用户中心-消息</title>
-    <meta name="keywords" content="用户中心-消息">
-    <meta name="description" content="用户中心-消息">
+    <title>用户中心</title>
+    <meta name="keywords" content="用户中心">
+    <meta name="description" content="用户中心">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -89,11 +89,11 @@
     <div class="box-content clearfix mt20">
         <div class="side-menu fl">
             <ul class="menu-list">
-                <li><a href="/pages/user/index.html" class="menu-item actived"><i class="iconfont">&#xeb97;</i>消息</a></li>
+                <li><a href="/pages/user/index.html" class="menu-item"><i class="iconfont">&#xeb97;</i>消息</a></li>
                 <li><a href="/pages/user/question.html" class="menu-item"><i class="iconfont">&#xe7c2;</i>问答</a></li>
                 <li><a href="javascript:;" class="menu-item"><i class="iconfont">&#xeb9f;</i>我要买房</a></li>
                 <li><a href="/pages/user/comment.html" class="menu-item"><i class="iconfont">&#xe61d;</i>评论</a></li>
-                <li><a href="/pages/user/profile.html" class="menu-item"><i class="iconfont">&#xe635;</i>个人资料</a></li>
+                <li><a href="/pages/user/profile.html" class="menu-item actived"><i class="iconfont">&#xe635;</i>个人资料</a></li>
                 <li><a href="/pages/user/password.html" class="menu-item"><i class="iconfont">&#xe674;</i>修改密码</a></li>
                 <li><a href="/pages/user/favorite.html" class="menu-item"><i class="iconfont">&#xe671;</i>我的收藏</a></li>
                 <li><a href="/pages/user/record.html" class="menu-item"><i class="iconfont">&#xe66e;</i>看房记录</a></li>
@@ -102,11 +102,70 @@
         <div class="side-right fr">
             <div class="user-content">
                 <ul class="user-tab">
-                    <li><a href="#" class="tab-item actived">系统消息</a></li>
+                    <li><a href="#" class="tab-item actived">个人资料</a></li>
                 </ul>
-                <div class="empty-container mt30">
-                    <img src="//static.fczx.com/www/assets/icons/empty120.png" alt="">
-                    <div class="empty-text">暂时还没有消息哦~</div>
+                <div class="profile-wrap">
+                    <div class="profile-header">
+                        <i class="iconfont">&#xe668;</i>
+                        <span class="profile-title">当前头像</span>
+                        <a href="" class="operate-btn header-btn">修改</a>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="//static.fczx.com/www/assets/images/user_photo.jpg" alt="" class="" width="100px" height="100px">
+                    </div>
+                </div>
+                <div class="profile-wrap">
+                    <div class="profile-header">
+                        <i class="iconfont">&#xe602;</i>
+                        <span class="profile-title">基本账号资料</span>
+                        <a href="" class="operate-btn header-btn">编辑</a>
+                    </div>
+                    <ul class="profile-list" id="profileList">
+                        <li class="profile-item">
+                            <label class="label">帐号</label>
+                            <span class="value">Nyan</span>
+                        </li>
+                        <li class="profile-item">
+                            <label class="label">昵称</label>
+                            <span class="value">whatsyourdream</span>
+                        </li>
+                        <li class="profile-item">
+                            <label class="label">真实姓名</label>
+                            <span class="value">暂无设置</span>
+                        </li>
+                    </ul>
+                    <ul class="profile-list hide" id="profileEdit">
+                        <li class="profile-item">
+                            <label class="label">帐号</label>
+                            <input type="text" value="Nyan" class="edit disedit" readonly>
+                        </li>
+                        <li class="profile-item">
+                            <label class="label">昵称</label>
+                            <input type="text" value="whatsyourdream" class="edit">
+                        </li>
+                        <li class="profile-item">
+                            <label class="label">真实姓名</label>
+                            <input type="text" value="" class="edit">
+                        </li>
+                    </ul>
+                </div>
+                <div class="profile-wrap">
+                    <div class="profile-header">
+                        <i class="iconfont">&#xe67f;</i>
+                        <span class="profile-title">绑定设置</span>
+                    </div>
+                    <ul class="profile-list">
+                        <li class="profile-item">
+                            <label class="label">微信</label>
+                            <span class="value">你还未绑定微信登录</span>
+                            <a href="" class="operate-btn">绑定</a>
+                        </li>
+                        <li class="profile-item">
+                            <label class="label">手机号</label>
+                            <span class="value">你已绑定手机号登录</span>
+                            <a href="" class="operate-btn">解绑</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="picture-list-wrap picture-list-inuser mt30">
