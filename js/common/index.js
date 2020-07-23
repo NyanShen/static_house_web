@@ -333,7 +333,47 @@ function inputListener(inputElement, maxLength) {
         }
     })
     win.CustomCarousel = CustomCarousel;
-})(window)
+})(window);
+
+// 大图轮播点击
+function showCarouselEvent(arrowLeft, arrowRight, listItems, listImages, callback, currentIndex = 0) {
+    let listItemsCount = listItems.length;
+
+    listItems.each(function (index) {
+        let $this = $(this);
+        $this.click(function () {
+            currentIndex = index;
+            setCurrentItem(currentIndex);
+        });
+    });
+    
+    arrowLeft.click(function () {
+        if (currentIndex <= 0) {
+            alert('已经是第一张了');
+            return;
+        }
+        currentIndex = currentIndex - 1;
+        setCurrentItem(currentIndex);
+    });
+
+    arrowRight.click(function () {
+        if (currentIndex >= listItemsCount - 1) {
+            alert('已经是最后一张了');
+            return;
+        }
+        currentIndex = currentIndex + 1;
+        setCurrentItem(currentIndex);
+    });
+
+    function setCurrentItem(currentIndex) {
+        listItems.siblings().removeClass('actived');
+        listItems.eq(currentIndex).addClass('actived');
+        let imgSrc = listImages.eq(currentIndex).attr('src');
+        if (typeof (callback) == 'function') {
+            callback(imgSrc, currentIndex);
+        }
+    }
+}
 
 //自动调整图片大小
 
@@ -371,7 +411,7 @@ function getImageRealSize(imgSrc, callback) {
     }
 }
 
-/*集客会掉函数*/
+/*集客回调函数*/
 function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) {
     app.request({
         url: app.areaApiUrl('/house/customer'),

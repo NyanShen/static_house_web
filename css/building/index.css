@@ -47,6 +47,10 @@
     color: #999;
 }
 
+.informaion-li-right .small-desc {
+    border: 0;
+}
+
 .informaion-li-right a:hover {
     color: #666;
     border-color: #999;

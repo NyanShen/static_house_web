@@ -301,17 +301,13 @@
     margin: 25px 0;
 }
 
-.htd-content .detail-picture {
+.htd-content .carousel-show {
     position: relative;
     width: 700px;
-    height: 680px;
+    height: 600px;
 }
 
-.htd-content .detail-text {
-    width: 400px;
-}
-
-.htd-content .detail-picture a.image {
+.htd-content .carousel-show a.image {
     position: relative;
     display: block;
     width: 100%;
@@ -321,17 +317,84 @@
     background-color: #f7f7f7;
 }
 
-.htd-content .detail-picture .icons {
+.htd-content .carousel-show .icons {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.htd-content .detail-picture .icons .icon-fullscreen {
+.htd-content .carousel-show .icons .icon-fullscreen {
     display: block;
     width: 30px;
     height: 30px;
     background: url('../../assets/icons/icon_fullscreen.png') no-repeat center 6px;
+}
+
+.htd-content .carousel-content {
+    position: relative;
+    width: 700px;
+    height: 84px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.htd-content .carousel-content .hxarrow {
+    position: absolute;
+    top: 25px;
+    width: 22px;
+    height: 33px;
+    cursor: pointer;
+    background: url("../../assets/icons/arrow.png") no-repeat center center;
+}
+
+.htd-content .carousel-content .hxarrow-left {
+    left: 0;
+    background-position: 0 0;
+}
+
+.htd-content .carousel-content .hxarrow-right {
+    right: 0;
+    background-position: -23px 0;
+}
+
+.htd-content .carousel-content .hxarrow-left:hover, .htd-content .carousel-content .hxarrow-right:hover {
+    background-color: #ccc;
+}
+
+.htd-content .carousel-list {
+    position: absolute;
+    left: 0;
+    width: 4000px;
+    height: 84px;
+}
+
+
+.htd-content .carousel-list li {
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 84px;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 2px solid #f7f7f7;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+.htd-content .carousel-list li:last-child {
+    margin-right: 0;
+}
+
+.htd-content .carousel-list li.actived {
+    border-color: #11a43c;
+}
+
+.htd-content .carousel-list li:hover {
+    border-color: #11a43c;
+}
+
+.htd-content .detail-text {
+    width: 400px;
 }
 
 .htd-content .detail-text .title {

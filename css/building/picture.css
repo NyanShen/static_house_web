@@ -402,23 +402,6 @@
     height: 100%;
 }
 
-.picture-carousel .carousel-show .arrow {
-    position: absolute;
-    top: 45%;
-    width: 25px;
-    height: 80px;
-}
-
-.picture-carousel .carousel-show .arrow-left {
-    left: 10px;
-    background: url("../../assets/icons/left50.png") no-repeat center center;
-}
-
-.picture-carousel .carousel-show .arrow-right {
-    right: 10px;
-    background: url("../../assets/icons/right50.png") no-repeat center center;
-}
-
 .picture-carousel .carousel-content {
     position: relative;
     width: 785px;
@@ -429,8 +412,9 @@
 .picture-carousel .carousel-content .arrow {
     position: absolute;
     top: 0;
-    width: 18px;
+    width: 20px;
     height: 95px;
+    cursor: pointer;
 }
 
 .picture-carousel .carousel-content .arrow-left {
@@ -467,15 +451,6 @@
 
 .picture-carousel .carousel-list li:hover {
     border-color: #11a43c;
-}
-
-.picture-carousel .carousel-list li img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .picture-carousel .carousel-desc .informaion-li {

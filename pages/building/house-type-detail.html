@@ -155,7 +155,7 @@
             <div class="box-content-shadow mt20">
                 <div class="house-type-detail">
                     <div class="detail-nav">
-                        <ul class="hx-nav-list clearfix">
+                        <ul class="hx-nav-list clearfix" id="hxtNavList">
                             <li>
                                 <a href="javascript:void(0);" class="actived">
                                     <p>A4户型</p>
@@ -176,16 +176,34 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="arrow arrow-left" id="hxArrowLeft"></div>
-                    <div class="arrow arrow-right" id="hxArrowRight"></div>
+                    <div class="arrow arrow-left" id="navArrowLeft"></div>
+                    <div class="arrow arrow-right" id="navArrowRight"></div>
                     <div class="htd-content clearfix">
-                        <div class="detail-picture center-image fl">
-                            <a href="javascript:void(0);" class="image">
-                                <img src="//static.fczx.com/www/assets/images/hous_type_1400x1122.png" alt="">
-                            </a>
-                            <div class="icons">
-                                <a href="javascript:;" title="全屏查看" id="fullscreenBtn"><i
-                                        class="icon-fullscreen"></i></a>
+                        <div class="fl">
+                            <div class="carousel-show center-image">
+                                <a href="javascript:void(0);" class="image">
+                                    <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt="">
+                                </a>
+                                <div class="icons">
+                                    <a href="javascript:;" title="全屏查看" id="fullscreenBtn"><i
+                                            class="icon-fullscreen"></i></a>
+                                </div>
+                                <div class="middle-arrow arrow-left" id="hxtShowArrowLeft"></div>
+                                <div class="middle-arrow arrow-right" id="hxtShowArrowRight"></div>
+                            </div>
+                            <div class="carousel-content">
+                                <ul class="carousel-list clearfix" id="hxtDetailList">
+                                    <li class="actived">
+                                        <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt=""
+                                            width="96" height="80">
+                                    </li>
+                                    <li class="">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="96"
+                                            height="80">
+                                    </li>
+                                </ul>
+                                <div class="hxarrow hxarrow-left" id="hxtArrowLeft"></div>
+                                <div class="hxarrow hxarrow-right" id="hxtArrowRight"></div>
                             </div>
                         </div>
                         <div class="detail-text fr">
@@ -419,7 +437,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
 
@@ -450,54 +468,27 @@
         </div>
         <div class="screen-content">
             <div class="screen-picture">
-                <img src="//static.fczx.com/www/assets/images/hous_type_1400x1122.png" alt="">
+                <img src="" alt="">
             </div>
-            <div class="arrow arrow-left"></div>
-            <div class="arrow arrow-right"></div>
+            <div class="arrow arrow-left" id="screenShowArrowLeft"></div>
+            <div class="arrow arrow-right" id="screenShowArrowRight"></div>
         </div>
         <div class="screen-carousel">
-            <ul class="screen-picture-list center-image">
-                <li>
-                    <img src="//static.fczx.com/www/assets/images/112x80_4.png" alt="">
+            <ul class="screen-picture-list">
+                <li class="actived">
+                    <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt="" width="112"
+                        height="80">
+                </li>
+                <li class="">
+                    <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="112" height="80">
                 </li>
             </ul>
-            <div class="arrow arrow-left"></div>
-            <div class="arrow arrow-right"></div>
+            <div class="arrow arrow-left" id="screenListArrowLeft"></div>
+            <div class="arrow arrow-right" id="screenListArrowRight"></div>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#closeIcon').click(function () {
-                    $('#fullscreen').hide();
-                });
-            })
-        </script>
     </div>
     <!-- 户型图全屏图start -->
 </body>
-<script type="text/javascript">
-    $(document).ready(function () {
-        let htDetailImage = $('.htd-content .detail-picture img');
-        resizeImage(htDetailImage, 700, 680);
-        $('#fullscreenBtn').click(function () {
-            $('#fullscreen').show();
-        });
-        /*在线咨询popup*/
-        $('#consultants .consultant-info').each(function (index) {
-            $(this).hover(function () {
-                $(this).children('.consultant-scan-popup').show();
-            }, function () {
-                $(this).children('.consultant-scan-popup').hide();
-            })
-        });
-        /*户型列表超过长度逻辑*/
-        let listSelector = '.hx-nav-list';
-        let leftSelector = '#hxArrowLeft';
-        let rightSelector = '#hxArrowRight';
-        let totalItemCount = $('.hx-nav-list li').length;
-        let itemWith = 195;
-        let stepWith = 1170;
-        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWith });
-    });
-</script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/house-type.js"></script>
 
 </html>

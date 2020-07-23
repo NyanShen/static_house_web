@@ -296,6 +296,7 @@
     border: 1px solid #ddd;
     padding: 5px 10px;
     border-radius: 0 0 4px 4px;
+    z-index: 12;
 }
 
 .main-nav .user-center .logout {
@@ -1050,7 +1051,7 @@
     bottom: 20px;
     left: 40px;
     right: 40px;
-    height: 80px;
+    height: 84px;
     overflow: hidden;
 }
 
@@ -1082,19 +1083,33 @@
 }
 
 .screen-carousel .screen-picture-list {
+    position: absolute;
+    left: 0;
     width: 4000px;
-    height: 80px;
+    height: 84px;
 }
 
 .screen-carousel .screen-picture-list li {
     position: relative;
     float: left;
     cursor: pointer;
-    width: 112px;
-    height: 80px;
+    width: 116px;
+    height: 84px;
     margin-right: 10px;
     background-color: #f7f7f7;
+    border: 2px solid #f7f7f7;
     overflow: hidden;
+    opacity: .6;
+}
+
+.screen-carousel .screen-picture-list li:hover {
+    border-color: #11a43c;
+    opacity: 1;
+}
+
+.screen-carousel .screen-picture-list li.actived {
+    border-color: #11a43c;
+    opacity: 1;
 }
 
 /*统一居中图片*/

@@ -615,6 +615,9 @@ table th, table td {
 /*楼盘标签*/
 
 .tags {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
     margin-top: 15px;
 }
 
@@ -628,4 +631,35 @@ table th, table td {
 .tags .solding {
     color: #fff;
     background-color: #409DFB;
+}
+
+/* 中图轮播箭头 */
+.carousel-show:hover .middle-arrow{
+    display: block;
+}
+
+.middle-arrow {
+    display: none;
+    position: absolute;
+    top: 45%;
+    width: 35px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.middle-arrow.arrow-left {
+    left: 0;
+    background: url("../assets/icons/arrow_left30.png") no-repeat center center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.middle-arrow.arrow-right {
+    right: 0;
+    background: url("../assets/icons/arrow_right30.png") no-repeat center center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.middle-arrow.arrow-disable {
+    background-color: rgba(0, 0, 0, .3);
+    cursor: unset;
 }
