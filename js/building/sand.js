@@ -3,8 +3,8 @@ $(document).ready(function () {
     let sandPicture = $('#sandPicture');
     let sandImage = $('#sandPicture img');
     let sandInfoList = $('#sandInfoList');
-    let itemWith = 100;
-    let stepWith = 500;
+    let itemWidth = 100;
+    let stepWidth = 500;
     let showItemCount = 5;
     let itemInfo = {};
     let picSelcetor = '#sandPicture .sand-item';
@@ -102,7 +102,7 @@ $(document).ready(function () {
         let leftSelector = '#sandArrowPrev';
         let rightSelector = '#sandArrowNext';
         let totalItemCount = $(tabSelector).length;
-        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, showItemCount, itemWith, stepWith });
+        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, showItemCount, itemWidth, stepWidth });
     }
 
     /*沙盘项目点击事件绑定*/
@@ -123,9 +123,9 @@ $(document).ready(function () {
                 // 子元素与直接上级元素的距离
                 let itemPosition = tabItem.position().left;
                 //计算当前页
-                let currentPage = Math.floor(itemPosition / stepWith);
+                let currentPage = Math.floor(itemPosition / stepWidth);
                 if (relativePosition < -400 || relativePosition > 0) {
-                    sandInfoList.css('left', `-${currentPage * stepWith}px`);
+                    sandInfoList.css('left', `-${currentPage * stepWidth}px`);
                 }
                 /*设置沙盘项目信息*/
                 setSandDetail(dataId);

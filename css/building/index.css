@@ -139,11 +139,7 @@
     height: 28px;
     line-height: 26px;
     text-align: center;
-    padding: 2px 8px 2px 22px;
-}
-
-.informaion-li-right-normal .collection {
-    background-position: -44px -78px;
+    padding: 2px 8px;
 }
 
 .informaion-li-right-normal .share {
@@ -152,10 +148,6 @@
 
 .informaion-li-right-normal .compare {
     background-position: -78px -10px;
-}
-
-.informaion-li-right-normal .phone-scan-icon {
-    background-position: -112px -44px;
 }
 
 .informaion-li-right-normal a:hover {

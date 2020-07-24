@@ -235,20 +235,20 @@
     position: relative;
     border: 1px solid #eee;
     border-radius: 2px;
-    padding: 3px 20px 3px 12px;
+    padding: 3px 15px 3px 12px;
     font-size: 12px;
     color: #fff;
 }
 
 .main-nav .nav-city .city-name::after {
     content: "";
-    position: absolute;
-    right: 5px;
-    top: 10px;
-    border-top: 5px solid #fff;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+    position: relative;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
 }
 
 .main-nav>.nav-content li {
@@ -1093,7 +1093,7 @@
     position: relative;
     float: left;
     cursor: pointer;
-    width: 116px;
+    width: 112px;
     height: 84px;
     margin-right: 10px;
     background-color: #f7f7f7;
@@ -1110,6 +1110,11 @@
 .screen-carousel .screen-picture-list li.actived {
     border-color: #11a43c;
     opacity: 1;
+}
+
+.screen-carousel .screen-picture-list li img {
+    width: 108px;
+    height: 80px;
 }
 
 /*统一居中图片*/
@@ -1156,6 +1161,14 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-font14 {
+    font-size: 14px;
+}
+
+.iconfont-font16 {
+    font-size: 16px;
 }
 
 /*覆盖浏览器以及标签的一些默认样式*/

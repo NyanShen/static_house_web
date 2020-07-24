@@ -14,7 +14,7 @@ $(document).ready(function () {
     let leftSelector = '.consultant-carousel>.arrow-left';
     let rightSelector = '.consultant-carousel>.arrow-right';
     let totalItemCount = $('.consultant-hidden-list li').length;
-    let itemWith = 240;
-    let stepWith = 1200;
-    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWith });
+    let itemWidth = 240;
+    let stepWidth = 1200;
+    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWidth });
 });

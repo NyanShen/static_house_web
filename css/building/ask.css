@@ -14,9 +14,9 @@
 }
 
 .wd-content {
-    height: 275px;
+    height: 270px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .wd-content .ask-list li {
@@ -56,9 +56,13 @@
 }
 
 .ask-list p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: relative;
     padding-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .ask-list .question a {

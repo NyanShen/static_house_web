@@ -104,32 +104,12 @@
     cursor: pointer;
 }
 
- .user-comment .action i {
-    float: left;
-    width: 16px;
-    height: 16px;
+.user-comment .action-actived {
+    color: #f34;
 }
 
- .user-comment .action:hover span {
-    color: #df2f30;
-}
-
- .user-comment .action-zan i {
-    background: url('../../assets/icons/zan_grey.png') no-repeat center center;
-}
-
- .user-comment .action-zan:hover i {
-    background: url('../../assets/icons/zan_full.png') no-repeat center center;
-}
-
- .user-comment .action-zan-actived span {
-    cursor: text;
-    color: #df2f30;
-}
-
- .user-comment .action-zan-actived i {
-    cursor: text;
-    background: url('../../assets/icons/zan_holl.png') no-repeat center center;
+.user-comment .action:hover {
+    color: #f34;
 }
 
 /*评论详情列表*/

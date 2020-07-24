@@ -661,5 +661,5 @@ table th, table td {
 
 .middle-arrow.arrow-disable {
     background-color: rgba(0, 0, 0, .3);
-    cursor: unset;
+    cursor: auto;
 }

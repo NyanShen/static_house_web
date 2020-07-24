@@ -59,6 +59,10 @@
 }
 
 .house-type-text p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 25px;
 }
 
@@ -391,6 +395,11 @@
 
 .htd-content .carousel-list li:hover {
     border-color: #11a43c;
+}
+
+.htd-content .carousel-list li img {
+    width: 96px;
+    height: 80px;
 }
 
 .htd-content .detail-text {

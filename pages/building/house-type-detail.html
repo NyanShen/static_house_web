@@ -191,15 +191,13 @@
                                 <div class="middle-arrow arrow-left" id="hxtShowArrowLeft"></div>
                                 <div class="middle-arrow arrow-right" id="hxtShowArrowRight"></div>
                             </div>
-                            <div class="carousel-content">
+                            <div class="carousel-content" id="hxtDetailContent">
                                 <ul class="carousel-list clearfix" id="hxtDetailList">
                                     <li class="actived">
-                                        <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt=""
-                                            width="96" height="80">
+                                        <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt="">
                                     </li>
                                     <li class="">
-                                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="96"
-                                            height="80">
+                                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
                                     </li>
                                 </ul>
                                 <div class="hxarrow hxarrow-left" id="hxtArrowLeft"></div>
@@ -463,26 +461,18 @@
     <!--底部footer end-->
     <!-- 户型图全屏图end -->
     <div class="fullscreen" id="fullscreen">
-        <div class="close-btn" id="closeIcon">
+        <div class="close-btn" id="fullscreenCloseBtn">
             <i></i>
         </div>
         <div class="screen-content">
             <div class="screen-picture">
-                <img src="" alt="">
+                <img src="" alt="" id="screenShowPicture">
             </div>
             <div class="arrow arrow-left" id="screenShowArrowLeft"></div>
             <div class="arrow arrow-right" id="screenShowArrowRight"></div>
         </div>
-        <div class="screen-carousel">
-            <ul class="screen-picture-list">
-                <li class="actived">
-                    <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt="" width="112"
-                        height="80">
-                </li>
-                <li class="">
-                    <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="112" height="80">
-                </li>
-            </ul>
+        <div class="screen-carousel" id="screenCarousel">
+            <ul class="screen-picture-list" id="screenPictureList"></ul>
             <div class="arrow arrow-left" id="screenListArrowLeft"></div>
             <div class="arrow arrow-right" id="screenListArrowRight"></div>
         </div>

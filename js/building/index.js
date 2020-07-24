@@ -6,7 +6,7 @@ $(document).ready(function () {
     /*回到顶部*/
     backToTop();
 
-    /**楼盘主页相册轮播 */
+    /*楼盘主页相册轮播*/
     $('.bd-carousel-show .item-list img').each(function () {
         resizeImage($(this), 600, 400);
     });
@@ -14,6 +14,8 @@ $(document).ready(function () {
     $('.bd-carousel-content .bd-carousel-list img').each(function () {
         resizeImage($(this), 112, 80);
     });
+
+    timeCountDown(24 * 60 * 60, $('#timer'));
 
     /*楼盘相册*/
 
@@ -47,13 +49,70 @@ $(document).ready(function () {
         $.FormModal.userForm(modalParams);
     });
 
+    // 收藏
+    $('#collection').click(function () {
+        let houseId = $(this).attr('data-id');
+        let status = $(this).attr('data-status');
+
+        if (status) {
+            $(this).attr('data-status', '');
+            $(this).css('color', '#666');
+            $('#collection .text').text('收藏');
+        } else {
+            $(this).attr('data-status', 'collected');
+            $(this).css('color', '#ff3344');
+            $('#collection .text').text('已收藏');
+        }
+        app.request({
+            url: app.areaApiUrl('/test/test'),
+            data: {
+                fang_house_id: houseId
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                $.MsgModal.Success('收藏成功！', '感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
+            }
+        });
+    });
+
+    // 点赞
+    $('.action-zan').each(function (index) {
+        let count = 0;
+        let $this = $(this);
+        let houseId = $(this).attr('data-id');
+        let actionCount = $('.action-zan .action-count').eq(index);
+        $this.click(function () {
+            if ($this.hasClass('action-actived')) {
+                return;
+            }
+            $this.addClass('action-actived');
+            count = parseInt(actionCount.text());
+            count = count + 1;
+            actionCount.text(count);
+            app.request({
+                url: app.areaApiUrl('/test/test'),
+                data: {
+                    fang_house_id: houseId
+                },
+                type: 'GET',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    
+                }
+            });
+        });
+    });
+
     /*预约看房*/
     $('.reservation').click(function () {
         let type = $(this).attr('data-type');
         let modalParams = {
             title: `预约看房`,
             okText: '立即预约',
-            loginName:'Nyan',
+            loginName: 'Nyan',
             loginPhone: '13418897654',
             message: `预约楼盘【${$(this).attr('data-title')}】`,
             callback: function (username, phone, phoneCode) {

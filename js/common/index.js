@@ -241,8 +241,8 @@ function inputListener(inputElement, maxLength) {
                 listSelector: '', //轮播列表选择器
                 leftSelector: '', //左轮播按钮选择器
                 rightSelector: '', //右轮播按钮选择器
-                itemWith: 0, //每个轮播的宽度
-                stepWith: 0, //每次轮播步长
+                itemWidth: 0, //每个轮播的宽度
+                stepWidth: 0, //每次轮播步长
                 pointItemWidth: 0, //轮播判断点
                 showItemCount: 5, //显示轮播个数
                 totalItemCount: 0, //轮播总个数
@@ -263,7 +263,7 @@ function inputListener(inputElement, maxLength) {
 
             //默认整块轮播
             if (params.pointItemWidth === 0) {
-                params.pointItemWidth = (1 - this.getTotalPage(params)) * params.stepWith;
+                params.pointItemWidth = (1 - this.getTotalPage(params)) * params.stepWidth;
             }
 
             if (params.initHiddenArrow) {
@@ -284,7 +284,7 @@ function inputListener(inputElement, maxLength) {
         },
         _initListWith: function () {
             let params = this.params;
-            this.$list.css('width', `${(params.totalItemCount + 1) * params.itemWith}px`);
+            this.$list.css('width', params.totalItemCount * params.itemWidth);
         },
         _showArrow: function (params) {
             let _this = this;
@@ -305,7 +305,7 @@ function inputListener(inputElement, maxLength) {
                 $list.css('left', `${params.pointItemWidth}px`);
             } else {
                 params.isMoveOver = false;
-                let newItemLeft = itemLeft + params.stepWith;
+                let newItemLeft = itemLeft + params.stepWidth;
                 $list.animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params))
             }
             return _this;
@@ -318,7 +318,7 @@ function inputListener(inputElement, maxLength) {
                 $list.css('left', 0);
             } else {
                 params.isMoveOver = false;
-                let newItemLeft = itemLeft - params.stepWith;
+                let newItemLeft = itemLeft - params.stepWidth;
                 $list.animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params))
             }
             return _this;
@@ -336,7 +336,10 @@ function inputListener(inputElement, maxLength) {
 })(window);
 
 // 大图轮播点击
-function showCarouselEvent(arrowLeft, arrowRight, listItems, listImages, callback, currentIndex = 0) {
+function showCarouselEvent(params) {
+    let { stepWidth = 0, moveCondition = 0, currentIndex = 0, callback } = params;
+    let { arrowLeft, arrowRight, listItems, listImages, listContent, listContentParent } = params;
+
     let listItemsCount = listItems.length;
 
     listItems.each(function (index) {
@@ -346,7 +349,7 @@ function showCarouselEvent(arrowLeft, arrowRight, listItems, listImages, callbac
             setCurrentItem(currentIndex);
         });
     });
-    
+
     arrowLeft.click(function () {
         if (currentIndex <= 0) {
             alert('已经是第一张了');
@@ -366,13 +369,83 @@ function showCarouselEvent(arrowLeft, arrowRight, listItems, listImages, callbac
     });
 
     function setCurrentItem(currentIndex) {
+        let targetItem = listItems.eq(currentIndex);
         listItems.siblings().removeClass('actived');
-        listItems.eq(currentIndex).addClass('actived');
+        targetItem.addClass('actived');
         let imgSrc = listImages.eq(currentIndex).attr('src');
         if (typeof (callback) == 'function') {
             callback(imgSrc, currentIndex);
         }
+        // 子元素与直接上级元素的距离
+        let itemPosition = targetItem.position().left;
+        //计算当前页
+        let currentPage = Math.floor(itemPosition / stepWidth);
+        let relativePosition = listContentParent.offset().left - targetItem.offset().left;
+        // 计算可视范围内相对偏移量
+        if (relativePosition < moveCondition || relativePosition > 0) {
+            listContent.css('left', `-${currentPage * stepWidth}px`);
+        }
     }
+}
+
+// 全屏轮播
+function initScreenDomEvent(screenItemList, screenIndex = 0) {
+    // 初始化小图列表
+    let screenList = $('#screenPictureList');
+    screenList.append(screenItemList);
+    // 初始化小图轮播参数
+    let listSelector = '#screenPictureList';
+    let leftSelector = '#screenListArrowLeft';
+    let rightSelector = '#screenListArrowRight';
+    let itemWidth = 122;
+    let stepWidth = 1830;
+    let showItemCount = 15;
+    let totalItemCount = screenItemList.length;
+
+    screenList.css('width', totalItemCount * itemWidth);
+
+    let arrowLeft = $('#screenShowArrowLeft');
+    let arrowRight = $('#screenShowArrowRight');
+    let screenShowImage = $('#screenShowPicture');
+    let screenImageList = $('#screenPictureList img');
+
+    // 设置新显示的大图及当前的小图
+    let targetImgSrc = screenImageList.eq(screenIndex).attr('src');
+    screenShowImage.attr('src', targetImgSrc);
+    if (screenItemList.hasClass('actived')) {
+        screenItemList.removeClass('actived')
+    }
+    screenItemList.eq(screenIndex).addClass('actived');
+
+    // 大图轮播
+    let carouselParams = {
+        arrowLeft,
+        arrowRight,
+        listItems: screenItemList,
+        listImages: screenImageList,
+        listContent: screenList,
+        listContentParent: $('#screenCarousel'),
+        moveCondition: -1708,
+        stepWidth,
+        currentIndex: screenIndex,
+        callback: function carouselCallback(imgSrc) {
+            screenShowImage.attr('src', imgSrc);
+        }
+    }
+
+    showCarouselEvent(carouselParams);
+
+    // 小图轮播
+    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWidth, stepWidth, showItemCount });
+
+    // 显示全屏
+    $('#fullscreen').show();
+
+    // 关闭大屏
+    $('#fullscreenCloseBtn').click(function () {
+        screenList.children().remove();
+        $('#fullscreen').hide();
+    });
 }
 
 //自动调整图片大小
@@ -429,4 +502,25 @@ function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) 
             $.MsgModal.Success('恭喜您，已订阅成功！', '感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
         }
     });
+}
+
+// 倒计时intDiff倒计时总秒数
+
+function timeCountDown(intDiff, showElement) {
+    setInterval(function () {
+        let day = 0;
+        let hour = 0;
+        let minute = 0;
+        let second = 0;
+        if (intDiff > 0) {
+            day = Math.floor(intDiff / (60 * 60 * 24));
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60);
+        }
+        if (minute <= 9) minute = '0' + minute;
+        if (second <= 9) second = '0' + second;
+        showElement.html(`${day}天 ${hour}小时 ${minute}分钟`);
+        intDiff--;
+    }, 1000);
 }
