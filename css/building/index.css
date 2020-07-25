@@ -39,6 +39,13 @@
     margin-right: 20px;
 }
 
+.informaion-li-left .contact {
+    font-size: 18px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #11a43c;
+}
+
 .informaion-li-right a {
     position: relative;
     font-size: 12px;

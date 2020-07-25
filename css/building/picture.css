@@ -1,458 +1,112 @@
 /*相册菜单*/
 
-.picture-menu {
-    width: 320px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    padding: 15px 0;
+.album-menu {
+    margin: 20px 0;
 }
 
-.picture-menu .contact {
-    padding: 0 0 15px 32px;
-    border-bottom: 1px dashed #eee;
-}
-
-.picture-menu .phone-icon {
+.album-menu .menu-item {
     float: left;
-    width: 30px;
-    height: 25px;
-    background: url("../../assets/icons/phone_call.png") no-repeat left center;
-}
-
-.picture-menu .menu-item {
-    display: block;
-    padding: 0 32px;
-    margin: 30px 0;
-}
-
-.picture-menu .menu-item.actived {
-    padding-left: 30px;
-    border-left: 2px solid #f34;
-    color: #f34;
-}
-
-.picture-menu .menu-item:hover {
-    color: #f34;
-}
-
-.picture-menu .menu-bottom {
-    padding-top: 15px;
-    text-align: center;
-    border-top: 1px dashed #eee;
-}
-
-.picture-menu .menu-bottom .menu-btn {
-    padding: 5px 20px;
-    color: #fff;
-    border-radius: 2px;
-    background-color: #11a43c;
-}
-
-.picture-menu .menu-bottom .menu-btn:hover {
-    background-color: #14922d;
-}
-
-.picture-menu .menu-item .menu-icon {
-    float: left;
-    width: 25px;
-    height: 19px;
-}
-
-/*菜单图标*/
-
-/*效果图*/
-
-.picture-menu .menu-item .xgt {
-    background: url("../../assets/icons/pic_xgt.png") no-repeat left center;
-}
-
-/*实景图*/
-
-.picture-menu .menu-item .sjt {
-    background: url("../../assets/icons/pic_sjt.png") no-repeat left center;
-}
-
-/*样板图*/
-
-.picture-menu .menu-item .ybt {
-    background: url("../../assets/icons/pic_ybt.png") no-repeat left center;
-}
-
-/*证件图*/
-
-.picture-menu .menu-item .zjt {
-    background: url("../../assets/icons/pic_zjt.png") no-repeat left center;
-}
-
-/*配套图*/
-
-.picture-menu .menu-item .ptt {
-    background: url("../../assets/icons/pic_ptt.png") no-repeat left center;
-}
-
-/*户型图*/
-
-.picture-menu .menu-item .hxt {
-    background: url("../../assets/icons/pic_hxt.png") no-repeat left center;
-}
-
-/*交通图*/
-
-.picture-menu .menu-item .jtt {
-    background: url("../../assets/icons/pic_jtt.png") no-repeat left center;
-}
-
-/*视频*/
-
-.picture-menu .menu-item .sp {
-    background: url("../../assets/icons/pic_sp.png") no-repeat left center;
-}
-
-/*直播*/
-
-.picture-menu .menu-item .vedio {
-    background: url("../../assets/icons/pic_vedio.png") no-repeat left center;
-}
-
-/*活动现场*/
-
-.picture-menu .menu-item .active {
-    background: url("../../assets/icons/pic_active.png") no-repeat left center;
-}
-
-/*VR(3D)*/
-
-.picture-menu .menu-item .vr {
-    background: url("../../assets/icons/pic_vr.png") no-repeat left center;
-}
-
-/*hover*/
-
-/*效果图*/
-
-.picture-menu .menu-item:hover .xgt {
-    background: url("../../assets/icons/pic_xgt_hv.png") no-repeat left center;
-}
-
-/*实景图*/
-
-.picture-menu .menu-item:hover .sjt {
-    background: url("../../assets/icons/pic_sjt_hv.png") no-repeat left center;
-}
-
-/*样板图*/
-
-.picture-menu .menu-item:hover .ybt {
-    background: url("../../assets/icons/pic_ybt_hv.png") no-repeat left center;
-}
-
-/*证件图*/
-
-.picture-menu .menu-item:hover .zjt {
-    background: url("../../assets/icons/pic_zjt_hv.png") no-repeat left center;
-}
-
-/*配套图*/
-
-.picture-menu .menu-item:hover .ptt {
-    background: url("../../assets/icons/pic_ptt_hv.png") no-repeat left center;
-}
-
-/*户型图*/
-
-.picture-menu .menu-item:hover .hxt {
-    background: url("../../assets/icons/pic_hxt_hv.png") no-repeat left center;
-}
-
-/*交通图*/
-
-.picture-menu .menu-item:hover .jtt {
-    background: url("../../assets/icons/pic_jtt_hv.png") no-repeat left center;
-}
-
-/*视频*/
-
-.picture-menu .menu-item:hover .sp {
-    background: url("../../assets/icons/pic_sp_hv.png") no-repeat left center;
-}
-
-/*直播*/
-
-.picture-menu .menu-item:hover .vedio {
-    background: url("../../assets/icons/pic_vedio_hv.png") no-repeat left center;
-}
-
-/*活动现场*/
-
-.picture-menu .menu-item:hover .active {
-    background: url("../../assets/icons/pic_active_hv.png") no-repeat left center;
-}
-
-/*VR(3D)*/
-
-.picture-menu .menu-item:hover .vr {
-    background: url("../../assets/icons/pic_vr_hv.png") no-repeat left center;
-}
-
-/*actived*/
-
-/*效果图*/
-
-.picture-menu .menu-item.actived .xgt {
-    background: url("../../assets/icons/pic_xgt_hv.png") no-repeat left center;
-}
-
-/*实景图*/
-
-.picture-menu .menu-item.actived .sjt {
-    background: url("../../assets/icons/pic_sjt_hv.png") no-repeat left center;
-}
-
-/*样板图*/
-
-.picture-menu .menu-item.actived .ybt {
-    background: url("../../assets/icons/pic_ybt_hv.png") no-repeat left center;
-}
-
-/*证件图*/
-
-.picture-menu .menu-item.actived .zjt {
-    background: url("../../assets/icons/pic_zjt_hv.png") no-repeat left center;
-}
-
-/*配套图*/
-
-.picture-menu .menu-item.actived .ptt {
-    background: url("../../assets/icons/pic_ptt_hv.png") no-repeat left center;
-}
-
-/*户型图*/
-
-.picture-menu .menu-item.actived .hxt {
-    background: url("../../assets/icons/pic_hxt_hv.png") no-repeat left center;
-}
-
-/*交通图*/
-
-.picture-menu .menu-item.actived .jtt {
-    background: url("../../assets/icons/pic_jtt_hv.png") no-repeat left center;
-}
-
-/*视频*/
-
-.picture-menu .menu-item.actived .sp {
-    background: url("../../assets/icons/pic_sp_hv.png") no-repeat left center;
-}
-
-/*直播*/
-
-.picture-menu .menu-item.actived .vedio {
-    background: url("../../assets/icons/pic_vedio_hv.png") no-repeat left center;
-}
-
-/*活动现场*/
-
-.picture-menu .menu-item.actived .active {
-    background: url("../../assets/icons/pic_active_hv.png") no-repeat left center;
-}
-
-/*VR(3D)*/
-
-.picture-menu .menu-item.actived .vr {
-    background: url("../../assets/icons/pic_vr_hv.png") no-repeat left center;
-}
-
-/*相册显示框*/
-
-.picture-show {
-    display: none;
-    width: 840px;
-    min-height: 185px;
-    padding: 0 20px 10px 20px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-}
-
-.picture-switch .toggle {
-    display: block;
-    text-align: right;
-    height: 42px;
-    line-height: 42px;
+    margin: 0 15px 10px 0;
+    padding: 6px 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #eee;
     color: #666;
-    cursor: pointer;
 }
 
-.picture-switch .toggle i {
-    float: right;
-    width: 25px;
-    height: 42px;
+.album-menu .menu-item.actived {
+    background-color: #11a43c;
+    border-color: #11a43c;
+    color: #fff;
 }
 
-.picture-switch .toggle-pic i {
-    background: url("../../assets/icons/pic.png") no-repeat right 10px;
+.album-menu .menu-item:not(.actived):hover {
+    border-color: #11a43c;
+    color: #11a43c;
 }
 
-.picture-switch .toggle-list i {
-    background: url("../../assets/icons/pic_list.png") no-repeat right 10px;
+/* 相册内容 */
+
+.album-content {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 30px;
 }
 
-.picture-switch .toggle:hover span {
-    color: #df2f30;
+.album-title {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
 }
 
-/*x相册显示列表*/
-
-.picture-list {
-    margin: 0 -10px;
-}
-
-.picture-list li {
-    position: relative;
+.album-title .title-name {
     float: left;
-    margin: 20px 10px;
+    font-size: 20px;
+    color: #333;
 }
 
-.picture-list li .image {
+.album-title .title-name:hover, .album-title .title-more:hover {
+    color: #f34;
+}
+
+.album-title .title-more {
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+
+.album-count {
+    font-size: 14px;
+    color: #666;
+}
+
+.album-list {
+    margin-left: -33px;
+}
+
+.album-list li {
+    float: left;
+    width: 200px;
+    margin: 0 0 30px 33px;
+}
+
+.album-list .album {
     position: relative;
     display: block;
-    width: 182px;
-    height: 125px;
-    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 12px;
     border: 1px solid #f7f7f7;
     background-color: #f7f7f7;
+    overflow: hidden;
 }
 
-.picture-list li .image:hover {
+.album-list .album:hover {
     border-color: #11a43c;
 }
 
-.picture-list li .image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-}
-
-.picture-list li .text {
+.album-list .album-name {
     display: block;
-    line-height: 30px;
+    margin-bottom: 5px;
     color: #666;
 }
 
-.picture-list li .date {
+.album-list .album-name:hover {
+    color: #f34;
+}
+
+.album-list .album-time {
     font-size: 12px;
     color: #999;
 }
 
-.picture-list li .text:hover {
-    color: #df2f30;
+.album-house-desc {
+    border: 1px solid #eee;
+    padding: 12px 30px;
 }
-
-/*相册高清显示*/
-
-.picture-carousel {
-    width: 100%;
-    position: relative;
-}
-
-.picture-carousel .picture-count {
-    position: absolute;
-    top: -35px;
-    font-size: 16px;
-}
-
-.picture-count .current {
-    font-size: 20px;
-    font-weight: bold;
-    color: #ff3344;
-}
-
-.picture-carousel .carousel-show {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    margin-bottom: 8px;
-    overflow: hidden;
-    background-color: #f4f4f4;
-}
-
-/* 图片显示 */
-
-.picture-carousel .carousel-show img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-}
-
-/* 视频显示 */
-
-.picture-carousel .carousel-show .vedio-player-wrap {
-    width: 100%;
-    height: 600px;
-    background-color: #000;
-}
-
-.vedio-player-wrap .vedio-player {
-    width: 100%;
-    height: 100%;
-}
-
-.picture-carousel .carousel-content {
-    position: relative;
-    width: 785px;
-    height: 95px;
-    margin: 0 25px;
-}
-
-.picture-carousel .carousel-content .arrow {
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 95px;
-    cursor: pointer;
-}
-
-.picture-carousel .carousel-content .arrow-left {
-    left: -25px;
-    background: url("../../assets/icons/left_white.png") no-repeat center center;
-    background-color: #ddd;
-}
-
-.picture-carousel .carousel-content .arrow-left:hover, .picture-carousel .carousel-content .arrow-right:hover {
-    background-color: #ccc;
-}
-
-.picture-carousel .carousel-content .arrow-right {
-    right: -30px;
-    background: url("../../assets/icons/right_white.png") no-repeat center center;
-    background-color: #ddd;
-}
-
-.picture-carousel .carousel-list li {
-    position: relative;
-    float: left;
-    width: 135px;
-    height: 95px;
-    margin: 0 11px;
-    overflow: hidden;
-    border: 2px solid #f7f7f7;
-    background-color: #f7f7f7;
-    cursor: pointer;
-}
-
-.picture-carousel .carousel-list li.actived {
-    border-color: #11a43c;
-}
-
-.picture-carousel .carousel-list li:hover {
-    border-color: #11a43c;
-}
-
-.picture-carousel .carousel-desc .informaion-li {
-    line-height: 30px;
+.subscrib-text {
+    color: #666;
+    line-height: 25px;
+    margin-bottom: 10px;
+    text-indent: 30px;
 }

@@ -6,6 +6,8 @@ $(document).ready(function () {
     let listImages = $('#hxtDetailList li img');
     resizeImage(showImage, 700, 600);
 
+    let pictureList = initImageData(listImages);
+
     // 页面小屏大图轮播
 
     let carouselParams = {
@@ -27,8 +29,11 @@ $(document).ready(function () {
     showCarouselEvent(carouselParams);
 
     $('#fullscreenBtn').click(function () {
-        let screenItemList = $('#hxtDetailList').children();
-        initScreenDomEvent(screenItemList, currentIndex);
+        let listHtml = '';
+        for (const item of pictureList) {
+            listHtml = listHtml + `<li><img src="${item.imgSrc}" alt=""></li>`;
+        }
+        initScreenDomEvent(listHtml, currentIndex);
     });
 
     /*户型导航列表超过长度逻辑*/

@@ -1,8 +1,5 @@
 $(document).ready(function () {
-    let arrowLeft = $('#showArrowLeft');
-    let arrowRight = $('#showArrowRight');
     let showImage = $('.picture-carousel .carousel-show img');
-    let listItems = $('.picture-carousel .carousel-list li');
     let listImages = $('.picture-carousel .carousel-list li img');
     //初始化计算图片显示大小
 
@@ -10,13 +7,6 @@ $(document).ready(function () {
 
     listImages.each(function () {
         resizeImage($(this), 135, 95);
-    });
-
-    // 大图轮播点击
-    showCarouselEvent(arrowLeft, arrowRight, listItems, listImages, function (imgSrc) {
-        showImage.attr('src', imgSrc);
-        showImage.attr('style', '');
-        resizeImage(showImage, 840, 600);
     });
 
     // 切换观察相册模式
@@ -44,5 +34,24 @@ $(document).ready(function () {
         })
     });
 
-    // listArrow点击切换html
+    // 显示固定标题
+    showFixHeader();
+    function showFixHeader() {
+        let scrollTop = $(document).scrollTop();
+        window.addEventListener('scroll', function () {
+            scrollTop = $(document).scrollTop();
+            if (scrollTop > 200) {
+                $('.fix-header').show();
+            } else {
+                $('.fix-header').hide();
+            }
+        });
+        if (scrollTop > 200) {
+            $('.fix-header').show();
+        } else {
+            $('.fix-header').hide();
+        }
+    }
+
+    // 初始化图片数据
 });

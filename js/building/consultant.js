@@ -16,5 +16,5 @@ $(document).ready(function () {
     let totalItemCount = $('.consultant-hidden-list li').length;
     let itemWidth = 240;
     let stepWidth = 1200;
-    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWith, stepWidth });
+    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWidth, stepWidth });
 });

@@ -389,10 +389,10 @@ function showCarouselEvent(params) {
 }
 
 // 全屏轮播
-function initScreenDomEvent(screenItemList, screenIndex = 0) {
+function initScreenDomEvent(listHtml, screenIndex = 0) {
     // 初始化小图列表
     let screenList = $('#screenPictureList');
-    screenList.append(screenItemList);
+    screenList.append(listHtml);
     // 初始化小图轮播参数
     let listSelector = '#screenPictureList';
     let leftSelector = '#screenListArrowLeft';
@@ -400,14 +400,14 @@ function initScreenDomEvent(screenItemList, screenIndex = 0) {
     let itemWidth = 122;
     let stepWidth = 1830;
     let showItemCount = 15;
-    let totalItemCount = screenItemList.length;
-
-    screenList.css('width', totalItemCount * itemWidth);
 
     let arrowLeft = $('#screenShowArrowLeft');
     let arrowRight = $('#screenShowArrowRight');
     let screenShowImage = $('#screenShowPicture');
+    let screenItemList = $('#screenPictureList li');
     let screenImageList = $('#screenPictureList img');
+    let totalItemCount = screenItemList.length;
+    screenList.css('width', totalItemCount * itemWidth);
 
     // 设置新显示的大图及当前的小图
     let targetImgSrc = screenImageList.eq(screenIndex).attr('src');
@@ -446,6 +446,18 @@ function initScreenDomEvent(screenItemList, screenIndex = 0) {
         screenList.children().remove();
         $('#fullscreen').hide();
     });
+}
+
+// 获取图片标签信息
+
+function initImageData(listImages) {
+    let imageData = [];
+    listImages.each(function () {
+        imageData.push({
+            imgSrc: $(this).attr('src')
+        })
+    });
+    return imageData;
 }
 
 //自动调整图片大小
