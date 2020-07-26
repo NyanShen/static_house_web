@@ -160,9 +160,10 @@ $(document).ready(function () {
     /**一键订阅 */
     $('#subscribBtn').click(function () {
         let type = $(this).attr('data-type');
+        let message = $(this).attr('data-message');
         let modalParams = {
             title: '订阅信息',
-            message: '一键订阅: 变价通知、开盘通知、优惠通知、最新动态、看房团通知',
+            message,
             okText: '立即订阅',
             callback: function (username, phone, phoneCode) {
                 callbackHouseCustomer('194', type, username, phone, phoneCode);
