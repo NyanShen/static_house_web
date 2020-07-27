@@ -1025,6 +1025,7 @@
     width: 100%;
     height: 100%;
     background-color: #1a1a1a;
+    z-index: 9999;
 }
 
 .fullscreen .close-btn {
@@ -1154,6 +1155,12 @@
     height: 80px;
 }
 
+/* 打开弹窗 */
+.modal-open {
+    height: 100%;
+    overflow: hidden;
+}
+
 /*统一居中图片*/
 
 .center-image img {
@@ -1181,6 +1188,16 @@
     background-size: 50px 50px;
     background-image: url('../assets/icons/icon_video_m.png');
     z-index: 10;
+}
+
+/* transform居中方式不需设置宽高 */
+
+.transform-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
 /*引入图标样式*/

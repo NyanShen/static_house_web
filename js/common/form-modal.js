@@ -17,7 +17,7 @@
     function generateUserFormHtml(title, okText, message, loginName, loginPhone) {
         let _html = '';
         let _html_header = `<div class="box-modal" id="boxModal">
-        <div class="modal-wrapper" id="modalWrapper">
+        <div class="modal-wrapper">
             <div class="modal-header clearfix">
                 <span class="modal-title fl">${title}</span>
                 <span class="modal-close fr"></span>
@@ -72,7 +72,7 @@
 
     function generateLoginFormHtml(title) {
         let _html = `<div class="box-modal" id="boxModal">
-        <div class="modal-wrapper" id="modalWrapper">
+        <div class="modal-wrapper">
             <div class="modal-header clearfix">
                 <span class="modal-title fl">${title}</span>
                 <span class="modal-close fr"></span>
@@ -158,12 +158,6 @@
     function generateModalFormCss() {
         let _style = '<link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/modal.css">';
         $("#boxModal").append(_style);
-        let _widht = document.documentElement.clientWidth; //屏幕宽
-        let modalWrapper = $("#modalWrapper");
-        //让提示框居中
-        modalWrapper.css({
-            left: (_widht - 600) / 2 + "px"
-        });
     }
 
     function modalFormEvent() {

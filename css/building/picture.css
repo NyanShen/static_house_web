@@ -79,6 +79,7 @@
     border: 1px solid #f7f7f7;
     background-color: #f7f7f7;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .album-list .album:hover {
@@ -104,9 +105,228 @@
     border: 1px solid #eee;
     padding: 12px 30px;
 }
+
 .subscrib-text {
     color: #666;
     line-height: 25px;
     margin-bottom: 10px;
     text-indent: 30px;
+}
+
+/* 相册轮播模态框 */
+
+.album-modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.album-wrapper {
+    height: 100%;
+    margin-top: 30px;
+}
+
+.album-container {
+    width: 1200px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+/* 相册大屏轮播 */
+
+.album-carousel {
+    position: relative;
+    width: 880px;
+    padding: 20px;
+    background-color: #1a1a1a;
+}
+
+.album-carousel-show {
+    position: relative;
+    width: 840px;
+    height: 600px;
+}
+
+.album-carousel-show:hover .middle-arrow {
+    display: block;
+}
+
+.album-carousel-show img {
+    max-width: 840px;
+}
+
+.album-carousel-show .album-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+    line-height: 35px;
+}
+
+.album-carousel-show .album-text {
+    padding-left: 20px;
+    color: #fff;
+}
+
+.album-carousel-show .album-mask {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.album-carousel-content {
+    position: relative;
+    width: 840px;
+    height: 80px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.album-carousel-content .album-carousel-list {
+    position: absolute;
+    left: 0;
+    width: 4000px;
+    height: 100%;
+}
+
+.album-carousel-content .album-carousel-list li {
+    float: left;
+    height: 100%;
+    margin-right: 14px;
+    border: 2px solid #f7f7f7;
+    cursor: pointer;
+}
+
+.album-carousel-content .album-carousel-list li img {
+    width: 104px;
+    height: 76px;
+}
+
+.album-carousel-content .album-carousel-list li:hover {
+    border-color: #11a43c;
+}
+
+.album-carousel-content .album-carousel-list li.actived {
+    border-color: #11a43c;
+}
+
+.album-carousel-content .arrow {
+    position: absolute;
+    top: 24px;
+    width: 22px;
+    height: 33px;
+    z-index: 12;
+    background: url("//static.fczx.com/www/assets/icons/arrow.png");
+    cursor: pointer;
+}
+
+.album-carousel-content .arrow-left {
+    background-position: 0 0;
+    left: 0;
+}
+
+.album-carousel-content .arrow-left:hover {
+    background-position: 0 -34px;
+}
+
+.album-carousel-content .arrow-right {
+    background-position: -23px 0;
+    right: 0;
+}
+
+.album-carousel-content .arrow-right:hover {
+    background-position: -23px -34px;
+}
+
+/* 相册导航 */
+
+.album-nav {
+    width: 320px;
+    padding: 20px 20px;
+}
+
+.album-modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+
+.album-tabs {
+    padding-top: 20px;
+}
+
+.album-tabs .tab-item {
+    position: relative;
+    height: 45px;
+    line-height: 42px;
+    font-size: 16px;
+    border: 1px solid #eee;
+    padding-left: 20px;
+    margin-top: 10px;
+    white-space: nowrap;
+    color: #999;
+    cursor: pointer;
+}
+
+.album-tabs .tab-item.actived {
+    border-color: #11a43c;
+    color: #11a43c;
+}
+
+.album-tabs .tab-item:hover {
+    border-color: #11a43c;
+    color: #11a43c;
+}
+
+.album-tabs .tab-item.actived .left-arrow {
+    display: block;
+}
+
+.album-tabs .tab-item .left-arrow {
+    display: none;
+    position: absolute;
+    left: -16px;
+    top: 14px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent #11a43c transparent transparent;
+}
+
+.album-tabs .tab-item .left-arrow em {
+    position: absolute;
+    left: -6px;
+    top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
+
+.album-close {
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    font-size: 0;
+    border-radius: 50%;
+    color: #666;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.album-close .iconfont {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+}
+
+.album-close:hover {
+    color: #fff;
+    background-color: #999;
 }

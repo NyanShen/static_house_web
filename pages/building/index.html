@@ -555,7 +555,7 @@
                             <p><input type="button" value="立即申请" class="apply-btn" id="applyBtn" data-title="瑞江·东襄华府"
                                     data-message="购房顾问专属服务：楼盘推荐、免费咨询，全程陪看"></p>
                             <p>
-                                <span id="timer"></span>后结束
+                                <span id="timer" data-time="3600"></span>后结束
                             </p>
                         </div>
                     </div>
@@ -613,6 +613,10 @@
                             </p>
                         </li>
                     </ul>
+                </div>
+                <div class="empty-container mt20 hide">
+                    <img src="//static.fczx.com/www/assets/icons/empty120.png" alt="" width="88" height="88">
+                    <p class="empty-text">该楼盘还没有更新任何动态哦</p>
                 </div>
             </div>
             <div class="box-wd fr">
@@ -953,15 +957,14 @@
             <div class="table-detail-content">
                 <div class="comment-header clearfix">
                     <div class="comment-category fl">
-                        <a href="javascript:void(0);">全部（10）</a>
-                        <a href="javascript:void(0);">有图（3）</a>
+                        <a href="javascript:void(0);">全部（0）</a>
                     </div>
                     <div class="comment-action fr">
                         <span class="action-desc">写点评赚房票</span>
                         <a href="javascript:;" class="action-btn" id="commentBtn"><i></i>我要点评</a>
                     </div>
                 </div>
-                <ul class="comment-list">
+                <ul class="comment-list hide">
                     <li class="comment-item clearfix">
                         <div class="user-icon">
                             <a>
@@ -1018,6 +1021,10 @@
                         </div>
                     </li>
                 </ul>
+                <div class="empty-container mt20">
+                    <img src="//static.fczx.com/www/assets/icons/empty120.png" alt="" width="88" height="88">
+                    <p class="empty-text">该楼盘还没有任何点评哦</p>
+                </div>
             </div>
         </div>
         <!--用户点评 end-->

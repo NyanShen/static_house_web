@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>album modal</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+</head>
+<style>
+    .album-modal {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+    }
+
+    .album-wrapper {
+        width: 1200px;
+        background-color: #fff;
+    }
+
+    /* 相册轮播 */
+    .album-carousel {
+        position: relative;
+        width: 880px;
+        min-height: 625px;
+        padding: 20px;
+        background-color: #1a1a1a;
+    }
+
+    .album-show {
+        position: relative;
+        width: 840px;
+        min-height: 600px;
+    }
+
+    .album-show:hover .middle-arrow {
+        display: block;
+    }
+
+    .album-show img {
+        max-width: 840px;
+    }
+
+    .album-content {
+        position: relative;
+        width: 840px;
+        height: 80px;
+        overflow: hidden;
+    }
+
+    .album-content .album-list {
+        position: absolute;
+        left: 0;
+        width: 4000px;
+        height: 100%;
+    }
+
+    .album-content .album-list li {
+        float: left;
+        height: 100%;
+        margin-right: 14px;
+        border: 2px solid #f7f7f7;
+        cursor: pointer;
+    }
+
+    .album-content .album-list li:hover {
+        border-color: #11a43c;
+    }
+
+    .album-content .album-list li.actived {
+        border-color: #11a43c;
+    }
+
+    .album-content .arrow {
+        position: absolute;
+        top: 24px;
+        width: 22px;
+        height: 33px;
+        z-index: 12;
+        background: url("//static.fczx.com/www/assets/icons/arrow.png");
+        cursor: pointer;
+    }
+
+    .album-content .arrow-left {
+        background-position: 0 0;
+        left: 0;
+    }
+
+    .album-content .arrow-left:hover {
+        background-position: 0 -34px;
+    }
+
+    .album-content .arrow-right {
+        background-position: -23px 0;
+        right: 0;
+    }
+
+    .album-content .arrow-right:hover {
+        background-position: -23px -34px;
+    }
+
+    /* 相册导航 */
+    .album-nav {
+        width: 320px;
+        padding: 20px 20px;
+    }
+
+    .album-title {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap;
+    }
+
+    .album-tabs {
+        padding-top: 20px;
+    }
+
+    .album-tabs .tab-item {
+        position: relative;
+        height: 45px;
+        line-height: 42px;
+        font-size: 16px;
+        border: 1px solid #eee;
+        padding-left: 20px;
+        margin-top: 10px;
+        white-space: nowrap;
+        color: #999;
+        cursor: pointer;
+    }
+
+    .album-tabs .tab-item.actived {
+        border-color: #11a43c;
+        color: #11a43c;
+    }
+
+    .album-tabs .tab-item:hover {
+        border-color: #11a43c;
+        color: #11a43c;
+    }
+
+    .album-tabs .tab-item.actived .left-arrow {
+        display: block;
+    }
+
+    .album-tabs .tab-item .left-arrow {
+        display: none;
+        position: absolute;
+        left: -16px;
+        top: 14px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent #11a43c transparent transparent;
+    }
+
+    .album-tabs .tab-item .left-arrow em {
+        position: absolute;
+        left: -6px;
+        top: -8px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent #fff transparent transparent;
+    }
+
+    .close-modal {
+        position: absolute;
+        right: -16px;
+        top: -16px;
+        font-size: 0;
+        border-radius: 50%;
+        color: #666;
+        background-color: #eee;
+        cursor: pointer;
+    }
+
+    .close-modal .iconfont {
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        font-size: 24px;
+    }
+
+    .close-modal:hover {
+        color: #fff;
+        background-color: #999;
+    }
+</style>
+
+<body>
+    <div class="album-modal">
+        <div class="transform-center album-wrapper clearfix">
+            <div class="close-modal" id="albumCloseBtn">
+                <i class="iconfont">&#xe66d;</i>
+            </div>
+            <div class="album-carousel fl">
+                <div class="album-show center-image">
+                    <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" id="albumShowImage">
+                    <div class="middle-arrow arrow-left" id="showArrowLeft"></div>
+                    <div class="middle-arrow arrow-right" id="showArrowRight"></div>
+                </div>
+                <div class="album-content" id="albumContent">
+                    <ul class="album-list clearfix" id="albumList">
+                        <li class="actived">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="104"
+                                height="76">
+                        </li>
+                    </ul>
+                    <div class="arrow arrow-left" id="listArrowLeft"></div>
+                    <div class="arrow arrow-right" id="listArrowRight"></div>
+                </div>
+            </div>
+            <div class="album-nav fr">
+                <div class="album-title">
+                    福星惠誉·京澜誉府
+                </div>
+                <ul class="album-tabs">
+                    <li class="tab-item actived">
+                        <span class="left-arrow"><em></em></span>
+                        <span class="tab-name">视频（1）</span>
+                    </li>
+                    <li class="tab-item">
+                        <span class="left-arrow"><em></em></span>
+                        <span class="tab-name">配套图（3）</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+
+</html>

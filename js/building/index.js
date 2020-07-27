@@ -15,7 +15,7 @@ $(document).ready(function () {
         resizeImage($(this), 112, 80);
     });
 
-    timeCountDown(24 * 60 * 60, $('#timer'));
+    timeCountDown($('#timer').attr('data-time'), $('#timer'));
 
     /*楼盘相册*/
 
