@@ -16,470 +16,12 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/picture.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
     <style>
-        /*相册菜单*/
-
-        .picture-menu {
-            width: 320px;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-            padding: 15px 0;
-        }
-
-        .picture-menu .contact {
-            padding: 0 0 15px 32px;
-            border-bottom: 1px dashed #eee;
-        }
-
-        .picture-menu .phone-icon {
-            float: left;
-            width: 30px;
-            height: 25px;
-            background: url("../../assets/icons/phone_call.png") no-repeat left center;
-        }
-
-        .picture-menu .menu-item {
-            display: block;
-            padding: 0 32px;
-            margin: 30px 0;
-        }
-
-        .picture-menu .menu-item.actived {
-            padding-left: 30px;
-            border-left: 2px solid #f34;
-            color: #f34;
-        }
-
-        .picture-menu .menu-item:hover {
-            color: #f34;
-        }
-
-        .picture-menu .menu-bottom {
-            padding-top: 15px;
-            text-align: center;
-            border-top: 1px dashed #eee;
-        }
-
-        .picture-menu .menu-bottom .menu-btn {
-            padding: 5px 20px;
-            color: #fff;
-            border-radius: 2px;
-            background-color: #11a43c;
-        }
-
-        .picture-menu .menu-bottom .menu-btn:hover {
-            background-color: #14922d;
-        }
-
-        .picture-menu .menu-item .menu-icon {
-            float: left;
-            width: 25px;
-            height: 19px;
-        }
-
-        /*菜单图标*/
-
-        /*效果图*/
-
-        .picture-menu .menu-item .xgt {
-            background: url("../../assets/icons/pic_xgt.png") no-repeat left center;
-        }
-
-        /*实景图*/
-
-        .picture-menu .menu-item .sjt {
-            background: url("../../assets/icons/pic_sjt.png") no-repeat left center;
-        }
-
-        /*样板图*/
-
-        .picture-menu .menu-item .ybt {
-            background: url("../../assets/icons/pic_ybt.png") no-repeat left center;
-        }
-
-        /*证件图*/
-
-        .picture-menu .menu-item .zjt {
-            background: url("../../assets/icons/pic_zjt.png") no-repeat left center;
-        }
-
-        /*配套图*/
-
-        .picture-menu .menu-item .ptt {
-            background: url("../../assets/icons/pic_ptt.png") no-repeat left center;
-        }
-
-        /*户型图*/
-
-        .picture-menu .menu-item .hxt {
-            background: url("../../assets/icons/pic_hxt.png") no-repeat left center;
-        }
-
-        /*交通图*/
-
-        .picture-menu .menu-item .jtt {
-            background: url("../../assets/icons/pic_jtt.png") no-repeat left center;
-        }
-
-        /*视频*/
-
-        .picture-menu .menu-item .sp {
-            background: url("../../assets/icons/pic_sp.png") no-repeat left center;
-        }
-
-        /*直播*/
-
-        .picture-menu .menu-item .vedio {
-            background: url("../../assets/icons/pic_vedio.png") no-repeat left center;
-        }
-
-        /*活动现场*/
-
-        .picture-menu .menu-item .active {
-            background: url("../../assets/icons/pic_active.png") no-repeat left center;
-        }
-
-        /*VR(3D)*/
-
-        .picture-menu .menu-item .vr {
-            background: url("../../assets/icons/pic_vr.png") no-repeat left center;
-        }
-
-        /*hover*/
-
-        /*效果图*/
-
-        .picture-menu .menu-item:hover .xgt {
-            background: url("../../assets/icons/pic_xgt_hv.png") no-repeat left center;
-        }
-
-        /*实景图*/
-
-        .picture-menu .menu-item:hover .sjt {
-            background: url("../../assets/icons/pic_sjt_hv.png") no-repeat left center;
-        }
-
-        /*样板图*/
-
-        .picture-menu .menu-item:hover .ybt {
-            background: url("../../assets/icons/pic_ybt_hv.png") no-repeat left center;
-        }
-
-        /*证件图*/
-
-        .picture-menu .menu-item:hover .zjt {
-            background: url("../../assets/icons/pic_zjt_hv.png") no-repeat left center;
-        }
-
-        /*配套图*/
-
-        .picture-menu .menu-item:hover .ptt {
-            background: url("../../assets/icons/pic_ptt_hv.png") no-repeat left center;
-        }
-
-        /*户型图*/
-
-        .picture-menu .menu-item:hover .hxt {
-            background: url("../../assets/icons/pic_hxt_hv.png") no-repeat left center;
-        }
-
-        /*交通图*/
-
-        .picture-menu .menu-item:hover .jtt {
-            background: url("../../assets/icons/pic_jtt_hv.png") no-repeat left center;
-        }
-
-        /*视频*/
-
-        .picture-menu .menu-item:hover .sp {
-            background: url("../../assets/icons/pic_sp_hv.png") no-repeat left center;
-        }
-
-        /*直播*/
-
-        .picture-menu .menu-item:hover .vedio {
-            background: url("../../assets/icons/pic_vedio_hv.png") no-repeat left center;
-        }
-
-        /*活动现场*/
-
-        .picture-menu .menu-item:hover .active {
-            background: url("../../assets/icons/pic_active_hv.png") no-repeat left center;
-        }
-
-        /*VR(3D)*/
-
-        .picture-menu .menu-item:hover .vr {
-            background: url("../../assets/icons/pic_vr_hv.png") no-repeat left center;
-        }
-
-        /*actived*/
-
-        /*效果图*/
-
-        .picture-menu .menu-item.actived .xgt {
-            background: url("../../assets/icons/pic_xgt_hv.png") no-repeat left center;
-        }
-
-        /*实景图*/
-
-        .picture-menu .menu-item.actived .sjt {
-            background: url("../../assets/icons/pic_sjt_hv.png") no-repeat left center;
-        }
-
-        /*样板图*/
-
-        .picture-menu .menu-item.actived .ybt {
-            background: url("../../assets/icons/pic_ybt_hv.png") no-repeat left center;
-        }
-
-        /*证件图*/
-
-        .picture-menu .menu-item.actived .zjt {
-            background: url("../../assets/icons/pic_zjt_hv.png") no-repeat left center;
-        }
-
-        /*配套图*/
-
-        .picture-menu .menu-item.actived .ptt {
-            background: url("../../assets/icons/pic_ptt_hv.png") no-repeat left center;
-        }
-
-        /*户型图*/
-
-        .picture-menu .menu-item.actived .hxt {
-            background: url("../../assets/icons/pic_hxt_hv.png") no-repeat left center;
-        }
-
-        /*交通图*/
-
-        .picture-menu .menu-item.actived .jtt {
-            background: url("../../assets/icons/pic_jtt_hv.png") no-repeat left center;
-        }
-
-        /*视频*/
-
-        .picture-menu .menu-item.actived .sp {
-            background: url("../../assets/icons/pic_sp_hv.png") no-repeat left center;
-        }
-
-        /*直播*/
-
-        .picture-menu .menu-item.actived .vedio {
-            background: url("../../assets/icons/pic_vedio_hv.png") no-repeat left center;
-        }
-
-        /*活动现场*/
-
-        .picture-menu .menu-item.actived .active {
-            background: url("../../assets/icons/pic_active_hv.png") no-repeat left center;
-        }
-
-        /*VR(3D)*/
-
-        .picture-menu .menu-item.actived .vr {
-            background: url("../../assets/icons/pic_vr_hv.png") no-repeat left center;
-        }
-
-        /*相册显示框*/
-
-        .picture-show {
-            display: none;
-            width: 840px;
-            min-height: 185px;
-            padding: 0 20px 10px 20px;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-        }
-
-        .picture-switch .toggle {
-            display: block;
-            text-align: right;
-            height: 42px;
-            line-height: 42px;
-            color: #666;
-            cursor: pointer;
-        }
-
-        .picture-switch .toggle i {
-            float: right;
-            width: 25px;
-            height: 42px;
-        }
-
-        .picture-switch .toggle-pic i {
-            background: url("../../assets/icons/pic.png") no-repeat right 10px;
-        }
-
-        .picture-switch .toggle-list i {
-            background: url("../../assets/icons/pic_list.png") no-repeat right 10px;
-        }
-
-        .picture-switch .toggle:hover span {
-            color: #df2f30;
-        }
-
-        /*x相册显示列表*/
-
-        .picture-list {
-            margin: 0 -10px;
-        }
-
-        .picture-list li {
-            position: relative;
-            float: left;
-            margin: 20px 10px;
-        }
-
-        .picture-list li .image {
-            position: relative;
-            display: block;
-            width: 182px;
-            height: 125px;
-            overflow: hidden;
-            border: 1px solid #f7f7f7;
-            background-color: #f7f7f7;
-        }
-
-        .picture-list li .image:hover {
-            border-color: #11a43c;
-        }
-
-        .picture-list li .image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-        }
-
-        .picture-list li .text {
-            display: block;
-            line-height: 30px;
-            color: #666;
-        }
-
-        .picture-list li .date {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .picture-list li .text:hover {
-            color: #df2f30;
-        }
-
-        /*相册高清显示*/
-
-        .picture-carousel {
-            width: 100%;
-            position: relative;
-        }
-
-        .picture-carousel .picture-count {
-            position: absolute;
-            top: -35px;
-            font-size: 16px;
-        }
-
-        .picture-count .current {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff3344;
-        }
-
-        .picture-carousel .carousel-show {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            margin-bottom: 8px;
-            overflow: hidden;
-            background-color: #f4f4f4;
-        }
-
-        /* 图片显示 */
-
-        .picture-carousel .carousel-show img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-        }
-
-        /* 视频显示 */
-
-        .picture-carousel .carousel-show .vedio-player-wrap {
-            width: 100%;
-            height: 600px;
-            background-color: #000;
-        }
-
-        .vedio-player-wrap .vedio-player {
-            width: 100%;
-            height: 100%;
-        }
-
-        .picture-carousel .carousel-content {
-            position: relative;
-            width: 785px;
-            height: 95px;
-            margin: 0 25px;
-        }
-
-        .picture-carousel .carousel-content .arrow {
-            position: absolute;
-            top: 0;
-            width: 20px;
-            height: 95px;
-            cursor: pointer;
-        }
-
-        .picture-carousel .carousel-content .arrow-left {
-            left: -25px;
-            background: url("../../assets/icons/left_white.png") no-repeat center center;
-            background-color: #ddd;
-        }
-
-        .picture-carousel .carousel-content .arrow-left:hover,
-        .picture-carousel .carousel-content .arrow-right:hover {
-            background-color: #ccc;
-        }
-
-        .picture-carousel .carousel-content .arrow-right {
-            right: -30px;
-            background: url("../../assets/icons/right_white.png") no-repeat center center;
-            background-color: #ddd;
-        }
-
-        .picture-carousel .carousel-list li {
-            position: relative;
-            float: left;
-            width: 135px;
-            height: 95px;
-            margin: 0 11px;
-            overflow: hidden;
-            border: 2px solid #f7f7f7;
-            background-color: #f7f7f7;
-            cursor: pointer;
-        }
-
-        .picture-carousel .carousel-list li.actived {
-            border-color: #11a43c;
-        }
-
-        .picture-carousel .carousel-list li:hover {
-            border-color: #11a43c;
-        }
-
-        .picture-carousel .carousel-desc .informaion-li {
-            line-height: 30px;
-        }
     </style>
 </head>
 
@@ -534,6 +76,20 @@
     </div>
     <!--头部导航栏end-->
 
+    <!-- 固定浮动标题start -->
+    <div class="fix-header">
+        <div class="box-content clearfix">
+            <div class="header-title fl">
+                <a class="title" href="/pages/building/index.html">福星惠誉·京澜誉府</a>
+                <span class="desc">[樊城区]</span>
+            </div>
+            <div class="contact-phone fr">
+                <span class="name">咨询电话：</span>
+                <span class="phone">400 898 2461 <small>转</small> 705830</span>
+            </div>
+        </div>
+    </div>
+    <!-- 固定浮动标题end -->
 
     <!--楼盘面包屑及查询start-->
     <div class="box-content">
@@ -601,171 +157,216 @@
     </div>
 
     <!--楼盘相册 begin-->
-    <div class="box-content clearfix">
-        <div class="content-left fl picture-switch">
-            <div class="toggle toggle-list" id="toggleBtn">
-                <span>列表查看</span>
-                <i></i>
-            </div>
+    <div class="box-content">
+        <div class="album-menu clearfix">
+            <a class="menu-item actived" data-type="all" href="">全部图片（12）</a>
+            <a class="menu-item" data-type="vedio" href="">视频（1）</a>
+            <a class="menu-item" data-type="spt" href="">沙盘图（3）</a>
+            <a class="menu-item" data-type="ybj" href="/pages/building/picture/item-list.html">样板间（6）</a>
+            <a class="menu-item" data-type="ptt" href="">配套图（2）</a>
         </div>
-        <div class="content-left fl">
-            <div class="picture-show">
-                <ul class="picture-list clearfix">
+        <div class="album-content">
+            <div class="album-item" data-type="vedio">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="">
+                        视频<span class="album-count">（1）</span>
+                    </a>
+                    <a class="title-more" href=""></a>
+                </div>
+                <ul class="album-list center-image clearfix">
                     <li>
-                        <a href="javascript:void(0);" class="image">
-                            <img src="//static.fczx.com/www/assets/images/200x150.jpg" alt="">
-                            <!-- 视频icon -->
-                            <i class="video-icon"></i>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                            <i class="icon-vedio"></i>
                         </a>
-                        <a href="javascript:void(0);" class="text">楼盘图-楼盘建筑物外景</a>
-                        <p class="date">2020-07-06</p>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
                     </li>
                 </ul>
             </div>
-            <div class="picture-carousel">
-                <div class="picture-count">
-                    <span class="current">1</span>
-                    <span>/</span>
-                    <span>6</span>
-                    <span>实景图</span>
-                </div>
-                <div class="carousel-show">
-                    <a href="javascript:void(0);">
-                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+            <div class="album-item" data-type="spt">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="">
+                        沙盘图<span class="album-count">（3）</span>
                     </a>
-                    <!-- <div class="vedio-player-wrap">
-                        <video controls="controls" class="vedio-player"
-                            poster="//static.fczx.com/www/assets/images/1400x933_1.jpg"
-                            src="http://hi1grvrcg7xin1ne6w8.exp.bcevod.com/mda-jiup54dm5ty6r832/mda-jiup54dm5ty6r832.mp4"></video>
-                    </div> -->
-                    <div class="middle-arrow arrow-left" id="showArrowLeft"></div>
-                    <div class="middle-arrow arrow-right" id="showArrowRight"></div>
+                    <a class="title-more" href=""></a>
                 </div>
-                <div class="carousel-content">
-                    <ul class="carousel-list center-image clearfix">
-                        <li class="actived">
-                            <a href="javascript:void(0);">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_2.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_4.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <img src="//static.fczx.com/www/assets/images/1400x933_5.jpg" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="arrow arrow-left" id="listArrowLeft"></div>
-                    <div class="arrow arrow-right" id="listArrowRight"></div>
-                </div>
-                <div class="carousel-desc mt20">
-                    <div class="informaion-li clearfix">
-                        <div class="informaion-li-left fl">
-                            <h4>楼盘价格：</h4>
-                            <span class="bold-red font-24px">41000</span>
-                            <span class="unit">元/m²</span>
-                        </div>
-                        <div class="informaion-li-right fl">
-                            <a href="javascript:void(0);" class="bjtx-link"><i class="bjtx"></i>变价提醒</a>
-                        </div>
-                    </div>
-                    <div class="informaion-li clearfix">
-                        <div class="informaion-li-left fl">
-                            <h4>楼盘地址：</h4>
-                        </div>
-                        <div class="informaion-li-text informaion-li-ellipsis fl">
-                            <span>海淀北部地区西北旺镇亮甲店村村东</span>
-                        </div>
-                        <div class="informaion-li-right fl">
-                            <a href="/pages/building/surround.html"><i class="check-map"></i>查看地图</a>
-                        </div>
-                    </div>
-                    <div class="informaion-li clearfix">
-                        <div class="informaion-li-left fl">
-                            <h4>主力户型：</h4>
-                        </div>
-                        <div class="informaion-li-ellipsis fl">
-                            <a href="javascript:void(0);">三居(建面360㎡)</a>
-                            <a href="javascript:void(0);">三居(建面375㎡)</a>
-                            <a href="javascript:void(0);">三居(建面380㎡)</a>
-                        </div>
-                        <div class="informaion-li-right fl">
-                            <a href="/pages/building/house-type.html"><i class="hx-all"></i>全部</a>
-                        </div>
-                    </div>
-                </div>
+                <ul class="album-list clearfix">
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                </ul>
             </div>
-
-        </div>
-        <div class="content-right fr">
-            <div class="picture-menu">
-                <div class="contact">
-                    <i class="phone-icon"></i>
-                    <span class="score-point">400 898 2461</span>
-                    <span class="desc-color">转</span>
-                    <span class="score-point">705830</span>
+            <div class="album-item" data-type="ybj">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="/pages/building/picture/item-list.html">
+                        样板间<span class="album-count">（6）</span>
+                    </a>
+                    <a class="title-more" href="/pages/building/picture/item-list.html">更多样板间>></a>
                 </div>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon xgt"></i>
-                    <span class="fl">效果图</span>
-                    <em class="fr">6</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon sjt"></i>
-                    <span class="fl">实景图</span>
-                    <em class="fr">5</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon ybt"></i>
-                    <span class="fl">样板间</span>
-                    <em class="fr">2</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon hxt"></i>
-                    <span class="fl">户型图</span>
-                    <em class="fr">12</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon ptt"></i>
-                    <span class="fl">配套图</span>
-                    <em class="fr">10</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix actived">
-                    <i class="menu-icon sp"></i>
-                    <span class="fl">视频</span>
-                    <em class="fr">3</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon vedio"></i>
-                    <span class="fl">直播</span>
-                    <em class="fr">3</em>
-                </a>
-                <a href="javascript:void(0);" class="menu-item clearfix">
-                    <i class="menu-icon active"></i>
-                    <span class="fl">活动现场</span>
-                    <em class="fr">3</em>
-                </a>
-                <div class="menu-bottom">
-                    <a href="javascript:void(0);" class="menu-btn" id="kanfangBtn">我要看房</a>
+                <ul class="album-list clearfix">
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="album-item" data-type="ptt">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="">
+                        配套图<span class="album-count">（2）</span>
+                    </a>
+                    <a class="title-more" href=""></a>
                 </div>
+                <ul class="album-list clearfix">
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="200"
+                                height="150">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
     <!--楼盘相册 end-->
+    <!-- 楼盘信息及订阅start -->
+    <div class="box-content clearfix mt20">
+        <div class="content-left fl">
+            <div class="album-house-desc">
+                <div class="informaion-li clearfix">
+                    <div class="informaion-li-left fl">
+                        <h4>楼盘价格：</h4>
+                        <span class="bold-red font-24px">41000</span>
+                        <span class="unit">元/m²</span>
+                    </div>
+                    <div class="informaion-li-right fl">
+                        <a href="javascript:void(0);" class="bjtx-link"><i class="bjtx"></i>变价提醒</a>
+                    </div>
+                </div>
+                <div class="informaion-li clearfix">
+                    <div class="informaion-li-left fl">
+                        <h4>楼盘地址：</h4>
+                    </div>
+                    <div class="informaion-li-text informaion-li-ellipsis fl">
+                        <span>海淀北部地区西北旺镇亮甲店村村东</span>
+                    </div>
+                    <div class="informaion-li-right fl">
+                        <a href="/pages/building/surround.html"><i class="check-map"></i>查看地图</a>
+                    </div>
+                </div>
+                <div class="informaion-li clearfix">
+                    <div class="informaion-li-left fl">
+                        <h4>主力户型：</h4>
+                    </div>
+                    <div class="informaion-li-ellipsis fl">
+                        <a href="javascript:void(0);">三居(建面360㎡)</a>
+                        <a href="javascript:void(0);">三居(建面375㎡)</a>
+                        <a href="javascript:void(0);">三居(建面380㎡)</a>
+                    </div>
+                    <div class="informaion-li-right fl">
+                        <a href="/pages/building/house-type.html"><i class="hx-all"></i>全部</a>
+                    </div>
+                </div>
+                <div class="informaion-li clearfix">
+                    <div class="informaion-li-left fl">
+                        <h4>咨询电话：</h4>
+                        <span class="contact">400 898 2461 <small>转</small> 705830</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-right fr">
+            <div class="table-type-list">
+                <div class="title">订阅本盘通知</div>
+                <div class="cut-line"></div>
+                <div class="subscrib-text">
+                    您将在第一时间获取襄阳吾悦广场的楼盘打折，降价，开盘等楼盘动态信息。
+                </div>
+                <div class="center-btn">
+                    <a href="javascript:void(0);" id="subscribBtn" data-type="7"
+                        data-message="您将在第一时间获取襄阳吾悦广场的楼盘打折，降价，开盘等楼盘动态信息。">立即订阅</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 楼盘信息及订阅end -->
     <!--猜你喜欢 begin-->
     <div class="box-content">
         <div class="box-building-picture table-detail mb20">
@@ -898,6 +499,59 @@
     </div>
     <!--底部footer end-->
 
+    <!-- 相册全屏图end -->
+    <div class="album-modal" id="albumFullScreen">
+        <div class="transform-center" id="albumWrap">
+            <div class="album-container clearfix">
+                <div class="album-carousel fl">
+                    <div class="album-carousel-show center-image">
+                        <img src="" alt="" id="albumShowImage">
+                        <div class="album-desc album-mask"></div>
+                        <div class="album-desc album-text">沙盘规划图</div>
+                        <div class="cursor-arrow arrow-left" id="showArrowLeft"></div>
+                        <div class="cursor-arrow arrow-right" id="showArrowRight"></div>
+                        <a href="###" class="check-original" id="originalPicture" title="查看原图" target="_blank"></a>
+                    </div>
+                    <div class="album-carousel-content" id="albumCarouselContent">
+                        <ul class="album-carousel-list clearfix" id="albumCarouselList"></ul>
+                        <div class="arrow arrow-left" id="listArrowLeft"></div>
+                        <div class="arrow arrow-right" id="listArrowRight"></div>
+                    </div>
+                </div>
+                <div class="album-nav fr">
+                    <div class="album-close" id="albumCloseBtn">
+                        <i class="iconfont">&#xe66d;</i>
+                    </div>
+                    <div class="album-modal-title">
+                        福星惠誉·京澜誉府
+                    </div>
+                    <div class="album-contact">
+                        <i class="iconfont">&#xe681;</i>
+                        <span> 400 090 2923 </span>
+                    </div>
+                    <ul class="album-tabs">
+                        <li class="tab-item" data-type="vedio">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">视频（1）</span>
+                        </li>
+                        <li class="tab-item" data-type="spt">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">沙盘图（3）</span>
+                        </li>
+                        <li class="tab-item" data-type="ybj">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">样板间（6）</span>
+                        </li>
+                        <li class="tab-item" data-type="ptt">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">配套图（3）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相册全屏图start -->
 </body>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/picture.js"></script>

@@ -11,10 +11,10 @@ $(document).ready(function () {
     })
     /*置业顾问轮播*/
     let listSelector = '.consultant-hidden-list';
+    let itemSelector = '.consultant-hidden-list li';
     let leftSelector = '.consultant-carousel>.arrow-left';
     let rightSelector = '.consultant-carousel>.arrow-right';
-    let totalItemCount = $('.consultant-hidden-list li').length;
     let itemWidth = 240;
     let stepWidth = 1200;
-    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWidth, stepWidth });
+    new CustomCarousel({ listSelector, itemSelector, leftSelector, rightSelector, itemWidth, stepWidth });
 });

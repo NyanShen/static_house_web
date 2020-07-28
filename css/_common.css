@@ -600,8 +600,9 @@
 }
 
 .buiding-picture-content li {
-    font-size: 14px;
     display: inline-block;
+    width: 200px;
+    font-size: 14px;
     margin: 16px;
 }
 
@@ -620,7 +621,11 @@
 }
 
 .buiding-picture-content p {
+    width: 100%;
     line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .buiding-picture-content .text {

@@ -101,8 +101,15 @@ $(document).ready(function () {
         let listSelector = '#sandInfoList';
         let leftSelector = '#sandArrowPrev';
         let rightSelector = '#sandArrowNext';
-        let totalItemCount = $(tabSelector).length;
-        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, showItemCount, itemWidth, stepWidth });
+        new CustomCarousel({
+            listSelector,
+            itemSelector: tabSelector,
+            leftSelector,
+            rightSelector,
+            showItemCount,
+            itemWidth,
+            stepWidth
+        });
     }
 
     /*沙盘项目点击事件绑定*/

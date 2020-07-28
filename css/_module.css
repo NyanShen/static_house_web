@@ -264,8 +264,16 @@
 }
 
 .hot-purchase>.item dt .price {
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
     color: #ff3344;
+    padding-left: 5px;
+    background-color: #f5f5f5;
+}
+
+.hot-purchase>.item.on dt .price {
+    background-color: #fff;
 }
 
 .hot-purchase>.item dt a:hover {

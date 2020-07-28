@@ -397,46 +397,53 @@
 
     <!-- 相册全屏图end -->
     <div class="album-modal" id="albumFullScreen">
-        <div class="transform-center album-wrapper clearfix">
-            <div class="album-close" id="albumCloseBtn">
-                <i class="iconfont">&#xe66d;</i>
-            </div>
-            <div class="album-carousel fl">
-                <div class="album-carousel-show center-image">
-                    <img src="" alt="" id="albumShowImage">
-                    <div class="album-desc album-mask"></div>
-                    <div class="album-desc album-text">沙盘规划图</div>
-                    <div class="middle-arrow arrow-left" id="showArrowLeft"></div>
-                    <div class="middle-arrow arrow-right" id="showArrowRight"></div>
+        <div class="transform-center" id="albumWrap">
+            <div class="album-container clearfix">
+                <div class="album-carousel fl">
+                    <div class="album-carousel-show center-image">
+                        <img src="" alt="" id="albumShowImage">
+                        <div class="album-desc album-mask"></div>
+                        <div class="album-desc album-text">沙盘规划图</div>
+                        <div class="cursor-arrow arrow-left" id="showArrowLeft"></div>
+                        <div class="cursor-arrow arrow-right" id="showArrowRight"></div>
+                        <a href="###" class="check-original" id="originalPicture" title="查看原图" target="_blank"></a>
+                    </div>
+                    <div class="album-carousel-content" id="albumCarouselContent">
+                        <ul class="album-carousel-list clearfix" id="albumCarouselList"></ul>
+                        <div class="arrow arrow-left" id="listArrowLeft"></div>
+                        <div class="arrow arrow-right" id="listArrowRight"></div>
+                    </div>
                 </div>
-                <div class="album-carousel-content" id="albumCarouselContent">
-                    <ul class="album-carousel-list clearfix" id="albumCarouselList"></ul>
-                    <div class="arrow arrow-left" id="listArrowLeft"></div>
-                    <div class="arrow arrow-right" id="listArrowRight"></div>
+                <div class="album-nav fr">
+                    <div class="album-close" id="albumCloseBtn">
+                        <i class="iconfont">&#xe66d;</i>
+                    </div>
+                    <div class="album-modal-title">
+                        福星惠誉·京澜誉府
+                    </div>
+                    <div class="album-contact">
+                        <i class="iconfont">&#xe681;</i>
+                        <span> 400 090 2923 </span>
+                    </div>
+                    <ul class="album-tabs">
+                        <li class="tab-item" data-type="vedio">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">视频（1）</span>
+                        </li>
+                        <li class="tab-item" data-type="spt">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">沙盘图（3）</span>
+                        </li>
+                        <li class="tab-item" data-type="ybj">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">样板间（6）</span>
+                        </li>
+                        <li class="tab-item" data-type="ptt">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">配套图（3）</span>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="album-nav fr">
-                <div class="album-modal-title">
-                    福星惠誉·京澜誉府
-                </div>
-                <ul class="album-tabs">
-                    <li class="tab-item" data-type="vedio">
-                        <span class="left-arrow"><em></em></span>
-                        <span class="tab-name">视频（1）</span>
-                    </li>
-                    <li class="tab-item" data-type="spt">
-                        <span class="left-arrow"><em></em></span>
-                        <span class="tab-name">沙盘图（3）</span>
-                    </li>
-                    <li class="tab-item" data-type="ybj">
-                        <span class="left-arrow"><em></em></span>
-                        <span class="tab-name">样板间（6）</span>
-                    </li>
-                    <li class="tab-item" data-type="ptt">
-                        <span class="left-arrow"><em></em></span>
-                        <span class="tab-name">配套图（3）</span>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

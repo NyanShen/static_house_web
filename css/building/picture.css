@@ -153,8 +153,22 @@
     height: 600px;
 }
 
-.album-carousel-show:hover .middle-arrow {
-    display: block;
+.album-carousel-show .cursor-arrow {
+    position: absolute;
+    top: 0;
+    width: 310px;
+    height: 100%;
+    z-index: 15;
+}
+
+.album-carousel-show .cursor-arrow.arrow-left {
+    left: 0;
+    cursor: url('../../assets/icons/pic_prev.cur'), auto;
+}
+
+.album-carousel-show .cursor-arrow.arrow-right {
+    right: 0;
+    cursor: url('../../assets/icons/pic_next.cur'), auto;
 }
 
 .album-carousel-show img {
@@ -178,6 +192,19 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
 }
+
+.album-carousel-show .check-original {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 35px;
+    line-height: 35px;
+    background: url('../../assets/icons/fullscreen_white.png') no-repeat center center;
+    z-index: 20;
+}
+
+/* 小图轮播列表 */
 
 .album-carousel-content {
     position: relative;
@@ -254,8 +281,16 @@
     font-size: 24px;
     font-weight: bold;
     padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px dashed #eee;
     white-space: nowrap;
+}
+
+.album-nav .album-contact {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+    color: #11a43c;
 }
 
 .album-tabs {

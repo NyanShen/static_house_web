@@ -464,12 +464,13 @@
         });
         /*置业顾问轮播*/
         let listSelector = '#consultHidden .consultant-hidden-list';
+        let itemSelector = '#consultHidden .consultant-hidden-list li';
         let leftSelector = '#arrowLeft';
         let rightSelector = '#arrowRight';
-        let totalItemCount = $('#consultHidden .consultant-hidden-list li').length;
         let itemWidth = 215;
         let stepWidth = 860;
-        new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWidth, stepWidth });
+        let showItemCount = 4;
+        new CustomCarousel({ listSelector, itemSelector, leftSelector, rightSelector, showItemCount, itemWidth, stepWidth });
     });
 </script>
 

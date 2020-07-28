@@ -38,25 +38,25 @@ $(document).ready(function () {
 
     /*户型导航列表超过长度逻辑*/
     let listSelector = '#hxtNavList';
+    let itemSelector = '#hxtNavList li';
     let leftSelector = '#navArrowLeft';
     let rightSelector = '#navArrowRight';
-    let totalItemCount = $('#hxtNavList li').length;
     let itemWidth = 195;
     let stepWidth = 1170;
-    new CustomCarousel({ listSelector, leftSelector, rightSelector, totalItemCount, itemWidth, stepWidth });
+    new CustomCarousel({ listSelector,itemSelector, leftSelector, rightSelector, itemWidth, stepWidth });
 
     /*户型图列表轮播*/
     let hxtlistSelector = '#hxtDetailList';
+    let hxtitemSelector = '#hxtDetailList li';
     let hxtleftSelector = '#hxtArrowLeft';
     let hxtrightSelector = '#hxtArrowRight';
-    let hxttotalItemCount = $('#hxtDetailList li').length;
     let hxtitemWidth = 120;
     let hxtstepWidth = 720;
     new CustomCarousel({
         listSelector: hxtlistSelector,
+        itemSelector: hxtitemSelector,
         leftSelector: hxtleftSelector,
         rightSelector: hxtrightSelector,
-        totalItemCount: hxttotalItemCount,
         itemWidth: hxtitemWidth,
         stepWidth: hxtstepWidth,
         showItemCount
