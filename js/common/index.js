@@ -52,24 +52,24 @@ $(document).ready(function () {
     /*登录注册&用户中心*/
 });
 
-(function(){
+(function () {
     /**
-     * GL.foo.bar
+     * FCZX.foo.bar
      */
-    let GL = {};
-    GL.nameSpace = function (ns) {
-		var nsParts = ns.split(".");
-		var root = window;
-		for (var i = 0; i < nsParts.length; i++) {
-			if (typeof root[nsParts[i]] == "undefined") {
-				root[nsParts[i]] = {};
-			}
-			root = root[nsParts[i]];
-		}
-		return root;
+    let FCZX = {};
+    FCZX.globalNamespace = function (ns) {
+        var nsParts = ns.split(".");
+        var root = window;
+        for (var i = 0; i < nsParts.length; i++) {
+            if (typeof root[nsParts[i]] == "undefined") {
+                root[nsParts[i]] = {};
+            }
+            root = root[nsParts[i]];
+        }
+        return root;
     }
-    
-    window.GL = GL;
+
+    window.FCZX = FCZX;
 })()
 
 //居中元素
@@ -255,6 +255,7 @@ function inputListener(inputElement, maxLength) {
     }
 
     $.extend(CustomCarousel.prototype, {
+        isMoveOver: true, //是否完成位移
         _init: function (params) {
             let _this = this;
             _this.params = {
@@ -266,7 +267,6 @@ function inputListener(inputElement, maxLength) {
                 stepWidth: 0, //每次轮播步长
                 pointItemWidth: 0, //轮播判断点
                 showItemCount: 5, //显示轮播个数
-                isMoveOver: true, //是否完成位移
                 initHiddenArrow: true, //左右按钮（初始化）是否显示
             }
             $.extend(true, _this.params, params || {});
@@ -292,16 +292,16 @@ function inputListener(inputElement, maxLength) {
                 this._showArrow(totalItemCount);
             }
 
-            this.$left.off('click.caroussel').on('click.caroussel',function () {
-                if (params.isMoveOver) {
-                    _this._movePrev(params);
-                }
+            this.$left.off('click.caroussel').on('click.caroussel', function () {
+                if (!_this.isMoveOver) return;
+                _this.isMoveOver = false;
+                _this._movePrev(params);
             });
 
             this.$right.off('click.caroussel').on('click.caroussel', function () {
-                if (params.isMoveOver) {
-                    _this._moveNext(params);
-                }
+                if (!_this.isMoveOver) return;
+                _this.isMoveOver = false;
+                _this._moveNext(params);
             });
         },
         _initListWith: function (totalItemCount) {
@@ -327,12 +327,15 @@ function inputListener(inputElement, maxLength) {
             let _this = this;
             let $list = _this.$list;
             let itemLeft = parseInt($list.css('left'));
-            params.isMoveOver = false;
             if (itemLeft === 0) {
-                $list.stop().animate({ left: `${params.pointItemWidth}px` }, 300, _this.resetMoveOver(params));
+                $list.animate({ left: `${params.pointItemWidth}px` }, 300, function () {
+                    _this.isMoveOver = true;
+                });
             } else {
                 let newItemLeft = itemLeft + params.stepWidth;
-                $list.stop().animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params))
+                $list.animate({ left: `${newItemLeft}px` }, 300, function () {
+                    _this.isMoveOver = true;
+                });
             }
             return _this;
         },
@@ -340,17 +343,17 @@ function inputListener(inputElement, maxLength) {
             let _this = this;
             let $list = _this.$list;
             let itemLeft = parseInt($list.css('left'));
-            params.isMoveOver = false;
             if (itemLeft === params.pointItemWidth) {
-                $list.stop().animate({ left: 0 }, 300, _this.resetMoveOver(params));
+                $list.animate({ left: 0 }, 300, function () {
+                    _this.isMoveOver = true;
+                });
             } else {
                 let newItemLeft = itemLeft - params.stepWidth;
-                $list.stop().animate({ left: `${newItemLeft}px` }, 300, _this.resetMoveOver(params));
+                $list.animate({ left: `${newItemLeft}px` }, 300, function () {
+                    _this.isMoveOver = true;
+                });
             }
             return _this;
-        },
-        resetMoveOver: function (params) {
-            params.isMoveOver = true;
         },
         getTotalPage: function (totalItemCount) {
             let totalPage = 0;

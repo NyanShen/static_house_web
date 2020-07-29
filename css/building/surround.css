@@ -1,14 +1,9 @@
 .surround-left {
     width: 820px;
-    border: 1px solid #f2f2f2;
 }
 
 .surround-right {
     width: 350px;
-}
-
-.surround-dynamic {
-    padding: 0 10px;
 }
 
 .subscrib-text {
@@ -24,6 +19,7 @@
 
 .surround-feature {
     height: 127px;
+    border: 1px solid #f2f2f2;
 }
 
 .surround-feature .feature-title {
@@ -106,4 +102,45 @@
 
 .box-contact .contact-btn:hover {
     background-color: #14922d;
+}
+
+/* 周边楼盘相册 */
+
+
+.surround-picture-content {
+    font-size: 0;
+    margin-top: 15px;
+}
+
+.surround-picture-content li {
+    display: inline-block;
+    width: 180px;
+    font-size: 14px;
+    margin-left: 16px;
+}
+
+.surround-picture-content .picture {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+}
+
+.surround-picture-content .picture img:hover {
+    transform: scale(1.05);
+}
+
+.surround-picture-content p {
+    width: 100%;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.surround-picture-content .house-name a:hover{
+    color: #f34;
 }

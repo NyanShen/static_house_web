@@ -223,6 +223,7 @@
 
 .album-carousel-content .album-carousel-list li {
     float: left;
+    width: 108px;
     height: 100%;
     margin-right: 14px;
     border: 2px solid #f7f7f7;
@@ -257,7 +258,7 @@
     left: 0;
 }
 
-.album-carousel-content .arrow-left:hover {
+.album-carousel-content .arrow-left:not(.arrow-disabled):hover {
     background-position: 0 -34px;
 }
 
@@ -266,8 +267,13 @@
     right: 0;
 }
 
-.album-carousel-content .arrow-right:hover {
+.album-carousel-content .arrow-right:not(.arrow-disabled):hover {
     background-position: -23px -34px;
+}
+
+.album-carousel-content .arrow-disabled {
+    cursor: auto;
+    opacity: .6;
 }
 
 /* 相册导航 */
