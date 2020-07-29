@@ -118,133 +118,10 @@ $(document).ready(function () {
         }
     ];
 
-    new FCZX.album.AlbumIndex({ albumData });
-
-    // 设置新显示的大图及当前的小图
-    // function setActivedItem(albumItemList, albumImageList, index) {
-    //     let targetItem = albumItemList.eq(index);
-    //     let targetImgSrc = albumImageList.eq(index).attr('src');
-
-    //     // 设置当前图片并激活样式
-    //     $('#albumShowImage').attr('src', targetImgSrc);
-    //     $('#originalPicture').attr('href', targetImgSrc);
-    //     if (albumItemList.hasClass('actived')) {
-    //         albumItemList.removeClass('actived');
-    //     }
-    //     targetItem.addClass('actived');
-
-    //     // 计算图片显示
-    //     getImageRealSize(targetImgSrc, function (width, height) {
-    //         let showHeight = (840 / width) * height;
-    //         $('.album-carousel-show').css('height', showHeight);
-    //         let clientHeight = document.documentElement.clientHeight;
-    //         // 80 + 20 + 20 + 20
-    //         if (showHeight + 140 > clientHeight) {
-    //             $('#albumWrap').addClass('album-wrapper');
-    //         } else {
-    //             $('#albumWrap').removeClass('album-wrapper');
-    //         }
-    //     });
-
-    //     // 子元素与直接上级元素的距离
-    //     let itemPosition = targetItem.position().left;
-    //     //计算当前页
-    //     let currentPage = Math.floor(itemPosition / stepWidth);
-    //     let relativePosition = listContentParent.offset().left - targetItem.offset().left;
-    //     // 计算可视范围内相对偏移量
-    //     if (relativePosition < moveCondition || relativePosition > 0) {
-    //         listContent.css('left', `-${currentPage * stepWidth}px`);
-    //     }
-    // }
-
-
-    // $('.album-item').each(function () {
-    //     let type = $(this).attr('data-type');
-    //     $(`.album-item[data-type=${type}] .album`).each(function (index) {
-    //         let _this = $(this);
-    //         _this.click(function () {
-    //             let listHtml = '';
-    //             for (const item of albumItemData[type]) {
-    //                 listHtml = listHtml + `<li><img src="${item.imgSrc}" alt=""></li>`;
-    //             }
-    //             $('#albumCarouselList').append(listHtml);
-
-    //             setActivedItem($('#albumCarouselList li'), $('#albumCarouselList img'), index);
-
-    //             // 相册导航定位
-    //             $('.album-tabs .tab-item').siblings().removeClass('actived');
-    //             $('.album-tabs').find(`.tab-item[data-type=${type}]`).addClass('actived');
-
-    //             // 显示大屏相册
-    //             $('#albumFullScreen').show();
-    //             $('html').addClass('modal-open');
-
-    //             // 相册大图轮播
-    //             albumCarouselEvent(index);
-
-    //             initAlbumTabsEvent();
-    //         });
-    //     });
-    // });
-
-    // function initAlbumTabsEvent() {
-    //     $('.album-tabs .tab-item').each(function () {
-    //         $(this).on('click.albumtab', function () {
-    //             $('#albumCarouselList').children().remove();
-    //             let albumType = $(this).attr('data-type');
-    //             $(this).siblings().removeClass('actived');
-    //             $(this).addClass('actived');
-    //             let listHtml = '';
-    //             for (const item of albumItemData[albumType]) {
-    //                 listHtml = listHtml + `<li><img src="${item.imgSrc}" alt=""></li>`;
-    //             }
-    //             $('#albumCarouselList').append(listHtml);
-    //             setActivedItem($('#albumCarouselList li'), $('#albumCarouselList img'), 0);
-    //             albumCarouselEvent();
-    //         })
-    //     })
-    // }
-
-    // function albumCarouselEvent(currentIndex = 0) {
-    //     let listItems = $(itemSelector);
-    //     let listImages = $(imageSelector);
-    //     let listItemsCount = listItems.length;
-
-    //     listItems.each(function (index) {
-    //         let $this = $(this);
-    //         $this.click(function () {
-    //             currentIndex = index;
-    //             setCurrentItem(currentIndex);
-    //         });
-    //     });
-
-    //     $('#showArrowLeft').click(function () {
-    //         if (currentIndex <= 0) {
-    //             alert('已经是第一张了');
-    //             return;
-    //         }
-    //         currentIndex = currentIndex - 1;
-    //         setCurrentItem(currentIndex);
-    //     });
-
-    //     $('#showArrowRight').click(function () {
-    //         if (currentIndex >= listItemsCount - 1) {
-    //             alert('已经是最后一张了');
-    //             return;
-    //         }
-    //         currentIndex = currentIndex + 1;
-    //         setCurrentItem(currentIndex);
-    //     });
-
-    //     function setCurrentItem(currentIndex) {
-    //         setActivedItem(listItems, listImages, currentIndex);
-    //     }
-    // }
+    let albumInstance = new FCZX.album.AlbumIndex({ albumData });
 
     $('#albumCloseBtn').click(function () {
-        $('#albumCarouselList').css('left', 0);
-        $('#albumFullScreen').hide();
-        $('html').removeClass('modal-open');
+        albumInstance.closeModal();
     });
 });
 
@@ -279,8 +156,9 @@ $(document).ready(function () {
                     let { tabIndex, imgIndex } = _this.getAlbumIndex(albumData, image_id);
                     if (!albumTabInstance) {
                         albumTabInstance = new FCZX.album.AlbumTab({
-                            tabIndex,
                             albumData,
+                            tabIndex,
+                            imgIndex,
                             tabSelector: '.album-tabs .tab-item',
                             showOpt: {
                                 maxWidth: 840,
@@ -288,7 +166,9 @@ $(document).ready(function () {
                                 wrapSelector: '#albumWrap',
                                 showSelector: '.album-carousel-show',
                                 imgSelector: '#albumShowImage',
-                                oriSelector: '#originalPicture'
+                                oriSelector: '#originalPicture',
+                                leftSelector: '#showArrowLeft',
+                                rightSelector: '#showArrowRight',
                             },
                             listOpt: {
                                 listSelector: '#albumCarouselList',
@@ -298,12 +178,23 @@ $(document).ready(function () {
                                 showItemCount: 7
                             }
                         });
+                        _this.opt.albumTabInstance = albumTabInstance;
                     }
-                    albumTabInstance.opt.$tab.eq(tabIndex).trigger('click.album');
+                    albumTabInstance.opt.$tab.eq(tabIndex).trigger('click.album', true);
                     albumTabInstance.setActivedItem(imgIndex);
                     albumModal.show();
+                    $('html').addClass('modal-open');
                 });
-            })
+            });
+        },
+        closeModal: function () {
+            let _this = this;
+            let albumTabOpt = _this.opt.albumTabInstance.opt;
+            albumTabOpt.tabIndex = 0;
+            albumTabOpt.imgIndex = 0;
+            albumTabOpt.listCarousel.$list.css('left', 0)
+            _this.opt.albumModal.hide();
+            $('html').removeClass('modal-open');
         },
         /*通过图片id获取图片在相册中的位置*/
         getAlbumIndex: function (albumData, image_id) {
@@ -336,6 +227,7 @@ $(document).ready(function () {
             this.opt = {
                 albumData: null,
                 tabIndex: 0,
+                imgIndex: 0,
                 tabSelector: '',
                 showOpt: null,
                 listOpt: null
@@ -350,21 +242,21 @@ $(document).ready(function () {
             _opt.$showImg = $(_opt.showOpt.imgSelector);
             _opt.$showOri = $(_opt.showOpt.oriSelector);
             _opt.$showWrap = $(_opt.showOpt.showSelector);
+            _opt.$showLeft = $(_opt.showOpt.leftSelector);
+            _opt.$showRight = $(_opt.showOpt.rightSelector);
             _opt.$albumWrap = $(_opt.showOpt.wrapSelector);
             _opt.listCarousel = new FCZX.Switch(_opt.listOpt);
 
             _opt.$tab.each(function (index) {
-                $(this).on('click.album', function () {
+                $(this).on('click.album', function (event, auto) {
                     _opt.$tab.not($(this)).removeClass('actived');
                     $(this).addClass('actived');
                     _this._createAlbum(index);
+                    if (auto) return; //自动触发
                     _this.setActivedItem(0);
+                    _opt.listCarousel.$list.css('left', 0); // todo:统一计算移动位置位置
                 });
             });
-
-            _opt.$tab.eq(_opt.tabIndex).trigger('click.album');
-
-            return _this;
         },
         _createAlbum: function (index) {
             let _this = this;
@@ -376,7 +268,43 @@ $(document).ready(function () {
             }
             _opt.listCarousel.$list.html(listHtml);
             _opt.listCarousel = new FCZX.Switch(_opt.listOpt);
+            _this._itemEventHandler();
+            _this._showEventHandler();
+        },
+        _itemEventHandler: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _opt.listCarousel.$item.each(function (index) {
+                $(this).on('click.albumItem', function () {
+                    _this.setActivedItem(index);
+                });
+            })
+        },
+        // 抽出独立函数
+        _showEventHandler: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            let listItemsCount = _opt.listCarousel.$item.length;
 
+            _opt.$showLeft.off('click.albumShow').on('click.albumShow', function () {
+                console.log(_opt.imgIndex)
+                if (_opt.imgIndex <= 0) {
+                    alert('已经是第一张了');
+                    return;
+                }
+                _opt.imgIndex = _opt.imgIndex - 1;
+                _this.setActivedItem(_opt.imgIndex);
+            });
+
+            _opt.$showRight.off('click.albumShow').on('click.albumShow', function () {
+                console.log(_opt.imgIndex)
+                if (_opt.imgIndex >= listItemsCount - 1) {
+                    alert('已经是最后一张了');
+                    return;
+                }
+                _opt.imgIndex = _opt.imgIndex + 1;
+                _this.setActivedItem(_opt.imgIndex);
+            });
         },
         _changeImgSrc: function (index) {
             let _this = this;
@@ -403,16 +331,17 @@ $(document).ready(function () {
                 }
             });
         },
-        setActivedItem: function (index) {
+        setActivedItem: function (currentIndex) {
             let _this = this;
             let _opt = _this.opt;
             let $item = _opt.listCarousel.$item;
-            _this._changeImgSrc(index);
+            _this._changeImgSrc(currentIndex);
 
             if ($item.hasClass('actived')) {
                 $item.removeClass('actived');
             }
-            $item.eq(index).addClass('actived');
+            $item.eq(currentIndex).addClass('actived');
+            _opt.imgIndex = currentIndex;
         }
     });
 })(jQuery);
@@ -527,16 +456,18 @@ $(document).ready(function () {
             totalPage = Math.ceil(opt.totalItemCount / opt.showItemCount);
             return totalPage;
         },
-        // movePosition: function () {
-        //     // 子元素与直接上级元素的距离
-        //     let itemPosition = targetItem.position().left;
-        //     //计算当前页
-        //     let currentPage = Math.floor(itemPosition / stepWidth);
-        //     let relativePosition = listContentParent.offset().left - targetItem.offset().left;
-        //     // 计算可视范围内相对偏移量
-        //     if (relativePosition < moveCondition || relativePosition > 0) {
-        //         listContent.css('left', `-${currentPage * stepWidth}px`);
-        //     }
-        // }
+        movePosition: function (index) {
+            let opt = this.opt;
+            let targetItem = opt.$item.eq(index);
+            // 子元素与直接上级元素的距离
+            let itemPosition = targetItem.position().left;
+            //计算当前页
+            let currentPage = Math.floor(itemPosition / opt.stepWidth);
+            let relativePosition = opt.$list.parent().offset().left - targetItem.offset().left;
+            // 计算可视范围内相对偏移量
+            if (relativePosition < moveCondition || relativePosition > 0) {
+                opt.$list.css('left', `-${currentPage * opt.stepWidth}px`);
+            }
+        }
     })
 })(jQuery);
