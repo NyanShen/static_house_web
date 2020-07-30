@@ -1,4 +1,36 @@
 $(document).ready(function () {
+    $('.house-type-all .house-type-image img').each(function () {
+        resizeImage($(this), 208, 158);
+    });
+
+    /*每一页显示10条，判断总数是否大于10条*/
+    let totalCount = 10; //todo
+    if (totalCount >= 10) {
+        $('#houseTypePagination').show();
+    }
+
+    /*在线咨询popup*/
+    $('#hxConsultHidden .consultant-info').each(function (index) {
+        $(this).hover(function () {
+            $('#hxConsultHidden').css('height', '320px');
+            $(this).children('.consultant-scan-popup').show();
+        }, function () {
+            $('#hxConsultHidden').css('height', '106px');
+            $(this).children('.consultant-scan-popup').hide();
+        })
+    });
+
+    /*置业顾问轮播*/
+    new FCZX.Switch({
+        listSelector: '#hxConsultHidden .consultant-hidden-list',
+        itemSelector: '#hxConsultHidden .consultant-hidden-list li',
+        leftSelector: '#arrowLeft',
+        rightSelector: '#arrowRight',
+        arrowDisClass: 'arrow-disabled',
+        showItemCount: 4
+    });
+
+    // 户型图详情
     let currentIndex = 0;
     let showItemCount = 6;
     let showImage = $('.htd-content .carousel-show img');
@@ -41,24 +73,18 @@ $(document).ready(function () {
     let itemSelector = '#hxtNavList li';
     let leftSelector = '#navArrowLeft';
     let rightSelector = '#navArrowRight';
-    let itemWidth = 195;
-    let stepWidth = 1170;
-    new CustomCarousel({ listSelector,itemSelector, leftSelector, rightSelector, itemWidth, stepWidth });
+    new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector });
 
     /*户型图列表轮播*/
     let hxtlistSelector = '#hxtDetailList';
     let hxtitemSelector = '#hxtDetailList li';
     let hxtleftSelector = '#hxtArrowLeft';
     let hxtrightSelector = '#hxtArrowRight';
-    let hxtitemWidth = 120;
-    let hxtstepWidth = 720;
-    new CustomCarousel({
+    new FCZX.Switch({
         listSelector: hxtlistSelector,
         itemSelector: hxtitemSelector,
         leftSelector: hxtleftSelector,
         rightSelector: hxtrightSelector,
-        itemWidth: hxtitemWidth,
-        stepWidth: hxtstepWidth,
         showItemCount
     });
 

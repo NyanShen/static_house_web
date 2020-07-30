@@ -1,23 +1,8 @@
 $(document).ready(function () {
 
     // 显示固定标题
-    showFixHeader();
-    function showFixHeader() {
-        let scrollTop = $(document).scrollTop();
-        window.addEventListener('scroll', function () {
-            scrollTop = $(document).scrollTop();
-            if (scrollTop > 200) {
-                $('.fix-header').show();
-            } else {
-                $('.fix-header').hide();
-            }
-        });
-        if (scrollTop > 200) {
-            $('.fix-header').show();
-        } else {
-            $('.fix-header').hide();
-        }
-    }
+    showFixHeader(200);
+
     // 显示大屏图片
     let albumData = [
         {
@@ -104,14 +89,18 @@ $(document).ready(function () {
         },
         {
             name: '配套图',
-            count: 2,
+            count: 3,
             images: [
                 {
                     image_id: '4001',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
+                    image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
                 },
                 {
                     image_id: '4002',
+                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
+                },
+                {
+                    image_id: '4003',
                     image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
                 }
             ]
@@ -142,6 +131,7 @@ $(document).ready(function () {
             }
             $.extend(true, this.opt, opt || {});
             this._initDomEvent();
+            this._tabLoopPlayer();
         },
         _initDomEvent: function () {
             let _this = this;
@@ -175,6 +165,7 @@ $(document).ready(function () {
                                 itemSelector: '#albumCarouselList li',
                                 leftSelector: '#listArrowLeft',
                                 rightSelector: '#listArrowRight',
+                                arrowDisClass: 'arrow-disabled',
                                 showItemCount: 7
                             }
                         });
@@ -187,14 +178,45 @@ $(document).ready(function () {
                 });
             });
         },
-        closeModal: function () {
-            let _this = this;
-            let albumTabOpt = _this.opt.albumTabInstance.opt;
-            albumTabOpt.tabIndex = 0;
-            albumTabOpt.imgIndex = 0;
-            albumTabOpt.listCarousel.$list.css('left', 0)
-            _this.opt.albumModal.hide();
-            $('html').removeClass('modal-open');
+        _tabLoopPlayer: function () {
+            let curTabIndex = 0;
+            let loopPrev = $('#showArrowLeft');
+            let loopNext = $('#showArrowRight');
+            let loopTabCont = $('.album-tabs');
+            let loopTab = loopTabCont.find('.tab-item');
+            let loopTabLen = loopTab.length - 1;
+
+            loopPrev.off('click.loopPrev').on('click.loopPrev', function () {
+                let currentTab = loopTabCont.find('.actived');
+                curTabIndex = loopTab.index(currentTab);
+                if (loopPrev.hasClass('arrow-disabled')) {
+                    setTimeout(function () {
+                        loopPrev.removeClass('arrow-disabled');
+                        currentTab.prev().click();
+                        if (curTabIndex == 0) {
+                            console.log(loopTabLen)
+                            loopTab.eq(loopTabLen).click();
+                        }
+                    }, 100);
+                }
+            });
+
+            loopNext.off('click.loopNext').on('click.loopNext', function () {
+                let currentTab = loopTabCont.find('.actived');
+                curTabIndex = loopTab.index(currentTab);
+
+                if (loopNext.hasClass('arrow-disabled')) {
+                    setTimeout(function () {
+                        loopNext.removeClass('arrow-disabled');
+                        currentTab.next().click();
+                        if (curTabIndex == loopTabLen) {
+                            loopTab.eq(0).click();
+                        }
+                    }, 100)
+
+                }
+            });
+
         },
         /*通过图片id获取图片在相册中的位置*/
         getAlbumIndex: function (albumData, image_id) {
@@ -210,6 +232,15 @@ $(document).ready(function () {
                 }
             }
             return { tabIndex, imgIndex };
+        },
+        closeModal: function () {
+            let _this = this;
+            let albumTabOpt = _this.opt.albumTabInstance.opt;
+            albumTabOpt.tabIndex = 0;
+            albumTabOpt.imgIndex = 0;
+            albumTabOpt.listCarousel._initListLeft();
+            _this.opt.albumModal.hide();
+            $('html').removeClass('modal-open');
         }
     });
 })(jQuery);
@@ -254,7 +285,7 @@ $(document).ready(function () {
                     _this._createAlbum(index);
                     if (auto) return; //自动触发
                     _this.setActivedItem(0);
-                    _opt.listCarousel.$list.css('left', 0); // todo:统一计算移动位置位置
+                    _opt.listCarousel._initListLeft();
                 });
             });
         },
@@ -280,31 +311,48 @@ $(document).ready(function () {
                 });
             })
         },
-        // 抽出独立函数
         _showEventHandler: function () {
             let _this = this;
             let _opt = _this.opt;
-            let listItemsCount = _opt.listCarousel.$item.length;
+            let itemLen = _opt.listCarousel.$item.length - 1;
 
             _opt.$showLeft.off('click.albumShow').on('click.albumShow', function () {
-                console.log(_opt.imgIndex)
                 if (_opt.imgIndex <= 0) {
-                    alert('已经是第一张了');
+                    _opt.$showLeft.addClass('arrow-disabled');
+                    _opt.$showLeft.trigger('click.loopPrev');
                     return;
                 }
                 _opt.imgIndex = _opt.imgIndex - 1;
                 _this.setActivedItem(_opt.imgIndex);
+                _this._movePosition(_opt.imgIndex);
             });
 
             _opt.$showRight.off('click.albumShow').on('click.albumShow', function () {
-                console.log(_opt.imgIndex)
-                if (_opt.imgIndex >= listItemsCount - 1) {
-                    alert('已经是最后一张了');
+                if (_opt.imgIndex >= itemLen) {
+                    _opt.$showRight.addClass('arrow-disabled');
+                    _opt.$showRight.trigger('click.loopNext');
                     return;
                 }
                 _opt.imgIndex = _opt.imgIndex + 1;
                 _this.setActivedItem(_opt.imgIndex);
+                _this._movePosition(_opt.imgIndex);
             });
+        },
+        _movePosition: function (index) {
+            let _this = this;
+            let _opt = _this.opt;
+            let targetItem = _opt.listCarousel.$item.eq(index);
+            let stepWidth = _opt.listCarousel.opt.stepWidth;
+            let movePosition = _opt.listCarousel.opt.movePosition;
+            // 子元素与直接上级元素的距离
+            let itemPosition = targetItem.position().left;
+            //计算当前页
+            let currentPage = Math.floor(itemPosition / stepWidth);
+            let relativePosition = _opt.listCarousel.$list.parent().offset().left - targetItem.offset().left;
+            // 计算可视范围内相对偏移量
+            if (relativePosition < movePosition || relativePosition > 0) {
+                _opt.listCarousel.$list.css('left', `-${currentPage * stepWidth}px`);
+            }
         },
         _changeImgSrc: function (index) {
             let _this = this;
@@ -344,130 +392,4 @@ $(document).ready(function () {
             _opt.imgIndex = currentIndex;
         }
     });
-})(jQuery);
-
-(function ($) {
-    FCZX.globalNamespace('FCZX.Switch');
-
-    FCZX.Switch = function (opt) {
-        this._init(opt)
-    }
-
-    $.extend(FCZX.Switch.prototype, {
-        isMoveOver: true, //是否完成位移
-        _init: function (opt) {
-            let _this = this;
-            _this.opt = {
-                listSelector: '', //轮播列表选择器
-                itemSelector: '', //轮播列表项选择器
-                leftSelector: '', //左轮播按钮选择器
-                rightSelector: '', //右轮播按钮选择器
-                pointItemWidth: 0, //轮播判断点
-                showItemCount: 5, //显示轮播个数
-                arrowDisClass: 'arrow-disabled'
-            }
-            $.extend(true, _this.opt, opt || {});
-            _this._initDomEvent();
-            return _this;
-        },
-        _initDomEvent: function () {
-            let _this = this;
-            let opt = this.opt;
-            this.$list = $(opt.listSelector);
-            this.$item = $(opt.itemSelector);
-            this.$left = $(opt.leftSelector);
-            this.$right = $(opt.rightSelector);
-
-            opt.totalItemCount = this.$item.length;
-            opt.itemWidth = this.$item.outerWidth(true);
-            opt.stepWidth = opt.itemWidth * opt.showItemCount;
-
-            _this._initListWith();
-
-            if (opt.totalItemCount <= opt.showItemCount) {
-                this.$left.addClass(opt.arrowDisClass);
-                this.$right.addClass(opt.arrowDisClass);
-            } else {
-                this.$left.removeClass(opt.arrowDisClass);
-                this.$right.removeClass(opt.arrowDisClass);
-            }
-
-            //默认整块轮播
-            if (opt.pointItemWidth === 0) {
-                opt.pointItemWidth = (1 - this.getTotalPage(opt.totalItemCount)) * opt.stepWidth;
-            }
-
-            this.$left.off('click.switch').on('click.switch', function () {
-                if (_this.$left.hasClass(opt.arrowDisClass)) return;
-                if (!_this.isMoveOver) return;
-                _this.isMoveOver = false;
-                _this._movePrev(opt);
-            });
-
-            this.$right.off('click.switch').on('click.switch', function () {
-                if (_this.$right.hasClass(opt.arrowDisClass)) return;
-                if (!_this.isMoveOver) return;
-                _this.isMoveOver = false;
-                _this._moveNext(opt);
-            });
-        },
-        _initListWith: function () {
-            let opt = this.opt;
-            this.$list.css('width', opt.itemWidth * opt.totalItemCount);
-        },
-        _initListLeft: function () {
-            this.$list.css('left', 0);
-        },
-        _movePrev: function (opt) {
-            let _this = this;
-            let $list = _this.$list;
-            let itemLeft = parseInt($list.css('left'));
-            if (itemLeft === 0) {
-                $list.animate({ left: `${opt.pointItemWidth}px` }, 300, function () {
-                    _this.isMoveOver = true;
-                });
-            } else {
-                let newItemLeft = itemLeft + opt.stepWidth;
-                $list.animate({ left: `${newItemLeft}px` }, 300, function () {
-                    _this.isMoveOver = true;
-                });
-            }
-            return _this;
-        },
-        _moveNext: function (opt) {
-            let _this = this;
-            let $list = _this.$list;
-            let itemLeft = parseInt($list.css('left'));
-            if (itemLeft === opt.pointItemWidth) {
-                $list.animate({ left: 0 }, 300, function () {
-                    _this.isMoveOver = true;
-                });
-            } else {
-                let newItemLeft = itemLeft - opt.stepWidth;
-                $list.animate({ left: `${newItemLeft}px` }, 300, function () {
-                    _this.isMoveOver = true;
-                });
-            }
-            return _this;
-        },
-        getTotalPage: function () {
-            let totalPage = 0;
-            let opt = this.opt;
-            totalPage = Math.ceil(opt.totalItemCount / opt.showItemCount);
-            return totalPage;
-        },
-        movePosition: function (index) {
-            let opt = this.opt;
-            let targetItem = opt.$item.eq(index);
-            // 子元素与直接上级元素的距离
-            let itemPosition = targetItem.position().left;
-            //计算当前页
-            let currentPage = Math.floor(itemPosition / opt.stepWidth);
-            let relativePosition = opt.$list.parent().offset().left - targetItem.offset().left;
-            // 计算可视范围内相对偏移量
-            if (relativePosition < moveCondition || relativePosition > 0) {
-                opt.$list.css('left', `-${currentPage * opt.stepWidth}px`);
-            }
-        }
-    })
 })(jQuery);

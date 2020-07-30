@@ -23,6 +23,11 @@ $(document).ready(function () {
         resizeImage($(this), 200, 150);
     });
 
+    /*用户评论图片*/
+    $('.comment-list .user-comment .picture img').each(function () {
+        resizeImage($(this), 95, 70);
+    });
+
     /*同价位楼盘图*/
     $('.hot-pic-list li .item-picture img').each(function () {
         resizeImage($(this), 95, 70);

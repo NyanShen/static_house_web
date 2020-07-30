@@ -272,7 +272,7 @@
                     </div>
                 </div>
                 <div class="consult-content">
-                    <div class="consult-hidden" id="consultHidden">
+                    <div class="consult-hidden" id="hxConsultHidden">
                         <ul class="consultant-hidden-list">
                             <li>
                                 <div class="consultant-image fl">
@@ -440,38 +440,5 @@
     <!--底部footer end-->
 
 </body>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.house-type-all .house-type-image img').each(function () {
-            resizeImage($(this), 208, 158);
-        });
-
-        /*每一页显示10条，判断总数是否大于10条*/
-        let totalCount = 11; //todo
-        if (totalCount > 10) {
-            $('#houseTypePagination').show();
-        }
-
-        /*在线咨询popup*/
-        $('#consultHidden .consultant-info').each(function (index) {
-            $(this).hover(function () {
-                $('#consultHidden').css('height', '320px');
-                $(this).children('.consultant-scan-popup').show();
-            }, function () {
-                $('#consultHidden').css('height', '106px');
-                $(this).children('.consultant-scan-popup').hide();
-            })
-        });
-        /*置业顾问轮播*/
-        let listSelector = '#consultHidden .consultant-hidden-list';
-        let itemSelector = '#consultHidden .consultant-hidden-list li';
-        let leftSelector = '#arrowLeft';
-        let rightSelector = '#arrowRight';
-        let itemWidth = 215;
-        let stepWidth = 860;
-        let showItemCount = 4;
-        new CustomCarousel({ listSelector, itemSelector, leftSelector, rightSelector, showItemCount, itemWidth, stepWidth });
-    });
-</script>
-
+<script type="text/javascript" src="//static.fczx.com/www/js/building/house-type.js"></script>
 </html>

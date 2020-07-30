@@ -3,9 +3,7 @@ $(document).ready(function () {
     let sandPicture = $('#sandPicture');
     let sandImage = $('#sandPicture img');
     let sandInfoList = $('#sandInfoList');
-    let itemWidth = 100;
     let stepWidth = 500;
-    let showItemCount = 5;
     let itemInfo = {};
     let picSelcetor = '#sandPicture .sand-item';
     let tabSelector = '.sand-info-list li';
@@ -101,14 +99,11 @@ $(document).ready(function () {
         let listSelector = '#sandInfoList';
         let leftSelector = '#sandArrowPrev';
         let rightSelector = '#sandArrowNext';
-        new CustomCarousel({
+        new FCZX.Switch({
             listSelector,
             itemSelector: tabSelector,
             leftSelector,
             rightSelector,
-            showItemCount,
-            itemWidth,
-            stepWidth
         });
     }
 

@@ -14,7 +14,5 @@ $(document).ready(function () {
     let itemSelector = '.consultant-hidden-list li';
     let leftSelector = '.consultant-carousel>.arrow-left';
     let rightSelector = '.consultant-carousel>.arrow-right';
-    let itemWidth = 240;
-    let stepWidth = 1200;
-    new CustomCarousel({ listSelector, itemSelector, leftSelector, rightSelector, itemWidth, stepWidth });
+    new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector});
 });

@@ -54,6 +54,7 @@
 }
 
 .comment-list .user-icon {
+    position: relative;
     float: left;
     width: 50px;
     height: 50px;
@@ -66,40 +67,42 @@
     border-radius: 50%;
 }
 
- .user-comment {
+.user-comment {
     float: left;
     width: 1068px;
     margin-left: 20px;
 }
 
- .user-comment .name {
+.user-comment .name {
     display: block;
     color: #666;
 }
 
- .user-comment .content {
+.user-comment .content {
     line-height: 20px;
     margin: 8px 0;
 }
 
- .user-comment .picture {
+.user-comment .picture {
     overflow: hidden;
     margin-bottom: 5px;
 }
 
- .user-comment .picture a {
+.user-comment .picture a {
+    position: relative;
     float: left;
-    width: 80px;
-    height: 60px;
+    width: 95px;
+    height: 70px;
     margin-right: 5px;
+    overflow: hidden;
 }
 
- .user-comment .publish {
+.user-comment .publish {
     font-size: 12px;
     color: #999;
 }
 
- .user-comment .action {
+.user-comment .action {
     margin-left: 15px;
     cursor: pointer;
 }
@@ -117,4 +120,3 @@
 .comment-content .user-comment {
     width: 770px;
 }
-

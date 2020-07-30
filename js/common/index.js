@@ -107,6 +107,7 @@ function dragPicture(moveObj) {
         $(document).off('mousemove');
     })
 }
+
 //回到顶部
 function toggleToTopBtn(toTopBtn, scrollTop, clientHeight) {
     if (scrollTop > clientHeight) {
@@ -116,6 +117,7 @@ function toggleToTopBtn(toTopBtn, scrollTop, clientHeight) {
     }
 }
 
+//回到顶部
 function backToTop() {
     let toTopBtn = $('#toTopBtn');
     let scrollTop = $(document).scrollTop();
@@ -130,6 +132,24 @@ function backToTop() {
             scrollTop: 0
         }, 500)
     })
+}
+
+// 显示固定标题
+function showFixHeader(top) {
+    let scrollTop = $(document).scrollTop();
+    window.addEventListener('scroll', function () {
+        scrollTop = $(document).scrollTop();
+        if (scrollTop > top) {
+            $('.fix-header').show();
+        } else {
+            $('.fix-header').hide();
+        }
+    });
+    if (scrollTop > top) {
+        $('.fix-header').show();
+    } else {
+        $('.fix-header').hide();
+    }
 }
 
 // 设置元素超时隐藏
@@ -247,123 +267,138 @@ function inputListener(inputElement, maxLength) {
     });
 }
 
-/*模块轮播*/
+// 列表轮播
+(function ($) {
+    FCZX.globalNamespace('FCZX.Switch');
 
-(function (win) {
-    function CustomCarousel(params) {
-        this._init(params)
+    FCZX.Switch = function (opt) {
+        this._init(opt)
     }
 
-    $.extend(CustomCarousel.prototype, {
+    $.extend(FCZX.Switch.prototype, {
         isMoveOver: true, //是否完成位移
-        _init: function (params) {
+        _init: function (opt) {
             let _this = this;
-            _this.params = {
+            _this.opt = {
                 listSelector: '', //轮播列表选择器
-                itemSelector: '', //轮播列表选择器
+                itemSelector: '', //轮播列表项选择器
                 leftSelector: '', //左轮播按钮选择器
                 rightSelector: '', //右轮播按钮选择器
-                itemWidth: 0, //每个轮播的宽度
-                stepWidth: 0, //每次轮播步长
-                pointItemWidth: 0, //轮播判断点
+                pointItemWidth: 0, //轮播判断点，默认整块轮播
                 showItemCount: 5, //显示轮播个数
-                initHiddenArrow: true, //左右按钮（初始化）是否显示
+                arrowDisClass: '', // 置灰按钮，不可点击
             }
-            $.extend(true, _this.params, params || {});
+            $.extend(true, _this.opt, opt || {});
             _this._initDomEvent();
             return _this;
         },
         _initDomEvent: function () {
             let _this = this;
-            let params = this.params;
-            this.$list = $(params.listSelector);
-            this.$item = $(params.itemSelector);
-            this.$left = $(params.leftSelector);
-            this.$right = $(params.rightSelector);
-            let totalItemCount = this.$item.length;
-            _this._initListWith(totalItemCount);
+            let opt = this.opt;
+            this.$list = $(opt.listSelector);
+            this.$item = $(opt.itemSelector);
+            this.$left = $(opt.leftSelector);
+            this.$right = $(opt.rightSelector);
+
+            opt.totalItemCount = this.$item.length;
+            opt.itemWidth = this.$item.outerWidth(true); // 必须设置item的width样式才生效
+            opt.stepWidth = opt.itemWidth * opt.showItemCount;
+            opt.movePosition = opt.itemWidth * (1 - opt.showItemCount);
+
+            _this._initListWith();
+            
+            if (opt.arrowDisClass) {
+                this._setArrowClass(); // 按钮不隐藏，通过disable按钮控制
+            } else {
+                this._showArrow(); // 当没有足够轮播项不显示按钮
+            }
 
             //默认整块轮播
-            if (params.pointItemWidth === 0) {
-                params.pointItemWidth = (1 - this.getTotalPage(totalItemCount)) * params.stepWidth;
+            if (opt.pointItemWidth === 0) {
+                opt.pointItemWidth = (1 - this.getTotalPage()) * opt.stepWidth;
             }
 
-            if (params.initHiddenArrow) {
-                this._showArrow(totalItemCount);
-            }
-
-            this.$left.off('click.caroussel').on('click.caroussel', function () {
+            this.$left.off('click.switch').on('click.switch', function () {
+                if (_this.$left.hasClass(opt.arrowDisClass)) return;
                 if (!_this.isMoveOver) return;
                 _this.isMoveOver = false;
-                _this._movePrev(params);
+                _this._movePrev(opt);
             });
 
-            this.$right.off('click.caroussel').on('click.caroussel', function () {
+            this.$right.off('click.switch').on('click.switch', function () {
+                if (_this.$right.hasClass(opt.arrowDisClass)) return;
                 if (!_this.isMoveOver) return;
                 _this.isMoveOver = false;
-                _this._moveNext(params);
+                _this._moveNext(opt);
             });
         },
-        _initListWith: function (totalItemCount) {
-            let params = this.params;
-            this.$list.css('width', totalItemCount * params.itemWidth);
+        _initListWith: function () {
+            let opt = this.opt;
+            this.$list.css('width', opt.itemWidth * opt.totalItemCount);
         },
         _initListLeft: function () {
             this.$list.css('left', 0);
         },
-        _showArrow: function (totalItemCount) {
-            let _this = this;
-            let params = _this.params;
-            //如果总的轮播个数大于显示的轮播个数就显示arrow
-            if (totalItemCount > params.showItemCount) {
-                _this.$left.show();
-                _this.$right.show();
+        _setArrowClass() {
+            let opt = this.opt;
+            if (opt.totalItemCount <= opt.showItemCount) {
+                this.$left.addClass(opt.arrowDisClass);
+                this.$right.addClass(opt.arrowDisClass);
             } else {
-                _this.$left.hide();
-                _this.$right.hide();
+                this.$left.removeClass(opt.arrowDisClass);
+                this.$right.removeClass(opt.arrowDisClass);
             }
         },
-        _movePrev: function (params) {
+        _showArrow() {
+            let opt = this.opt;
+            if (opt.totalItemCount > opt.showItemCount) {
+                this.$left.show();
+                this.$right.show();
+            } else {
+                this.$left.hide();
+                this.$right.hide();
+            }
+        },
+        _movePrev: function (opt) {
             let _this = this;
             let $list = _this.$list;
             let itemLeft = parseInt($list.css('left'));
             if (itemLeft === 0) {
-                $list.animate({ left: `${params.pointItemWidth}px` }, 300, function () {
+                $list.animate({ left: `${opt.pointItemWidth}px` }, 300, function () {
                     _this.isMoveOver = true;
                 });
             } else {
-                let newItemLeft = itemLeft + params.stepWidth;
+                let newItemLeft = itemLeft + opt.stepWidth;
                 $list.animate({ left: `${newItemLeft}px` }, 300, function () {
                     _this.isMoveOver = true;
                 });
             }
             return _this;
         },
-        _moveNext: function (params) {
+        _moveNext: function (opt) {
             let _this = this;
             let $list = _this.$list;
             let itemLeft = parseInt($list.css('left'));
-            if (itemLeft === params.pointItemWidth) {
+            if (itemLeft === opt.pointItemWidth) {
                 $list.animate({ left: 0 }, 300, function () {
                     _this.isMoveOver = true;
                 });
             } else {
-                let newItemLeft = itemLeft - params.stepWidth;
+                let newItemLeft = itemLeft - opt.stepWidth;
                 $list.animate({ left: `${newItemLeft}px` }, 300, function () {
                     _this.isMoveOver = true;
                 });
             }
             return _this;
         },
-        getTotalPage: function (totalItemCount) {
+        getTotalPage: function () {
             let totalPage = 0;
-            let params = this.params;
-            totalPage = Math.ceil(totalItemCount / params.showItemCount);
+            let opt = this.opt;
+            totalPage = Math.ceil(opt.totalItemCount / opt.showItemCount);
             return totalPage;
         }
     })
-    win.CustomCarousel = CustomCarousel;
-})(window);
+})(jQuery);
 
 // 大图轮播点击
 function showCarouselEvent(params) {
@@ -467,7 +502,7 @@ function initScreenDomEvent(listHtml, screenIndex = 0) {
     showCarouselEvent(carouselParams);
 
     // 小图轮播
-    new CustomCarousel({ listSelector, itemSelector, leftSelector, rightSelector, itemWidth, stepWidth, showItemCount });
+    new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector, showItemCount });
 
     // 显示全屏
     $('#fullscreen').show();
