@@ -19,7 +19,9 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/ask.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/find-house.js"></script>
 
 </head>
@@ -157,7 +159,7 @@
                     <span class="count">0</span>/150字
                     <span class="limit"></span>
                 </p>
-                <a href="javascript:;" class="action-btn">提交问题</a>
+                <a href="javascript:;" class="action-btn" id="houseAskBtn">提交问题</a>
             </div>
         </div>
         <div class="content-right fr">
@@ -280,7 +282,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
 
@@ -311,6 +313,32 @@
     $(document).ready(function () {
         let askArea = $('#askArea');
         inputListener(askArea, 150);
+        // 提交问题
+        $('#houseAskBtn').click(function () {
+            let houseId = 194;
+            let textnum = askArea.val().replace(/\s+/g, "").length;
+
+            if (textnum <= 0) {
+                alert('请先填写您的问题再提交吧');
+                return;
+            }
+
+            app.request({
+                url: app.areaApiUrl('/house/ask'),
+                data: {
+                    fang_house_id: houseId,
+                    title: askArea.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    $.MsgModal.Success('提交成功', '关闭弹窗返回问题列表', function () {
+                        window.location.href = "/pages/building/ask.html";
+                    });
+                }
+            });
+        });
     });
 </script>
 

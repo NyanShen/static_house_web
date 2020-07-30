@@ -457,7 +457,7 @@ function showCarouselEvent(params) {
 function initScreenDomEvent(listHtml, screenIndex = 0) {
     // 初始化小图列表
     let screenList = $('#screenPictureList');
-    screenList.append(listHtml);
+    screenList.html(listHtml);
     // 初始化小图轮播参数
     let listSelector = '#screenPictureList';
     let itemSelector = '#screenPictureList li';
@@ -506,11 +506,12 @@ function initScreenDomEvent(listHtml, screenIndex = 0) {
 
     // 显示全屏
     $('#fullscreen').show();
+    $('html').addClass('modal-open');
 
     // 关闭大屏
     $('#fullscreenCloseBtn').click(function () {
-        screenList.children().remove();
         $('#fullscreen').hide();
+        $('html').removeClass('modal-open');
     });
 }
 

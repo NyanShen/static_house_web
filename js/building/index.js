@@ -92,20 +92,19 @@ $(document).ready(function () {
             if ($this.hasClass('action-actived')) {
                 return;
             }
-            $this.addClass('action-actived');
-            count = parseInt(actionCount.text());
-            count = count + 1;
-            actionCount.text(count);
             app.request({
-                url: app.areaApiUrl('/test/test'),
+                url: app.areaApiUrl('/house/like-comment'),
                 data: {
-                    fang_house_id: houseId
+                    id: houseId
                 },
-                type: 'GET',
+                type: 'POST',
                 dataType: 'json',
                 headers: {},
                 done: function () {
-                    
+                    $this.addClass('action-actived');
+                    count = parseInt(actionCount.text());
+                    count = count + 1;
+                    actionCount.text(count);
                 }
             });
         });
@@ -164,6 +163,7 @@ $(document).ready(function () {
 
     /**一键订阅 */
     $('#subscribBtn').click(function () {
+        let houseId = $(this).attr('data-id');
         let type = $(this).attr('data-type');
         let message = $(this).attr('data-message');
         let modalParams = {
@@ -171,7 +171,7 @@ $(document).ready(function () {
             message,
             okText: '立即订阅',
             callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer('194', type, username, phone, phoneCode);
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
             }
         }
         $.FormModal.userForm(modalParams);

@@ -379,17 +379,18 @@
 
         /*提交评论*/
         $('#houseCommentBtn').click(function () {
+            let houseId = 194;
             let textnum = commentArea.val().replace(/\s+/g, "").length;
 
             if (textnum < 15) {
-                alert('点评字数不少于15字，请填写完毕在提交吧');
+                alert('点评字数不少于15字，请填写完毕再提交吧');
                 return;
             }
 
             app.request({
                 url: app.areaApiUrl('/house/comment'),
                 data: {
-                    fang_house_id: '194',
+                    fang_house_id: houseId,
                     content: commentArea.val(),
                     image_path: uploadImage.attr('src')
                 },

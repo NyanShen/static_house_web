@@ -135,10 +135,11 @@ $(document).ready(function () {
         },
         _initDomEvent: function () {
             let _this = this;
-            let albumData = _this.opt.albumData;
-            let albumList = _this.opt.albumList;
-            let albumModal = _this.opt.albumModal;
-            let albumTabInstance = _this.opt.albumTabInstance;
+            let _opt = _this.opt;
+            let albumData = _opt.albumData;
+            let albumList = _opt.albumList;
+            let albumModal = _opt.albumModal;
+            let albumTabInstance = _opt.albumTabInstance;
 
             albumList.each(function () {
                 $(this).on('click.album', function () {
@@ -169,10 +170,13 @@ $(document).ready(function () {
                                 showItemCount: 7
                             }
                         });
-                        _this.opt.albumTabInstance = albumTabInstance;
+                        _opt.albumTabInstance = albumTabInstance;
                     }
-                    albumTabInstance.opt.$tab.eq(tabIndex).trigger('click.album', true);
-                    albumTabInstance.setActivedItem(imgIndex);
+                    _opt.albumTabInstance.opt.$tab.eq(tabIndex).trigger('click.album', true);
+                    _opt.albumTabInstance.setActivedItem(imgIndex);
+                    setTimeout(function() {
+                        _opt.albumTabInstance._movePosition(imgIndex);
+                    }, 100);
                     albumModal.show();
                     $('html').addClass('modal-open');
                 });
@@ -194,7 +198,6 @@ $(document).ready(function () {
                         loopPrev.removeClass('arrow-disabled');
                         currentTab.prev().click();
                         if (curTabIndex == 0) {
-                            console.log(loopTabLen)
                             loopTab.eq(loopTabLen).click();
                         }
                     }, 100);
@@ -235,11 +238,12 @@ $(document).ready(function () {
         },
         closeModal: function () {
             let _this = this;
-            let albumTabOpt = _this.opt.albumTabInstance.opt;
+            let _opt = _this.opt;
+            let albumTabOpt = _opt.albumTabInstance.opt;
             albumTabOpt.tabIndex = 0;
             albumTabOpt.imgIndex = 0;
             albumTabOpt.listCarousel._initListLeft();
-            _this.opt.albumModal.hide();
+            _opt.albumModal.hide();
             $('html').removeClass('modal-open');
         }
     });
@@ -293,11 +297,14 @@ $(document).ready(function () {
             let _this = this;
             let _opt = _this.opt;
             let currAlbumData = _opt.albumData[index];
+
             let listHtml = '';
             for (const item of currAlbumData.images) {
                 listHtml = listHtml + `<li><img src="${item.image_src}" alt=""></li>`;
             }
             _opt.listCarousel.$list.html(listHtml);
+            _opt.$showWrap.find('.album-text').text(`${currAlbumData.name}`);
+
             _opt.listCarousel = new FCZX.Switch(_opt.listOpt);
             _this._itemEventHandler();
             _this._showEventHandler();
@@ -341,6 +348,7 @@ $(document).ready(function () {
         _movePosition: function (index) {
             let _this = this;
             let _opt = _this.opt;
+            let $list = _opt.listCarousel.$list;
             let targetItem = _opt.listCarousel.$item.eq(index);
             let stepWidth = _opt.listCarousel.opt.stepWidth;
             let movePosition = _opt.listCarousel.opt.movePosition;
@@ -348,10 +356,10 @@ $(document).ready(function () {
             let itemPosition = targetItem.position().left;
             //计算当前页
             let currentPage = Math.floor(itemPosition / stepWidth);
-            let relativePosition = _opt.listCarousel.$list.parent().offset().left - targetItem.offset().left;
+            let relativePosition = $list.parent().offset().left - targetItem.offset().left;
             // 计算可视范围内相对偏移量
             if (relativePosition < movePosition || relativePosition > 0) {
-                _opt.listCarousel.$list.css('left', `-${currentPage * stepWidth}px`);
+                $list.stop().animate({left: `-${currentPage * stepWidth}px`}, 300);
             }
         },
         _changeImgSrc: function (index) {
