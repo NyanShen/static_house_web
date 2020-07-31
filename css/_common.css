@@ -854,7 +854,7 @@
 .video-icon-m {
     width: 72px;
     height: 72px;
-    background: url('../assets/icons/icon_video_m.png') no-repeat center center;
+    background: url('../assets/icons/video.png') no-repeat center center;
 }
 
 /*others*/
@@ -1161,6 +1161,7 @@
 }
 
 /* 打开弹窗 */
+
 .modal-open {
     height: 100%;
     overflow: hidden;
@@ -1181,17 +1182,20 @@
     -o-transition: all .3s;
 }
 
-.center-image .icon-vedio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+/*dependon margin-center*/
+.center-image .icon-video {
     width: 50px;
     height: 50px;
     background-size: 50px 50px;
-    background-image: url('../assets/icons/icon_video_m.png');
+    background-image: url('../assets/icons/video.png');
+    z-index: 10;
+}
+
+.center-image .icon-vr {
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    background-image: url('../assets/icons/vr.png');
     z-index: 10;
 }
 
@@ -1203,6 +1207,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
+}
+
+.margin-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 /*引入图标样式*/

@@ -6,16 +6,6 @@ $(document).ready(function () {
     // 显示大屏图片
     let albumData = [
         {
-            name: '视频',
-            count: 1,
-            images: [
-                {
-                    image_id: '1001',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                }
-            ]
-        },
-        {
             name: '沙盘图',
             count: 3,
             images: [
@@ -112,6 +102,24 @@ $(document).ready(function () {
     $('#albumCloseBtn').click(function () {
         albumInstance.closeModal();
     });
+
+    // 视频播放
+
+    $('.album-item').find('.album-video').each(function (index) {
+        $(this).click(function () {
+            let videoSrc = $(this).attr('data-video');
+            let imgSrc = $(this).find('img').attr('src');
+            let $video = $('.video-player').find('video');
+            $video.attr('src', videoSrc);
+            $video.attr('poster', imgSrc);
+            $('#albumVideoModal').show();
+        });
+    });
+
+    $('#albumVideoCloseBtn').click(function () {
+        $('.video-player').find('video').trigger('pause');
+        $('#albumVideoModal').hide();
+    });
 });
 
 // 相册模态框创建
@@ -143,6 +151,9 @@ $(document).ready(function () {
 
             albumList.each(function () {
                 $(this).on('click.album', function () {
+                    if ($(this).hasClass('album-others')) {
+                        return;
+                    }
                     let image_id = $(this).attr('image-id');
                     let { tabIndex, imgIndex } = _this.getAlbumIndex(albumData, image_id);
                     if (!albumTabInstance) {
@@ -174,7 +185,7 @@ $(document).ready(function () {
                     }
                     _opt.albumTabInstance.opt.$tab.eq(tabIndex).trigger('click.album', true);
                     _opt.albumTabInstance.setActivedItem(imgIndex);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         _opt.albumTabInstance._movePosition(imgIndex);
                     }, 100);
                     albumModal.show();
@@ -223,7 +234,8 @@ $(document).ready(function () {
         },
         /*通过图片id获取图片在相册中的位置*/
         getAlbumIndex: function (albumData, image_id) {
-            let imgIndex, tabIndex = 0;
+            let imgIndex = 0;
+            let tabIndex = 0;
             for (let i = 0; i < albumData.length; i++) {
                 let images = albumData[i].images;
                 for (let j = 0; j < images.length; j++) {
@@ -359,7 +371,7 @@ $(document).ready(function () {
             let relativePosition = $list.parent().offset().left - targetItem.offset().left;
             // 计算可视范围内相对偏移量
             if (relativePosition < movePosition || relativePosition > 0) {
-                $list.stop().animate({left: `-${currentPage * stepWidth}px`}, 300);
+                $list.stop().animate({ left: `-${currentPage * stepWidth}px` }, 300);
             }
         },
         _changeImgSrc: function (index) {

@@ -501,6 +501,22 @@
 
         // 使用刚指定的配置项和数据显示图表。
         priceRatioChart.setOption(option);
+
+        $('#togglePriceBtn').click(function () {
+            if ($(this).hasClass('off')) {
+                $(this).removeClass('off');
+                $(this).addClass('on')
+                $(this).children('span').text('收起');
+                $(`.box-price-table .tbody-apart`).hide();
+                $(`.box-price-table .tbody-all`).show();
+            } else {
+                $(this).removeClass('on');
+                $(this).addClass('off')
+                $(this).children('span').text('展开');
+                $(`.box-price-table .tbody-all`).hide();
+                $(`.box-price-table .tbody-apart`).show();
+            }
+        });
     })
 </script>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>

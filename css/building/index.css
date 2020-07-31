@@ -219,11 +219,14 @@
 }
 
 .information-order .order-desc {
+    width: 156px;
+    height: 40px;
     position: absolute;
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+    overflow: hidden;
 }
 
 .information-order .order-btn {
