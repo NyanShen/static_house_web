@@ -39,12 +39,16 @@
     background: rgba(64, 157, 251, .9);
 }
 
-.house-type-image .image-tag.solding {
+.house-type-image .image-tag.sale-status-1 {
     background: rgba(64, 157, 251, .9);
 }
 
-.house-type-image .image-tag.unsold {
+.house-type-image .image-tag.sale-status-2 {
     background: rgba(255, 152, 50, .9);
+}
+
+.house-type-image .image-tag.sale-status-3 {
+    background: rgba(187, 187, 187, .9);
 }
 
 .house-type-image .image-text {

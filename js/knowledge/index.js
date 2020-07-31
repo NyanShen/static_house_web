@@ -1,7 +1,7 @@
 /*重新计算列表高度*/
-function updateKnowledgeRightHeight(tagId) {
-    let knowledgLeftHeight = $(`#${tagId} .knowledge-left`).height();
-    $(`#${tagId} .knowledge-right`).height(knowledgLeftHeight);
+function updateKnowRightHeight(tagId) {
+    let knowledgLeftHeight = $(`#${tagId} .know-left`).height();
+    $(`#${tagId} .know-right`).height(knowledgLeftHeight);
 }
 /*菜单展开收起*/
 function toggleMenu(tagId, scrollInstance) {
@@ -20,7 +20,7 @@ function toggleMenu(tagId, scrollInstance) {
                 _parent.addClass('down');
                 _siblings.show();
             }
-            updateKnowledgeRightHeight(tagId);
+            updateKnowRightHeight(tagId);
             scrollInstance._initSliderHeight();
         });
     });
@@ -37,15 +37,15 @@ function switchMenu(tagId) {
 }
 $(document).ready(function () {
     /*重新计算列表高度*/
-    updateKnowledgeRightHeight('knowledgePurchase');
-    updateKnowledgeRightHeight('knowledgeRent');
+    updateKnowRightHeight('knowPurchase');
+    updateKnowRightHeight('knowRent');
     /*买房知识滚动事件*/
-    let knowledgePurchaseInstance = getCustomScrollBarInstance('knowledgePurchase');
-    let knowledgeRentInstance = getCustomScrollBarInstance('knowledgeRent');
+    let knowPurchaseInstance = getCustomScrollBarInstance('knowPurchase');
+    let knowRentInstance = getCustomScrollBarInstance('knowRent');
     /*菜单展开收起*/
-    toggleMenu('knowledgePurchase', knowledgePurchaseInstance);
-    toggleMenu('knowledgeRent', knowledgeRentInstance);
+    toggleMenu('knowPurchase', knowPurchaseInstance);
+    toggleMenu('knowRent', knowRentInstance);
     /*切换菜单选项*/
-    switchMenu('knowledgePurchase');
-    switchMenu('knowledgeRent');
+    switchMenu('knowPurchase');
+    switchMenu('knowRent');
 });

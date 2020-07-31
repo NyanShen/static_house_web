@@ -1,4 +1,4 @@
-.knowledge-item {
+.know-item {
     margin-bottom: 30px;
     padding: 30px 0 40px 30px;
     background-color: #fff;
@@ -6,45 +6,50 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
 }
 
-.knowledge-item .knowledge-title {
-    font-size: 18px;
+.know-item .know-title {
+    font-size: 20px;
     font-weight: bold;
-    padding-left: 28px;
-    background: url("../../assets/icons/home28.png") no-repeat left center;
+    color: #333;
 }
 
-.knowledge-left {
+.know-title .iconfont {
+    color: #11a43c;
+    padding-right: 5px;
+}
+
+.know-left {
     min-height: 300px;
 }
 
-.knowledge-left .menu-item {
+.know-left .menu-item {
     margin-top: 20px;
 }
 
-.knowledge-left .menu-item .sub-title {
+.know-left .menu-item .sub-title {
+    font-size: 15px;
     padding-left: 16px;
     font-weight: bold;
     color: #333;
 }
 
-.knowledge-left .menu-item.down .sub-title {
+.know-left .menu-item.down .sub-title {
     background: url("../../assets/icons/triangle-down.png") no-repeat left center;
 }
 
-.knowledge-left .menu-item.right .sub-title {
+.know-left .menu-item.right .sub-title {
     background: url("../../assets/icons/triangle-right.png") no-repeat left center;
 }
 
-.knowledge-left .menu-item.right ul {
+.know-left .menu-item.right ul {
     display: none;
 }
 
-.knowledge-left .menu-item ul {
+.know-left .menu-item ul {
     padding-left: 16px;
     margin-top: 15px;
 }
 
-.knowledge-left .menu-item ul>li>a {
+.know-left .menu-item ul>li>a {
     display: inline-block;
     width: 150px;
     font: 14px/30px "Miscrosoft Yahei";
@@ -54,32 +59,32 @@
     text-overflow: ellipsis;
 }
 
-.knowledge-left .menu-item ul>li>a:hover {
+.know-left .menu-item ul>li>a:hover {
     color: #df2f30;
 }
 
-.knowledge-left .menu-item ul>li>a.actived {
+.know-left .menu-item ul>li>a.actived {
     color: #df2f30;
     font-weight: bold;
 }
 
-.knowledge-right {
+.know-right {
     position: relative;
     width: 840px;
 }
 
-.knowledge-right .knowledge-cut-line {
+.know-right .know-cut-line {
     margin-right: 20px;
     height: 2px;
     background-color: #f7f7f7;
 }
 
-.knowledge-right .scroll-content {
+.know-right .scroll-content {
     height: 100%;
     overflow: hidden;
 }
 
-.knowledge-right .scroll-bar {
+.know-right .scroll-bar {
     display: none;
     position: absolute;
     right: 0;
@@ -89,15 +94,15 @@
     background-color: #fff;
 }
 
-#knowledgePurchase .knowledge-right:hover .scroll-bar {
+#knowPurchase .know-right:hover .scroll-bar {
     display: block;
 }
 
-#knowledgeRent .knowledge-right:hover .scroll-bar {
+#knowRent .know-right:hover .scroll-bar {
     display: block;
 }
 
-.knowledge-right .scroll-bar .scroll-slider {
+.know-right .scroll-bar .scroll-slider {
     position: absolute;
     top: 0;
     left: 1px;
@@ -107,7 +112,7 @@
     background-color: #ddd;
 }
 
-.knowledge-right ul li {
+.know-right ul li {
     overflow: hidden;
     margin-right: 20px;
     padding: 20px 0 20px 20px;
@@ -115,36 +120,36 @@
     cursor: pointer;
 }
 
-.knowledge-right ul li:hover {
+.know-right ul li:hover {
     background-color: #f7f7f7;
 }
 
-.knowledge-right .picture {
+.know-right .picture {
     margin-right: 20px;
     width: 130px;
     overflow: hidden;
 }
 
-.knowledge-right .describe {
+.know-right .describe {
     max-width: 650px;
     overflow: hidden;
 }
 
-.knowledge-right .describe .title {
+.know-right .describe .title {
     font-size: 16px;
     font-weight: bold;
     color: #555;
 }
 
-.knowledge-right .describe .desc {
+.know-right .describe .desc {
     margin: 15px 0;
 }
 
-.knowledge-right .describe .title:hover {
+.know-right .describe .title:hover {
     text-decoration: underline;
 }
 
-.knowledge-right .describe .collect {
+.know-right .describe .collect {
     border-radius: 2px;
     padding: 2px 4px;
     margin-left: 20px;
@@ -152,12 +157,12 @@
     background-color: #e2f1ff;
 }
 
-.knowledge-right .describe .collect:hover {
+.know-right .describe .collect:hover {
     color: #fff;
     background-color: #3399ff;
 }
 
-.knowledge-right .describe .comment i {
+.know-right .describe .comment i {
     position: relative;
     top: 5px;
     display: inline-block;
@@ -180,20 +185,20 @@
     background-color: #11a43c;
 }
 
-.knowledge-right .describe .comment {
+.know-right .describe .comment {
     line-height: 20px;
     font-size: 12px;
     color: #999;
 }
 
-.knowledge-right .check-more {
+.know-right .check-more {
     position: relative;
     top: 8px;
     text-align: center;
     background-color: #fff;
 }
 
-.knowledge-right .check-more a:hover {
+.know-right .check-more a:hover {
     color: #df2f30;
 }
 
@@ -288,3 +293,76 @@
     line-height: 24px;
 }
 */
+
+.load-more {
+    line-height: 35px;
+    text-align: center;
+}
+
+.load-more a:hover {
+    color: #df2f30;
+}
+
+/* 知识列表菜单 */
+.knowlist-menu {
+    width: 280px;
+    min-height: 120px;
+}
+
+.knowlist-menu .menu-item {
+    text-indent: 30px;
+    border: 1px solid #eee;
+}
+.knowlist-menu .menu-item .menu-title {
+    text-indent: 30px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background-color: #eee;
+}
+
+.knowlist-menu .submenu {
+    line-height: 35px;
+}
+
+.knowlist-menu .submenu .submenu-title {
+    position: relative;
+    font-size: 15px;
+    padding-left: 10px;
+    color: #333;
+    cursor: pointer;
+}
+
+.knowlist-menu .submenu .submenu-title .down {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 20px;
+    height: 35px;
+    background: url("../../assets/icons/triangle-down.png") no-repeat center center;
+}
+
+.knowlist-menu .submenu-item {
+    padding-left: 10px;
+}
+
+.knowlist-menu .submenu-item a {
+    display: block;
+    color: #666;
+}
+
+.knowlist-menu .submenu-item a.actived {
+    font-weight: bold;
+    color: #11a43c;
+}
+
+.knowlist-menu .submenu-item a:hover {
+    color: #11a43c;
+}
+
+/* 知识列表 */
+
+.knowlist-content {
+    width: 880px;
+    border-top: 2px solid #eee;
+}

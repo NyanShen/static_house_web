@@ -7,12 +7,13 @@ $(document).ready(function () {
     let itemInfo = {};
     let picSelcetor = '#sandPicture .sand-item';
     let tabSelector = '.sand-info-list li';
+    let houseId = sandPicture.attr('data-id');
 
     /*获取沙盘信息请求*/
     app.request({
         url: app.areaApiUrl('/house/get-sand'),
         data: {
-            id: 194
+            id: houseId
         },
         type: 'GET',
         dataType: 'json',
@@ -48,7 +49,7 @@ $(document).ready(function () {
         let _list_html = '';
         for (const item of sandItems) {
             _item_html = _item_html +
-                `<div class="sand-item ${getSandItemClass(item.sale_status)}" data-id="${item.id}" style="${item.style}">
+                `<div class="sand-item sale-status-${item.sale_status}" data-id="${item.id}" style="${item.style}">
                     <span>${item.name}</span><i></i>
                 </div>`;
 
@@ -79,19 +80,6 @@ $(document).ready(function () {
             return "暂无数据"
         }
         return app.date(timestamp, 'yyyy-MM-dd');
-    }
-
-    /*获取状态样式*/
-    function getSandItemClass(saleStatus) {
-        if (saleStatus == 1) {
-            return 'unsold'
-        }
-        else if (saleStatus == 2) {
-            return 'solding'
-        }
-        else {
-            return 'solded'
-        }
     }
 
     /*沙盘图标签轮播*/
