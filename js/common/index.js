@@ -303,7 +303,7 @@ function inputListener(inputElement, maxLength) {
             opt.totalItemCount = this.$item.length;
             opt.itemWidth = this.$item.outerWidth(true); // 必须设置item的width样式才生效
             opt.stepWidth = opt.itemWidth * opt.showItemCount;
-            opt.movePosition = opt.itemWidth * (1 - opt.showItemCount);
+            opt.moveCondition = opt.itemWidth * (1 - opt.showItemCount);
 
             _this._initListWith();
             
@@ -401,57 +401,116 @@ function inputListener(inputElement, maxLength) {
 })(jQuery);
 
 // 大图轮播点击
-function showCarouselEvent(params) {
-    let { stepWidth = 0, moveCondition = 0, currentIndex = 0, callback } = params;
-    let { arrowLeft, arrowRight, listItems, listImages, listContent, listContentParent } = params;
 
-    let listItemsCount = listItems.length;
+(function ($) {
+    FCZX.globalNamespace('FCZX.SwitchShow');
 
-    listItems.each(function (index) {
-        let $this = $(this);
-        $this.click(function () {
-            currentIndex = index;
-            setCurrentItem(currentIndex);
-        });
-    });
-
-    arrowLeft.click(function () {
-        if (currentIndex <= 0) {
-            alert('已经是第一张了');
-            return;
-        }
-        currentIndex = currentIndex - 1;
-        setCurrentItem(currentIndex);
-    });
-
-    arrowRight.click(function () {
-        if (currentIndex >= listItemsCount - 1) {
-            alert('已经是最后一张了');
-            return;
-        }
-        currentIndex = currentIndex + 1;
-        setCurrentItem(currentIndex);
-    });
-
-    function setCurrentItem(currentIndex) {
-        let targetItem = listItems.eq(currentIndex);
-        listItems.siblings().removeClass('actived');
-        targetItem.addClass('actived');
-        let imgSrc = listImages.eq(currentIndex).attr('src');
-        if (typeof (callback) == 'function') {
-            callback(imgSrc, currentIndex);
-        }
-        // 子元素与直接上级元素的距离
-        let itemPosition = targetItem.position().left;
-        //计算当前页
-        let currentPage = Math.floor(itemPosition / stepWidth);
-        let relativePosition = listContentParent.offset().left - targetItem.offset().left;
-        // 计算可视范围内相对偏移量
-        if (relativePosition < moveCondition || relativePosition > 0) {
-            listContent.css('left', `-${currentPage * stepWidth}px`);
-        }
+    FCZX.SwitchShow = function (opt) {
+        this._init(opt);
     }
-}
+
+    $.extend(FCZX.SwitchShow.prototype, {
+        _init: function (opt) {
+            this.opt = {
+                imgIndex: 0,
+                showOpt: null,
+                listOpt: null,
+                activedCallback: null
+            }
+            $.extend(true, this.opt, opt || {});
+            this._initDomEvent();
+        },
+        _initDomEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _opt.$showImg = $(_opt.showOpt.imgSelector);
+            _opt.$showOri = $(_opt.showOpt.oriSelector);
+            _opt.$showWrap = $(_opt.showOpt.showSelector);
+            _opt.$showLeft = $(_opt.showOpt.leftSelector);
+            _opt.$showRight = $(_opt.showOpt.rightSelector);
+            _opt.listCarousel = new FCZX.Switch(_opt.listOpt);
+            _this._itemEventHandler();
+            _this._showEventHandler();
+        },
+        _itemEventHandler: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _opt.listCarousel.$item.each(function (index) {
+                $(this).on('click.listItem', function () {
+                    _this.setActivedItem(index);
+                });
+            })
+        },
+        _showEventHandler: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            let itemLen = _opt.listCarousel.$item.length - 1;
+
+            _opt.$showLeft.off('click.itemShow').on('click.itemShow', function () {
+                if (_opt.imgIndex <= 0) {
+                    alert('已经是第一张了');
+                    return;
+                }
+                _opt.imgIndex = _opt.imgIndex - 1;
+                _this.setActivedItem(_opt.imgIndex);
+                _this._movePosition(_opt.imgIndex);
+            });
+
+            _opt.$showRight.off('click.itemShow').on('click.itemShow', function () {
+                if (_opt.imgIndex >= itemLen) {
+                    alert('已经是最后一张了');
+                    return;
+                }
+                _opt.imgIndex = _opt.imgIndex + 1;
+                _this.setActivedItem(_opt.imgIndex);
+                _this._movePosition(_opt.imgIndex);
+            });
+        },
+        _movePosition: function (index) {
+            let _this = this;
+            let _opt = _this.opt;
+            let $list = _opt.listCarousel.$list;
+            let targetItem = _opt.listCarousel.$item.eq(index);
+            let stepWidth = _opt.listCarousel.opt.stepWidth;
+            let moveCondition = _opt.listCarousel.opt.moveCondition;
+            // 子元素与直接上级元素的距离
+            let itemPosition = targetItem.position().left;
+            //计算当前页
+            let currentPage = Math.floor(itemPosition / stepWidth);
+            let relativePosition = $list.parent().offset().left - targetItem.offset().left;
+            // 计算可视范围内相对偏移量
+            if (relativePosition < moveCondition || relativePosition > 0) {
+                $list.stop().animate({ left: `-${currentPage * stepWidth}px` }, 300);
+            }
+        },
+        _changeImgSrc: function (index) {
+            let _this = this;
+            let _opt = _this.opt;
+            let $img = _opt.listCarousel.$item.eq(index).find('img');
+            let imgSrc = $img.attr('src')
+            _opt.$showImg.attr('src', imgSrc);
+            _opt.$showOri.attr('href', imgSrc);
+            if (typeof (_opt.showOpt.callback) == 'function') {
+                _opt.showOpt.callback(_opt.$showImg, index);
+            }
+        },
+        setActivedItem: function (currentIndex) {
+            let _this = this;
+            let _opt = _this.opt;
+            let $item = _opt.listCarousel.$item;
+            _this._changeImgSrc(currentIndex);
+
+            if ($item.hasClass('actived')) {
+                $item.removeClass('actived');
+            }
+            $item.eq(currentIndex).addClass('actived');
+            _opt.imgIndex = currentIndex;
+            if (typeof (_opt.activedCallback) == 'function') {
+                _opt.activedCallback(currentIndex);
+            }
+        }
+    });
+})(jQuery);
 
 // 全屏轮播
 function initScreenDomEvent(listHtml, screenIndex = 0) {
@@ -459,50 +518,25 @@ function initScreenDomEvent(listHtml, screenIndex = 0) {
     let screenList = $('#screenPictureList');
     screenList.html(listHtml);
     // 初始化小图轮播参数
-    let listSelector = '#screenPictureList';
-    let itemSelector = '#screenPictureList li';
-    let leftSelector = '#screenListArrowLeft';
-    let rightSelector = '#screenListArrowRight';
-    let itemWidth = 122;
-    let stepWidth = 1830;
     let showItemCount = 15;
-
-    let arrowLeft = $('#screenShowArrowLeft');
-    let arrowRight = $('#screenShowArrowRight');
-    let screenShowImage = $('#screenShowPicture');
-    let screenItemList = $('#screenPictureList li');
-    let screenImageList = $('#screenPictureList img');
-    let totalItemCount = screenItemList.length;
-    screenList.css('width', totalItemCount * itemWidth);
-
-    // 设置新显示的大图及当前的小图
-    let targetImgSrc = screenImageList.eq(screenIndex).attr('src');
-    screenShowImage.attr('src', targetImgSrc);
-    if (screenItemList.hasClass('actived')) {
-        screenItemList.removeClass('actived')
-    }
-    screenItemList.eq(screenIndex).addClass('actived');
-
-    // 大图轮播
-    let carouselParams = {
-        arrowLeft,
-        arrowRight,
-        listItems: screenItemList,
-        listImages: screenImageList,
-        listContent: screenList,
-        listContentParent: $('#screenCarousel'),
-        moveCondition: -1708,
-        stepWidth,
-        currentIndex: screenIndex,
-        callback: function carouselCallback(imgSrc) {
-            screenShowImage.attr('src', imgSrc);
+    let screenLoop = new FCZX.SwitchShow({
+        imgIndex: screenIndex,
+        showOpt: {
+            imgSelector: '#screenShowPicture',
+            leftSelector: '#screenShowArrowLeft',
+            rightSelector: '#screenShowArrowRight'
+        },
+        listOpt:{
+            listSelector: '#screenPictureList',
+            itemSelector: '#screenPictureList li',
+            leftSelector: '#screenListArrowLeft',
+            rightSelector: '#screenListArrowRight',
+            moveCondition: -1708,
+            showItemCount
         }
-    }
+    });
 
-    showCarouselEvent(carouselParams);
-
-    // 小图轮播
-    new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector, showItemCount });
+    screenLoop.setActivedItem(screenIndex);
 
     // 显示全屏
     $('#fullscreen').show();

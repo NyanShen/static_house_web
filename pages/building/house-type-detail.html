@@ -154,7 +154,7 @@
             </div>
             <div class="box-content-shadow mt20">
                 <div class="house-type-detail">
-                    <div class="detail-nav">
+                    <!-- <div class="detail-nav">
                         <ul class="hx-nav-list clearfix" id="hxtNavList">
                             <li>
                                 <a href="javascript:void(0);" class="actived">
@@ -175,7 +175,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="arrow arrow-left" id="navArrowLeft"></div>
                     <div class="arrow arrow-right" id="navArrowRight"></div>
                     <div class="htd-content clearfix">
@@ -193,11 +193,11 @@
                             </div>
                             <div class="carousel-content" id="hxtDetailContent">
                                 <ul class="carousel-list clearfix" id="hxtDetailList">
-                                    <li class="actived">
+                                    <li class="actived" data-id="1001">
                                         <img src="//static.fczx.com/www/assets/images/house_type_1400x1122.png" alt="">
                                     </li>
-                                    <li class="">
-                                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                                    <li data-id="1002">
+                                        <img src="//static.fczx.com/www/assets/images/hx_850x10000.jpg" alt="">
                                     </li>
                                 </ul>
                                 <div class="hxarrow hxarrow-left" id="hxtArrowLeft"></div>
@@ -205,27 +205,22 @@
                             </div>
                         </div>
                         <div class="detail-text fr">
-                            <p class="title">高层G1户型</p>
-                            <div class="btn-type">
-                                <a class="btn-zise">高层</a>
-                                <a class="btn-fengse">户型朝南</a>
+                            <p class="title" id="hxName">高层G1户型</p>
+                            <div class="tags" id="hxTags">
+                                <span class="solding">高层</span>
                             </div>
                             <div class="desc">
                                 <p>
                                     <span class="field">居  室：</span>
-                                    <span class="value">4室2厅2卫1厨</span>
+                                    <span class="value" id="room">4室2厅2卫1厨</span>
                                 </p>
                                 <p>
                                     <span class="field">建筑面积：</span>
-                                    <span class="value">139㎡</span>
+                                    <span class="value" id="buildingArea">139㎡</span>
                                 </p>
                                 <p>
                                     <span class="field">销售状态：</span>
-                                    <span class="value">在售</span>
-                                </p>
-                                <p>
-                                    <span class="field">建筑面积：</span>
-                                    <span class="value">约138.00㎡</span>
+                                    <span class="value" id="saleStatus">在售</span>
                                 </p>
                                 <div class="cut-line"></div>
                                 <p>
@@ -236,18 +231,9 @@
                                 <div class="cut-line"></div>
                             </div>
                             <div class="contact">
-                                <p><span class="score-point">咨询电话：  4008982461</span></p>
+                                <p><span class="phone">咨询电话：400-8190-876 转 4268</span></p>
                                 <p class="desc-color">致电售楼处了解项目更多信息</p>
-                                <div class="scan-icon">
-                                    <i></i>
-                                    <div class="bar-popup scan-ht-popup">
-                                        <em><span></span></em>
-                                        <div class="qr-code">
-                                            <img src="//static.fczx.com/www/assets/images/qr_code.jpg" alt="">
-                                            <p>微信扫码打电话</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="javascript:void(0);" class="contact-btn" id="contactBtn">致电售楼处</a>
                             </div>
                             <div class="consultants mt20">
                                 <div class="cut-line"></div>

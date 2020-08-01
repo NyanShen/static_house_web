@@ -31,62 +31,75 @@ $(document).ready(function () {
     });
 
     // 户型图详情
-    let currentIndex = 0;
-    let showItemCount = 6;
-    let showImage = $('.htd-content .carousel-show img');
-    let listItems = $('#hxtDetailList li');
-    let listImages = $('#hxtDetailList li img');
-    resizeImage(showImage, 700, 600);
-
-    let pictureList = initImageData(listImages);
-
-    // 页面小屏大图轮播
-
-    let carouselParams = {
-        arrowLeft: $('#hxtShowArrowLeft'),
-        arrowRight: $('#hxtShowArrowRight'),
-        listItems,
-        listImages,
-        listContent: $('#hxtDetailList'),
-        listContentParent: $('#hxtDetailContent'),
-        moveCondition: -602,
-        stepWidth: 120,
-        callback: function carouselCallback(imgSrc, imageIndex) {
-            currentIndex = imageIndex;
-            showImage.attr('src', imgSrc);
-            resizeImage(showImage, 700, 600);
+    let currentIndex = 1;
+    
+    let houseTypeData = [
+        {
+            id: 1001,
+            name: "4A高层户型",
+            room: "4",
+            office: '2',
+            toilet: "2",
+            kitchen: '1',
+            sale_status: "0",
+            building_area: '120',
+            image_path: '//static.fczx.com/www/assets/images/house_type_1400x1122.png',
+        },
+        {
+            id: 1002,
+            name: "2B高层户型",
+            room: "3",
+            office: '1',
+            toilet: "1",
+            kitchen: '1',
+            sale_status: "1",
+            building_area: '109',
+            image_path: '//static.fczx.com/www/assets/images/hx_850x10000.jpg',
         }
-    }
+    ]
 
-    showCarouselEvent(carouselParams);
+    /*户型图列表小屏大图轮播*/
+
+    let houseTypeLoop = new FCZX.SwitchShow({
+        showOpt: {
+            imgSelector: '.htd-content .carousel-show img',
+            leftSelector: '#hxtShowArrowLeft',
+            rightSelector: '#hxtShowArrowRight',
+            callback: function (showImage, imageIndex) {
+                currentIndex = imageIndex;
+                resizeImage(showImage, 700, 600);
+            }
+        },
+        listOpt: {
+            listSelector: '#hxtDetailList',
+            itemSelector: '#hxtDetailList li',
+            leftSelector: '#hxtArrowLeft',
+            rightSelector: '#hxtArrowRight',
+            showItemCount: 6
+        },
+        activedCallback: function (index) {
+            let houseTypeItem = houseTypeData[index];
+            console.log(houseTypeItem)
+        }
+    });
+
+    houseTypeLoop.setActivedItem(currentIndex);
 
     $('#fullscreenBtn').click(function () {
         let listHtml = '';
-        for (const item of pictureList) {
-            listHtml = listHtml + `<li><img src="${item.imgSrc}" alt=""></li>`;
+        for (const item of houseTypeData) {
+            listHtml = listHtml + `<li><img src="${item.image_path}" alt=""></li>`;
         }
         initScreenDomEvent(listHtml, currentIndex);
     });
 
-    /*户型导航列表超过长度逻辑*/
-    let listSelector = '#hxtNavList';
-    let itemSelector = '#hxtNavList li';
-    let leftSelector = '#navArrowLeft';
-    let rightSelector = '#navArrowRight';
-    new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector });
+    // /*户型导航列表超过长度逻辑*/
+    // let listSelector = '#hxtNavList';
+    // let itemSelector = '#hxtNavList li';
+    // let leftSelector = '#navArrowLeft';
+    // let rightSelector = '#navArrowRight';
+    // new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector });
 
-    /*户型图列表轮播*/
-    let hxtlistSelector = '#hxtDetailList';
-    let hxtitemSelector = '#hxtDetailList li';
-    let hxtleftSelector = '#hxtArrowLeft';
-    let hxtrightSelector = '#hxtArrowRight';
-    new FCZX.Switch({
-        listSelector: hxtlistSelector,
-        itemSelector: hxtitemSelector,
-        leftSelector: hxtleftSelector,
-        rightSelector: hxtrightSelector,
-        showItemCount
-    });
 
     /*在线咨询popup*/
     $('#consultants .consultant-info').each(function (index) {

@@ -195,7 +195,7 @@
 
 .consult-contact .contact {
     height: 135px;
-    width: 320px;
+    width: 325px;
     padding: 20px;
     background-color: #f5fdf6;
 }
@@ -204,20 +204,12 @@
     line-height: 30px;
 }
 
-.consult-contact .contact .scan-wx {
-    font-size: 12px;
-    color: #ff3344;
-    cursor: pointer;
+.contact .phone {
+    font-size: 18px;
+    color: #11a43c;
 }
 
-.consult-contact .contact .scan-wx i {
-    float: left;
-    width: 20px;
-    height: 25px;
-    background: url('../../assets/icons/icon_scan_red.png') no-repeat left 9px;
-}
-
-.consult-contact .contact-btn {
+.contact-btn {
     display: block;
     width: 100px;
     padding: 5px 10px;
@@ -228,7 +220,7 @@
     background-color: #11a43c;
 }
 
-.consult-contact .contact-btn:hover {
+.contact-btn:hover {
     background-color: #14922d;
 }
 
@@ -431,9 +423,9 @@
 
 .htd-content .detail-text .contact {
     position: relative;
-    height: 80px;
+    height: 135px;
     background-color: #f5fdf6;
-    padding: 10px 20px;
+    padding: 20px;
     margin: 20px 0;
 }
 

@@ -3,7 +3,7 @@ function updateKnowRightHeight(tagId) {
     let knowledgLeftHeight = $(`#${tagId} .know-left`).height();
     $(`#${tagId} .know-right`).height(knowledgLeftHeight);
 }
-/*菜单展开收起*/
+/*知识首页菜单展开收起*/
 function toggleMenu(tagId, scrollInstance) {
     let selector = `#${tagId} .menu-item .sub-title`;
     $(selector).each(function () {

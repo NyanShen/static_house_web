@@ -1,6 +1,6 @@
 .know-item {
     margin-bottom: 30px;
-    padding: 30px 0 40px 30px;
+    padding: 30px 0 50px 30px;
     background-color: #fff;
     border-radius: 2px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
@@ -112,7 +112,7 @@
     background-color: #ddd;
 }
 
-.know-right ul li {
+.know-list li {
     overflow: hidden;
     margin-right: 20px;
     padding: 20px 0 20px 20px;
@@ -120,36 +120,49 @@
     cursor: pointer;
 }
 
-.know-right ul li:hover {
+.know-list li:hover {
     background-color: #f7f7f7;
 }
 
-.know-right .picture {
+.know-list .picture {
     margin-right: 20px;
     width: 130px;
+    height: 98px;
     overflow: hidden;
 }
 
-.know-right .describe {
+.know-list .picture img {
+    width: 100%;
+    height: 100%;
+}
+
+.know-list .describe {
     max-width: 650px;
     overflow: hidden;
 }
 
-.know-right .describe .title {
+.know-list .describe p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.know-list .describe .title {
     font-size: 16px;
     font-weight: bold;
     color: #555;
 }
 
-.know-right .describe .desc {
+.know-list .describe .desc {
     margin: 15px 0;
 }
 
-.know-right .describe .title:hover {
+.know-list .describe .title:hover {
     text-decoration: underline;
 }
 
-.know-right .describe .collect {
+.know-list .describe .collect {
     border-radius: 2px;
     padding: 2px 4px;
     margin-left: 20px;
@@ -157,12 +170,18 @@
     background-color: #e2f1ff;
 }
 
-.know-right .describe .collect:hover {
+.know-list .describe .collect:hover {
     color: #fff;
     background-color: #3399ff;
 }
 
-.know-right .describe .comment i {
+.know-list .describe .comment {
+    line-height: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+.know-list .describe .comment i {
     position: relative;
     top: 5px;
     display: inline-block;
@@ -185,15 +204,9 @@
     background-color: #11a43c;
 }
 
-.know-right .describe .comment {
-    line-height: 20px;
-    font-size: 12px;
-    color: #999;
-}
-
 .know-right .check-more {
     position: relative;
-    top: 8px;
+    top: 14px;
     text-align: center;
     background-color: #fff;
 }
@@ -203,6 +216,7 @@
 }
 
 /*知识详情*/
+
 .zs-detail-header {
     text-align: center;
     line-height: 30px;
@@ -226,6 +240,7 @@
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
+
 /*
 .zs-share {
     line-height: 60px;
@@ -304,6 +319,7 @@
 }
 
 /* 知识列表菜单 */
+
 .knowlist-menu {
     width: 280px;
     min-height: 120px;
@@ -313,6 +329,7 @@
     text-indent: 30px;
     border: 1px solid #eee;
 }
+
 .knowlist-menu .menu-item .menu-title {
     text-indent: 30px;
     height: 40px;
@@ -365,4 +382,27 @@
 .knowlist-content {
     width: 880px;
     border-top: 2px solid #eee;
+}
+
+.know-list-b li {
+    margin-right: 0;
+    padding: 30px;
+}
+
+.know-list-header {
+    height: 40px;
+    line-height: 40px;
+    background-color: #f2f2f2;
+    padding: 0 30px;
+}
+
+.know-list-header .name {
+    color: #11a43c;
+    font-size: 15px;
+    padding-right: 5px;
+}
+
+.know-list-header .desc {
+    font-size: 13px;
+    color: #999;
 }

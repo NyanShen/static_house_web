@@ -624,6 +624,7 @@ table th, table td {
 
 .tags {
     width: 100%;
+    height: 20px;
     white-space: nowrap;
     overflow: hidden;
     margin-top: 15px;
@@ -686,7 +687,7 @@ table th, table td {
     background-color: rgba(0, 0, 0, .5);
 }
 
-.middle-arrow.arrow-disable {
+.middle-arrow.arrow-disabled {
     background-color: rgba(0, 0, 0, .3);
     cursor: auto;
 }
