@@ -78,6 +78,21 @@
         </div>
     </div>
     <!--头部导航栏end-->
+    
+    <!-- 固定浮动标题start -->
+    <div class="fix-header">
+        <div class="box-content clearfix">
+            <div class="header-title fl">
+                <a class="title" href="/pages/building/index.html">福星惠誉·京澜誉府</a>
+                <span class="desc">[樊城区]</span>
+            </div>
+            <div class="contact-phone fr">
+                <span class="name">咨询电话：</span>
+                <span class="phone">400 898 2461 <small>转</small> 705830</span>
+            </div>
+        </div>
+    </div>
+    <!-- 固定浮动标题end -->
 
     <!--楼盘面包屑及查询start-->
     <div class="box-content">
@@ -175,9 +190,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </div> -->
+                    </div>
                     <div class="arrow arrow-left" id="navArrowLeft"></div>
-                    <div class="arrow arrow-right" id="navArrowRight"></div>
+                    <div class="arrow arrow-right" id="navArrowRight"></div> -->
                     <div class="htd-content clearfix">
                         <div class="fl">
                             <div class="carousel-show center-image">
@@ -207,7 +222,6 @@
                         <div class="detail-text fr">
                             <p class="title" id="hxName">高层G1户型</p>
                             <div class="tags" id="hxTags">
-                                <span class="solding">高层</span>
                             </div>
                             <div class="desc">
                                 <p>
@@ -225,8 +239,8 @@
                                 <div class="cut-line"></div>
                                 <p>
                                     <span class="field">参考总价：</span>
-                                    <span class="bold-red">348.5</span>
-                                    <span class="value">万元/套</span>
+                                    <span class="bold-red" id="price">348.5</span>
+                                    <span class="value" id="priceUnit">万元/套</span>
                                 </p>
                                 <div class="cut-line"></div>
                             </div>
@@ -465,6 +479,113 @@
     </div>
     <!-- 户型图全屏图start -->
 </body>
-<script type="text/javascript" src="//static.fczx.com/www/js/building/house-type.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        let currentIndex = 1;
+
+        let houseTypeData = [
+            {
+                id: 1001,
+                name: "4A高层户型",
+                room: "4",
+                office: '2',
+                toilet: "2",
+                kitchen: '1',
+                sale_status: "2",
+                building_area: '120',
+                price: '54',
+                price_type: 2,
+                tags: ['高层'],
+                image_path: '//static.fczx.com/www/assets/images/house_type_1400x1122.png',
+            },
+            {
+                id: 1002,
+                name: "2B高层户型",
+                room: "3",
+                office: '1',
+                toilet: "1",
+                kitchen: '1',
+                sale_status: "1",
+                building_area: '109',
+                price: '1100',
+                price_type: 1,
+                tags: ['高层', '大户型'],
+                image_path: '//static.fczx.com/www/assets/images/hx_850x10000.jpg',
+            }
+        ]
+
+        /*户型图列表小屏大图轮播*/
+
+        let houseTypeLoop = new FCZX.SwitchShow({
+            showOpt: {
+                imgSelector: '.htd-content .carousel-show img',
+                leftSelector: '#hxtShowArrowLeft',
+                rightSelector: '#hxtShowArrowRight',
+                callback: function (showImage, imageIndex) {
+                    currentIndex = imageIndex;
+                    resizeImage(showImage, 700, 600);
+                }
+            },
+            listOpt: {
+                listSelector: '#hxtDetailList',
+                itemSelector: '#hxtDetailList li',
+                leftSelector: '#hxtArrowLeft',
+                rightSelector: '#hxtArrowRight',
+                showItemCount: 6
+            },
+            activedCallback: function (index) {
+                let item = houseTypeData[index];
+                $('#hxName').text(item.name);
+                $('#buildingArea').text(item.building_area);
+                $('#saleStatus').text(SALE_STATUS[item.sale_status]);
+                $('#price').text(item.price);
+                $('#priceUnit').text(PRICE_TYPE[item.price_type]);
+                $('#room').text(`${item.room}室${item.office}厅${item.toilet}卫${item.kitchen}厨`);
+                let tagHtml = '';
+
+                if (!item.tags) {
+                    return;
+                }
+
+                for (let i = 0; i < item.tags.length; i++) {
+                    if (i == 0) {
+                        tagHtml = tagHtml + `<span class="solding">${item.tags[0]}</span>`;
+                    } else {
+                        tagHtml = tagHtml + `<span>${item.tags[i]}</span>`;
+                    }
+                }
+                $('#hxTags').html(tagHtml);
+            }
+        });
+
+        houseTypeLoop.setActivedItem(currentIndex);
+
+        $('#fullscreenBtn').click(function () {
+            let listHtml = '';
+            for (const item of houseTypeData) {
+                listHtml = listHtml + `<li><img src="${item.image_path}" alt=""></li>`;
+            }
+            initScreenDomEvent(listHtml, currentIndex);
+        });
+
+        // /*户型导航列表超过长度逻辑*/
+        // let listSelector = '#hxtNavList';
+        // let itemSelector = '#hxtNavList li';
+        // let leftSelector = '#navArrowLeft';
+        // let rightSelector = '#navArrowRight';
+        // new FCZX.Switch({ listSelector, itemSelector, leftSelector, rightSelector });
+
+
+        /*在线咨询popup*/
+        $('#consultants .consultant-info').each(function (index) {
+            $(this).hover(function () {
+                $(this).children('.consultant-scan-popup').show();
+            }, function () {
+                $(this).children('.consultant-scan-popup').hide();
+            })
+        });
+    })
+</script>
 
 </html>

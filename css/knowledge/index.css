@@ -94,14 +94,6 @@
     background-color: #fff;
 }
 
-#knowPurchase .know-right:hover .scroll-bar {
-    display: block;
-}
-
-#knowRent .know-right:hover .scroll-bar {
-    display: block;
-}
-
 .know-right .scroll-bar .scroll-slider {
     position: absolute;
     top: 0;
@@ -350,13 +342,20 @@
     cursor: pointer;
 }
 
-.knowlist-menu .submenu .submenu-title .down {
+.knowlist-menu .submenu .submenu-title i {
     position: absolute;
     top: 0;
     left: 20px;
     width: 20px;
     height: 35px;
+}
+
+.knowlist-menu .submenu .submenu-title .down {
     background: url("../../assets/icons/triangle-down.png") no-repeat center center;
+}
+
+.knowlist-menu .submenu .submenu-title .right {
+    background: url("../../assets/icons/triangle-right.png") no-repeat center center;
 }
 
 .knowlist-menu .submenu-item {

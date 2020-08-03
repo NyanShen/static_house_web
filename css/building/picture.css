@@ -92,7 +92,11 @@
 }
 
 .album-list .album-name {
+    width: 100%;
     display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 5px;
     color: #666;
 }

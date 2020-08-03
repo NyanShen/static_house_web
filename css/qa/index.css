@@ -1,0 +1,162 @@
+body {
+    background-color: #f2f2f2;
+}
+
+.qa-wrap {
+    width: 100%;
+    background-color: #fff;
+}
+/* 问题导航 */
+.qa-nav {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.qa-nav .nav-item {
+    float: left;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.qa-nav .nav-item .item-a {
+    display: block;
+    color: #333;
+    padding: 0 10px;
+}
+
+.qa-nav .nav-item .item-a.actived {
+    font-weight: bold;
+    border-bottom: 2px solid #11a43c;
+    line-height: 48px;
+    color: #11a43c;
+}
+
+.qa-nav .nav-item .item-a:hover {
+    color: #11a43c;
+}
+
+/* 问答表单 */
+
+.qa-ask {
+    padding: 40px 30px 50px 30px;
+}
+
+.qa-ask-left {
+    width: 760px;
+    padding-right: 30px;
+    border-right: 1px solid #f2f2f2;
+}
+
+.qa-ask-right {
+    width: 350px;
+}
+
+.qa-ask-form label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.select-item {
+    display: inline-block;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.select-item .select-content {
+    position: relative;
+    width: 200px;
+    height: 35px;
+}
+
+.select-item .select-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 35px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-item .iconfont {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.select-item:hover .iconfont {
+    color: #f60;
+}
+
+.select-item .select-list {
+    display: none;
+    position: absolute;
+    top: 34px;
+    width: 200px;
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    color: #666;
+    cursor: pointer;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.select-item .select-list li {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.select-item .select-list li:hover {
+    background-color: #e5fbe8;
+}
+
+.qa-ask-form textarea {
+    width: 100%;
+    border: 1px solid #eee;
+    line-height: 25px;
+    padding: 10px;
+    color: #666;
+}
+
+.qa-ask-form .text-count {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.qa-ask-form .text-count .limit {
+    color: #ff3344;
+    margin-left: 15px;
+}
+
+.action-btn {
+    position: relative;
+    top: 6px;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 2px;
+    background-color: #11a43c;
+}
+
+.action-btn:hover {
+    background-color: #14922d;
+}
+
+.qa-ask-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.qa-ask-desc p {
+    line-height: 35px;
+    color: #999;
+}

@@ -68,7 +68,7 @@
 /*通用查询*/
 
 .box-search {
-    margin: 20px 0;
+    padding: 20px 0;
 }
 
 .search-content .search-input {
@@ -117,6 +117,20 @@
     background: url("../assets/icons/icon_map.png") no-repeat center 6px;
 }
 
+.search-primary-btn {
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.search-primary-btn:hover {
+    background-color: #14922d;
+}
 /*右侧广告*/
 
 .content-right .ad {

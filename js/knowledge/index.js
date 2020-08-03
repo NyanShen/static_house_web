@@ -30,22 +30,24 @@ function switchMenu(tagId) {
     let selector = `#${tagId} .menu-item ul li a`;
     $(selector).each(function () {
         $(this).click(function () {
+            console.log($(this).find('input').val())
             $(selector).removeClass('actived')
             $(this).addClass('actived');
         });
     });
 }
 $(document).ready(function () {
-    /*重新计算列表高度*/
-    updateKnowRightHeight('knowPurchase');
-    updateKnowRightHeight('knowRent');
-    /*买房知识滚动事件*/
-    let knowPurchaseInstance = getCustomScrollBarInstance('knowPurchase');
-    let knowRentInstance = getCustomScrollBarInstance('knowRent');
-    /*菜单展开收起*/
-    toggleMenu('knowPurchase', knowPurchaseInstance);
-    toggleMenu('knowRent', knowRentInstance);
-    /*切换菜单选项*/
-    switchMenu('knowPurchase');
-    switchMenu('knowRent');
+
+    $('.know-index .know-item').each(function (index) {
+        let knowSelector = `know_${index}`;
+        updateKnowRightHeight(knowSelector);
+        toggleMenu(knowSelector, getCustomScrollBarInstance(knowSelector));
+        switchMenu(knowSelector);
+        $(this).find('.know-right').hover(function () {
+            $(this).find('.scroll-bar').show();
+         }, function () { 
+            $(this).find('.scroll-bar').hide();
+         })
+    })
+
 });

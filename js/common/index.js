@@ -2,6 +2,9 @@ $(document).ready(function () {
     /*回到顶部*/
     backToTop();
 
+    // 显示固定标题
+    showFixHeader(200);
+
     /*热门团购*/
     $('.hot-purchase>.item').each(function () {
         $(this).hover(function () {
@@ -636,4 +639,16 @@ function timeCountDown(intDiff, showElement) {
         showElement.html(`${day}天 ${hour}小时 ${minute}分钟`);
         intDiff--;
     }, 1000);
+}
+
+// 常量
+let SALE_STATUS = {
+    1: '在售',
+    2: '待售',
+    3: '售完',
+}
+
+let PRICE_TYPE = {
+    1: '元/平方米',
+    2: '万元/套'
 }

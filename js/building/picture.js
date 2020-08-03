@@ -1,107 +1,26 @@
 $(document).ready(function () {
+    getAlbumData();
 
-    // 显示固定标题
-    showFixHeader(200);
+    // 获取图片信息
+    function getAlbumData() {
+        app.request({
+            url: app.areaApiUrl('/house/all-image'),
+            data: {
+                fang_house_id: $('#hiddenId').val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                // 显示大屏图片
+                let albumInstance = new FCZX.album.AlbumIndex({ albumData: res.data });
 
-    // 显示大屏图片
-    let albumData = [
-        {
-            name: '沙盘图',
-            count: 3,
-            images: [
-                {
-                    image_id: '2001',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '2002',
-                    image_src: '//static.fczx.com/www/assets/images/860x10000.jpg'
-                },
-                {
-                    image_id: '2003',
-                    image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
-                }
-            ]
-        },
-        {
-            name: '样板间',
-            count: 12,
-            images: [
-                {
-                    image_id: '3001',
-                    image_src: '//static.fczx.com/www/assets/images/sand_900x600c.jpg'
-                },
-                {
-                    image_id: '3002',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '3003',
-                    image_src: '//static.fczx.com/www/assets/images/sand_900x600c.jpg'
-                },
-                {
-                    image_id: '3004',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '3005',
-                    image_src: '//static.fczx.com/www/assets/images/860x10000.jpg'
-                },
-                {
-                    image_id: '3006',
-                    image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
-                },
-                {
-                    image_id: '3007',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '3008',
-                    image_src: '//static.fczx.com/www/assets/images/sand_900x600c.jpg'
-                },
-                {
-                    image_id: '3009',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '3010',
-                    image_src: '//static.fczx.com/www/assets/images/sand_900x600c.jpg'
-                },
-                {
-                    image_id: '3011',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '3012',
-                    image_src: '//static.fczx.com/www/assets/images/sand_900x600c.jpg'
-                }
-            ]
-        },
-        {
-            name: '配套图',
-            count: 3,
-            images: [
-                {
-                    image_id: '4001',
-                    image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
-                },
-                {
-                    image_id: '4002',
-                    image_src: '//static.fczx.com/www/assets/images/1400x933_1.jpg'
-                },
-                {
-                    image_id: '4003',
-                    image_src: '//static.fczx.com/www/assets/images/login_bg.jpg'
-                }
-            ]
-        }
-    ];
-
-    let albumInstance = new FCZX.album.AlbumIndex({ albumData });
-
-    $('#albumCloseBtn').click(function () {
-        albumInstance.closeModal();
-    });
+                $('#albumCloseBtn').click(function () {
+                    albumInstance.closeModal();
+                });
+            }
+        });
+    }
 
     // 视频播放
 
@@ -132,7 +51,7 @@ $(document).ready(function () {
     $.extend(FCZX.album.AlbumIndex.prototype, {
         _init: function (opt) {
             this.opt = {
-                albumData: null,
+                albumData: '',
                 albumList: $('.album-item').find('.album'),
                 albumTabInstance: null,
                 albumModal: $('#albumFullScreen')
@@ -237,9 +156,9 @@ $(document).ready(function () {
             let imgIndex = 0;
             let tabIndex = 0;
             for (let i = 0; i < albumData.length; i++) {
-                let images = albumData[i].images;
+                let images = albumData[i].fangHouseImage;
                 for (let j = 0; j < images.length; j++) {
-                    if (images[j].image_id == image_id) {
+                    if (images[j].id == image_id) {
                         imgIndex = j;
                         tabIndex = i;
                         break;
@@ -311,8 +230,8 @@ $(document).ready(function () {
             let currAlbumData = _opt.albumData[index];
 
             let listHtml = '';
-            for (const item of currAlbumData.images) {
-                listHtml = listHtml + `<li><img src="${item.image_src}" alt=""></li>`;
+            for (const item of currAlbumData.fangHouseImage) {
+                listHtml = listHtml + `<li><img src="${item.image_path}" alt=""></li>`;
             }
             _opt.listCarousel.$list.html(listHtml);
             _opt.$showWrap.find('.album-text').text(`${currAlbumData.name}`);
@@ -363,14 +282,14 @@ $(document).ready(function () {
             let $list = _opt.listCarousel.$list;
             let targetItem = _opt.listCarousel.$item.eq(index);
             let stepWidth = _opt.listCarousel.opt.stepWidth;
-            let movePosition = _opt.listCarousel.opt.movePosition;
+            let moveCondition = _opt.listCarousel.opt.moveCondition;
             // 子元素与直接上级元素的距离
             let itemPosition = targetItem.position().left;
             //计算当前页
             let currentPage = Math.floor(itemPosition / stepWidth);
             let relativePosition = $list.parent().offset().left - targetItem.offset().left;
             // 计算可视范围内相对偏移量
-            if (relativePosition < movePosition || relativePosition > 0) {
+            if (relativePosition < moveCondition || relativePosition > 0) {
                 $list.stop().animate({ left: `-${currentPage * stepWidth}px` }, 300);
             }
         },
