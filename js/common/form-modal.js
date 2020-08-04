@@ -209,6 +209,8 @@
             if (errorCount) return;
             let phoneErrorCount = validateForm('phone', 'phone');
             if (phoneErrorCount) return;
+            let phoneCodeCount = validateForm('phoneCode', 'required');
+            if (phoneCodeCount) return;
             if (typeof (callback) == 'function') {
                 callback(username, phone, phoneCode);
             }

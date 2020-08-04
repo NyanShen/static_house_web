@@ -16,28 +16,18 @@ $(document).ready(function () {
 
     /*参团*/
     $('.hot-purchase .join').on('click', function () {
+        let type = $(this).attr('data-type');
+        let houseId = $(this).find('input').val();
         let modalParams = {
             title: $(this).attr('data-title'),
-            callback: joinCallback,
-            message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导'
+            message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });
 
-    function joinCallback(username, phoneNumber) {
-        app.request({
-            url: app.areaApiUrl('/test/test'),
-            data: {
-                username: username,
-                mobile: phoneNumber
-            },
-            type: 'GET',
-            dataType: 'json',
-            headers: {},
-            done: function (res) {
-            }
-        });
-    }
     /*标签集合*/
     let tagNav = $('.box-tag .tag-nav li');
     let tagContenet = $('.box-tag .tag-content');
@@ -309,7 +299,7 @@ function inputListener(inputElement, maxLength) {
             opt.moveCondition = opt.itemWidth * (1 - opt.showItemCount);
 
             _this._initListWith();
-            
+
             if (opt.arrowDisClass) {
                 this._setArrowClass(); // 按钮不隐藏，通过disable按钮控制
             } else {
@@ -529,7 +519,7 @@ function initScreenDomEvent(listHtml, screenIndex = 0) {
             leftSelector: '#screenShowArrowLeft',
             rightSelector: '#screenShowArrowRight'
         },
-        listOpt:{
+        listOpt: {
             listSelector: '#screenPictureList',
             itemSelector: '#screenPictureList li',
             leftSelector: '#screenListArrowLeft',

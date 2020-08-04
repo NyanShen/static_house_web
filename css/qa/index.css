@@ -6,7 +6,9 @@ body {
     width: 100%;
     background-color: #fff;
 }
+
 /* 问题导航 */
+
 .qa-nav {
     height: 50px;
     line-height: 50px;
@@ -36,6 +38,130 @@ body {
     color: #11a43c;
 }
 
+/* 问答分类 */
+
+.qa-menu {
+    width: 320px;
+    min-height: 150px;
+    padding: 0 20px;
+    background-color: #fff;
+}
+
+.qa-main {
+    width: 860px;
+    min-height: 150px;
+    padding: 0 30px 30px 30px;
+    background-color: #fff;
+}
+
+.qa-menu .menu-title {
+    display: block;
+    font-size: 18px;
+    color: #11a43c;
+    margin-bottom: 10px;
+}
+
+.qa-menu .menu-title.actived {
+    color: #f90;
+}
+
+.qa-menu .menu-title:hover, .qa-menu .menu-list .item-a:hover {
+    color: #f90;
+}
+
+.qa-menu .menu-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.qa-menu .menu-item:last-child {
+    border-bottom: 0;
+}
+
+.qa-menu .menu-list .item-a {
+    float: left;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 30px;
+    color: #666;
+}
+
+.qa-menu .menu-list .item-a.actived {
+    font-weight: bold;
+    color: #f90;
+}
+
+
+.qa-header {
+   margin-top: 20px;
+}
+
+.qa-header .name {
+    color: #11a43c;
+    font-size: 16px;
+    padding-right: 5px;
+}
+
+.qa-header .desc {
+    font-size: 13px;
+    color: #999;
+}
+
+.qa-list li {
+    position: relative;
+    padding: 20px 160px 20px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.qa-list .anwser-count {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    padding: 15px 0;
+    border-radius: 50%;
+    margin-top: -40px;
+    background-color: #f4f4f4;
+    text-align: center;
+    cursor: pointer;
+}
+
+.qa-list .anwser-count:hover {
+    background-color: #eee;
+}
+
+.qa-list .qa-name {
+    display: block;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 12px;
+}
+
+.qa-list .qa-name:hover {
+    color: #f90;
+    text-decoration: underline;
+}
+
+.qa-list .qa-anwser {
+    color: #666;
+    line-height: 25px;
+}
+
+.qa-list .qa-desc {
+    font-size: 12px;
+    margin-top: 12px;
+    color: #999;
+}
+
+.qa-list .anwser-count .count {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
 /* 问答表单 */
 
 .qa-ask {
@@ -58,7 +184,7 @@ body {
 }
 
 .select-item {
-    display: inline-block;
+    float: left;
     height: 35px;
     margin-bottom: 20px;
     margin-right: 20px;

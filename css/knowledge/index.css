@@ -135,6 +135,7 @@
 
 .know-list .describe p {
     width: 100%;
+    line-height: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -155,16 +156,22 @@
 }
 
 .know-list .describe .collect {
+    font-size: 12px;
     border-radius: 2px;
-    padding: 2px 4px;
+    padding: 2px 6px;
     margin-left: 20px;
-    color: #3399ff;
-    background-color: #e2f1ff;
+    color: #f90;
+    background-color: #fff4e2;
+}
+
+.know-list .describe .collected {
+    color: #fff;
+    background-color: #f90;
 }
 
 .know-list .describe .collect:hover {
     color: #fff;
-    background-color: #3399ff;
+    background-color: #f90;
 }
 
 .know-list .describe .comment {
@@ -233,16 +240,39 @@
     border-bottom: 1px solid #ddd;
 }
 
-/*
-.zs-share {
-    line-height: 60px;
+.know-action {
+    margin-top: 30px;
     text-align: center;
 }
 
-.zs-share .share-item {
+.know-action .action-item {
     display: inline-block;
-    padding: 0 10px;
+    padding: 0 20px;
+    color: #999;
+    cursor: pointer;
 }
+
+.know-action .action-item .action-icon {
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.know-action .action-item .iconfont {
+    font-size: 20px;
+}
+
+.know-action .action-zan .action-icon{
+    border: 1px solid #11a43c;
+    color: #11a43c;
+}
+
+.know-action .action-collect .action-icon{
+    border: 1px solid #f90;
+    color: #f90;
+}
+
+/*
 
 .zs-detail-link a {
     line-height: 28px;

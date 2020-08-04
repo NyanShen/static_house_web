@@ -133,7 +133,7 @@
 
 .consult-contact .consult {
     position: relative;
-    width: 860px;
+    width: 840px;
     height: 135px;
     padding: 10px 20px;
     background-color: #f7f7f7;
@@ -166,7 +166,7 @@
 
 .consult-contact .consult-hidden {
     position: relative;
-    width: 820px;
+    width: 800px;
     height: 80px;
     overflow-x: hidden;
 }
@@ -178,7 +178,7 @@
 
 .consult-contact .consultant-hidden-list li {
     width: 185px;
-    margin-left: 30px;
+    margin-left: 28px;
 }
 
 .consult-contact .consultant-hidden-list .consultant-info {
@@ -187,7 +187,7 @@
 
 .consult-contact .consult-content {
     position: relative;
-    width: 820px;
+    width: 800px;
     height: 80px;
     margin-top: 10px;
     background-color: #fff;
@@ -195,7 +195,7 @@
 
 .consult-contact .contact {
     height: 135px;
-    width: 325px;
+    width: 340px;
     padding: 20px;
     background-color: #f5fdf6;
 }

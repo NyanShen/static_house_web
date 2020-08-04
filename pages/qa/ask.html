@@ -105,7 +105,7 @@
         <!-- 问题导航start -->
         <div class="qa-wrap qa-nav clearfix">
             <div class="nav-item">
-                <a class="item-a" href="/pages/qa/index.html">问题分类</a>
+                <a class="item-a" href="/pages/qa/index.html">问题首页</a>
             </div>
             <div class="nav-item">
                 <a class="item-a actived" href="/pages/qa/ask.html">我要提问</a>
@@ -117,32 +117,30 @@
             <div class="qa-ask-left fl">
                 <div class="qa-ask-form">
                     <label for="askArea">请选择问题分类：</label>
-                    <div class="select-item">
-                        <div class="select-content fl">
-                            <div class="select-text">
-                                <span>问题分类</span>
-                                <input type="text" name="" id="qaAskId" value="" hidden="">
-                                <i class="iconfont">&#xe68a;</i>
+                    <div class="clearfix">
+                        <div class="select-item">
+                            <div class="select-content">
+                                <div class="select-text">
+                                    <span>问题分类</span>
+                                    <input type="hidden" name="qaAsk0" id="askId_0" value="">
+                                    <i class="iconfont">&#xe68a;</i>
+                                </div>
+                                <ul class="select-list">
+                                    <li data-value="101">买房</li>
+                                    <li data-value="201">租房</li>
+                                    <li data-value="301">贷款</li>
+                                </ul>
                             </div>
-                            <ul class="select-list">
-                                <li data-value="101">买房</li>
-                                <li data-value="111">租房</li>
-                                <li data-value="112">贷款</li>
-                            </ul>
                         </div>
-                    </div>
-                    <div class="select-item">
-                        <div class="select-content fl">
-                            <div class="select-text">
-                                <span>购房问题</span>
-                                <input type="text" name="" id="qaAskId" value="" hidden="">
-                                <i class="iconfont">&#xe68a;</i>
+                        <div class="select-item hide" id="subSelector">
+                            <div class="select-content">
+                                <div class="select-text">
+                                    <span></span>
+                                    <input type="hidden" name="qaAsk1" id="askId_1" value="">
+                                    <i class="iconfont">&#xe68a;</i>
+                                </div>
+                                <ul class="select-list"></ul>
                             </div>
-                            <ul class="select-list">
-                                <li data-value="101">购房问题</li>
-                                <li data-value="111">购房条件</li>
-                                <li data-value="112">购房贷款问题</li>
-                            </ul>
                         </div>
                     </div>
                     <label for="askArea">请描述您的问题：</label>
@@ -186,7 +184,138 @@
 </body>
 
 <script type="text/javascript">
+    $(document).ready(function () {
+        let askList = [
+            {
+                id: '101',
+                name: '买房',
+                children: [
+                    {
+                        id: '111',
+                        fatherId: '101',
+                        name: '买房准备'
+                    },
+                    {
+                        id: '112',
+                        fatherId: '101',
+                        name: '看房选房'
+                    }
+                ]
+            },
+            {
+                id: '201',
+                name: '租房',
+                children: [
+                    {
+                        id: '211',
+                        fatherId: '201',
+                        name: '租房准备'
+                    },
+                    {
+                        id: '212',
+                        fatherId: '201',
+                        name: '租房注意事项'
+                    }
+                ]
+            },
+            {
+                id: '301',
+                name: '贷款',
+                children: [
+                    {
+                        id: '311',
+                        fatherId: '301',
+                        name: '贷款条件'
+                    }
+                ]
+            }
+        ];
+        $('.select-item .select-content').each(function () {
+            $(this).hover(function () {
+                $(this).find('.select-list').show();
+            }, function () {
+                $(this).find('.select-list').hide();
+            })
+        });
 
+        $('.select-item .select-list li').each(function () {
+            $(this).click(function () {
+                let text = $(this).text();
+                let value = $(this).attr('data-value');
+                let targetText = $(this).parents('.select-content');
+                targetText.find('span').text(text);
+                targetText.find('input').attr('value', value);
+                $(this).parents('.select-list').hide();
+                $('#subSelector').show();
+                let childrenData = find(askList, value);
+                if (childrenData && childrenData.length > 0) {
+                    let firstItem = childrenData[0];
+                    $('#subSelector').find('span').text(firstItem.name);
+                    $('#subSelector').find('input').val(firstItem.id);
+                    let _html = '';
+                    for (const item of childrenData) {
+                        _html = _html + `<li data-value="${item.id}">${item.name}</li>`;
+                    }
+                    $('#subSelector').find('.select-list').html(_html);
+                    initSelector();
+                }
+            });
+        });
+
+        function initSelector() {
+            $('#subSelector .select-list li').each(function () {
+                $(this).click(function () {
+                    let text = $(this).text();
+                    let value = $(this).attr('data-value');
+                    let targetText = $(this).parents('.select-content');
+                    targetText.find('span').text(text);
+                    targetText.find('input').attr('value', value);
+                    $(this).parents('.select-list').hide();
+                });
+            });
+        }
+
+        function find(list, value) {
+            for (const item of list) {
+                if (item.id == value) {
+                    return item.children
+                }
+            }
+        }
+
+        // 输入问题内容并提交
+        let askArea = $('#askArea');
+        inputListener(askArea, 500);
+
+        $('#askBtn').click(function() {
+            let askId = $('#askId_1').val();
+            if (!askId) {
+                alert('请您选择问题分类，以更好获取答案');
+                return;
+            }
+            
+            let textnum = askArea.val().replace(/\s+/g, "").length;
+            if (textnum <= 0) {
+                alert('问题内容不能为空');
+                return;
+            }
+            app.request({
+                url: app.areaApiUrl('/test/test'),
+                data: {
+                    askId,
+                    content: askArea.val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    $.MsgModal.Success('点评成功', '关闭弹窗返回评论列表查看评论', function () {
+                        window.location.href = "/pages/building/comment.html";
+                    });
+                }
+            });
+        });
+    });
 </script>
 
 </html>

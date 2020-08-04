@@ -189,7 +189,7 @@
             top: '200px',
             width: '400px',
             textAlign: 'center',
-            padding: '25px',
+            padding: '35px 25px',
             backgroundColor: '#fff',
             zIndex: '9999'
         });

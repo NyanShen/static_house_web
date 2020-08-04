@@ -1,5 +1,5 @@
 /**
- * {'1': '变价提醒', '2': '开盘提醒', '3': '预约看房', '4': '一键找房', '5': '参与团购', '6': '参与折扣', '7': '一键订阅'}
+ * {'1': '变价提醒', '2': '开盘提醒', '3': '预约看房', '4': '参与团购', '5': '参与折扣', '6': '一键订阅'}
  */
 $(document).ready(function () {
 
@@ -39,16 +39,16 @@ $(document).ready(function () {
         resizeImage($(this), 264, 262);
     });
 
-
     /*变价提醒，开盘提醒 */
     $('.bjtx-link, .kptx-link').click(function () {
+        let houseId = $(this).find('input').val();
         let type = $(this).attr('data-type');
         let modalParams = {
             title: `${$(this).text()}`,
             okText: '立即订阅',
             message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码',
             callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer('194', type, username, phone, phoneCode);
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -111,8 +111,10 @@ $(document).ready(function () {
     });
 
     /*预约看房*/
-    $('.reservation').click(function () {
+    $('.reservation').on('click' ,function () {
         let type = $(this).attr('data-type');
+        let houseId = $(this).find('input').val();
+        console.log($(this).find('input'), houseId)
         let modalParams = {
             title: `预约看房`,
             okText: '立即预约',
@@ -120,7 +122,7 @@ $(document).ready(function () {
             loginPhone: '13418897654',
             message: `预约楼盘【${$(this).attr('data-title')}】`,
             callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer('194', type, username, phone, phoneCode);
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -128,20 +130,30 @@ $(document).ready(function () {
 
     /*领券*/
     $('.coupon').click(function () {
+        let type = $(this).attr('data-type');
+        let houseId = $(this).find('input').val();
         let modalParams = {
             title: '获取优惠券',
             message: `${$(this).attr('data-message')}`,
-            okText: '立即获取'
+            okText: '立即获取',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });
 
     // 申请活动报名
     $('#applyBtn').click(function () {
+        let type = $(this).attr('data-type');
+        let houseId = $(this).attr('data-id');
         let modalParams = {
             title: `【${$(this).attr('data-title')}】活动报名`,
             message: `${$(this).attr('data-message')}`,
-            okText: '立即报名'
+            okText: '立即报名',
+            callback: function (username, phone, phoneCode) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            }
         }
         $.FormModal.userForm(modalParams);
     });
