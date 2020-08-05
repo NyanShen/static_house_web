@@ -157,10 +157,6 @@
     max-height: 320px;
     border: 1px solid #eee;
     background-color: #fff;
-}
-
-.select-filter:hover .select-list {
-    display: block;
     z-index: 12;
 }
 

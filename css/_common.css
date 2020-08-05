@@ -207,6 +207,15 @@
     font-family: "\5FAE\8F6F\96C5\9ED1", 微软雅黑, "Microsoft Yahei", 雅黑\9, Arial;
 }
 
+.split-v {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin: 0 8px;
+    background-color: #eee;
+    vertical-align: -1px;
+}
+
 /*首页头部导航*/
 
 .main-nav {

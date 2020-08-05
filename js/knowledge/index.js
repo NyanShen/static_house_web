@@ -10,7 +10,7 @@ function toggleMenu(tagId, scrollInstance) {
         $(this).click(function () {
             let _this = $(this);
             let _parent = _this.parent();
-            let _siblings = _this.siblings('ul');
+            let _siblings = _this.siblings('.menu-list');
             if (_parent.hasClass('down')) {
                 _parent.removeClass('down');
                 _parent.addClass('right');
@@ -27,13 +27,14 @@ function toggleMenu(tagId, scrollInstance) {
 }
 /*切换菜单选项*/
 function switchMenu(tagId, scrollInstance) {
-    let selector = `#${tagId} .menu-item ul li a`;
+    let selector = `#${tagId} .menu-item .menu-list a`;
     $(selector).each(function () {
         $(this).click(function () {
+            let _this = $(this);
             let knowId = $(this).find('input').val();
             let $knowList = $(`#${tagId} .know-right .know-list`);
             app.request({
-                url: app.areaApiUrl('/test/test'),
+                url: app.apiUrl('/knowledge/list'),
                 data: {
                     id: knowId
                 },
@@ -41,33 +42,13 @@ function switchMenu(tagId, scrollInstance) {
                 dataType: 'json',
                 headers: {},
                 done: function (res) {
-
+                    $knowList.html(generateKnowList(res.data));
+                    updateKnowRightHeight(tagId);
+                    scrollInstance._initSliderHeight();
+                    $(selector).removeClass('actived')
+                    _this.addClass('actived');
                 }
             });
-            let knowData = {
-                id: '11001',
-                knowList: [{
-                    id: '11001',
-                    image_path: '//static.fczx.com/www/assets/images/1400x933.jpg',
-                    know_title: '商品房退房条件，房价下跌能退房吗，想退房怎么办？',
-                    know_desc: '具体描述：商品房退房条件，房价下跌能退房吗，想退房怎么办？',
-                    know_link: '/pages/knowledge/detail.html',
-                    zan_count: '2'
-                },
-                {
-                    id: '11002',
-                    image_path: '//static.fczx.com/www/assets/images/1400x933_1.jpg',
-                    know_title: '改善型购房者换房：先买房还是先卖房？',
-                    know_desc: '改善型购房者换房：先买房还是先卖房？',
-                    know_link: '/pages/knowledge/detail.html',
-                    zan_count: '5'
-                }]
-            };
-            $knowList.html(generateKnowList(knowData.knowList));
-            updateKnowRightHeight(tagId);
-            scrollInstance._initSliderHeight();
-            $(selector).removeClass('actived')
-            $(this).addClass('actived');
         });
     });
 }
@@ -77,21 +58,20 @@ function generateKnowList(dataList) {
         _html = _html + `
             <li class="clearfix">
                 <div class="picture fl">
-                    <a href="${item.know_link}" target="_blank">
+                    <a href="/detail/${item.id}.html" target="_blank">
                         <img src="${item.image_path}" alt="">
                     </a>
                 </div>
                 <div class="describe fl">
                     <p>
-                        <a href="${item.know_link}" class="title">${item.know_title}</a>
-                        <a href="javascript:void(0);" class="collect" data-id="${item.id}">收藏</a>
+                        <a href="/detail/${item.id}.html" class="title">${item.title}</a>
                     </p>
                     <p class="desc">
-                        <span class="desc-color">${item.know_desc}</span>
+                        <span class="desc-color">${item.description}</span>
                     </p>
                     <p class="comment">
                         <i></i>
-                        <span>(${item.zan_count})</span>
+                        <span>(${item.like_num})</span>
                     </p>
                 </div>
             </li>
@@ -106,6 +86,7 @@ $(document).ready(function () {
         let knowSelector = `know_${index}`;
         let knowListScroll = getCustomScrollBarInstance(knowSelector);
         updateKnowRightHeight(knowSelector);
+        knowListScroll._initSliderHeight();
         toggleMenu(knowSelector, knowListScroll);
         switchMenu(knowSelector, knowListScroll);
         $(this).find('.know-right').hover(function () {
@@ -128,7 +109,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 headers: {},
                 done: function (res) {
-                    
+
                 }
             });
             if (_this.hasClass('collected')) {

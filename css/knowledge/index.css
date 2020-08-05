@@ -18,10 +18,12 @@
 }
 
 .know-left {
+    width: 300px;
     min-height: 300px;
 }
 
 .know-left .menu-item {
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -40,18 +42,18 @@
     background: url("../../assets/icons/triangle-right.png") no-repeat left center;
 }
 
-.know-left .menu-item.right ul {
+.know-left .menu-item.right .menu-list {
     display: none;
 }
 
-.know-left .menu-item ul {
+.know-left .menu-item .menu-list {
     padding-left: 16px;
     margin-top: 15px;
 }
 
-.know-left .menu-item ul>li>a {
+.know-left .menu-item .menu-list a {
     display: inline-block;
-    width: 150px;
+    width: 135px;
     font: 14px/30px "Miscrosoft Yahei";
     color: #666;
     white-space: nowrap;
@@ -59,11 +61,11 @@
     text-overflow: ellipsis;
 }
 
-.know-left .menu-item ul>li>a:hover {
+.know-left .menu-item .menu-list a:hover {
     color: #df2f30;
 }
 
-.know-left .menu-item ul>li>a.actived {
+.know-left .menu-item .menu-list a.actived {
     color: #df2f30;
     font-weight: bold;
 }
@@ -109,7 +111,6 @@
     margin-right: 20px;
     padding: 20px 0 20px 20px;
     border-bottom: 1px solid #f7f7f7;
-    cursor: pointer;
 }
 
 .know-list li:hover {
@@ -118,9 +119,10 @@
 
 .know-list .picture {
     margin-right: 20px;
-    width: 130px;
-    height: 98px;
+    width: 132px;
+    height: 100px;
     overflow: hidden;
+    border: 1px solid #f7f7f7;
 }
 
 .know-list .picture img {
@@ -186,7 +188,7 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: url("../../assets/icons/icon_zan.png") no-repeat center center;
+    background: url("../../assets/icons/zan_grey.png") no-repeat center center;
 }
 
 .zs-tag a {
@@ -262,12 +264,12 @@
     font-size: 20px;
 }
 
-.know-action .action-zan .action-icon{
+.know-action .action-zan .action-icon {
     border: 1px solid #11a43c;
     color: #11a43c;
 }
 
-.know-action .action-collect .action-icon{
+.know-action .action-collect .action-icon {
     border: 1px solid #f90;
     color: #f90;
 }

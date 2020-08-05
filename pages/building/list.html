@@ -44,7 +44,7 @@
                         <li><a>租房</a></li>
                         <li><a href="/pages/consult" target="_blank">资讯</a></li>
                         <li><a href="/pages/knowledge" target="_blank">知识</a></li>
-                        <li><a>问答</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,8 +106,8 @@
         <div class="newhouse-filter">
             <div class="filter-menu">
                 <ul class="filter-menu-list clearfix">
-                    <li class="actived">区域找房</li>
-                    <li>户型找房</li>
+                    <li class="actived"><a href="/pages/building/list.html">区域找房</a></li>
+                    <li><a href="/pages/module/map-search.html">地图找房</a></li>
                 </ul>
             </div>
             <div class="filter-content">
@@ -165,7 +165,7 @@
                             <input type="text" id="unitPriceFloor" value="">
                             <span>-</span>
                             <input type="text" id="unitPriceCeil" value="">
-                            <input type="button" value="确定">
+                            <input type="button" value="确定" id="unitPriceBtn">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                         <input type="text" id="totalPriceFloor" value="">
                         <span>-</span>
                         <input type="text" id="totalPriceCeil" value="">
-                        <input type="button" value="确定">
+                        <input type="button" value="确定" id="totalPriceBtn">
                     </div>
                 </div>
                 <div class="filter-item clearfix">
@@ -303,7 +303,7 @@
                 </p>
                 <p>有符合条件的新楼盘时通知我</p>
                 <p>
-                    <input type="button" value="免费订阅">
+                    <input type="button" value="免费订阅" id="subscribHouseBtn">
                 </p>
             </div>
             <!-- 搜索为空提示 end -->
@@ -319,7 +319,13 @@
                                 <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
                                     height="125">
                                 <span class="tag">推荐</span>
-                                <i class="icon-c"></i>
+                                <i class="icon-c video"></i>
+                                <div class="icon-b">
+                                    <i class="image"></i>
+                                    <span>12</span>
+                                    <i class="comment"></i>
+                                    <span>1</span>
+                                </div>
                             </a>
                         </div>
                         <div class="content-c fl">
@@ -566,7 +572,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div class="table-type-list mt20">
                 <div class="title">区域新开楼盘</div>
                 <div class="cut-line"></div>
@@ -626,6 +632,7 @@
             <ul class="picture-list center-image">
                 <li>
                     <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
                         <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
                     </a>
                     <p class="name">
@@ -719,7 +726,7 @@
                     <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- 楼盘标签集合end -->
         <!-- 免责声明start -->
@@ -806,5 +813,54 @@
     <!--右边固定栏 end-->
 </body>
 <script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#unitPriceBtn').click(function () {
+            let unitPriceFloor = $('#unitPriceFloor').val();
+            let unitPriceCeil = $('#unitPriceCeil').val();
+            if (!unitPriceFloor || !unitPriceCeil) {
+                alert('请填写完单价金额范围');
+                return;
+            }
+        });
+
+        $('#totalPriceBtn').click(function () {
+            let totalPriceFloor = $('#totalPriceFloor').val();
+            let totalPriceCeil = $('#totalPriceCeil').val();
+            if (!totalPriceFloor || !totalPriceCeil) {
+                alert('请填写完总价金额范围');
+                return;
+            }
+        });
+
+        $('.filter-content .select-filter').each(function () {
+            $(this).hover(function () {
+                $(this).find('.select-list').show();
+            }, function () {
+                $(this).find('.select-list').hide();
+            })
+        })
+
+        $('.filter-content .select-filter .select-list li').each(function () {
+            $(this).click(function () {
+                let text = $(this).text();
+                let targetText = $(this).parents('.select-filter');
+                targetText.find('span').text(text);
+                targetText.find('input').attr('value', text);
+                $(this).parents('.select-list').hide();
+            });
+        });
+
+        // 新楼盘免费订阅
+        $('#subscribHouseBtn').click(function () {
+            let modalParams = {
+                title: '订阅信息',
+                message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码',
+                okText: '立即订阅'
+            }
+            $.FormModal.userForm(modalParams);
+        });
+    });
+</script>
 
 </html>
