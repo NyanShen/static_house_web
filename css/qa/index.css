@@ -50,7 +50,7 @@ body {
 .qa-main {
     width: 860px;
     min-height: 150px;
-    padding: 30px;
+    padding: 0 30px 30px;
     background-color: #fff;
 }
 
@@ -150,6 +150,9 @@ body {
 }
 
 /* 问答列表 */
+.qa-header {
+    margin-top: 20px;
+}
 
 .qa-header .name {
     color: #11a43c;
@@ -232,6 +235,7 @@ body {
 .qa-content .qa-title {
     font-size: 22px;
     font-weight: bold;
+    padding-top: 20px;
     color: #333;
 }
 
@@ -253,6 +257,10 @@ body {
     font-size: 12px;
     margin-top: 20px;
     color: #999;
+}
+
+.answer-content {
+    padding-top: 20px;
 }
 
 .answer-count {

@@ -81,8 +81,8 @@
             </div>
             <!-- 面包屑end -->
             <div class="search-content clearfix fr">
-                <form action="" class="search-form clearfix fl">
-                    <input type="text" class="search-input" placeholder="专业，实用的房产知识">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/knowledge/list.html" method="GET" target="_self">
+                    <input type="text" class="search-input" placeholder="专业，实用的房产知识" name="keyword" value="">
                     <input type="submit" class="search-btn" value="搜索">
                 </form>
             </div>
@@ -404,26 +404,25 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.know-action .action-zan').click(function() {
+        $('.know-action .action-zan').click(function () {
             let knowId = $(this).find('input').val();
             let $zanCount = $(this).find('span');
             let zanCount = parseInt($zanCount.text());
             app.request({
-                url: app.areaApiUrl('/test/test'),
+                url: app.apiUrl('/knowledge/like'),
                 data: {
                     id: knowId
                 },
-                type: 'GET',
+                type: 'POST',
                 dataType: 'json',
                 headers: {},
                 done: function (res) {
-                    
+                    zanCount = zanCount + 1;
+                    $zanCount.text(zanCount);
                 }
             });
-            zanCount = zanCount + 1;
-            $zanCount.text(zanCount);
         });
-        $('.know-action .action-collect').click(function() {
+        $('.know-action .action-collect').click(function () {
             let knowId = $(this).find('input').val();
             let actionText = $(this).find('.action-text');
             app.request({
@@ -435,7 +434,7 @@
                 dataType: 'json',
                 headers: {},
                 done: function (res) {
-                    
+
                 }
             });
             if (actionText.hasClass('collected')) {

@@ -89,9 +89,9 @@
                 </div>
                 <!-- 面包屑end -->
                 <div class="search-content clearfix fr">
-                    <form action="" class="search-form clearfix fl">
+                    <form class="search-form clearfix fl">
                         <input type="text" class="search-input" placeholder="请输入您的问题">
-                        <input type="submit" class="search-btn" value="搜索">
+                        <input type="button" class="search-btn" value="搜索">
                     </form>
                     <a href="/pages/qa/ask.html" class="search-primary-btn fr">我要提问</a>
                 </div>
@@ -128,11 +128,7 @@
                                     <input type="hidden" name="qaAsk0" id="askId_0" value="">
                                     <i class="iconfont">&#xe68a;</i>
                                 </div>
-                                <ul class="select-list">
-                                    <li data-value="101">买房</li>
-                                    <li data-value="201">租房</li>
-                                    <li data-value="301">贷款</li>
-                                </ul>
+                                <ul class="select-list"></ul>
                             </div>
                         </div>
                         <div class="select-item hide" id="subSelector">
@@ -188,51 +184,49 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        let askList = [
-            {
-                id: '101',
-                name: '买房',
-                children: [
-                    {
-                        id: '111',
-                        fatherId: '101',
-                        name: '买房准备'
-                    },
-                    {
-                        id: '112',
-                        fatherId: '101',
-                        name: '看房选房'
-                    }
-                ]
-            },
-            {
-                id: '201',
-                name: '租房',
-                children: [
-                    {
-                        id: '211',
-                        fatherId: '201',
-                        name: '租房准备'
-                    },
-                    {
-                        id: '212',
-                        fatherId: '201',
-                        name: '租房注意事项'
-                    }
-                ]
-            },
-            {
-                id: '301',
-                name: '贷款',
-                children: [
-                    {
-                        id: '311',
-                        fatherId: '301',
-                        name: '贷款条件'
-                    }
-                ]
+        app.request({
+            url: app.areaApiUrl('/ask/all-cate'),
+            data: {},
+            type: 'GET',
+            dataType: 'json',
+            headers: {},
+            done: function (res) {
+                let askList = res.data;
+                let _html = '';
+                for (const item of askList) {
+                    _html = _html + `<li data-value="${item.id}">${item.name}</li>`;
+                }
+
+                $('.select-item .select-list').each(function () {
+                    $(this).eq(0).html(_html);
+                });
+
+                $('.select-item .select-list li').each(function () {
+                    $(this).click(function () {
+                        let text = $(this).text();
+                        let value = $(this).attr('data-value');
+                        let targetText = $(this).parents('.select-content');
+                        targetText.find('span').text(text);
+                        targetText.find('input').attr('value', value);
+                        $(this).parents('.select-list').hide();
+                        $('#subSelector').show();
+                        let childrenData = find(askList, value);
+                        if (childrenData && childrenData.length > 0) {
+                            let firstItem = childrenData[0];
+                            $('#subSelector').find('span').text(firstItem.name);
+                            $('#subSelector').find('input').val(firstItem.id);
+                            let _childHtml = '';
+                            for (const item of childrenData) {
+                                _childHtml = _childHtml + `<li data-value="${item.id}">${item.name}</li>`;
+                            }
+                            $('#subSelector').find('.select-list').html(_childHtml);
+                            initSubSelector();
+                        }
+                    });
+                });
             }
-        ];
+        });
+
         $('.select-item .select-content').each(function () {
             $(this).hover(function () {
                 $(this).find('.select-list').show();
@@ -241,31 +235,7 @@
             })
         });
 
-        $('.select-item .select-list li').each(function () {
-            $(this).click(function () {
-                let text = $(this).text();
-                let value = $(this).attr('data-value');
-                let targetText = $(this).parents('.select-content');
-                targetText.find('span').text(text);
-                targetText.find('input').attr('value', value);
-                $(this).parents('.select-list').hide();
-                $('#subSelector').show();
-                let childrenData = find(askList, value);
-                if (childrenData && childrenData.length > 0) {
-                    let firstItem = childrenData[0];
-                    $('#subSelector').find('span').text(firstItem.name);
-                    $('#subSelector').find('input').val(firstItem.id);
-                    let _html = '';
-                    for (const item of childrenData) {
-                        _html = _html + `<li data-value="${item.id}">${item.name}</li>`;
-                    }
-                    $('#subSelector').find('.select-list').html(_html);
-                    initSelector();
-                }
-            });
-        });
-
-        function initSelector() {
+        function initSubSelector() {
             $('#subSelector .select-list li').each(function () {
                 $(this).click(function () {
                     let text = $(this).text();
@@ -290,13 +260,13 @@
         let askArea = $('#askArea');
         inputListener(askArea, 500);
 
-        $('#askBtn').click(function() {
+        $('#askBtn').click(function () {
             let askId = $('#askId_1').val();
             if (!askId) {
                 alert('请您选择问题分类，以更好获取答案');
                 return;
             }
-            
+
             let textnum = askArea.val().replace(/\s+/g, "").length;
             if (textnum <= 0) {
                 alert('问题内容不能为空');

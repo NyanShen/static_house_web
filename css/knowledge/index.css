@@ -131,7 +131,7 @@
 }
 
 .know-list .describe {
-    max-width: 650px;
+    max-width: 620px;
     overflow: hidden;
 }
 
@@ -150,7 +150,7 @@
 }
 
 .know-list .describe .desc {
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .know-list .describe .title:hover {

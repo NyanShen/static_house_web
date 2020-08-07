@@ -32,7 +32,9 @@ function switchMenu(tagId, scrollInstance) {
         $(this).click(function () {
             let _this = $(this);
             let knowId = $(this).find('input').val();
+            let knowName = $(this).text();
             let $knowList = $(`#${tagId} .know-right .know-list`);
+            let checkMore = $(`#${tagId} .know-right .check-more`);
             app.request({
                 url: app.apiUrl('/knowledge/list'),
                 data: {
@@ -42,7 +44,14 @@ function switchMenu(tagId, scrollInstance) {
                 dataType: 'json',
                 headers: {},
                 done: function (res) {
-                    $knowList.html(generateKnowList(res.data));
+                    let knowList = res.data;
+                    if (knowList && knowList.length > 0) {
+                        checkMore.show();
+                    } else {
+                        checkMore.hide();
+                    }
+                    checkMore.find('a').attr('href', `/list/${knowId}.html?keyword=${knowName}`);
+                    $knowList.html(generateKnowList(knowList));
                     updateKnowRightHeight(tagId);
                     scrollInstance._initSliderHeight();
                     $(selector).removeClass('actived')
@@ -64,7 +73,7 @@ function generateKnowList(dataList) {
                 </div>
                 <div class="describe fl">
                     <p>
-                        <a href="/detail/${item.id}.html" class="title">${item.title}</a>
+                        <a href="/detail/${item.id}.html" class="title" target="_blank">${item.title}</a>
                     </p>
                     <p class="desc">
                         <span class="desc-color">${item.description}</span>
@@ -108,7 +117,7 @@ $(document).ready(function () {
                 type: 'GET',
                 dataType: 'json',
                 headers: {},
-                done: function (res) {
+                done: function () {
 
                 }
             });
@@ -120,6 +129,5 @@ $(document).ready(function () {
                 _this.text('已收藏');
             }
         });
-    })
-
+    });
 });
