@@ -41,7 +41,7 @@
 
 .filter-item {
     line-height: 28px;
-    padding: 10px 20px 0 20px;
+    padding: 15px 20px 0 20px;
 }
 
 .filter-regin {
@@ -70,7 +70,6 @@
 
 .data-list a:hover {
     color: #f60;
-    text-decoration: underline;
 }
 
 .data-list a.actived {
@@ -86,6 +85,7 @@
     height: 14px;
     background: url('../../assets/icons/check.png') no-repeat left center;
 }
+
 .data-list a.actived i {
     background: url('../../assets/icons/check_hv.png') no-repeat left center;
 }
@@ -116,6 +116,18 @@
 .data-list span {
     color: #999;
     padding: 0 5px;
+}
+
+.data-tab.on {
+    color: #f60;
+}
+
+.data-tab .iconfont {
+    margin-left: 10px;
+}
+
+.data-tab-item {
+    padding-left: 55px;
 }
 
 .more-filter {
@@ -161,12 +173,26 @@
 }
 
 .select-filter .item {
+    display: block;
     padding: 0 10px;
     cursor: pointer;
 }
 
 .select-filter .item:hover {
+    color: #f60;
     background-color: #f7f7f7;
+}
+
+.filter-clear-all {
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+    line-height: 28px;
+    color: #1f64b2;
+}
+
+.filter-clear-all:hover {
+    color: #f60;
 }
 
 .current-filter {

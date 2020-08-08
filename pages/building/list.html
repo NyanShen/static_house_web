@@ -133,7 +133,7 @@
                         <a href="">樊城</a>
                     </div>
                 </div>
-                <div class="filter-regin clearfix">
+                <!-- <div class="filter-regin clearfix">
                     <div class="data-list">
                         <a href="#no" class="actived">全部</a>
                         <a href="">樊城</a>
@@ -145,33 +145,32 @@
                         <a href="">万达广场</a>
                         <a href="">沿江大道</a>
                     </div>
-                </div>
-                <div class="filter-item clearfix">
+                </div> -->
+                <!-- <div class="filter-item clearfix">
                     <label class="filter-label">地铁：</label>
                     <div class="data-list">
                         <a href="">全部</a>
                         <a href="" class="actived">一号线</a>
                     </div>
-                </div>
+                </div> -->
                 <div class="filter-item clearfix">
-                    <label class="filter-label">单价：</label>
+                    <label class="filter-label">价格：</label>
                     <div class="data-list">
-                        <div class="data-list">
-                            <a href="" class="actived">全部</a>
-                            <a href="">20000以下</a>
-                            <a href="">20000-30000</a>
-                            <a href="">100000以上</a>
-                            <span>单价(元/平)</span>
-                            <input type="text" id="unitPriceFloor" value="">
-                            <span>-</span>
-                            <input type="text" id="unitPriceCeil" value="">
-                            <input type="button" value="确定" id="unitPriceBtn">
-                        </div>
+                        <a class="data-tab on" href="javascript:;">单价<em class="iconfont">&#xe68a;</em></a>
+                        <a class="data-tab" href="javascript:;">总价<em class="iconfont">&#xe68a;</em></a>
                     </div>
-                </div>
-                <div class="filter-item clearfix">
-                    <label class="filter-label">总价：</label>
-                    <div class="data-list">
+                    <div class="data-list data-tab-item">
+                        <a href="" class="actived">全部</a>
+                        <a href="">20000以下</a>
+                        <a href="">20000-30000</a>
+                        <a href="">100000以上</a>
+                        <span>单价(元/平)</span>
+                        <!-- <input type="text" id="unitPriceFloor" value="">
+                        <span>-</span>
+                        <input type="text" id="unitPriceCeil" value="">
+                        <input type="button" value="确定" id="unitPriceBtn"> -->
+                    </div>
+                    <div class="data-list data-tab-item hide">
                         <a href="" class="actived">全部</a>
                         <a href="">100万以下</a>
                         <a href="">100-300</a>
@@ -181,10 +180,10 @@
                         <a href="">1000-2000</a>
                         <a href="">2000万以上</a>
                         <span>总价(万元)</span>
-                        <input type="text" id="totalPriceFloor" value="">
+                        <!-- <input type="text" id="totalPriceFloor" value="">
                         <span>-</span>
                         <input type="text" id="totalPriceCeil" value="">
-                        <input type="button" value="确定" id="totalPriceBtn">
+                        <input type="button" value="确定" id="totalPriceBtn"> -->
                     </div>
                 </div>
                 <div class="filter-item clearfix">
@@ -199,7 +198,7 @@
                         <a href=""><i></i>五居以上</a>
                     </div>
                 </div>
-                <div class="filter-item clearfix">
+                <!-- <div class="filter-item clearfix">
                     <label class="filter-label">面积：</label>
                     <div class="data-list">
                         <a href="" class="actived">全部</a>
@@ -211,7 +210,7 @@
                         <a href=""><i></i>150-200m²</a>
                         <a href=""><i></i>200m²以上</a>
                     </div>
-                </div>
+                </div> -->
                 <div class="filter-item more-filter clearfix">
                     <label class="filter-label">更多：</label>
                     <div class="select-filter">
@@ -219,39 +218,51 @@
                             <span>销售状态</span>
                             <i class="select-icon"></i>
                         </div>
-                        <ul class="select-list">
-                            <li class="item">全部</li>
-                            <li class="item">在售</li>
-                            <li class="item">待售</li>
-                            <li class="item">售完</li>
-                        </ul>
+                        <div class="select-list">
+                            <a href="" class="item">全部</a>
+                            <a href="" class="item">在售</a>
+                            <a href="" class="item">待售</a>
+                            <a href="" class="item">售完</a>
+                        </div>
                     </div>
                     <div class="select-filter">
                         <div class="select-status">
                             <span>物业类型</span>
                             <i class="select-icon"></i>
                         </div>
-                        <ul class="select-list">
-                            <li class="item">全部</li>
-                            <li class="item">住宅</li>
-                            <li class="item">商铺</li>
-                            <li class="item">别墅</li>
-                            <li class="item">写字楼</li>
-                        </ul>
+                        <div class="select-list">
+                            <a href="" class="item">全部</li>
+                            <a href="" class="item">住宅</li>
+                            <a href="" class="item">商铺</li>
+                            <a href="" class="item">别墅</li>
+                            <a href="" class="item">写字楼</li>
+                        </div>
                     </div>
                     <div class="select-filter">
                         <div class="select-status">
                             <span>特色</span>
                             <i class="select-icon"></i>
                         </div>
-                        <ul class="select-list">
-                            <li class="item">全部</li>
-                            <li class="item">小户型</li>
-                            <li class="item">低总价</li>
-                        </ul>
+                        <div class="select-list">
+                            <a href="" class="item">全部</li>
+                            <a href="" class="item">小户型</li>
+                            <a href="" class="item">低总价</li>
+                        </div>
+                    </div>
+                    <div class="select-filter">
+                        <div class="select-status">
+                            <span>装修状况</span>
+                            <i class="select-icon"></i>
+                        </div>
+                        <div class="select-list">
+                            <a href="" class="item">全部</li>
+                            <a href="" class="item">毛坯</li>
+                            <a href="" class="item">简装修</li>
+                            <a href="" class="item">带装修</li>
+                        </div>
                     </div>
                 </div>
-                <div class="filter-item current-filter clearfix">
+                <!-- <div class="filter-item current-filter clearfix">
                     <span class="fl">当前条件:</span>
                     <div class="filter-selected fl">
                         <a href="" class="selected-item">樊城区</a>
@@ -259,7 +270,8 @@
                         <a href="" class="selected-item">一居</a>
                     </div>
                     <a href="" class="filter-clear">清空全部</a>
-                </div>
+                </div> -->
+                <a href="" class="filter-clear-all">清空全部条件</a>
             </div>
         </div>
     </div>
@@ -841,7 +853,7 @@
             })
         })
 
-        $('.filter-content .select-filter .select-list li').each(function () {
+        $('.filter-content .select-filter .select-list .item').each(function () {
             $(this).click(function () {
                 let text = $(this).text();
                 let targetText = $(this).parents('.select-filter');

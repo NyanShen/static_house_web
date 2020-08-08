@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map-search.css">
 
     <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/map-search.js"></script>
     <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
     <script type="text/javascript" src="//api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script>
@@ -251,6 +253,16 @@
 </body>
 <script>
     $(document).ready(function () {
+        app.request({
+                url: app.areaApiUrl('/house/area-house-count'),
+                data: {},
+                type: 'GET',
+                dataType: 'json',
+                headers: {},
+                done: function (res) {
+
+                }
+            });
         setContentHeight();
         function setContentHeight() {
             let clientHeight = $(document).height();

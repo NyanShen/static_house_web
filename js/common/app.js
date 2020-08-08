@@ -10,6 +10,7 @@ app.agreement = 'http://';
 app.topDomain = '.fczx.com';
 app.domain = app.agreement + app.getHostCity() + app.topDomain;
 app.apiDomain = app.agreement + 'api' + app.topDomain;
+app.wwwDomain = app.agreement + 'www' + app.topDomain;
 app.areaApiDomain = app.agreement + app.getHostCity() + '.api' + app.topDomain;
 
 
@@ -88,7 +89,7 @@ app.request = function (params) {
                 location.href = response.responseJSON.message;
             } else if (response.status == 401) {
                 var backUrl = encodeURI(location.href);
-                location.href = app.jumpUrl(`/pages/login/index.html?backUrl=${backUrl}`);
+                location.href = `${app.wwwDomain}/user/login?backUrl=${backUrl}`;
             } else {
                 if (typeof response.responseJSON != 'undefined') {
                     $.MsgModal.Alert('提示', response.responseJSON.message)
