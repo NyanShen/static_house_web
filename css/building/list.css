@@ -118,8 +118,9 @@
     padding: 0 5px;
 }
 
-.data-tab.on {
+.data-tab.actived {
     color: #f60;
+    font-weight: bold;
 }
 
 .data-tab .iconfont {
@@ -172,15 +173,19 @@
     z-index: 12;
 }
 
-.select-filter .item {
+.select-filter .item-a {
     display: block;
     padding: 0 10px;
     cursor: pointer;
 }
 
-.select-filter .item:hover {
+.select-filter .item-a:hover {
     color: #f60;
     background-color: #f7f7f7;
+}
+
+.select-filter .item-a.actived {
+    color: #f60;
 }
 
 .filter-clear-all {
@@ -280,13 +285,15 @@
 .newhouse-nav .nav-item {
     padding: 0 20px;
     border-right: 1px solid #ddd;
-    cursor: pointer;
+}
+
+.newhouse-nav .nav-item.actived a {
+    font-weight: bold;
+    color: #11a43c;
 }
 
 .newhouse-nav .nav-item.actived {
-    font-weight: bold;
     background-color: #fff;
-    color: #11a43c;
 }
 
 .newhouse-nav .nav-item:hover {
@@ -298,6 +305,7 @@
     position: relative;
     font-size: 12px;
     color: #666;
+    padding-right: 10px;
 }
 
 .newhouse-nav .rank-item {
@@ -307,6 +315,10 @@
 }
 
 .newhouse-nav .rank-item:hover {
+    color: #ff3344;
+}
+
+.newhouse-nav .rank-item.actived {
     color: #ff3344;
 }
 
@@ -320,13 +332,13 @@
     background: url('../../assets/icons/rank_down.png') no-repeat right center;
 }
 
+/*
 .newhouse-nav .page-control {
     position: relative;
     float: right;
     padding: 0 20px;
     margin-left: 20px;
-}
-
+} 
 .newhouse-nav .page-control .arrow {
     position: absolute;
     top: 0;
@@ -350,7 +362,7 @@
 
 .newhouse-nav .page-control .arrow-right:hover {
     background: url('../../assets/icons/right12_hv.png') no-repeat left center;
-}
+} */
 
 /*新房列表项*/
 
