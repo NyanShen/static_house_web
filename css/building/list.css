@@ -332,6 +332,14 @@
     background: url('../../assets/icons/rank_down.png') no-repeat right center;
 }
 
+.newhouse-nav .rank-up.actived {
+    background: url('../../assets/icons/rank_up_hv.png') no-repeat right center;
+}
+
+.newhouse-nav .rank-down.actived {
+    background: url('../../assets/icons/rank_down_hv.png') no-repeat right center;
+}
+
 /*
 .newhouse-nav .page-control {
     position: relative;

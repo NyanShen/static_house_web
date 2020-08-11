@@ -254,16 +254,16 @@
 </body>
 <script>
     $(document).ready(function () {
-        app.request({
-            url: app.areaApiUrl('/house/area-house-count'),
-            data: {},
-            type: 'GET',
-            dataType: 'json',
-            headers: {},
-            done: function (res) {
+        // app.request({
+        //     url: app.areaApiUrl('/house/area-house-count'),
+        //     data: {},
+        //     type: 'GET',
+        //     dataType: 'json',
+        //     headers: {},
+        //     done: function (res) {
 
-            }
-        });
+        //     }
+        // });
         setContentHeight();
         function setContentHeight() {
             let clientHeight = $(document).height();
@@ -290,6 +290,7 @@
 
         let lng = 112.129108;
         let lat = 32.015532;
+        // 初始化数据根据窗口地图可显示区域获取区域列表
         let dataSource = {
             gather_regions: [
                 { "name": "樊城区", "longitude": "112.146049", "latitude": "32.051797", "count": "2" },
@@ -333,7 +334,7 @@
                 }
             ]
         }
-        new SearchMap({ lng, lat }, dataSource)
+        new FCZX.map.SearchMap({ lng, lat }, dataSource)
     })
 </script>
 

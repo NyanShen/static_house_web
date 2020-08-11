@@ -8,6 +8,63 @@ $(document).ready(function () {
         selectSelector: '.select-filter'
     });
 
+    let urlParam = window.location.search;
+    let urlParamObj = transferUrlParam(urlParam);
+    let $rankItem = $('.nav-rank .rank-item');
+    let rankDataType = $rankItem.eq(0).data('type') || 'ob';
+    initRankItem()
+
+    function initRankItem() {
+        if (!urlParamObj[rankDataType]) {
+            $rankItem.eq(0).addClass('actived');
+            initOrderData(1, 3);
+        } else if (urlParamObj[rankDataType] == 1) {
+            rankDownActivedStyle(1)
+            rankDownStyle(2);
+            initOrderData(2, 3);
+        } else if (urlParamObj[rankDataType] == 2) {
+            rankUpActivedStyle(1)
+            rankDownStyle(2);
+            initOrderData(1, 3);
+        } else if (urlParamObj[rankDataType] == 3) {
+            rankDownActivedStyle(2)
+            rankDownStyle(1);
+            initOrderData(1, 4);
+        } else if (urlParamObj[rankDataType] == 4) {
+            rankUpActivedStyle(2)
+            rankDownStyle(1);
+            initOrderData(1, 3);
+        }
+    }
+
+    function rankDownStyle(index) {
+        $rankItem.eq(index).removeClass('rank-up actived');
+        $rankItem.eq(index).addClass('rank-down');
+    }
+
+    function rankUpActivedStyle(index) {
+        $rankItem.eq(index).removeClass('rank-down');
+        $rankItem.eq(index).addClass('rank-up actived');
+    }
+
+    function rankDownActivedStyle(index) {
+        $rankItem.eq(index).removeClass('rank-up');
+        $rankItem.eq(index).addClass('rank-down actived');
+    }
+
+    function initOrderData(id_1, id_2) {
+        urlParamObj[rankDataType] = id_1;
+        setHrefUrl($rankItem.eq(1), toUrlParam(urlParamObj));
+        urlParamObj[rankDataType] = id_2
+        setHrefUrl($rankItem.eq(2), toUrlParam(urlParamObj));
+        delete urlParamObj[rankDataType]
+        setHrefUrl($rankItem.eq(0), toUrlParam(urlParamObj));
+    }
+
+    function setHrefUrl(element, newUrlParam) {
+        element.attr('href', `http://${window.location.host}${window.location.pathname}${newUrlParam}`);
+    }
+
     // 新楼盘免费订阅
     $('#subscribHouseBtn').click(function () {
         let modalParams = {
