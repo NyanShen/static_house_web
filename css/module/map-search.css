@@ -19,24 +19,16 @@
     position: relative;
     height: 50px;
     line-height: 50px;
+    padding: 0 20px;
     cursor: pointer;
 }
 
-.map-search-menu .item-select .item-name {
-    padding: 5px 35px 5px 20px;
+.map-search-menu .item-select:hover {
+    color: #f60;
 }
 
-.map-search-menu .item-select .item-icon {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 12px;
-    height: 20px;
-    background: url('//static.fczx.com/www/assets/icons/down12.png') no-repeat center center;
-}
-
-.map-search-menu .item-select:hover .item-icon {
-    background: url('//static.fczx.com/www/assets/icons/down12_hv.png') no-repeat center center;
+.map-search-menu .item-select.actived {
+    color: #f60;
 }
 
 .map-search-menu .item-select-list {
@@ -55,18 +47,19 @@
     background-color: #f7f7f7;
 }
 
-.map-search-menu .menu-item:hover .item-select-list {
-    display: block;
-}
-
 .map-search-menu .item-select-list li {
     height: 30px;
     line-height: 30px;
-    padding-left: 15px;
+    padding-left: 18px;
 }
 
 .map-search-menu .item-select-list li:hover {
-    background-color: #e5fbe8;
+    color: #f60;
+    background-color: #f7f7f7;
+}
+
+.map-search-menu .item-select-list li.actived {
+    color: #f60;
 }
 
 .map-search-menu .switch-list {
@@ -98,6 +91,7 @@
 }
 
 /*地图搜索内容*/
+
 .map-search-content {
     position: relative;
 }
@@ -157,39 +151,48 @@
     background-color: #f7f7f7;
 }
 
-.mli-img {
+.mli-item .mli-img {
     position: relative;
-    width: 136px;
-    height: 104px;
+    display: block;
+    width: 100px;
+    height: 80px;
     overflow: hidden;
 }
 
-.mli-detail {
-    margin-left: 20px;
+.mli-item .mli-img img {
+    width: 100%;
+    height: 100%;
 }
 
-.mli-detail .house-name a {
+.mli-item .mli-detail {
+    width: 220px;
+    margin-left: 15px;
+}
+
+.mli-item .mli-detail .item {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mli-item .mli-detail .house-name {
+    margin-bottom: 10px;
     font-size: 16px;
     font-weight: bold;
     color: #333;
 }
 
-.mli-detail .house-price {
+.mli-item .mli-detail .house-price {
     font-weight: 700;
     color: #ff3344;
     margin: 6px 0;
 }
 
-.mli-detail .house-type {
-    color: #999;
-    margin-bottom: 6px;
-}
-
-.mli-detail .house-tags span {
-    font-size: 12px;
-    padding: 3px 8px;
-    color: #999;
-    background-color: #f7f7f7;
+.mli-item .mli-detail .house-address {
+    margin-top: 10px;
+    color: #666;
 }
 
 .map-list-empty {

@@ -14,8 +14,8 @@
     <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
     <script type="text/javascript" src="//static.fczx.com/www/js/common/map-search.js"></script>
     <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
-    <script type="text/javascript" src="//api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script>
-    <script type="text/javascript" src="//api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js"></script>
+    <!-- <script type="text/javascript" src="//api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script> -->
+    <!-- <script type="text/javascript" src="//api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js"></script> -->
 
     <style>
         .circle-bubble {
@@ -122,79 +122,84 @@
             <div class="menu-list fl">
                 <div class="menu-item">
                     <div class="item-select">
-                        <span class="item-name">区域</span>
-                        <i class="item-icon"></i>
+                        <span data-name="区域">区域</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="region" value="">
                     </div>
                     <ul class="item-select-list">
-                        <li>全部</li>
-                        <li>樊城区</li>
-                        <li>襄城区</li>
-                        <li>襄州区</li>
-                        <li>高新区</li>
-                        <li>宜城</li>
-                        <li>老河口</li>
-                        <li>东津</li>
+                        <li data-value="0">全部</li>
+                        <li id="region_1001" data-value="1001">樊城区</li>
+                        <li id="region_1002" data-value="1002">襄州区</li>
+                        <li id="region_1003" data-value="1003">谷城县</li>
+                        <li id="region_1004" data-value="1004">老河口市</li>
+                        <li id="region_1005" data-value="1005">宜城</li>
+                        <li id="region_1006" data-value="1006">保康</li>
+                        <li id="region_1007" data-value="1007">枣阳</li>
                     </ul>
                 </div>
                 <div class="menu-item">
                     <div class="item-select">
-                        <span class="item-name">户型</span>
-                        <i class="item-icon"></i>
+                        <span data-name="户型">户型</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_type" value="">
                     </div>
                     <ul class="item-select-list">
-                        <li>全部</li>
-                        <li>一室</li>
-                        <li>二室</li>
-                        <li>三室</li>
-                        <li>四室</li>
-                        <li>五室</li>
-                        <li>五室以上</li>
+                        <li data-value="0">全部</li>
+                        <li id="house_type_101" data-value="101">一室</li>
+                        <li id="house_type_102" data-value="102">二室</li>
+                        <li id="house_type_103" data-value="103">三室</li>
+                        <li id="house_type_104" data-value="104">四室</li>
+                        <li id="house_type_105" data-value="105">五室</li>
+                        <li id="house_type_106" data-value="106">五室以上</li>
                     </ul>
                 </div>
                 <div class="menu-item">
                     <div class="item-select">
-                        <span class="item-name">面积</span>
-                        <i class="item-icon"></i>
+                        <span data-name="面积">面积</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_area" value="">
                     </div>
                     <ul class="item-select-list">
-                        <li>全部</li>
-                        <li>50平米以下</li>
-                        <li>50-70平米</li>
-                        <li>70-90平米</li>
-                        <li>90-110平米</li>
-                        <li>110-130平米</li>
-                        <li>130-150平米</li>
-                        <li>150-200平米</li>
-                        <li>200-300平米</li>
-                        <li>300平米以上</li>
+                        <li data-value="0">全部</li>
+                        <li id="house_area_50" data-value="50">50平米以下</li>
+                        <li id="house_area_5070" data-value="5070">50-70平米</li>
+                        <li id="house_area_7090" data-value="7090">70-90平米</li>
+                        <li id="house_area_90110" data-value="90110">90-110平米</li>
+                        <li id="house_area_110130" data-value="110130">110-130平米</li>
+                        <li id="house_area_130150" data-value="130150">130-150平米</li>
+                        <li id="house_area_150200" data-value="150200">150-200平米</li>
+                        <li id="house_area_200300" data-value="200300">200-300平米</li>
+                        <li id="house_area_300" data-value="300">300平米以上</li>
                     </ul>
                 </div>
                 <div class="menu-item">
                     <div class="item-select">
-                        <span class="item-name">类型</span>
-                        <i class="item-icon"></i>
+                        <span data-name="类型">类型</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_prop" value="">
                     </div>
                     <ul class="item-select-list">
-                        <li>全部</li>
-                        <li>住宅</li>
-                        <li>别墅</li>
-                        <li>商住</li>
-                        <li>商铺</li>
-                        <li>写字楼</li>
+                        <li data-value="0">全部</li>
+                        <li id="house_prop_1" data-value="1">住宅</li>
+                        <li id="house_prop_2" data-value="2">别墅</li>
+                        <li id="house_prop_3" data-value="3">商住</li>
+                        <li id="house_prop_4" data-value="4">商铺</li>
+                        <li id="house_prop_5" data-value="5">写字楼</li>
                     </ul>
                 </div>
                 <div class="menu-item">
                     <div class="item-select">
-                        <span class="item-name">预算</span>
-                        <i class="item-icon"></i>
+                        <span data-name="预算">预算</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_price" value="">
                     </div>
                     <ul class="item-select-list">
-                        <li>全部</li>
-                        <li>30万以下</li>
-                        <li>30-50万</li>
-                        <li>50-100万</li>
-                        <li>100-200万</li>
-                        <li>300万以上</li>
+                        <li data-value="0">全部</li>
+                        <li id="house_price_30" data-value="30">30万以下</li>
+                        <li id="house_price_3050" data-value="3050">30-50万</li>
+                        <li id="house_price_50100" data-value="50100">50-100万</li>
+                        <li id="house_price_100200" data-value="100200">100-200万</li>
+                        <li id="house_price_300" data-value="300">300万以上</li>
                     </ul>
                 </div>
             </div>
@@ -213,33 +218,20 @@
                 </div>
                 <div class="map-list-content">
                     <ul class="map-list">
-                        <li>
-                            <div class="mli-item clearfix">
-                                <div class="mli-img fl">
-                                    <a href="javascript:void(0);">
-                                        <img src="//static.fczx.com/www/assets/images/200x150.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mli-detail fl">
-                                    <div class="house-name">
-                                        <a href="javascript:void(0);">金隅上城郡</a>
-                                    </div>
-                                    <div class="house-price">
-                                        <span>800万元/套</span>
-                                    </div>
-                                    <div class="house-type">
-                                        <span>
-                                            一居<em> | </em>
-                                            二居
-                                        </span>
-                                        <span>118-140㎡</span>
-                                    </div>
-                                    <div class="house-tags">
-                                        <span>在售</span>
-                                    </div>
-                                </div>
+                        <!-- <li class="mli-item clearfix" id="item_1002">
+                            <div class="fl">
+                                <a class="mli-img" href="javascript:void(0);">
+                                    <img src="//static.fczx.com/www/assets/images/200x150.jpg" alt="">
+                                </a>
                             </div>
-                        </li>
+                            <div class="mli-detail fl">
+                                <p class="item house-name" href="javascript:void(0);">金隅上城郡</p>
+                                <p class="item">
+                                    <span class="house-price">800万元/套</span>
+                                </p>
+                                <p class="item house-address" title="[樊城区]团山大道与邓城大道交叉口北150米">[樊城区]团山大道与邓城大道交叉口北150米</p>
+                            </div>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="map-list-empty">
@@ -254,87 +246,78 @@
 </body>
 <script>
     $(document).ready(function () {
-        // app.request({
-        //     url: app.areaApiUrl('/house/area-house-count'),
-        //     data: {},
-        //     type: 'GET',
-        //     dataType: 'json',
-        //     headers: {},
-        //     done: function (res) {
 
-        //     }
-        // });
-        setContentHeight();
-        function setContentHeight() {
-            let clientHeight = $(document).height();
-            $('.map-search-content').css('height', `${clientHeight - 100}px`);
-        }
-
-        $(window).resize(function () {
-            setContentHeight();
-        });
-
-        $('.fold-btn').click(function () {
-            if ($('.fold-btn i').hasClass('open')) {
-                $(this).css('left', 0);
-                $('.fold-btn i').removeClass('open');
-                $('.fold-btn i').addClass('close');
-                $('.map-list-content').hide();
-            } else {
-                $(this).css('left', '380px');
-                $('.fold-btn i').removeClass('close');
-                $('.fold-btn i').addClass('open');
-                $('.map-list-content').show();
-            }
-        });
-
-        let lng = 112.129108;
-        let lat = 32.015532;
-        // 初始化数据根据窗口地图可显示区域获取区域列表
-        let dataSource = {
-            gather_regions: [
-                { "name": "樊城区", "longitude": "112.146049", "latitude": "32.051797", "count": "2" },
-                { "name": "襄州区", "longitude": "112.328604", "latitude": "32.207599", "count": "7" },
-                { "name": "谷城县", "longitude": "111.477729", "latitude": "32.125439", "count": "3" },
-                { "name": "老河口市", "longitude": "111.774385", "latitude": "32.416571", "count": "3" },
-                { "name": "宜城", "longitude": "112.264608", "latitude": "31.726207", "count": "3" },
-                { "name": "保康", "longitude": "110.939608", "latitude": "31.905982", "count": "3" },
-                { "name": "枣阳", "longitude": "112.778475", "latitude": "32.136441", "count": "3" },
-            ],
-            label_rows: [
+        new FCZX.map.Index({
+            city: '襄阳',
+            position: {},
+            source_url: 'http://xiangyang.fczx.com/house/list', //测试接口
+            // source_url: app.areaApiUrl(/house/list),
+            city_regions: [
                 {
-                    "house_id": "1001",
-                    "house_name": "襄阳万达广场",
-                    "longitude": "112.139804",
-                    "latitude": "32.068105",
-                    "price": "80",
-                    "price_unit": '万/套',
-                    "house_link": "http://xiangyang.fczx.com/pages/building/index.html",
-                    "image_path": "http://static.fczx.com/www/assets/images/1400x933_1.jpg",
-                    "tags": "大户型,高层",
-                    "sale_status": "1",
-                    "region_name": "樊城区",
-                    "sub_region_name": "",
-                    "address": "襄阳市樊城区高新区长虹北路9号"
+                    "id": "1001",
+                    "name": "樊城区",
+                    "longitude": "112.146049",
+                    "latitude": "32.051797",
                 },
                 {
-                    "house_id": "1002",
-                    "house_name": "襄阳吾悦广场",
-                    "longitude": "112.140691",
-                    "latitude": "32.097841",
-                    "price": "12000",
-                    "price_unit": '元/㎡',
-                    "house_link": "http://xiangyang.fczx.com/pages/building/index.html",
-                    "image_path": "http://static.fczx.com/www/assets/images/1400x933_1.jpg",
-                    "tags": "大户型,小高层",
-                    "sale_status": "1",
-                    "region_name": "樊城区",
-                    "sub_region_name": "",
-                    "address": "襄阳市樊城区团山大道与邓城大道交叉口北150米"
+                    "id": "1002",
+                    "name": "襄州区",
+                    "longitude": "112.328604",
+                    "latitude": "32.207599",
+                },
+                {
+                    "id": "1003",
+                    "name": "谷城县",
+                    "longitude": "111.477729",
+                    "latitude": "32.125439",
+                },
+                {
+                    "id": "1004",
+                    "name": "老河口市",
+                    "longitude": "111.774385",
+                    "latitude": "32.416571",
+                },
+                {
+                    "id": "1005",
+                    "name": "宜城",
+                    "longitude": "112.264608",
+                    "latitude": "31.726207",
+                },
+                {
+                    "id": "1006",
+                    "name": "保康",
+                    "longitude": "110.939608",
+                    "latitude": "31.905982",
+                },
+                {
+                    "id": "1007",
+                    "name": "枣阳",
+                    "longitude": "112.778475",
+                    "latitude": "32.136441",
+                },
+                {
+                    "id": "1008",
+                    "name": "东津",
+                    "longitude": "112.24564738403",
+                    "latitude": "32.037933183676",
+                },
+                {
+                    "id": "1009",
+                    "name": "高新区",
+                    "longitude": "112.20214023493",
+                    "latitude": "32.124717768712",
+                },
+                {
+                    "id": "1010",
+                    "name": "襄城区",
+                    "longitude": "112.14737978321",
+                    "latitude": "32.022001683487",
                 }
             ]
-        }
-        new FCZX.map.SearchMap({ lng, lat }, dataSource)
+        })
+
+        // let lng = 112.129108;
+        // let lat = 32.015532;
     })
 </script>
 
