@@ -7,44 +7,6 @@ function averageMonthPayment(loanMoney, payMonth, yearRatio) {
 }
 
 $(document).ready(function () {
-    /**
-     * 下拉框点击显示与隐藏
-     */
-    $(document).click(function (event) {
-        let $target = $(event.target).parents('.select-content');
-        let allSelectList = $('.calculator-condition .select-list');
-        if ($target.length === 1) {
-            let $targetChild = $target.children('.select-list');
-            if ($targetChild.is(':visible')) {
-                $targetChild.hide();
-            } else {
-                allSelectList.hide();
-                $targetChild.show();
-            }
-        } else {
-            allSelectList.hide();
-        }
-    });
-    /**
-     * 下拉框选择赋值
-     */
-    $('.calculator-condition .select-content .select-list li').each(function () {
-        $(this).click(function () {
-            let text = $(this).text();
-            let dataValue = $(this).attr('data-value');
-            let targetText = $(this).parents('.select-content');
-            targetText.find('span').text(text);
-            targetText.find('input').attr('value', dataValue);
-
-            if (!dataType) return;
-
-            if (dataValue === 'type_03') {
-                $('.select-item-loan').show();
-            } else {
-                $('.select-item-loan').hide();
-            }
-        });
-    });
 
     $('#loanCalculateBtn').click(function () {
         let businessRatio = 0.0475;
@@ -53,6 +15,29 @@ $(document).ready(function () {
         let monthPayment = averageMonthPayment(loanMoney, loanPeriod, businessRatio);
         $('#monthPayment').text(parseInt(monthPayment));
     });
+
+    new FCZX.building.Calculator({
+        houseTypeS: '#houseType',
+        housePriceS: '#housePrice',
+        loanPriceS: '#loanPrice',
+        loanLevelS: '#loanLevel',
+        loanTypeS: '#loanType',
+        loanFundS: '#loanFund',
+        loanBusinessS: '#loanBusiness',
+        loanPeriodS: '#loanPeriod',
+        loanTypeS: '#loanType',
+        loanScaleS: '.select-item-loan',
+        calculateBtnS: '#loanCalculateBtn',
+        unitPrice: 6170,
+        selectOpt: {
+            selectContS: '.select-content',
+            selectTextS: '.select-text',
+            selectListS: '.select-list',
+            optionS: 'li',
+            dataProp: 'value',
+            isHover: false
+        }
+    })
 
     let pipOption = {
         series: [
@@ -76,3 +61,98 @@ $(document).ready(function () {
     let loanPipChart = echarts.init(document.getElementById('loanPipChart'));
     loanPipChart.setOption(pipOption);
 });
+
+(function ($) {
+    FCZX.globalNamespace('FCZX.building.Calculator');
+
+    FCZX.building.Calculator = function (opt) {
+        this.houseArea = 0;
+        this.housePrice = 0;
+        this.loanPrice = 0;
+        this.rates = {
+            commerce: {
+                "1": "0.0435",
+                "5": "0.0475",
+                "6": "0.049",
+            },
+            fund: {
+                "1": "0.0275",
+                "6": "0.0325"
+            }
+        }
+        this._init(opt);
+    }
+
+    $.extend(FCZX.building.Calculator.prototype, {
+        _init: function (opt) {
+            this.opt = {
+                houseTypeS: '',
+                housePriceS: '',
+                loanPriceS: '',
+                loanLevelS: '',
+                loanTypeS: '',
+                loanFundS: '',
+                loanBusinessS: '',
+                loanPeriodS: '',
+                loanTypeS: '',
+                calculateBtnS: '',
+                unitPrice: 0,
+                loanScaleS: '',
+                selectOpt: null
+            }
+            $.extend(true, this.opt, opt || {});
+            this._initDomEvent();
+        },
+        _initDomEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _this.$houseType = $(_opt.houseTypeS);
+            _this.$housePrice = $(_opt.housePriceS);
+            _this.$loanPrice = $(_opt.loanPriceS);
+            _this.$loanLevel = $(_opt.loanLevelS);
+            _this.$loanType = $(_opt.loanTypeS);
+            _this.$loanFund = $(_opt.loanFundS);
+            _this.$loanBusiness = $(_opt.loanBusinessS);
+            _this.$loanPeriod = $(_opt.loanPeriodS);
+            _this.$loanType = $(_opt.loanTypeS);
+            _this.$loanScale = $(_opt.loanScaleS);
+            _this.$calculateBtn = $(_opt.calculateBtnS);
+            _this.updatePrice();
+            let selectInstance = new FCZX.Select(_opt.selectOpt);
+            $(selectInstance).on('change', function (event, $input) {
+                switch ('#' + $input.attr('id')) {
+                    case _opt.houseTypeS:
+                    case _opt.loanLevelS:
+                        _this.updatePrice();
+                        break;
+                    case _opt.loanTypeS:
+                        if ($input.val() === 'type_03') {
+                            _this.$loanScale.show();
+                        } else {
+                            _this.$loanScale.hide();
+                        }
+                        break;
+                    default:
+                }
+            });
+
+        },
+        updatePrice: function () {
+            let _this = this;
+            _this.houseArea = _this.$houseType.val();
+            _this.housePrice = Math.round(_this.houseArea * _this.opt.unitPrice / 10000);
+            _this.loanPrice = Math.round(_this.housePrice * _this.$loanLevel.val());
+            let _housePriceHtml = `
+            <span class="price">${_this.housePrice}</span>
+            <span class="unit text-color">万元</span>
+            <span class="desc">（均价${_this.opt.unitPrice}元/m² × 面积${_this.houseArea}m²）</span>
+            `;
+            let _loanHtml = `贷款总额${_this.loanPrice}万`;
+            _this.$housePrice.html(_housePriceHtml);
+            _this.$loanPrice.html(_loanHtml);
+        },
+        calculate: function () {
+
+        }
+    });
+})(jQuery);

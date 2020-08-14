@@ -7,7 +7,14 @@
             defaultZoom: 11,
             regionZoom: 12,
             navSelector: '.main-nav',
-            menuSelector: '.map-search-menu'
+            menuOpt: {
+                menuSelector: '.map-search-menu',
+                itemSelector: '.menu-item',
+                selectTextS: '.item-select',
+                selectListS: '.item-select-list',
+                optionS: 'li',
+                city_regions: opt.city_regions
+            }
         }
         $.extend(true, this.opt, opt || {});
 
@@ -18,14 +25,6 @@
         _init: function () {
             let _this = this;
             let _opt = _this.opt;
-            this.load = new FCZX.map.Load(_this, _opt.source_url);
-
-            this.list = new FCZX.map.List(_this);
-
-            this.menu = new FCZX.map.Menu(_this, {
-                menuSelector: _opt.menuSelector,
-                city_regions: _opt.city_regions
-            });
 
             this.bMap = new FCZX.map.SearchMap(_this, {
                 headerHeight: _this.headerHeight,
@@ -35,14 +34,21 @@
                 regionZoom: _opt.regionZoom
             });
 
+            this.load = new FCZX.map.Load(_this, _opt.source_url);
+
+            this.list = new FCZX.map.List(_this);
+
+            this.menu = new FCZX.map.Menu(_this, _this.opt.menuOpt);
+
             _this._resize();
 
             $(win).resize(function () {
                 _this._resize();
             });
+            console.log(this)
         },
         _getHeaderHeight: function () {
-            return $(this.opt.navSelector).outerHeight(true) + $(this.opt.menuSelector).outerHeight(true)
+            return $(this.opt.navSelector).outerHeight(true) + $(this.opt.menuOpt.menuSelector).outerHeight(true)
         },
         _resize: function () {
             let winHeight = $(win).outerHeight(true);
@@ -65,6 +71,11 @@
         updateData: function (result) {
             this.list.updateListData(result.label_rows);
             this.bMap.updateMapDataOverlays(result);
+        },
+        regionClick: function (region_id) {
+            let menuOpt = this.menu.opt;
+            let targetRegion = menuOpt.$selectList.find(`${menuOpt.optionS}[data-value=${region_id}]`);
+            targetRegion.trigger('click.mapMenuItem');
         }
     });
 })(window, jQuery);
@@ -127,11 +138,12 @@
     $.extend(FCZX.map.Menu.prototype, {
         _init: function (opt) {
             this.opt = {
-                menuSelector: '.map-search-menu',
-                itemSelector: '.menu-item',
-                selectTextS: '.item-select',
-                selectListS: '.item-select-list',
-                optionS: 'li'
+                menuSelector: '',
+                itemSelector: '',
+                selectTextS: '',
+                selectListS: '',
+                optionS: '',
+                city_regions: []
             }
             $.extend(true, this.opt, opt || {});
             this._initDomEvent();
@@ -180,7 +192,7 @@
                 let indexOpt = _this.mapIndex.opt;
                 let position = _this._getPositionById(value);
                 if (position) {
-                    _this.mapIndex.setMapCenter(indexOpt.regionZoom, position);
+                    _this.mapIndex.setMapCenter(_this.mapIndex.bMap.map.getZoom() + 1, position);
                 } else {
                     _this.mapIndex.setMapCenter(indexOpt.defaultZoom);
                 }
@@ -384,7 +396,7 @@
             let zoomLevel = _this.map.getZoom();
             this.regions = result.gather_regions;
             this.houseLabels = result.label_rows;
-            if (zoomLevel <= 12) {
+            if (zoomLevel <= _this.opt.regionZoom) {
                 _this.addRegionLabels(result.gather_regions);
             } else {
                 _this.addHouseLabels(result.label_rows);
@@ -485,7 +497,12 @@
                         });
 
                         label.addEventListener("click", function () {
-                            _this.map.centerAndZoom(label.point, _this.map.getZoom() + 1);
+                            let currZoom = _this.map.getZoom();
+                            if (currZoom <= _this.opt.regionZoom) {
+                                _this.mapIndex.regionClick(data.id);
+                            } else {
+                                _this.map.centerAndZoom(label.point, currZoom + 1);
+                            }
                         });
                     }
                 },
@@ -493,7 +510,7 @@
                     type: "house_label",
                     title: data.house_name,
                     template: `
-                    <a class="house-bubble" data-id="${data.id}" href="${data.house_link}">
+                    <a class="house-bubble" data-id="${data.id}" href="${data.house_link}" target="_blank">
                         <p>
                             <span class="price">${data.price}</span>
                             <span class="unit">${data.price_unit}</span>

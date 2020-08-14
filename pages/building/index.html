@@ -1064,13 +1064,13 @@
                         <label class="select-label fl">选择户型</label>
                         <div class="select-content fl">
                             <div class="select-text">
-                                <span>3室2厅1卫 约101m²</span>
-                                <input type="text" name="" id="houseType" value="" hidden>
+                                <span>3室2厅1卫 约86m²</span>
+                                <input type="text" name="" id="houseType" value="86" hidden>
                                 <i></i>
                             </div>
                             <ul class="select-list">
-                                <li data-value="101">3室2厅1卫 约101m²</li>
-                                <li data-value="111">3室2厅2卫 约111m²</li>
+                                <li data-value="86">3室2厅1卫 约86m²</li>
+                                <li data-value="100">3室2厅2卫 约100m²</li>
                                 <li data-value="112">3室2厅2卫 约112m²</li>
                             </ul>
                         </div>
@@ -1078,11 +1078,8 @@
                     <div class="select-item">
                         <label class="select-label fl">估算总价</label>
                         <div class="select-content fl">
-                            <div class="fixed-text">
-                                <span class="price">369</span>
-                                <span class="unit text-color">万元</span>
-                                <span class="desc">（均价5100元/m² × 面积101m²）</span>
-                                <input type="text" name="" id="loanAmount" value="369" hidden>
+                            <div class="fixed-text" id="housePrice">
+
                             </div>
                         </div>
                     </div>
@@ -1112,7 +1109,7 @@
                         <div class="select-content fl">
                             <div class="select-text">
                                 <span>商业贷款</span>
-                                <input type="text" name="" id="loanType" value="商业贷款" hidden>
+                                <input type="text" name="" id="loanType" value="type_01" hidden>
                                 <i></i>
                             </div>
                             <ul class="select-list">
@@ -1125,7 +1122,7 @@
                     <div class="select-item select-item-loan">
                         <label class="select-label fl">贷款金额</label>
                         <div class="loan-content fl">
-                            <span class="loan-total">贷款总额29万</span>
+                            <span class="loan-total" id="loanPrice">贷款总额29万</span>
                             <p class="loan-item">
                                 <label class="loan-label">公积金</label>
                                 <input class="loan-input" type="text" value="" id="loanFund">

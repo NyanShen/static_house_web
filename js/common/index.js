@@ -63,7 +63,7 @@ $(document).ready(function () {
     }
 
     window.FCZX = FCZX;
-})()
+})();
 
 //居中元素
 function justifyElement(child) {
@@ -677,3 +677,95 @@ function toUrlParam(param) {
     }
     return urlParam;
 }
+
+// 自定义下拉框
+(function ($) {
+    FCZX.globalNamespace('FCZX.Select');
+
+    FCZX.Select = function (opt) {
+        this._init(opt)
+    }
+
+    $.extend(FCZX.Select.prototype, {
+        _init: function (opt) {
+            this.opt = {
+                selectContS: '.select-content', //下拉框选择器
+                selectTextS: '.select-text', //选择项目显示,
+                selectListS: '.select-list', //下拉选项框
+                optionS: 'li', //选项
+                dataProp: 'value', //取值key
+                labelProp: 'label', //标签名取值key
+                allValue: 'all', //当选择所有的时候值,
+                isHover: true
+            }
+            $.extend(true, this.opt, opt || {});
+            this._initDomEvent();
+        },
+        _initDomEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _this.$selectCont = $(_opt.selectContS);
+            _this.$selectList = _this.$selectCont.find(_opt.selectListS);
+
+            if (_opt.isHover) {
+                _this._hoverSelectEvent();
+            } else {
+                _this._clickSelectEvent();
+            }
+
+            _this.$selectList.find(_opt.optionS).each(function () {
+                $(this).on('click.selectOption', function () {
+                    let text = $(this).text()
+                    let value = $(this).data(_opt.dataProp);
+                    let selectText = $(this).parent().siblings(_opt.selectTextS);
+                    let $span = selectText.find('span');
+                    let $input = selectText.find('input');
+                    if (!value || value == _opt.allValue) {
+                        $span.text($span.data(_opt.labelProp));
+                        $input.val('');
+                        selectText.removeClass('actived');
+                    } else {
+                        $span.text(text);
+                        $input.val(value);
+                        selectText.addClass('actived');
+                    }
+                    $(_this).trigger('change', [$input]);
+
+                    if (_opt.isHover) {
+                        _this.$selectList.hide();
+                    }
+                });
+            });
+        },
+        _hoverSelectEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            _this.$selectCont.each(function () {
+                $(this).hover(function () {
+                    $(this).find(_opt.selectListS).show();
+                }, function () {
+                    $(this).find(_opt.selectListS).hide();
+                });
+            })
+        },
+        _clickSelectEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            let allSelectList = _this.$selectList;
+            $(document).click(function (event) {
+                let $target = $(event.target).parents(_opt.selectContS);
+                if ($target.length === 1) {
+                    let $targetChild = $target.children('.select-list');
+                    if ($targetChild.is(':visible')) {
+                        $targetChild.hide();
+                    } else {
+                        allSelectList.hide();
+                        $targetChild.show();
+                    }
+                } else {
+                    allSelectList.hide();
+                }
+            });
+        }
+    });
+})(jQuery);
