@@ -427,7 +427,7 @@
 
 .calculator-result {
     float: left;
-    width: 560px;
+    width: 590px;
     padding: 25px;
 }
 
@@ -521,13 +521,18 @@
 }
 
 .loan-content .loan-item {
+    position: relative;
     margin-top: 10px;
     height: 30px;
-    line-height: 30px;
+}
+
+.loan-content .loan-error {
+    font-size: 12px;
+    margin-left: 15px;
+    color: #f34;
 }
 
 .loan-content .loan-total {
-    font-size: 12px;
     color: #999;
 }
 
@@ -540,7 +545,7 @@
     line-height: 30px;
     border: 1px solid #ddd;
     margin: 0 10px;
-    padding-left: 10px;
+    padding-right: 0;
 }
 
 /*计算结果*/
@@ -548,7 +553,7 @@
 .box-chart {
     height: 250px;
     margin: auto 0;
-    padding: 10px 0 20px 50px;
+    padding: 0 0 20px 50px;
 }
 
 .calculator-result .chart-pip {
@@ -557,7 +562,7 @@
 }
 
 .calculator-result .chart-text {
-    width: 240px;
+    width: 268px;
 }
 
 .chart-text .month-pay {
@@ -572,12 +577,13 @@
 }
 
 .chart-text .legend li {
-    margin-top: 20px;
+    line-height: 26px;
+    margin-top: 15px;
     color: #666;
 }
 
 .chart-text .remark {
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 20px;
     color: #999;
 }

@@ -1,22 +1,7 @@
-/**
- * 等额本息计算
- */
-function averageMonthPayment(loanMoney, payMonth, yearRatio) {
-    var monthRatio = parseFloat(yearRatio / 12);
-    return loanMoney * Math.pow(1 + monthRatio, payMonth) * monthRatio / (Math.pow(1 + monthRatio, payMonth) - 1)
-}
 
 $(document).ready(function () {
 
-    $('#loanCalculateBtn').click(function () {
-        let businessRatio = 0.0475;
-        let loanMoney = $('#loanAmount').val() * 10000;
-        let loanPeriod = $('#loanPeriod').val();
-        let monthPayment = averageMonthPayment(loanMoney, loanPeriod, businessRatio);
-        $('#monthPayment').text(parseInt(monthPayment));
-    });
-
-    new FCZX.building.Calculator({
+    let calculator = new FCZX.building.Calculator({
         houseTypeS: '#houseType',
         housePriceS: '#housePrice',
         loanPriceS: '#loanPrice',
@@ -25,7 +10,7 @@ $(document).ready(function () {
         loanFundS: '#loanFund',
         loanBusinessS: '#loanBusiness',
         loanPeriodS: '#loanPeriod',
-        loanTypeS: '#loanType',
+        loanMethodS: '#loanMethod',
         loanScaleS: '.select-item-loan',
         calculateBtnS: '#loanCalculateBtn',
         unitPrice: 6170,
@@ -36,30 +21,12 @@ $(document).ready(function () {
             optionS: 'li',
             dataProp: 'value',
             isHover: false
+        },
+        resultOpt: {
+            resultS: '.box-chart',
+            chartId: 'loanPipChart'
         }
-    })
-
-    let pipOption = {
-        series: [
-            {
-                name: '计算结果',
-                type: 'pie',
-                radius: ['50%', '70%'],
-                hoverAnimation: false,
-                label: {
-                    show: false,
-                    position: 'center'
-                },
-                data: [
-                    { value: 16, name: '参考首付', itemStyle: { color: '#11a43c' } },
-                    { value: 36, name: '贷款金额', itemStyle: { color: '#409DFB' } },
-                    { value: 32.5, name: '支付利息', itemStyle: { color: '#ff9900' } }
-                ]
-            }
-        ]
-    };
-    let loanPipChart = echarts.init(document.getElementById('loanPipChart'));
-    loanPipChart.setOption(pipOption);
+    });
 });
 
 (function ($) {
@@ -94,11 +61,12 @@ $(document).ready(function () {
                 loanFundS: '',
                 loanBusinessS: '',
                 loanPeriodS: '',
-                loanTypeS: '',
+                loanMethodS: '',
                 calculateBtnS: '',
                 unitPrice: 0,
                 loanScaleS: '',
-                selectOpt: null
+                selectOpt: null,
+                resultOpt: null
             }
             $.extend(true, this.opt, opt || {});
             this._initDomEvent();
@@ -114,9 +82,10 @@ $(document).ready(function () {
             _this.$loanFund = $(_opt.loanFundS);
             _this.$loanBusiness = $(_opt.loanBusinessS);
             _this.$loanPeriod = $(_opt.loanPeriodS);
-            _this.$loanType = $(_opt.loanTypeS);
+            _this.$loanMethod = $(_opt.loanMethodS);
             _this.$loanScale = $(_opt.loanScaleS);
             _this.$calculateBtn = $(_opt.calculateBtnS);
+            _this.$resultBox = $(_opt.resultOpt.resultS);
             _this.updatePrice();
             let selectInstance = new FCZX.Select(_opt.selectOpt);
             $(selectInstance).on('change', function (event, $input) {
@@ -126,7 +95,7 @@ $(document).ready(function () {
                         _this.updatePrice();
                         break;
                     case _opt.loanTypeS:
-                        if ($input.val() === 'type_03') {
+                        if ($input.val() == '3') {
                             _this.$loanScale.show();
                         } else {
                             _this.$loanScale.hide();
@@ -135,7 +104,14 @@ $(document).ready(function () {
                     default:
                 }
             });
-
+            if (_this.validate()) {
+                _this.calculate();
+            }
+            _this.$calculateBtn.on('click.calc', function () {
+                if (_this.validate()) {
+                    _this.calculate();
+                }
+            });
         },
         updatePrice: function () {
             let _this = this;
@@ -151,8 +127,119 @@ $(document).ready(function () {
             _this.$housePrice.html(_housePriceHtml);
             _this.$loanPrice.html(_loanHtml);
         },
+        validate: function () {
+            let _this = this;
+            let isValid = true;
+            // 校验不为空，总和正确，某一个值为空填补另外一个值
+            if (_this.$loanType == '3') {
+                let FunVal = _this.$loanFund.val();
+                let BussnessVal = _this.$loanFund.val();
+                
+            }
+            return isValid;
+        },
         calculate: function () {
+            let _this = this;
+            let rates = _this.rates;
 
+            let loanFund = 0;
+            let loanBusiness = 0;
+            let rateFund = rates['fund']['6'];
+            let rateBusiness = rates['commerce']['6'];
+
+            let loanPeriod = _this.$loanPeriod.val();
+            if (loanPeriod <= 5 * 12) {
+                rateFund = rates['fund']['1'];
+                rateBusiness = rates['commerce']['5'];
+            }
+            if (loanPrice <= 1 * 12) {
+                rateBusiness = rates['commerce']['1'];
+            }
+
+            let monthlyRateFund = parseFloat(rateFund / 12);
+            let monthlyRateBusiness = parseFloat(rateBusiness / 12);
+
+            switch (_this.$loanType.val()) {
+                case "1":
+                    loanFund = 0;
+                    loanBusiness = _this.loanPrice;
+                    break;
+                case "2":
+                    loanFund = _this.loanPrice;
+                    loanBusiness = 0;
+                    break
+                case "3":
+                    loanFund = _this.$loanFund.val();
+                    loanBusiness = _this.$loanBusiness.val();
+                    break;
+                default:
+            }
+            let monthlyPayFund = _this.equalInterestCalc(loanFund, monthlyRateFund, loanPeriod);
+            let monthlyPayBusiness = _this.equalInterestCalc(loanBusiness, monthlyRateBusiness, loanPeriod);
+            let result = {
+                monthlyPay: Math.round(monthlyPayFund + monthlyPayBusiness),
+                firstPay: Math.round(_this.housePrice - _this.loanPrice),
+                loanPrice: _this.loanPrice,
+                interest: parseFloat(((monthlyPayFund + monthlyPayBusiness) * loanPeriod / 10000 - _this.loanPrice).toFixed(1)),
+                firstPayLevel: 10 - _this.$loanLevel.val() * 10,
+                loanLevel: _this.$loanLevel.val() * 10,
+                rateFund: (rateFund * 100).toFixed(2),
+                rateBusiness: (rateBusiness * 100).toFixed(2)
+            }
+
+            _this.renderResult(result);
+        },
+        equalInterestCalc: function (loanMoney, monthRatio, loanPeriod) { //等额本息月均还款额
+            //等额本息每月还款金额 =〔贷款本金*月利率*(月利率+1)^还款月数〕÷〔(1+月利率)^还款月数-1〕。
+            return 10000 * loanMoney * monthRatio * [Math.pow((1 + monthRatio), loanPeriod)] / [Math.pow((1 + monthRatio), loanPeriod) - 1];
+        },
+        renderResult: function (result) {
+            let _this = this;
+            let _opt = _this.opt;
+            let $chartText = _this.$resultBox.find('.chart-text');
+            let _resultHtml = `
+                <p class="month-pay">月均还款 <span class="price">${result.monthlyPay}</span> 元</p>
+                <ul class="legend">
+                    <li class="legend-pay">
+                        <i class="legend-icon blue"></i>
+                        <span>参考首付： ${result.firstPay}万</span>
+                        <span>（${result.firstPayLevel}成）</span>
+                    </li>
+                    <li class="legend-pay">
+                        <i class="legend-icon primary"></i>
+                        <span>贷款金额： ${result.loanPrice}万</span>
+                        <span>（${result.loanLevel}成）</span>
+                    </li>
+                    <li class="legend-pay">
+                        <i class="legend-icon yellow"></i>
+                        <span>支付利息： ${result.interest}万</span><br>
+                        <span>（利率公积金${result.rateFund}%，商业性${result.rateBusiness}%）</span>
+                    </li>
+                </ul>
+                <p class="remark">备注：以等额本息计算结果，数据仅供参考</p>`;
+            $chartText.html(_resultHtml);
+            let pipData = [
+                { value: result.firstPay, name: '参考首付', itemStyle: { color: '#11a43c' } },
+                { value: result.loanPrice, name: '贷款金额', itemStyle: { color: '#409DFB' } },
+                { value: result.interest, name: '支付利息', itemStyle: { color: '#ff9900' } }
+            ]
+            let pipOption = {
+                series: [
+                    {
+                        name: '计算结果',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        hoverAnimation: false,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        data: pipData
+                    }
+                ]
+            };
+            let loanPipChart = echarts.init(document.getElementById(_opt.resultOpt.chartId));
+            loanPipChart.setOption(pipOption);
         }
     });
 })(jQuery);
