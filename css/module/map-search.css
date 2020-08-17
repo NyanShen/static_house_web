@@ -139,6 +139,28 @@
 
 .map-list-content {
     width: 380px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.map-list-scroll-bar {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.map-list-scroll-bar .scroll-slider {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 3px;
+    height: 80px;
+    border-radius: 25%;
+    background-color: #ddd;
 }
 
 .mli-item {
@@ -197,6 +219,8 @@
 
 .map-list-empty {
     display: none;
+    position: absolute;
+    top: 0;
     width: 380px;
     text-align: center;
     margin-top: 60px;

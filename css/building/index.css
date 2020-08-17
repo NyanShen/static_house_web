@@ -527,6 +527,7 @@
 }
 
 .loan-content .loan-error {
+    display: none;
     font-size: 12px;
     margin-left: 15px;
     color: #f34;
@@ -586,6 +587,9 @@
     font-size: 13px;
     margin-top: 20px;
     color: #999;
+}
+.chart-text .legend-pay.actived span {
+    color: #11a43c;
 }
 
 .chart-text .legend-icon {

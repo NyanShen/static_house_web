@@ -1,0 +1,59 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.box-city {
+    min-height: 300px;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.box-city .title {
+    font-size: 16px;
+}
+
+.hot-city {
+    line-height: 30px;
+}
+
+.hot-city .city-list {
+    padding-left: 85px;
+}
+
+.hot-city .city-list a {
+    color: #11a43c;
+    margin: 0 10px;
+}
+
+.order-city .order-list {
+    margin-top: 20px;
+}
+
+.order-city .order-list li {
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.order-city .order-list .letter {
+    float: left;
+    width: 50px;
+    color: #999;
+}
+
+.order-city .order-list .city-list {
+    padding-left: 50px;
+}
+
+.order-city .order-list .city-list a {
+    margin: 0 12px;
+}
+
+.box-city .city-list a.hot {
+    color: #11a43c;
+}
+
+.box-city a.hot:hover,
+.box-city a:hover {
+    color: #f60;
+    text-decoration: underline;
+}

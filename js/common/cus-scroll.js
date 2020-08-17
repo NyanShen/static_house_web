@@ -17,20 +17,6 @@
             _this._initDomEvent();
             return _this;
         },
-        _initSliderHeight: function () {
-            let _this = this;
-            let sliderHeight;
-            let contentHeight = _this.$scrollContent.height();
-            let contentTotalHeight = _this.$scrollContent[0].scrollHeight;
-            let offsetHeight = contentTotalHeight - contentHeight;
-            if (offsetHeight <= 0) {
-                sliderHeight = 0;
-            } else {
-                sliderHeight = contentHeight  * contentHeight / contentTotalHeight
-            }
-            _this.$scrollSlider.height(`${sliderHeight}px`);
-            return _this;
-        },
         _initDomEvent: function () {
             let opts = this.options;
             // 获取相应Jquery对象
@@ -42,6 +28,37 @@
             this._initSliderDragEvent();
             this._bindMousewheel();
             this._bindContentScroll();
+        },
+        _initSliderHeight: function () {
+            let _this = this;
+            let sliderHeight;
+            let contentHeight = _this.$scrollContent.height();
+            let contentTotalHeight = _this.$scrollContent[0].scrollHeight;
+            let offsetHeight = contentTotalHeight - contentHeight;
+            if (offsetHeight <= 0) {
+                sliderHeight = 0;
+                _this._unbindMouseOver();
+            } else {
+                sliderHeight = contentHeight * contentHeight / contentTotalHeight;
+                _this._bindMouseHover();
+            }
+            _this.$scrollSlider.height(`${sliderHeight}px`);
+            return _this;
+        },
+        _unbindMouseOver: function () {
+            this.$scrollBar.hide();
+            this.$scrollContent.off('mouseenter mouseleave');
+        },
+        _bindMouseHover: function () {
+            let _this = this;
+            this.$scrollContent.on({
+                mouseenter: function () {
+                    _this.$scrollBar.show();
+                },
+                mouseleave: function () {
+                    _this.$scrollBar.hide();
+                }
+            })
         },
         _initSliderDragEvent: function () {
             let _this = this;

@@ -250,6 +250,14 @@
     padding-left: 3px;
 }
 
+.main-nav .triangle-up {
+    position: absolute;
+    top: -16px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
 .main-nav .nav-city {
     padding: 0 10px;
 }
@@ -272,6 +280,37 @@
     border-width: 5px;
     border-style: solid;
     border-color: #fff transparent transparent transparent;
+}
+
+.main-nav .nav-city:hover .city-list {
+    display: block;
+}
+
+.main-nav .nav-city .city-list {
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    width: 320px;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    background-color: #fff;
+    z-index: 12;
+}
+
+.main-nav .city-list .triangle-up {
+    left: 20px;
+}
+
+.main-nav .city-list a {
+    float: left;
+    padding: 4px 10px;
+    color: #666;
+}
+
+.main-nav .city-list a:hover {
+    color: #11a43c;
 }
 
 .main-nav>.nav-content li {
@@ -327,12 +366,7 @@
 }
 
 .main-nav .user-center .triangle-up {
-    position: absolute;
-    top: -16px;
     left: 30px;
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent #fff transparent;
 }
 
 .main-nav .user-center a {

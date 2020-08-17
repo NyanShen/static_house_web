@@ -231,12 +231,14 @@
 
     FCZX.map.List = function (mapIndex, opt) {
         this.mapIndex = mapIndex;
+        this.scrollInstance = null;
         this._init(opt);
     }
 
     $.extend(FCZX.map.List.prototype, {
         _init: function (opt) {
             this.opt = {
+                scrollId: 'mapListWrap',
                 foldSelector: '.fold-btn',
                 contSelector: '.map-list-content',
                 listSelector: '.map-list',
@@ -245,6 +247,9 @@
             }
             $.extend(true, this.opt, opt || {});
             this._initDomEvent();
+            if (!this.scrollInstance) {
+                this.scrollInstance = getCustomScrollBarInstance(this.opt.scrollId);
+            }
         },
         _initDomEvent: function () {
             let _this = this;
@@ -277,6 +282,7 @@
             if (!listData || listData.length <= 0) {
                 _opt.$empty.show();
                 _opt.$list.html(_template);
+                _this.scrollInstance._initSliderHeight();
                 return;
             }
             for (const item of listData) {
@@ -304,6 +310,7 @@
             };
             _opt.$empty.hide();
             _opt.$list.html(_template);
+            _this.scrollInstance._initSliderHeight();
         }
     });
 

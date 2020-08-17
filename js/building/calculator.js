@@ -10,7 +10,6 @@ $(document).ready(function () {
         loanFundS: '#loanFund',
         loanBusinessS: '#loanBusiness',
         loanPeriodS: '#loanPeriod',
-        loanMethodS: '#loanMethod',
         loanScaleS: '.select-item-loan',
         calculateBtnS: '#loanCalculateBtn',
         unitPrice: 6170,
@@ -61,7 +60,6 @@ $(document).ready(function () {
                 loanFundS: '',
                 loanBusinessS: '',
                 loanPeriodS: '',
-                loanMethodS: '',
                 calculateBtnS: '',
                 unitPrice: 0,
                 loanScaleS: '',
@@ -82,7 +80,6 @@ $(document).ready(function () {
             _this.$loanFund = $(_opt.loanFundS);
             _this.$loanBusiness = $(_opt.loanBusinessS);
             _this.$loanPeriod = $(_opt.loanPeriodS);
-            _this.$loanMethod = $(_opt.loanMethodS);
             _this.$loanScale = $(_opt.loanScaleS);
             _this.$calculateBtn = $(_opt.calculateBtnS);
             _this.$resultBox = $(_opt.resultOpt.resultS);
@@ -131,10 +128,49 @@ $(document).ready(function () {
             let _this = this;
             let isValid = true;
             // 校验不为空，总和正确，某一个值为空填补另外一个值
-            if (_this.$loanType == '3') {
+            if (_this.$loanType.val() == '3') {
                 let FunVal = _this.$loanFund.val();
-                let BussnessVal = _this.$loanFund.val();
-                
+                let BussnessVal = _this.$loanBusiness.val();
+                let $error = _this.$loanScale.find('.loan-error');
+                if (!FunVal && !BussnessVal) {
+                    $error.find('span').text('贷款金额不能为空');
+                    $error.css('display', 'inline-block');
+                    return false
+                }
+                if (FunVal && !BussnessVal) {
+                    if (parseInt(FunVal) > _this.loanPrice) {
+                        $error.find('span').text('贷款总额错误');
+                        $error.css('display', 'inline-block');
+                        return false;
+                    } else {
+                        _this.$loanFund.val(parseInt(FunVal));
+                        _this.$loanBusiness.val(_this.loanPrice - parseInt(FunVal));
+                    }
+                }
+
+                if (!FunVal && BussnessVal) {
+                    if (parseInt(BussnessVal) > _this.loanPrice) {
+                        $error.find('span').text('贷款总额错误');
+                        $error.css('display', 'inline-block');
+                        return false;
+                    } else {
+                        _this.$loanFund.val(_this.loanPrice - parseInt(BussnessVal));
+                        _this.$loanBusiness.val(parseInt(BussnessVal));
+                    }
+                }
+
+                if (FunVal && BussnessVal) {
+                    if (parseInt(FunVal) + parseInt(BussnessVal) != _this.loanPrice) {
+                        $error.find('span').text('贷款总额错误');
+                        $error.css('display', 'inline-block');
+                        return false;
+                    } else {
+                        _this.$loanFund.val(parseInt(FunVal));
+                        _this.$loanBusiness.val(parseInt(BussnessVal));
+                    }
+                }
+                $error.find('span').text('');
+                $error.css('display', 'none');
             }
             return isValid;
         },
@@ -201,12 +237,12 @@ $(document).ready(function () {
                 <p class="month-pay">月均还款 <span class="price">${result.monthlyPay}</span> 元</p>
                 <ul class="legend">
                     <li class="legend-pay">
-                        <i class="legend-icon blue"></i>
+                        <i class="legend-icon primary"></i>
                         <span>参考首付： ${result.firstPay}万</span>
                         <span>（${result.firstPayLevel}成）</span>
                     </li>
                     <li class="legend-pay">
-                        <i class="legend-icon primary"></i>
+                        <i class="legend-icon blue"></i>
                         <span>贷款金额： ${result.loanPrice}万</span>
                         <span>（${result.loanLevel}成）</span>
                     </li>
@@ -228,7 +264,7 @@ $(document).ready(function () {
                     {
                         name: '计算结果',
                         type: 'pie',
-                        radius: ['50%', '70%'],
+                        radius: ['50%', '75%'],
                         hoverAnimation: false,
                         label: {
                             show: false,
@@ -240,6 +276,35 @@ $(document).ready(function () {
             };
             let loanPipChart = echarts.init(document.getElementById(_opt.resultOpt.chartId));
             loanPipChart.setOption(pipOption);
+
+            let $chartTextItem = $chartText.find('.legend-pay');
+
+            loanPipChart.on('mouseover', { seriesName: '计算结果' }, params => {
+                let index = getCurrentIndex(params.name);
+                $chartTextItem.eq(index).addClass('actived');
+            });
+
+            loanPipChart.on('mouseout', { seriesName: '计算结果' }, params => {
+                let index = getCurrentIndex(params.name);
+                $chartTextItem.eq(index).removeClass('actived');
+            });
+
+            function getCurrentIndex(name) {
+                let currentIndex = 0;
+                switch (name) {
+                    case '参考首付':
+                        currentIndex = 0;
+                        break;
+                    case '贷款金额':
+                        currentIndex = 1;
+                        break;
+                    case '支付利息':
+                        currentIndex = 2;
+                        break;
+                    default:
+                }
+                return currentIndex;
+            }
         }
     });
 })(jQuery);

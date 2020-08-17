@@ -98,11 +98,6 @@ $(document).ready(function () {
         knowListScroll._initSliderHeight();
         toggleMenu(knowSelector, knowListScroll);
         switchMenu(knowSelector, knowListScroll);
-        $(this).find('.know-right').hover(function () {
-            $(this).find('.scroll-bar').show();
-        }, function () {
-            $(this).find('.scroll-bar').hide();
-        })
     });
 
     $('.know-list').find('.collect').each(function () {
