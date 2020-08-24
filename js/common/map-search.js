@@ -45,7 +45,6 @@
             $(win).resize(function () {
                 _this._resize();
             });
-            console.log(this)
         },
         _getHeaderHeight: function () {
             return $(this.opt.navSelector).outerHeight(true) + $(this.opt.menuOpt.menuSelector).outerHeight(true)
@@ -75,7 +74,7 @@
         regionClick: function (region_id) {
             let menuOpt = this.menu.opt;
             let targetRegion = menuOpt.$selectList.find(`${menuOpt.optionS}[data-value=${region_id}]`);
-            targetRegion.trigger('click.mapMenuItem');
+            targetRegion.trigger('click.mapMenuItem', false);
         }
     });
 })(window, jQuery);
@@ -131,7 +130,7 @@
 
     FCZX.map.Menu = function (mapIndex, opt) {
         this.mapIndex = mapIndex;
-        this.keyList = ['region', 'house_type', 'house_area', 'house_prop', 'house_price'];
+        this.keyList = ['fang_area_id', 'fang_building_type', 'fang_room_type', 'fang_renovation_status'];
         this._init(opt);
     }
 
@@ -163,7 +162,7 @@
                 })
             })
             _opt.$selectList.find(_opt.optionS).each(function () {
-                $(this).on('click.mapMenuItem', function () {
+                $(this).on('click.mapMenuItem', function (event, fromMenu = true) {
                     let text = $(this).text()
                     let id = $(this).attr('id');
                     let value = $(this).data('value');
@@ -182,17 +181,17 @@
                     _opt.$selectList.hide();
                     $(this).siblings().removeClass('actived');
                     $(this).addClass('actived');
-                    _this._change($(this).parents(_opt.itemSelector).index(), value);
+                    _this._change($(this).parents(_opt.itemSelector).index(), value, fromMenu);
                 });
             });
         },
-        _change: function (index, value) {
+        _change: function (index, value, fromMenu) {
             if (index == 0) {//更新区域值
                 let _this = this;
                 let indexOpt = _this.mapIndex.opt;
                 let position = _this._getPositionById(value);
                 if (position) {
-                    _this.mapIndex.setMapCenter(_this.mapIndex.bMap.map.getZoom() + 1, position);
+                    fromMenu ? _this.mapIndex.setMapCenter(indexOpt.regionZoom, position) : _this.mapIndex.setMapCenter(_this.mapIndex.bMap.map.getZoom() + 1, position);
                 } else {
                     _this.mapIndex.setMapCenter(indexOpt.defaultZoom);
                 }
@@ -278,7 +277,6 @@
             let _this = this;
             let _opt = _this.opt;
             let _template = '';
-            let region_name = '';
             if (!listData || listData.length <= 0) {
                 _opt.$empty.show();
                 _opt.$list.html(_template);
@@ -286,24 +284,20 @@
                 return;
             }
             for (const item of listData) {
-                if (item.sub_region_name) {
-                    region_name = item.region_name + '&nbsp;' + item.sub_region_name;
-                } else {
-                    region_name = item.region_name;
-                }
                 _template = _template + `
                     <li class="mli-item clearfix" data-id="${item.id}">
                         <div class="fl">
-                            <a class="mli-img" href="${item.house_link}">
+                            <a class="mli-img" href="/house/${item.alias}/home.html" target="_blank">
                                 <img src="${item.image_path}" alt="">
                             </a>
                         </div>
                         <div class="mli-detail fl">
-                            <p class="item house-name" href="${item.house_link}">${item.house_name}</p>
+                            <a class="item house-name" href="/house/${item.alias}/home.html" target="_blank">${item.title}</a>
                             <p class="item">
-                                <span class="house-price">${item.price}${item.price_unit}</span>
+                                <span class="house-price">${item.price}</span>
+                                <span class="small-desc">${PRICE_TYPE[item.price_type]}</span>
                             </p>
-                            <p class="item house-address" title="[${region_name}]${item.address}">[${region_name}]${item.address}</p>
+                            <p class="item house-address" title="[${item.area.name}]${item.address}">[${item.area.name}]${item.address}</p>
                         </div>
                     </li>
                 `
@@ -517,12 +511,12 @@
                     type: "house_label",
                     title: data.house_name,
                     template: `
-                    <a class="house-bubble" data-id="${data.id}" href="${data.house_link}" target="_blank">
+                    <a class="house-bubble" data-id="${data.id}" href="/house/${data.alias}/home.html" target="_blank">
                         <p>
                             <span class="price">${data.price}</span>
-                            <span class="unit">${data.price_unit}</span>
+                            <span class="unit">${PRICE_TYPE[data.price_type]}</span>
                             <em>|</em>
-                            <span class="name">${data.house_name}</span>
+                            <span class="name">${data.title}</span>
                         </p>
                         <div class="triangle-down"></div>
                     </a>`,

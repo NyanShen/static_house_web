@@ -639,7 +639,7 @@ let SALE_STATUS = {
 }
 
 let PRICE_TYPE = {
-    1: '元/平方米',
+    1: '元/m²',
     2: '万元/套'
 }
 

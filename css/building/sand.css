@@ -43,42 +43,13 @@
     background: url("../../assets/icons/state-checked.png") no-repeat center center;
 }
 
-.sand-state ul li.unsold {
-    background-color: #FF9832;
-}
-
-.sand-state ul li.solding {
-    background-color: #409DFB;
-}
-
-.sand-state ul li.solded {
-    background-color: #BBB;
-}
-
 .sand-picture .sand-item {
     position: absolute;
-    cursor: pointer;
-    background-color: #f7f7f7;
-}
-
-.sand-picture .sand-item {
     font-size: 12px;
     padding: 6px 8px;
     border-radius: 2px;
     color: #fff;
-    background-color: #409DFB;
-}
-
-.sand-picture .solding {
-    background-color: #409DFB;
-}
-
-.sand-picture .unsold {
-    background-color: #FF9832;
-}
-
-.sand-picture .solded {
-    background-color: #BBB;
+    cursor: pointer;
 }
 
 .sand-picture .sand-item:hover {
@@ -107,15 +78,15 @@
     border-color: #409DFB transparent transparent;
 }
 
-.sand-picture .solding i {
+.sand-picture .sale-status-1 i {
     border-color: #409DFB transparent transparent;
 }
 
-.sand-picture .unsold i {
+.sand-picture .sale-status-2 i {
     border-color: #FF9832 transparent transparent;
 }
 
-.sand-picture .solded i {
+.sand-picture .sale-status-3 i {
     border-color: #BBB transparent transparent;
 }
 

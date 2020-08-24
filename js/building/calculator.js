@@ -1,33 +1,4 @@
 
-$(document).ready(function () {
-
-    let calculator = new FCZX.building.Calculator({
-        houseTypeS: '#houseType',
-        housePriceS: '#housePrice',
-        loanPriceS: '#loanPrice',
-        loanLevelS: '#loanLevel',
-        loanTypeS: '#loanType',
-        loanFundS: '#loanFund',
-        loanBusinessS: '#loanBusiness',
-        loanPeriodS: '#loanPeriod',
-        loanScaleS: '.select-item-loan',
-        calculateBtnS: '#loanCalculateBtn',
-        unitPrice: 6170,
-        selectOpt: {
-            selectContS: '.select-content',
-            selectTextS: '.select-text',
-            selectListS: '.select-list',
-            optionS: 'li',
-            dataProp: 'value',
-            isHover: false
-        },
-        resultOpt: {
-            resultS: '.box-chart',
-            chartId: 'loanPipChart'
-        }
-    });
-});
-
 (function ($) {
     FCZX.globalNamespace('FCZX.building.Calculator');
 
@@ -61,7 +32,8 @@ $(document).ready(function () {
                 loanBusinessS: '',
                 loanPeriodS: '',
                 calculateBtnS: '',
-                unitPrice: 0,
+                // unitPrice: 0,
+                // priceType: 1, 
                 loanScaleS: '',
                 selectOpt: null,
                 resultOpt: null
@@ -112,15 +84,15 @@ $(document).ready(function () {
         },
         updatePrice: function () {
             let _this = this;
-            _this.houseArea = _this.$houseType.val();
-            _this.housePrice = Math.round(_this.houseArea * _this.opt.unitPrice / 10000);
+            _this.housePrice = Math.round(_this.$houseType.val());
             _this.loanPrice = Math.round(_this.housePrice * _this.$loanLevel.val());
+
             let _housePriceHtml = `
             <span class="price">${_this.housePrice}</span>
             <span class="unit text-color">万元</span>
-            <span class="desc">（均价${_this.opt.unitPrice}元/m² × 面积${_this.houseArea}m²）</span>
             `;
             let _loanHtml = `贷款总额${_this.loanPrice}万`;
+            
             _this.$housePrice.html(_housePriceHtml);
             _this.$loanPrice.html(_loanHtml);
         },

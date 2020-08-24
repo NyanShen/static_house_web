@@ -645,19 +645,19 @@ table th, table td {
 /* 在售 */
 
 .sale-status-1 {
-    background: rgba(64, 157, 251);
+    background-color: rgba(64, 157, 251);
 }
 
 /* 待售 */
 
 .sale-status-2 {
-    background: rgba(255, 152, 50);
+    background-color: rgba(255, 152, 50);
 }
 
 /* 售完 */
 
 .sale-status-3 {
-    background: rgba(187, 187, 187);
+    background-color: rgba(187, 187, 187);
 }
 
 /* 中图轮播箭头 */

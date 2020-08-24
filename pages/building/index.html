@@ -122,9 +122,9 @@
             </div>
             <!-- 面包屑end -->
             <div class="search-content clearfix fr">
-                <form class="search-form clearfix fl">
-                    <input type="text" class="search-input" placeholder="楼盘名或地址">
-                    <input type="button" class="search-btn" value="搜索">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/house/list.html" method="GET" target="_self">
+                    <input type="text" class="search-input" placeholder="楼盘名或地址" name="t" value="">
+                    <input type="submit" class="search-btn" value="搜索">
                 </form>
                 <a href="/pages/module/map-search.html" target="_blank" class="search-by-map fr"><i></i>地图找房</a>
             </div>
@@ -802,15 +802,15 @@
                 <div class="sand-content fl" id="sandContent">
                     <div class="sand-state">
                         <ul>
-                            <li class="solding">
+                            <li class="sale-status-1">
                                 <i class="checked"></i>
                                 <span>在售</span>
                             </li>
-                            <li class="unsold">
+                            <li class="sale-status-2">
                                 <i class="checked"></i>
                                 <span>待售</span>
                             </li>
-                            <li class="solded">
+                            <li class="sale-status-3">
                                 <i class="checked"></i>
                                 <span>售完</span>
                             </li>
@@ -1195,6 +1195,36 @@
                     <a href="javascript:;" id="loanCalculateBtn">开始计算</a>
                 </div>
             </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    new FCZX.building.Calculator({
+                        houseTypeS: '#houseType',
+                        housePriceS: '#housePrice',
+                        loanPriceS: '#loanPrice',
+                        loanLevelS: '#loanLevel',
+                        loanTypeS: '#loanType',
+                        loanFundS: '#loanFund',
+                        loanBusinessS: '#loanBusiness',
+                        loanPeriodS: '#loanPeriod',
+                        loanScaleS: '.select-item-loan',
+                        calculateBtnS: '#loanCalculateBtn',
+                        // unitPrice: 6170,
+                        // priceType: 1,
+                        selectOpt: {
+                            selectContS: '.select-content',
+                            selectTextS: '.select-text',
+                            selectListS: '.select-list',
+                            optionS: 'li',
+                            dataProp: 'value',
+                            isHover: false
+                        },
+                        resultOpt: {
+                            resultS: '.box-chart',
+                            chartId: 'loanPipChart'
+                        }
+                    });
+                });
+            </script>
         </div>
         <!--购房计算器 end-->
         <!--楼盘相册 begin-->

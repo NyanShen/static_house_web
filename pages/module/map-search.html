@@ -131,33 +131,33 @@
                     <div class="item-select">
                         <span data-name="区域">区域</span>
                         <i class="iconfont">&#xe68a;</i>
-                        <input type="hidden" id="region" value="">
+                        <input type="hidden" id="fang_area_id" value="">
                     </div>
                     <ul class="item-select-list">
                         <li data-value="0">全部</li>
-                        <li id="region_1001" data-value="1001">樊城区</li>
-                        <li id="region_1002" data-value="1002">襄州区</li>
-                        <li id="region_1003" data-value="1003">谷城县</li>
-                        <li id="region_1004" data-value="1004">老河口市</li>
-                        <li id="region_1005" data-value="1005">宜城</li>
-                        <li id="region_1006" data-value="1006">保康</li>
-                        <li id="region_1007" data-value="1007">枣阳</li>
+                        <li id="fang_area_id_1001" data-value="420606">樊城区</li>
+                        <li id="fang_area_id_1002" data-value="1002">襄州区</li>
+                        <li id="fang_area_id_1003" data-value="1003">谷城县</li>
+                        <li id="fang_area_id_1004" data-value="1004">老河口市</li>
+                        <li id="fang_area_id_1005" data-value="1005">宜城</li>
+                        <li id="fang_area_id_1006" data-value="1006">保康</li>
+                        <li id="fang_area_id_1007" data-value="420683">枣阳</li>
                     </ul>
                 </div>
                 <div class="menu-item">
                     <div class="item-select">
                         <span data-name="户型">户型</span>
                         <i class="iconfont">&#xe68a;</i>
-                        <input type="hidden" id="house_type" value="">
+                        <input type="hidden" id="fang_room_type" value="">
                     </div>
                     <ul class="item-select-list">
                         <li data-value="0">全部</li>
-                        <li id="house_type_101" data-value="101">一室</li>
-                        <li id="house_type_102" data-value="102">二室</li>
-                        <li id="house_type_103" data-value="103">三室</li>
-                        <li id="house_type_104" data-value="104">四室</li>
-                        <li id="house_type_105" data-value="105">五室</li>
-                        <li id="house_type_106" data-value="106">五室以上</li>
+                        <li id="fang_room_type_101" data-value="101">一室</li>
+                        <li id="fang_room_type_102" data-value="102">二室</li>
+                        <li id="fang_room_type_103" data-value="103">三室</li>
+                        <li id="fang_room_type_104" data-value="104">四室</li>
+                        <li id="fang_room_type_105" data-value="105">五室</li>
+                        <li id="fang_room_type_106" data-value="106">五室以上</li>
                     </ul>
                 </div>
                 <div class="menu-item">
@@ -183,15 +183,30 @@
                     <div class="item-select">
                         <span data-name="类型">类型</span>
                         <i class="iconfont">&#xe68a;</i>
-                        <input type="hidden" id="house_prop" value="">
+                        <input type="hidden" id="fang_building_type" value="">
                     </div>
                     <ul class="item-select-list">
                         <li data-value="0">全部</li>
-                        <li id="house_prop_1" data-value="1">住宅</li>
-                        <li id="house_prop_2" data-value="2">别墅</li>
-                        <li id="house_prop_3" data-value="3">商住</li>
-                        <li id="house_prop_4" data-value="4">商铺</li>
-                        <li id="house_prop_5" data-value="5">写字楼</li>
+                        <li id="fang_building_type_1" data-value="1">住宅</li>
+                        <li id="fang_building_type_2" data-value="2">别墅</li>
+                        <li id="fang_building_type_3" data-value="3">商住</li>
+                        <li id="fang_building_type_4" data-value="4">商铺</li>
+                        <li id="fang_building_type_5" data-value="5">写字楼</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="装修状况">装修状况</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="fang_renovation_status" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="fang_renovation_status_1" data-value="1">住宅</li>
+                        <li id="fang_renovation_status_2" data-value="2">别墅</li>
+                        <li id="fang_renovation_status_3" data-value="3">商住</li>
+                        <li id="fang_renovation_status_4" data-value="4">商铺</li>
+                        <li id="fang_renovation_status_5" data-value="5">写字楼</li>
                     </ul>
                 </div>
                 <div class="menu-item">
@@ -259,12 +274,12 @@
 
         new FCZX.map.Index({
             city: '襄阳',
-            position: {},
-            source_url: 'http://xiangyang.fczx.com/house/list', //测试接口
-            // source_url: app.areaApiUrl(/house/list),
+            position: {}, // {lng: '112.129108', lat: '32.015532'}
+            // source_url: 'http://xiangyang.fczx.com/api/house/list', //测试接口
+            source_url: app.areaApiUrl('/house/area-house'),
             city_regions: [
                 {
-                    "id": "1001",
+                    "id": "420606",
                     "name": "樊城区",
                     "longitude": "112.146049",
                     "latitude": "32.051797",
@@ -300,7 +315,7 @@
                     "latitude": "31.905982",
                 },
                 {
-                    "id": "1007",
+                    "id": "420683",
                     "name": "枣阳",
                     "longitude": "112.778475",
                     "latitude": "32.136441",
