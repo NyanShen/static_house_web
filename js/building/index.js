@@ -111,15 +111,12 @@ $(document).ready(function () {
     });
 
     /*预约看房*/
-    $('.reservation').on('click' ,function () {
+    $('.reservation').on('click', function () {
         let type = $(this).attr('data-type');
         let houseId = $(this).find('input').val();
-        console.log($(this).find('input'), houseId)
         let modalParams = {
             title: `预约看房`,
             okText: '立即预约',
-            loginName: 'Nyan',
-            loginPhone: '13418897654',
             message: `预约楼盘【${$(this).attr('data-title')}】`,
             callback: function (username, phone, phoneCode) {
                 callbackHouseCustomer(houseId, type, username, phone, phoneCode);

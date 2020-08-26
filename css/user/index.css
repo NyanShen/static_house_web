@@ -146,6 +146,31 @@ body {
     padding-left: 35px;
 }
 
+.upload-btn {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #11a43c;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    padding: 5px 15px;
+    color: #666;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #f2f2f2;
+}
+
 .profile-list {
     padding: 0 35px;
 }
@@ -226,6 +251,7 @@ body {
 }
 
 .pass-item {
+    position: relative;
     width: 100%;
     height: 40px;
     line-height: 40px;
@@ -240,6 +266,14 @@ body {
     height: 40px;
     line-height: 40px;
     background-color: #F8F9FB;
+}
+
+.pass-item .form-error {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    font-size: 12px;
+    color: #ff3344;
 }
 
 .update-pass .pass-btn {

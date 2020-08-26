@@ -94,7 +94,7 @@ $(document).ready(function () {
             type: 'phone'
         }], nameMapper);
         if (errorCount) return;
-        let params = { message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' }
+        let params = { message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/user/register' }
         let url = loginByBindPhone ? '/user/bind-code' : '/user/login-code';
         getPhoneCodeByType($(this), url, confirmModel, params)
     });
@@ -106,7 +106,7 @@ $(document).ready(function () {
             type: 'phone'
         }], nameMapper);
         if (errorCount) return;
-        let params = { message: '您输入的手机号已注册，请直接登录', okText: '去登录', url: '/pages/login.html' }
+        let params = { message: '您输入的手机号已注册，请直接登录', okText: '去登录', url: '/user/login' }
         getPhoneCodeByType($(this), '/user/register-code', confirmModel, params)
     });
 
@@ -187,7 +187,7 @@ $(document).ready(function () {
                     app.setToken(res.data);
                     let backUrl = app.getUrlParam('backUrl');
                     if (backUrl) {
-                        window.location.href = backUrl;
+                        window.location.href = decodeURIComponent(backUrl);
                     } else {
                         window.location.href = '/';
                     }
@@ -221,7 +221,7 @@ $(document).ready(function () {
                     app.setToken(res.data);
                     let backUrl = app.getUrlParam('backUrl');
                     if (backUrl) {
-                        window.location.href = backUrl;
+                        window.location.href = decodeURIComponent(backUrl);
                     } else {
                         window.location.href = '/';
                     }
@@ -265,7 +265,7 @@ $(document).ready(function () {
                         app.setToken(res.data);
                         let backUrl = app.getUrlParam('backUrl');
                         if (backUrl) {
-                            window.location.href = backUrl;
+                            window.location.href = decodeURIComponent(backUrl);
                         } else {
                             window.location.href = '/';
                         }
@@ -368,7 +368,7 @@ $(document).ready(function () {
                     stepContentTwo.show();
                     phoneShow.val(phone.val());
                 } else {
-                    confirmModel({ message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/pages/register.html' })
+                    confirmModel({ message: '您输入的手机号尚未注册，请检查手机号或注册账户', okText: '去注册', url: '/user/register' })
                 }
             }
         });

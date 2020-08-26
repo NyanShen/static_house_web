@@ -43,8 +43,12 @@ app.setToken = function (token) {
 };
 
 app.getToken = function () {
-    var token = window.localStorage.getItem('token');
-    return token ? token : 'undefined';
+    var arr,reg=new RegExp("(^| )_x_token=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg)) {
+        return unescape(arr[2]);
+    }else {
+        return undefined;
+    }
 };
 
 /**
@@ -88,7 +92,7 @@ app.request = function (params) {
             } else if (response.status == 302) {
                 location.href = response.responseJSON.message;
             } else if (response.status == 401) {
-                var backUrl = encodeURI(location.href);
+                var backUrl = encodeURIComponent(location.href);
                 location.href = `${app.wwwDomain}/user/login?backUrl=${backUrl}`;
             } else {
                 if (typeof response.responseJSON != 'undefined') {

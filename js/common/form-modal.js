@@ -1,11 +1,25 @@
 (function () {
     $.FormModal = {
         userForm: function (params) {
-            const { loginName = '', loginPhone = '' } = params;
+            let loginName = '';
+            let loginPhone = '';
             const { title, callback, okText = '提交', message = '' } = params;
-            generateUserFormHtml(title, okText, message, loginName, loginPhone);
-            submitForm(callback, loginName, loginPhone);
-            closeModal();
+            app.request({
+                url: app.apiUrl('/user/get'),
+                data: {},
+                type: 'GET',
+                dataType: 'json',
+                headers: {},
+                done: function ({ data }) {
+                    if (data) {
+                        loginName = data.nickname || data.username;
+                        loginPhone = data.mobile;
+                    }
+                    generateUserFormHtml(title, okText, message, loginPhone);
+                    submitForm(callback, loginName, loginPhone);
+                    closeModal();
+                }
+            });
         },
         loginForm: function (params) {
             const { title } = params;
@@ -14,7 +28,7 @@
         }
     }
 
-    function generateUserFormHtml(title, okText, message, loginName, loginPhone) {
+    function generateUserFormHtml(title, okText, message, loginPhone) {
         let _html = '';
         let _html_header = `<div class="box-modal" id="boxModal">
         <div class="modal-wrapper">
@@ -24,7 +38,6 @@
             </div>`;
         let _html_message = `<p class="modal-sms">${message}</p>`;
         let _html_phone = `
-        <p class="modal-user-info">姓<i style="margin:0 9px"></i>名：${loginName}</p>
         <p class="modal-user-info">手机号：${loginPhone}</p>
         <div class="modal-btn">
             <a href="javascript:;" id="modalPhoneBtn">${okText}</a>

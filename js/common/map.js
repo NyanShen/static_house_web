@@ -23,7 +23,7 @@
             let resultList = [];
             map.clearOverlays();
             map.addOverlay(circle);
-            for (let item of results.Ir) {
+            for (let item of results.Hr) {
                 resultList.push({
                     point: item.point,
                     title: item.title,
