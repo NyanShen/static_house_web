@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    //清除存储信息
+    app.deleteCookie('_x_token', app.topDomain);
+    app.setCookie('_x_u', '', 30, app.topDomain);
     //记录登录方式
     let loginByPassword = true;
     let loginByBindPhone = false;
@@ -183,14 +186,8 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 headers: {},
-                done: function (res) {
-                    app.setToken(res.data);
-                    let backUrl = app.getUrlParam('backUrl');
-                    if (backUrl) {
-                        window.location.href = decodeURIComponent(backUrl);
-                    } else {
-                        window.location.href = '/';
-                    }
+                done: function ({ data }) {
+                    loginCallback(data);
                 }
             });
         } else {
@@ -217,14 +214,8 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 headers: {},
-                done: function (res) {
-                    app.setToken(res.data);
-                    let backUrl = app.getUrlParam('backUrl');
-                    if (backUrl) {
-                        window.location.href = decodeURIComponent(backUrl);
-                    } else {
-                        window.location.href = '/';
-                    }
+                done: function ({ data }) {
+                    loginCallback(data);
                 }
             });
         }
@@ -252,23 +243,17 @@ $(document).ready(function () {
                 type: 'GET',
                 dataType: 'json',
                 headers: {},
-                done: function (res) {
-                    if (res.data === 'success') {
+                done: function ({ data }) {
+                    if (data === 'success') {
                         clearInterval(timer);
                         loginByBindPhone = true;
                         $('#loginBtn').val('登录并绑定');
                         $('.login-bind-phone,#loginByCodeForm').show();
                         $('.login-tab,.login-option,.login-third,#loginByPassForm').hide();
                     }
-                    if (res.data && res.data !== 'success' && res.data !== 'fail') {
+                    if (data && data !== 'success' && data !== 'fail') {
                         clearInterval(timer);
-                        app.setToken(res.data);
-                        let backUrl = app.getUrlParam('backUrl');
-                        if (backUrl) {
-                            window.location.href = decodeURIComponent(backUrl);
-                        } else {
-                            window.location.href = '/';
-                        }
+                        loginCallback(data);
                     }
                 }
             });
@@ -428,5 +413,19 @@ $(document).ready(function () {
                 window.location.href = "/index.html";
             }
         }, 1000)
+    }
+
+    function loginCallback(data) {
+        app.setToken(data);
+        app.setCookie('_x_token', data, 30, app.topDomain);
+        getLoginUser(function (loginUser) {
+            app.setCookie('_x_u', FCZX.Encript.encode({ nickname: loginUser.nickname }), 30, app.topDomain);
+            let backUrl = app.getUrlParam('backUrl');
+            if (backUrl) {
+                window.location.href = decodeURIComponent(backUrl);
+            } else {
+                window.location.href = '/';
+            }
+        })
     }
 })

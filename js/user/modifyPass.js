@@ -3,14 +3,14 @@ $(document).ready(function () {
     let passsForm = $('#passForm');
 
     //表单聚焦
-    passsForm.on('focusin', '#oldPass,#newPass,#confirmPass', function (event) {
+    passsForm.on('focusin', '#oldPass,#newPass', function (event) {
         let targetId = event.currentTarget.id;
         let errorElement = $(`#${targetId}Error`);
         clearErrorText(errorElement);
     });
 
     //表单失去焦点
-    passsForm.on('focusout', '#oldPass,#newPass,#confirmPass', function (event) {
+    passsForm.on('focusout', '#oldPass,#newPass', function (event) {
         let targetId = event.currentTarget.id;
         let element = $(`#${targetId}`);
         let errorElement = $(`#${targetId}Error`);
@@ -19,8 +19,7 @@ $(document).ready(function () {
 
     let nameMapper = {
         oldPass: '旧密码',
-        newPass: '新密码',
-        confirmPass: '确认密码'
+        newPass: '新密码'
     }
     $('#submitPass').click(function () {
         let count = 0;
@@ -32,33 +31,28 @@ $(document).ready(function () {
             {
                 fieldId: 'newPass',
                 type: 'required',
-            },
-            {
-                fieldId: 'confirmPass',
-                type: 'required',
             }
         ], nameMapper)
         count = count + errorCount;
         if (count) return;
         let oldPass = $('#oldPass').val();
         let newPass = $('#newPass').val();
-        let confirmPass = $('#confirmPass').val();
-        if (newPass != confirmPass) {
-            $('#confirmPassError').text('新密码和确认密码不一致，请重新输入');
-            return
-        }
+        let phone = $('#phone').val();
+
         app.request({
-            url: app.apiUrl('/test/test'),
+            url: app.apiUrl('/user/change-password'),
             data: {
-                oldPass,
-                newPass,
-                confirmPass
+                account: phone,
+                oldPassword: oldPass,
+                password: newPass,
             },
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             headers: {},
             done: function () {
-
+                $.MsgModal.Success('修改成功', '点击确定后重新返回登录界面', function () {
+                    window.location.href = `${app.wwwDomain}/user/login`;
+                });
             }
         });
     });

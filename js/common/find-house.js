@@ -57,23 +57,25 @@ $(document).ready(function () {
         errorCount = validateForm('phoneCode', 'required');
         if (errorCount) return;
 
-        let preferRegin = $('#preferRegin').val();
-        let houseArea = $('#houseArea').val();
-        let totalPrice = $('#totalPrice').val();
-        let preferHouseType = $('#preferHouseType').val();
+        let preferRegin = $('#preferRegin').val(); //意向区域
+        let houseArea = $('#houseArea').val(); //装修状况
+        let totalPrice = $('#totalPrice').val(); // 预算
+        let preferHouseType = $('#preferHouseType').val(); //户型
         app.request({
-            url: app.areaApiUrl('/test/test'),
+            url: app.areaApiUrl('/house/find-house'),
             data: {
-                preferRegin,
-                houseArea,
-                totalPrice,
-                preferHouseType
+                find_area: preferRegin,
+                find_renovation: houseArea,
+                find_budget: totalPrice,
+                find_room: preferHouseType,
+                mobile: $('#phone').val(),
+                randCode: $('#phoneCode').val()
             },
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             headers: {},
             done: function () {
-
+                $.MsgModal.Success('提交成功！', '感谢您的关注，房产置业顾问会尽快与您联系');
             }
         });
     });

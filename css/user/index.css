@@ -24,13 +24,13 @@ body {
     margin-left: 20px;
 }
 
-.user-li .fullname {
+.user-li .greet {
     color: #333;
     font-size: 16px;
     margin-top: 12px;
 }
 
-.user-li .username {
+.user-li .account {
     color: #333;
     padding-right: 15px;
     margin-right: 10px;
@@ -144,6 +144,12 @@ body {
 
 .profile-photo {
     padding-left: 35px;
+    min-height: 120px;
+}
+
+.profile-photo .profile-image {
+    width: 100px;
+    height: 100px;
 }
 
 .upload-btn {
@@ -201,7 +207,15 @@ body {
     line-height: 35px;
     padding-left: 15px;
     background-color: #f7f7f7;
-    color: #666;
+}
+
+.profile-item .edit-radio {
+    vertical-align: -1px;
+    margin-right: 5px;
+}
+
+.profile-item .edit-radio:last-child {
+    margin-left: 30px;
 }
 
 .profile-item .disedit {
@@ -260,9 +274,9 @@ body {
     background-color: #F8F9FB;
 }
 
-.pass-item input[type=password] {
+.pass-item input {
     float: right;
-    width: 295px;
+    width: 300px;
     height: 40px;
     line-height: 40px;
     background-color: #F8F9FB;

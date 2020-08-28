@@ -21,8 +21,8 @@ $(document).ready(function () {
         let modalParams = {
             title: $(this).attr('data-title'),
             message: '√团购价折扣优惠 √额外礼包 √专属顾问提供购房指导',
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -43,7 +43,39 @@ $(document).ready(function () {
     });
 
     /*登录注册&用户中心*/
+    let loginUser = app.getCookie('_x_u', app.topDomain);
+    if (loginUser) {
+        loginUser = FCZX.Encript.decode(loginUser);
+        console.log(loginUser)
+        $('#loginUser').show();
+        $('#loginLink').hide();
+        $('#loginUserName').text(loginUser.nickname);
+    } else {
+        $('#loginUser').hide();
+        $('#loginLink').show();
+    }
+
+    $('.logout').click(function () {
+        app.deleteCookie('_x_token', app.topDomain);
+        app.setCookie('_x_u', '', 30, app.topDomain);
+        window.location.reload();
+    });
 });
+
+function getLoginUser(callback) {
+    app.request({
+        url: app.apiUrl('/user/get'),
+        data: {},
+        type: 'GET',
+        dataType: 'json',
+        headers: {},
+        done: function ({ data }) {
+            if (typeof (callback) == 'function') {
+                callback(data);
+            }
+        }
+    });
+}
 
 (function () {
     /**
@@ -591,7 +623,7 @@ function getImageRealSize(imgSrc, callback) {
 }
 
 /*集客回调函数*/
-function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) {
+function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode, successCallback) {
     app.request({
         url: app.areaApiUrl('/house/customer'),
         data: {
@@ -605,6 +637,7 @@ function callbackHouseCustomer(houseId, type, username, phoneNumber, phoneCode) 
         dataType: 'json',
         headers: {},
         done: function () {
+            successCallback();
             $.MsgModal.Success('恭喜您，已订阅成功！', '感谢您对房产在线的关注，本楼盘/房源最新信息我们会第一时间通知您!');
         }
     });
@@ -641,6 +674,11 @@ let SALE_STATUS = {
 let PRICE_TYPE = {
     1: '元/m²',
     2: '万元/套'
+}
+
+let SEX = {
+    1: '男',
+    2: '女'
 }
 
 // url参数转对象 ?name="nyan" => {name: "nyan"}
@@ -769,3 +807,60 @@ function toUrlParam(param) {
         }
     });
 })(jQuery);
+
+function getChineseHour() {
+    let now = new Date();
+    let hour = now.getHours();
+    if (hour < 6) {
+        return '凌晨好';
+    } else if (hour < 9) {
+        return '早上好'
+    } else if (hour < 12) {
+        return '上午好'
+    } else if (hour < 14) {
+        return '中午好'
+    } else if (hour < 17) {
+        return '下午好'
+    } else if (hour < 19) {
+        return '傍晚好'
+    } else if (hour < 22) {
+        return '晚上好'
+    } else {
+        return "夜里好"
+    }
+}
+
+(function () {
+    FCZX.globalNamespace('FCZX.Encript');
+
+    FCZX.Encript.encode = function (value) {
+        if (value) {
+            return btoa(encodeURIComponent(JSON.stringify(value)))
+        }
+    }
+
+    FCZX.Encript.decode = function (value) {
+        if (value) {
+            return JSON.parse(decodeURIComponent(atob(value)))
+        }
+    }
+})();
+
+(function (win) {
+    FCZX.globalNamespace('FCZX.Store');
+
+    FCZX.Store.setItem = function (key, value) {
+        win.localStorage.setItem(key, FCZX.Encript.encode(value))
+    }
+
+    FCZX.Store.getItem = function (key) {
+        let value = win.localStorage.getItem(key)
+        if (value) {
+            return FCZX.Encript.decode(value)
+        }
+    }
+
+    FCZX.Store.clear = function (key) {
+        key ? win.localStorage.removeItem(key) : win.localStorage.clear();
+    }
+})(window);

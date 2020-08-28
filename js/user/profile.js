@@ -6,15 +6,59 @@ $(document).ready(function () {
             $(this).removeClass('operate-edit');
             $('.profile-photo-edit').show();
         } else {
-            $(this).text('修改');
-            $('.profile-photo-edit').hide();
-            $(this).addClass('operate-edit');
+            let userId = $('#hiddenId').val();
+            app.request({
+                url: app.apiUrl('/user/update'),
+                data: {
+                    id: userId,
+                    avatar: $('.profile-photo').find('img').attr('src')
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    window.location.reload();
+                }
+            });
         }
     });
 
     $('#uploadBtn').click(function () {
         $('#uploadImageBtn').click();
     });
+
+    $('#uploadImageBtn').on('change', function (event) {
+        let file = event.target.files[0];
+        if (!file) return;
+        if (file.size > app.FILE_LIMIT.SIZE_10) {
+            alert(`您上传的图片有点大哦，请上传小于10M的图片`);
+            return;
+        }
+        let lastIndex = file.name.lastIndexOf(".");
+        let fileType = file.name.substring(lastIndex + 1);
+        if (app.FILE_LIMIT.IMAGE_ACCEPT.indexOf(fileType) === -1) {
+            alert(`请您上传图片格式的文件哦`);
+            return;
+        }
+        let formData = new FormData();
+        formData.append('file', file);
+        uploadImageRequest(formData);
+    });
+
+    /*上传图片接口*/
+    function uploadImageRequest(formData) {
+        app.request({
+            url: app.apiUrl('/file/upload'),
+            data: formData,
+            type: 'POST',
+            dataType: 'json',
+            isFile: true,
+            headers: {},
+            done: function ({ data }) {
+                $('.profile-photo').find('img').attr('src', data);
+            }
+        });
+    }
 
     $('#profileEditBtn').click(function () {
         if ($(this).hasClass('operate-edit')) {
@@ -23,61 +67,59 @@ $(document).ready(function () {
             $(this).removeClass('operate-edit');
             $(this).text('保存');
         } else {
-            $('#profileList').show();
-            $('#profileEdit').hide();
-            $(this).addClass('operate-edit');
-            $(this).text('编辑');
-            $('#profileEdit').find('input').each(function (index) {
-                let target = $('#profileList').find('.profile-item').eq(index);
-                target.find('span').text($(this).val() || "暂无设置");
-                target.find('input').text($(this).val());
-            })
+            let userId = $('#hiddenId').val();
+            app.request({
+                url: app.apiUrl('/user/update'),
+                data: {
+                    id: userId,
+                    nickname: $('#nickname').val(),
+                    sex: $('.sexEdit').find('input[type="radio"]:checked').val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                headers: {},
+                done: function () {
+                    app.setCookie('_x_u', FCZX.Encript.encode({ nickname: $('#nickname').val() }), 30, app.topDomain);
+                    window.location.reload();
+                }
+            });
         }
     });
 
-    $('#photoCancelBtn').click(function () {
-        $('.profile-photo-edit').hide();
-        $('#photoEditBtn').addClass('operate-edit');
-        $('#photoEditBtn').text('修改');
+    $('#photoCancelBtn,#profileCancelBtn').click(function () {
+        window.location.reload();
     });
 
-    $('#profileCancelBtn').click(function () {
-        $('#profileEdit').hide();
-        $('#profileList').show();
-        $('#profileEditBtn').addClass('operate-edit');
-        $('#profileEditBtn').text('编辑');
-    });
-
-    let authorizationCode = app.randCode(16);
-    $('#bindWechatBtn').click(function () {
-        let isBind = $(this).find('input').val();
-        if (isBind == 'true') {
-            $(this).find('span').text('绑定');
-            $(this).find('input').val(false);
-            $(this).siblings('.value').text('你还未绑定微信登录');
-        } else {
-            window.open(app.apiUrl(`/oauth/redirect?type=1&requestId=${authorizationCode}`));
-            let timer = null;
-            timer = setInterval(function () {
-                app.request({
-                    url: app.apiUrl('/oauth/is-oauth'),
-                    data: {
-                        type: "1",
-                        requestId: authorizationCode
-                    },
-                    type: 'GET',
-                    dataType: 'json',
-                    headers: {},
-                    done: function (res) {
-                        if (res.data && res.data !== 'success' && res.data !== 'fail') {
-                            clearInterval(timer);
-                            $(this).find('span').text('解绑');
-                            $(this).find('input').val(true);
-                            $(this).siblings('.value').text('你已绑定微信登录');
-                        }
-                    }
-                });
-            }, 2000);
-        }
-    })
+    // let authorizationCode = app.randCode(16);
+    // $('#bindWechatBtn').click(function () {
+    //     let isBind = $(this).find('input').val();
+    //     if (isBind == 'true') {
+    //         $(this).find('span').text('绑定');
+    //         $(this).find('input').val(false);
+    //         $(this).siblings('.value').text('你还未绑定微信登录');
+    //     } else {
+    //         window.open(app.apiUrl(`/oauth/redirect?type=1&requestId=${authorizationCode}`));
+    //         let timer = null;
+    //         timer = setInterval(function () {
+    //             app.request({
+    //                 url: app.apiUrl('/oauth/is-oauth'),
+    //                 data: {
+    //                     type: "1",
+    //                     requestId: authorizationCode
+    //                 },
+    //                 type: 'GET',
+    //                 dataType: 'json',
+    //                 headers: {},
+    //                 done: function (res) {
+    //                     if (res.data && res.data !== 'success' && res.data !== 'fail') {
+    //                         clearInterval(timer);
+    //                         $(this).find('span').text('解绑');
+    //                         $(this).find('input').val(true);
+    //                         $(this).siblings('.value').text('你已绑定微信登录');
+    //                     }
+    //                 }
+    //             });
+    //         }, 2000);
+    //     }
+    // })
 });

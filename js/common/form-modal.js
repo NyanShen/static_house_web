@@ -4,22 +4,15 @@
             let loginName = '';
             let loginPhone = '';
             const { title, callback, okText = '提交', message = '' } = params;
-            app.request({
-                url: app.apiUrl('/user/get'),
-                data: {},
-                type: 'GET',
-                dataType: 'json',
-                headers: {},
-                done: function ({ data }) {
-                    if (data) {
-                        loginName = data.nickname || data.username;
-                        loginPhone = data.mobile;
-                    }
-                    generateUserFormHtml(title, okText, message, loginPhone);
-                    submitForm(callback, loginName, loginPhone);
-                    closeModal();
+            getLoginUser(function (data) {
+                if (data) {
+                    loginName = data.nickname || data.username;
+                    loginPhone = data.mobile;
                 }
-            });
+                generateUserFormHtml(title, okText, message, loginPhone);
+                submitForm(callback, loginName, loginPhone);
+                closeModal();
+            })
         },
         loginForm: function (params) {
             const { title } = params;
@@ -63,11 +56,6 @@
                 </div>
                 <div class="form-item">
                     <a href="javascript:;" class="form-btn" id="modalFormBtn">${okText}</a>
-                </div>
-                <div class="agreement">
-                    我已阅读并接受
-                    <a href="javascript:void(0);">《房产在线服务协议》</a>及
-                    <a href="javascript:void(0);">《隐私权政策》</a>
                 </div>
             </div>`;
         let _html_footer = `</div></div>`;
@@ -151,11 +139,6 @@
                                 <a href="javascript:;" id="SMS" class="SMS">短信</a>
                             </div>  
                         </div>
-                        <div class="login-agreement">
-                            我已阅读并接受
-                            <a href="javascript:void(0);">《房产在线服务协议》</a>及
-                            <a href="javascript:void(0);">《隐私权政策》</a>
-                        </div>
                     </div>
             </div>
         </div>
@@ -210,9 +193,10 @@
     function submitForm(callback, loginName, loginPhone) {
         $("#modalPhoneBtn").click(function () {
             if (typeof (callback) == 'function') {
-                callback(loginName, loginPhone, '123456');
+                callback(loginName, loginPhone, '123456', function () {
+                    $("#boxModal").remove();
+                });
             }
-            $("#boxModal").remove();
         });
         $("#modalFormBtn").click(function () {
             let username = $('#username').val();
@@ -225,9 +209,10 @@
             let phoneCodeCount = validateForm('phoneCode', 'required');
             if (phoneCodeCount) return;
             if (typeof (callback) == 'function') {
-                callback(username, phone, phoneCode);
+                callback(username, phone, phoneCode, function () {
+                    $("#boxModal").remove();
+                });
             }
-            $("#boxModal").remove();
         });
     }
 

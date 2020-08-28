@@ -3,6 +3,9 @@
  */
 $(document).ready(function () {
 
+    // 获取登录信息
+    const LOGIN_USER = app.getCookie('_x_u', app.topDomain);
+
     /*回到顶部*/
     backToTop();
 
@@ -47,8 +50,8 @@ $(document).ready(function () {
             title: `${$(this).text()}`,
             okText: '立即订阅',
             message: '我们将为您保密个人信息！请填写您接收订阅的姓名及手机号码',
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -118,8 +121,8 @@ $(document).ready(function () {
             title: `预约看房`,
             okText: '立即预约',
             message: `预约楼盘【${$(this).attr('data-title')}】`,
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -133,8 +136,8 @@ $(document).ready(function () {
             title: '获取优惠券',
             message: `${$(this).attr('data-message')}`,
             okText: '立即获取',
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -148,8 +151,8 @@ $(document).ready(function () {
             title: `【${$(this).attr('data-title')}】活动报名`,
             message: `${$(this).attr('data-message')}`,
             okText: '立即报名',
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);
@@ -157,17 +160,19 @@ $(document).ready(function () {
 
     /*我要点评*/
     $('#commentBtn').click(function () {
-        let modalParams = {
-            title: '注册登录后再评论哦'
+        if (LOGIN_USER) {
+            window.location.href = '/pages/building/comment-form.html'
+        } else {
+            let modalParams = {
+                title: '注册登录后再评论哦'
+            }
+            $.FormModal.loginForm(modalParams);
         }
-        $.FormModal.loginForm(modalParams);
     });
 
+    //致电售楼处
     $('#contactBtn').click(function () {
-        let modalParams = {
-            title: '注册登录后再评论哦'
-        }
-        $.FormModal.loginForm(modalParams);
+
     });
 
     /**一键订阅 */
@@ -179,8 +184,8 @@ $(document).ready(function () {
             title: '订阅信息',
             message,
             okText: '立即订阅',
-            callback: function (username, phone, phoneCode) {
-                callbackHouseCustomer(houseId, type, username, phone, phoneCode);
+            callback: function (username, phone, phoneCode, successCallback) {
+                callbackHouseCustomer(houseId, type, username, phone, phoneCode, successCallback);
             }
         }
         $.FormModal.userForm(modalParams);

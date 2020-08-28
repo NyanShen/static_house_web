@@ -43,10 +43,10 @@ app.setToken = function (token) {
 };
 
 app.getToken = function () {
-    var arr,reg=new RegExp("(^| )_x_token=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg)) {
+    var arr, reg = new RegExp("(^| )_x_token=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg)) {
         return unescape(arr[2]);
-    }else {
+    } else {
         return undefined;
     }
 };
@@ -121,7 +121,7 @@ app.randCode = function (len) {
 };
 
 //@fmt 'yy-MM-dd hh:mm:ss'
-app.date = function (timestamp, fmt) {
+app.date = function (timestamp, fmt = 'yy-MM-dd hh:mm:ss') {
     var date = new Date(timestamp * 1000);
     var o = {
         "M+": date.getMonth() + 1, // 月份
@@ -143,4 +143,53 @@ app.date = function (timestamp, fmt) {
 app.FILE_LIMIT = {
     IMAGE_ACCEPT: ["bmp", "jpg", "png", "jpeg"],
     SIZE_10: 1024 * 1024 * 10 //10M
+}
+
+//设置cookie
+
+app.setCookie = function (key, value, expires, domain, path = "/") {
+    let today = new Date();
+    today.setTime(today.getTime());
+    if (expires) {
+        expires = expires * 1000 * 60 * 60 * 24;
+    }
+    let expiresDate = new Date(today.getTime() + (expires));
+
+    document.cookie = key + "=" + escape(value) +
+        ((expires) ? ";expires=" + expiresDate.toGMTString() : "") +
+        ((path) ? ";path=" + path : "") +
+        ((domain) ? ";domain=" + domain : "");
+}
+
+app.getCookie = function (key) {
+    var allCookies = document.cookie.split(';');
+    var cookieKey = '';
+    var cookieValue = '';
+    var tempCookie = '';
+    var isFound = false;
+
+    for (const item of allCookies) {
+        tempCookie = item.split('=');
+        cookieKey = tempCookie[0].replace(/^\s+|\s+$/g, '');
+        if (cookieKey == key) {
+            isFound = true;
+            if (tempCookie.length > 1) {
+                cookieValue = unescape(tempCookie[1].replace(/^\s+|\s+$/g, ''));
+            }
+            return cookieValue
+        }
+        cookieKey = '';
+        tempCookie = null;
+    }
+    if (!isFound) {
+        return null
+    }
+}
+
+app.deleteCookie = function (key, domain, path = '/') {
+    if (app.getCookie(key)) {
+        document.cookie = key + "=" +
+            ((path) ? ";path=" + path : "") +
+            ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
+    }
 }
