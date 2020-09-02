@@ -46,7 +46,6 @@ $(document).ready(function () {
     let loginUser = app.getCookie('_x_u', app.topDomain);
     if (loginUser) {
         loginUser = FCZX.Encript.decode(loginUser);
-        console.log(loginUser)
         $('#loginUser').show();
         $('#loginLink').hide();
         $('#loginUserName').text(loginUser.nickname);

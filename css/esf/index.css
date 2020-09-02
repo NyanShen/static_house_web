@@ -1,0 +1,208 @@
+/*上边固定栏*/
+
+.fix-header-esf {
+    color: #333;
+    background: #f7f7f7;
+    box-shadow: 2px 0 4px 2px rgba(0, 0, 0, .2);
+}
+
+.fix-header-esf .header-title .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.fix-header-esf .header-title .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #f34;
+}
+
+.fix-header-esf .header-title .type {
+    margin-right: 10px;
+}
+
+.fix-header-esf .phone {
+    color: #11a43c;
+}
+
+.esf-header .title {
+    min-width: 680px;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+}
+
+.esf-carousel .carousel-show {
+    position: relative;
+    width: 640px;
+    height: 425px;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.esf-carousel .carousel-content {
+    position: relative;
+    height: 80px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.esf-carousel .carousel-content .arrow {
+    position: absolute;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.esf-carousel .carousel-content .arrow.arrow-left {
+    left: 0;
+    background: url('//static.fczx.com/www/assets/icons/arrow_left20.png') no-repeat center center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.esf-carousel .carousel-content .arrow.arrow-right {
+    right: 0;
+    background: url('//static.fczx.com/www/assets/icons/arrow_right20.png') no-repeat center center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.esf-carousel .carousel-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4000px;
+}
+
+.esf-carousel .carousel-list li {
+    float: left;
+    width: 116px;
+    height: 80px;
+    margin-right: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: .6;
+}
+
+.esf-carousel .carousel-list li.actived {
+    opacity: 1;
+}
+
+.esf-carousel .carousel-list li img {
+    width: 100%;
+    height: 100%;
+}
+
+.esf-info {
+    width: 520px;
+}
+
+.esf-info .header {
+    margin-bottom: 20px;
+}
+
+.esf-info .header .header-item {
+    margin-left: 10px;
+}
+
+.esf-info .price {
+    font-size: 42px;
+    font-weight: bold;
+    color: #f34;
+}
+
+.esf-info .type {
+    margin: 30px 0;
+}
+
+.esf-info .type-item {
+    float: left;
+    width: 162px;
+    margin-right: 10px;
+}
+
+.esf-info .type-item .value {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.esf-info .plot-item {
+    margin-bottom: 20px;
+}
+
+.esf-info .plot-item .item-name {
+    width: 55px;
+    text-align: justify;
+    text-align-last: justify;
+    margin-right: 30px;
+    color: #999;
+}
+
+.esf-info .agent {
+    margin-top: 30px;
+}
+
+.esf-info .agent .name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+}
+
+.esf-info .agent .phone {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #11a43c;
+}
+
+.esf-info a {
+    margin-right: 10px;
+}
+
+.esf-info a:hover {
+    color: #f34;
+    text-decoration: underline;
+}
+
+.esf-detail .header {
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.header-title-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.esf-detail .detail-list li {
+    float: left;
+    width: 260px;
+    margin: 0 10px 10px 0;
+}
+
+.esf-detail .detail-list li .value {
+    margin-left: 20px;
+}
+
+.esf-detail .sub-header {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 10px;
+    color: #11a43c;
+}
+
+.esf-detail .desc-text {
+    line-height: 32px;
+    color: #666;
+}

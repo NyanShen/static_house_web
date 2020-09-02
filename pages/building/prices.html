@@ -50,7 +50,7 @@
                     <ul class="nav-list">
                         <li><a href="/">首页</a></li>
                         <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
-                        <li><a>二手房</a></li>
+                        <li><a href="/pages/esf/list.html">二手房</a></li>
                         <li><a>租房</a></li>
                         <li><a href="/pages/consult" target="_blank">资讯</a></li>
                         <li><a href="/pages/knowledge" target="_blank">知识</a></li>
@@ -114,7 +114,8 @@
             </div>
             <!-- 面包屑end -->
             <div class="search-content clearfix fr">
-                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/house/list.html" method="GET" target="_self">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/house/list.html" method="GET"
+                    target="_self">
                     <input type="text" class="search-input" placeholder="楼盘名或地址" name="t" value="">
                     <input type="submit" class="search-btn" value="搜索">
                 </form>
@@ -480,7 +481,8 @@
                 subtext: '2019.08-2020.07房价走势图(元/㎡)'
             },
             tooltip: {
-                trigger: 'axis'
+                trigger: 'axis',
+                formatter: '{b1}<br />{a0}： {c0}<br />{a1}： {c1}<br />{a2}： {c2}'
             },
             legend: {
                 data: [
@@ -502,19 +504,58 @@
                 {
                     name: '房价走势一',
                     type: 'line',
-                    data: [38000, 38000, 40000, 40000, 40000, 40200, 40500, 40500, 40500, 41000, 41000, 41000],
+                    data: [
+                        { name: '2019.10', value: 28000 },
+                        { name: '2019.11', value: 38000 },
+                        { name: '2019.12', value: 30000 },
+                        { name: '2020.01', value: 38000 },
+                        { name: '2020.02', value: 30000 },
+                        { name: '2020.03', value: 30200 },
+                        { name: '2020.04', value: 30500 },
+                        { name: '2020.05', value: 30500 },
+                        { name: '2020.06', value: 40500 },
+                        { name: '2020.07', value: 31000 },
+                        { name: '2020.08', value: 30500 },
+                        { name: '2020.09', value: 35000 }
+                    ],
                     markLine: { silent: true }
                 },
                 {
                     name: '房价走势二',
                     type: 'line',
-                    data: [48000, 58000, 50000, 50000, 50000, 50200, 50500, 50500, 50500, 51000, 50500, 48000],
+                    data: [
+                        { name: '2019.10', value: 48000 },
+                        { name: '2019.11', value: 58000 },
+                        { name: '2019.12', value: 50000 },
+                        { name: '2020.01', value: 48000 },
+                        { name: '2020.02', value: 50000 },
+                        { name: '2020.03', value: 50200 },
+                        { name: '2020.04', value: 50500 },
+                        { name: '2020.05', value: 50500 },
+                        { name: '2020.06', value: 50500 },
+                        { name: '2020.07', value: 51000 },
+                        { name: '2020.08', value: 50500 },
+                        { name: '2020.09', value: 48000 }
+                    ],
                     markLine: { silent: true }
                 },
                 {
                     name: '房价走势三',
                     type: 'line',
-                    data: [28000, 28000, 30000, 30000, 30000, 30200, 31000, 30500, 30500, 31000, 20500, 28000],
+                    data: [
+                        { name: '2019.10', value: 38000 },
+                        { name: '2019.11', value: 48000 },
+                        { name: '2019.12', value: 40000 },
+                        { name: '2020.01', value: 43000 },
+                        { name: '2020.02', value: 40000 },
+                        { name: '2020.03', value: 40200 },
+                        { name: '2020.04', value: 40500 },
+                        { name: '2020.05', value: 40500 },
+                        { name: '2020.06', value: 40500 },
+                        { name: '2020.07', value: 41000 },
+                        { name: '2020.08', value: 40500 },
+                        { name: '2020.09', value: 45000 }
+                    ],
                     markLine: { silent: true }
                 }
             ]

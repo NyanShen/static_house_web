@@ -68,6 +68,78 @@
     border-bottom: 3px solid #11a43c;
 }
 
+/*子导航*/
+
+.small-nav {
+    height: 40px;
+    line-height: 40px;
+    background-color: #f3f3f3;
+}
+
+.small-nav>a {
+    display: inline-block;
+    color: #666;
+    padding: 0 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.small-nav>a:hover {
+    color: #11a43c;
+}
+
+.small-nav>a.actived {
+    color: #fff;
+    background-color: #11a43c;
+}
+
+/*列表导航*/
+
+.list-nav {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-nav .nav-rank {
+    position: relative;
+    font-size: 12px;
+    color: #666;
+    padding-right: 10px;
+}
+
+.list-nav .rank-item {
+    float: left;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.list-nav .rank-item:hover {
+    color: #ff3344;
+}
+
+.list-nav .rank-item.actived {
+    color: #ff3344;
+}
+
+.rank-up {
+    padding-right: 15px;
+    background: url('../assets/icons/rank_up.png') no-repeat right center;
+}
+
+.rank-down {
+    padding-right: 15px;
+    background: url('../assets/icons/rank_down.png') no-repeat right center;
+}
+
+.rank-up.actived {
+    background: url('../assets/icons/rank_up_hv.png') no-repeat right center;
+}
+
+.rank-down.actived {
+    background: url('../assets/icons/rank_down_hv.png') no-repeat right center;
+}
+
 /*楼盘相关*/
 
 .building-related .picture {

@@ -488,6 +488,7 @@
     width: 20px;
     height: 35px;
     background: url('../../assets/icons/down28_grey.png') no-repeat center center;
+    z-index: 11;
 }
 
 .select-item .select-list {
@@ -501,7 +502,7 @@
     color: #666;
     cursor: pointer;
     background-color: #fff;
-    z-index: 10;
+    z-index: 12;
 }
 
 .select-item .select-list li {

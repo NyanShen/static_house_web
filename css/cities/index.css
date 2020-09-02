@@ -2,6 +2,27 @@ body {
     background-color: #f7f7f7;
 }
 
+.refer-city {
+    height: 100px;
+    background-color: #fff;
+}
+
+.refer-city-content {
+    text-align: center;
+}
+
+.refer-city-link {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 50px;
+    margin-top: 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #11a43c;
+}
+
 .box-city {
     min-height: 300px;
     padding: 30px;
@@ -52,8 +73,7 @@ body {
     color: #11a43c;
 }
 
-.box-city a.hot:hover,
-.box-city a:hover {
+.box-city a.hot:hover, .box-city a:hover {
     color: #f60;
     text-decoration: underline;
 }

@@ -56,8 +56,8 @@
             _this.$calculateBtn = $(_opt.calculateBtnS);
             _this.$resultBox = $(_opt.resultOpt.resultS);
             _this.updatePrice();
-            let selectInstance = new FCZX.Select(_opt.selectOpt);
-            $(selectInstance).on('change', function (event, $input) {
+            _opt.selectInstance = new FCZX.Select(_opt.selectOpt);
+            $(_opt.selectInstance).on('change', function (event, $input) {
                 switch ('#' + $input.attr('id')) {
                     case _opt.houseTypeS:
                     case _opt.loanLevelS:
@@ -160,7 +160,7 @@
                 rateFund = rates['fund']['1'];
                 rateBusiness = rates['commerce']['5'];
             }
-            if (loanPrice <= 1 * 12) {
+            if (loanPeriod <= 1 * 12) {
                 rateBusiness = rates['commerce']['1'];
             }
 
