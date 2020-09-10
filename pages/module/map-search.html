@@ -18,56 +18,6 @@
     <!-- <script type="text/javascript" src="//api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script> -->
     <!-- <script type="text/javascript" src="//api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js"></script> -->
 
-    <style>
-        .circle-bubble {
-            margin-top: 25px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .circle-bubble .name {
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .circle-bubble .count {
-            margin-top: 5px;
-            font-size: 12px;
-        }
-
-
-        .house-bubble {
-            display: block;
-            position: relative;
-            height: 30px;
-            line-height: 30px;
-            padding: 0 10px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .house-bubble .triangle-down {
-            position: absolute;
-            left: 40%;
-            border-width: 8px;
-            border-style: solid;
-            border-color: #11a43c transparent transparent transparent;
-            opacity: .9;
-        }
-
-        .house-bubble:hover .triangle-down {
-            border-color: #f60 transparent transparent transparent;
-        }
-
-        .house-bubble .price {
-            font-weight: bold;
-        }
-
-        .house-bubble em {
-            padding: 0 10px;
-            color: #ccc;
-        }
-    </style>
 </head>
 
 <body>
@@ -91,7 +41,7 @@
                         <li><a href="/">首页</a></li>
                         <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
                         <li><a href="/pages/esf/list.html" >二手房</a></li>
-                        <li><a>租房</a></li>
+                        <li><a href="/pages/rent/list.html">租房</a></li>
                         <li><a href="/pages/consult" target="_blank">资讯</a></li>
                         <li><a href="/pages/knowledge" target="_blank">知识</a></li>
                         <li><a href="/pages/qa" target="_blank">问答</a></li>
@@ -125,6 +75,13 @@
     </div>
     <div class="box-map-search">
         <div class="map-search-menu clearfix">
+            <div class="switch-list fl">
+                <span class="switch-name current-map">新房</span>
+                <ul class="item-select-list">
+                    <li><a href="/pages/esf/map-search.html">二手房</a></li>
+                    <li><a href="/pages/rent/map-search.html">租房</a></li>
+                </ul>
+            </div>
             <div class="menu-list fl">
                 <div class="menu-item">
                     <div class="item-select">
@@ -225,9 +182,11 @@
                 </div>
             </div>
             <div class="switch-list fr">
-                <a href="javascript:void(0);" class="switch-name">列表</a>
+                <span class="switch-name"><i class="iconfont mr8">&#xe678;</i>列表</span>
                 <ul class="item-select-list">
                     <li><a href="/pages/building/list.html">新房</a></li>
+                    <li><a href="/pages/esf/list.html">二手房</a></li>
+                    <li><a href="/pages/rent/list.html">租房</a></li>
                 </ul>
             </div>
         </div>
@@ -274,8 +233,8 @@
         new FCZX.map.Index({
             city: '襄阳',
             position: {}, // {lng: '112.129108', lat: '32.015532'}
-            // source_url: 'http://xiangyang.fczx.com/api/house/list', //测试接口
-            source_url: app.areaApiUrl('/house/area-house'),
+            source_url: 'http://xiangyang.fczx.com/api/house/list', //测试接口
+            // source_url: app.areaApiUrl('/house/area-house'),
             city_regions: [
                 {
                     "id": "420606",

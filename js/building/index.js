@@ -9,15 +9,6 @@ $(document).ready(function () {
     /*回到顶部*/
     backToTop();
 
-    /*楼盘主页相册轮播*/
-    $('.bd-carousel-show .item-list img').each(function () {
-        resizeImage($(this), 600, 400);
-    });
-
-    $('.bd-carousel-content .bd-carousel-list img').each(function () {
-        resizeImage($(this), 112, 80);
-    });
-
     timeCountDown($('#timer').attr('data-time'), $('#timer'));
 
     /*楼盘相册*/
@@ -28,11 +19,6 @@ $(document).ready(function () {
 
     /*用户评论图片*/
     $('.comment-list .user-comment .picture img').each(function () {
-        resizeImage($(this), 95, 70);
-    });
-
-    /*同价位楼盘图*/
-    $('.hot-pic-list li .item-picture img').each(function () {
         resizeImage($(this), 95, 70);
     });
 

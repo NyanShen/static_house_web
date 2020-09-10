@@ -59,6 +59,18 @@ $(document).ready(function () {
         app.setCookie('_x_u', '', 30, app.topDomain);
         window.location.reload();
     });
+
+    /*楼盘相册*/
+
+    $('.picture-list-wrap .picture img').each(function () {
+        resizeImage($(this), 200, 150);
+    });
+
+
+    /*同价位楼盘图*/
+    $('.hot-pic-list li .item-picture img').each(function () {
+        resizeImage($(this), 95, 70);
+    });
 });
 
 function getLoginUser(callback) {
@@ -277,14 +289,17 @@ function inputListener(inputElement, maxLength) {
         setTimeout(function () {
             if (flag) {
                 let textnum = inputElement.val().replace(/\s+/g, "").length;
-                $('.text-count .count').text(textnum);
+                let $textCount = inputElement.parent().find('.text-count');
+                let $count = $textCount.find('.count');
+                let $limit = $textCount.find('.limit');
+                $count.text(textnum);
                 if (textnum < maxLength) {
-                    $('.text-count .limit').text('');
-                    $('.text-count .count').css('color', '#999');
+                    $limit.text('');
+                    $count.css('color', '#999');
                 }
                 if (textnum === maxLength) {
-                    $('.text-count .limit').text(`您最多只能输入${maxLength}字`);
-                    $('.text-count .count').css('color', '#ff3344');
+                    $limit.text(`您最多只能输入${maxLength}字`);
+                    $count.css('color', '#ff3344');
                 }
             }
         }, 100);
@@ -572,6 +587,63 @@ function initScreenDomEvent(listHtml, screenIndex = 0) {
         $('html').removeClass('modal-open');
     });
 }
+// 大图切换
+(function () {
+    FCZX.globalNamespace('FCZX.album.SwitchBig');
+
+    FCZX.album.SwitchBig = function (opt) {
+        this._init(opt);
+    }
+    $.extend(FCZX.album.SwitchBig.prototype, {
+        _init: function (opt) {
+            this.opt = {
+                currentIndex: 0,
+                listItem: $('.switch-list').find('.switch-item'),
+                modal: $('#switchScreen'),
+                arrowLeft: $('#switchArrowLeft'),
+                arrowRight: $('#switchArrowRight'),
+            }
+            $.extend(true, this.opt, opt || {});
+            this._initDomEvent();
+            this.setCurrentItem(0);
+        },
+        _initDomEvent: function () {
+            let _this = this;
+            let _opt = this.opt;
+            _opt.listLen = _opt.listItem.length - 1;
+
+            _opt.arrowLeft.off('click.switch').on('click.switch', function () {
+                if (_opt.currentIndex == 0) {
+                    _this.setCurrentItem(_opt.listLen)
+                } else {
+                    _this.setCurrentItem(_opt.currentIndex - 1)
+                }
+            });
+
+            _opt.arrowRight.off('click.switch').on('click.switch', function () {
+                if (_opt.currentIndex == _opt.listLen) {
+                    _this.setCurrentItem(0)
+                } else {
+                    _this.setCurrentItem(_opt.currentIndex + 1)
+                }
+            });
+        },
+        setCurrentItem(index) {
+            let _opt = this.opt;
+            _opt.listItem.siblings().removeClass('actived');
+            _opt.listItem.eq(index).addClass('actived');
+            _opt.currentIndex = index;
+        },
+        openModal: function () {
+            this.opt.modal.show();
+            $('html').addClass('modal-open');
+        },
+        closeModal: function () {
+            this.opt.modal.hide();
+            $('html').removeClass('modal-open');
+        }
+    })
+})()
 
 // 获取图片标签信息
 
@@ -672,7 +744,8 @@ let SALE_STATUS = {
 
 let PRICE_TYPE = {
     1: '元/m²',
-    2: '万元/套'
+    2: '万元/套',
+    3: '元/月'
 }
 
 let SEX = {
@@ -757,7 +830,7 @@ function toUrlParam(param) {
                     let selectText = $(this).parent().siblings(_opt.selectTextS);
                     let $span = selectText.find('span');
                     let $input = selectText.find('input');
-                    if (!value || value == _opt.allValue) {
+                    if (value != 0 && !value || value == _opt.allValue) {
                         $span.text($span.data(_opt.labelProp));
                         $input.val('');
                         selectText.removeClass('actived');

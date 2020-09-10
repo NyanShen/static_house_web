@@ -1,0 +1,35 @@
+.rent-price {
+    margin-bottom: 15px;
+    color: #f34;
+}
+.rent-price .price {
+    font-size: 20px;
+}
+
+.rent-price .unit {
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.rent-desc {
+    line-height: 28px;
+    color: #666;
+}
+
+.facility-list .facility-item {
+    float: left;
+    width: 100px;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.facility-list .facility-item .desc{
+    height: 32px;
+    line-height: 32px;
+    color: #999;
+}
+
+.facility-list .facility-item .iconfont{
+    font-size: 32px;
+    color: #ff9898;
+}

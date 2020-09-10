@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>小区二手房</title>
+    <meta name="keywords" content="小区二手房">
+    <meta name="description" content="小区二手房">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/list.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/find-house.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!--头部导航栏start-->
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html" target="_blank">二手房</a></li>
+                        <li><a href="/pages/rent/list.html" target="_blank">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+
+    <!--楼盘面包屑及查询start-->
+    <div class="box-search">
+        <div class="box-content clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="javascript:void(0);">二手房</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区二手房</a>
+            </div>
+            <!-- 面包屑end -->
+            <div class="search-content clearfix fr">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/esf/plot.html" method="GET"
+                    target="_self">
+                    <input type="text" class="search-input" placeholder="小区名或地址" name="t" value="">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cut-line"></div>
+    <!--楼盘面包屑及查询end-->
+
+    <!-- 小区头部信息start -->
+    <div class="box-content">
+        <div class="detail-header">
+            <span class="title">朗曼梦公园</span>
+            <span class="address">襄州-铁四院-钻石大道</span>
+        </div>
+    </div>
+    <!-- 小区头部信息end -->
+
+    <!-- 小区二级导航start -->
+    <div class="box-content mt20">
+        <div class="nav-tab">
+            <a href="/pages/esf/plot/index.html">小区首页</a>
+            <a href="/pages/esf/plot/esf.html" class="actived">二手房</a>
+            <a href="/pages/esf/plot/rent.html">租房</a>
+            <a href="/pages/esf/plot/picture.html">小区相册</a>
+            <a href="/pages/esf/plot/house-type.html">小区户型</a>
+        </div>
+    </div>
+    <!-- 小区二级导航end -->
+
+    <!-- 二手房条件查询start -->
+    <div class="box-content clearfix mt20">
+        <div class="newhouse-filter">
+           
+            <div class="filter-content filter-content-border" id="bubbleFilter">
+                
+                <div class="filter-item clearfix">
+                    <label class="filter-label">价格：</label>
+                    <div class="data-list">
+                        <a class="data-tab actived" href="javascript:;">单价<em class="iconfont">&#xe68a;</em></a>
+                        <a class="data-tab" href="javascript:;">总价<em class="iconfont">&#xe68a;</em></a>
+                    </div>
+                    <div class="data-list data-tab-item">
+                        <a class="item-a" data-type="u" data-id="all" data-url="" href="javascript:void(0);">全部</a>
+                        <a class="item-a" data-type="u" data-id="1" data-url="" href="javascript:void(0);">20000以下</a>
+                        <a class="item-a" data-type="u" data-id="2" data-url=""
+                            href="javascript:void(0);">20000-30000</a>
+                        <a class="item-a" data-type="u" data-id="3" data-url="" href="javascript:void(0);">100000以上</a>
+                        <span>单价(元/平)</span>
+                    </div>
+                    <div class="data-list data-tab-item hide">
+                        <a class="item-a" data-type="t" data-id="all" data-url="" href="javascript:void(0);">全部</a>
+                        <a class="item-a" data-type="t" data-id="1" data-url="" href="javascript:void(0);">100万以下</a>
+                        <a class="item-a" data-type="t" data-id="2" data-url="" href="javascript:void(0);">100-300</a>
+                        <a class="item-a" data-type="t" data-id="3" data-url="" href="javascript:void(0);">300-500</a>
+                        <a class="item-a" data-type="t" data-id="4" data-url="" href="javascript:void(0);">500-800</a>
+                        <a class="item-a" data-type="t" data-id="5" data-url="" href="javascript:void(0);">800-1000</a>
+                        <a class="item-a" data-type="t" data-id="6" data-url="" href="javascript:void(0);">1000-2000</a>
+                        <a class="item-a" data-type="t" data-id="7" data-url="" href="javascript:void(0);">2000万以上</a>
+                        <span>总价(万元)</span>
+                    </div>
+                </div>
+                <div class="filter-item more-filter clearfix">
+                    <label class="filter-label">户型：</label>
+                    <div class="data-list">
+                        <a class="item-a" data-type="h" data-id="all" data-url="" href="javascript:void(0);">全部</a>
+                        <a class="item-a multi-item" data-type="h" data-id="1" data-url=""
+                            href="javascript:void(0);"><i></i>一居</a>
+                        <a class="item-a multi-item" data-type="h" data-id="2" data-url=""
+                            href="javascript:void(0);"><i></i>两居</a>
+                        <a class="item-a multi-item" data-type="h" data-id="3" data-url=""
+                            href="javascript:void(0);"><i></i>三居</a>
+                        <a class="item-a multi-item" data-type="h" data-id="4" data-url=""
+                            href="javascript:void(0);"><i></i>四居</a>
+                        <a class="item-a multi-item" data-type="h" data-id="5" data-url=""
+                            href="javascript:void(0);"><i></i>五居</a>
+                        <a class="item-a multi-item" data-type="h" data-id="6" data-url=""
+                            href="javascript:void(0);"><i></i>五居以上</a>
+                    </div>
+                </div>
+                
+                <a class="filter-clear-all" href="/pages/plot/esf/list.html">清空全部条件</a>
+            </div>
+        </div>
+    </div>
+    <!-- 二手房条件查询end -->
+
+    <!-- 小区列表 start -->
+    <div class="box-content clearfix mt20">
+        <div class="content-left fl">
+
+            <!-- 小区导航start -->
+            <div class="list-nav">
+                <ul class="nav-list clearfix">
+                    <li class="nav-item actived fl">
+                        <span>为您找到一下</span>
+                        <span class="location primary-color">朗曼梦公园</span>
+                        <span>二手房</span>
+                    </li>
+                    <li class="nav-rank clearfix fr">
+                        <a class="rank-item" data-type="ob" href="javascript:void(0);">默认排序</a>
+                        <a class="rank-item rank-down" data-type="ob" href="javascript:void(0);">价格</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 小区导航end -->
+
+            <!-- 搜索为空提示 start -->
+            <div class="newhouse-empty">
+                <p>
+                    抱歉,没有找到符合条件的小区二手房
+                </p>
+            </div>
+            <!-- 搜索为空提示 end -->
+            <div class="newhouse-refer-nav">
+                热门二手房推荐
+            </div>
+            <!-- 小区搜索列表 start -->
+            <!-- 二手房搜索列表 start -->
+            <div class="newhouse-content">
+                <ul class="newhouse-list center-image">
+                    <li class="newhouse-item clearfix">
+                        <div class="picture fl">
+                            <a href="/pages/esf/index.html">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
+                                    height="125">
+                                <i class="icon-c video"></i>
+                                <div class="icon-b">
+                                    <i class="image"></i>
+                                    <span>12</span>
+                                    <i class="comment"></i>
+                                    <span>1</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-c fl">
+                            <a href="/pages/esf/index.html" class="house-name">福星惠誉·京澜誉府</a>
+                            <p class="house-type">
+                                <span>一室一厅</span>
+                                <span class="split-v"></span>
+                                <span>41㎡</span>
+                                <span class="split-v"></span>
+                                <span>中层（18层）</span>
+                                <span class="split-v"></span>
+                                <span>2016年建造</span>
+                            </p>
+                            <p class="house-location">
+                                <span>小区名字</span>
+                                <span>区域名-子区域-地铁良乡大学城站南约900米</span>
+                            </p>
+                            <p>
+                                <span class="tag">经纪人</span>
+                                <span>赵伟芳</span>
+                            </p>
+                        </div>
+                        <div class="content-r fr">
+                            <p class="house-price">
+                                <span>41</span>
+                                <em class="tip-color">万</em>
+                            </p>
+                            <p class="small-desc">
+                                <span>41000元/㎡</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="newhouse-item clearfix">
+                        <div class="picture fl">
+                            <a href="/pages/esf/index.html">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" width="168"
+                                    height="125">
+                                <i class="icon-c video"></i>
+                                <div class="icon-b">
+                                    <i class="image"></i>
+                                    <span>12</span>
+                                    <i class="comment"></i>
+                                    <span>1</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-c fl">
+                            <a href="/pages/esf/index.html" class="house-name">福星惠誉·京澜誉府</a>
+                            <p class="house-type">
+                                <span>一室一厅</span>
+                                <span class="split-v"></span>
+                                <span>41㎡</span>
+                                <span class="split-v"></span>
+                                <span>中层（18层）</span>
+                                <span class="split-v"></span>
+                                <span>2016年建造</span>
+                            </p>
+                            <p class="house-location">
+                                <span>小区名字</span>
+                                <span>区域名-子区域-地铁良乡大学城站南约900米</span>
+                            </p>
+                            <p>
+                                <span class="tag">经纪人</span>
+                                <span>赵伟芳</span>
+                            </p>
+                        </div>
+                        <div class="content-r fr">
+                            <p class="house-price">
+                                <span>41</span>
+                                <em class="tip-color">万</em>
+                            </p>
+                            <p class="small-desc">
+                                <span>41000元/㎡</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="pagination pagination-right mt20">
+                <ul>
+                    <li><a href="javascript:;">首页</a></li>
+                    <li><a href="javascript:;">上一页</a></li>
+                    <li><a href="javascript:;">1</a></li>
+                    <li><a href="javascript:;" class="actived">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;">5</a></li>
+                    <li><a href="javascript:;">6</a></li>
+                    <li><a href="javascript:;">7</a></li>
+                    <li><a href="javascript:;">8</a></li>
+                    <li><a href="javascript:;">下一页</a></li>
+                    <li><a href="javascript:;">尾页</a></li>
+                </ul>
+            </div>
+            <!-- 小区二手房搜索列表 end -->
+        </div>
+        <div class="content-right fr">
+            <div class="content-right-wrap mt20">
+                <a class="single-btn" href="/pages/user/salehouse.html">
+                   <i class="iconfont">&#xeb9f;</i>我要卖房
+                </a>
+            </div>
+            <div class="table-type-list mt20">
+                <div class="title">帮你找房</div>
+                <div class="cut-line"></div>
+                <div class="find-house">
+                    <div class="select-house" id="selectPreferHouse">
+                        <div class="select-content-sm">
+                            <span>意向区域</span>
+                            <input type="text" name="" id="preferRegin" value="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>樊城区</li>
+                                <li>襄城区</li>
+                                <li>襄州区</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>购房面积</span>
+                            <input type="text" name="" id="houseArea" value="" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>50M²以下</li>
+                                <li>50-70M²</li>
+                                <li>70-100M²</li>
+                                <li>100-130M²</li>
+                                <li>130-160M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>160-200M²</li>
+                                <li>800M²以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>预算总价</span>
+                            <input type="text" name="" id="totalPrice" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>30万以下</li>
+                                <li>30-50万</li>
+                                <li>50-80万</li>
+                                <li>80-100万</li>
+                                <li>100-200万</li>
+                                <li>300万及以上</li>
+                            </ul>
+                        </div>
+                        <div class="select-content-sm">
+                            <span>意向户型</span>
+                            <input type="text" name="" id="preferHouseType" hidden>
+                            <i></i>
+                            <ul class="select-list">
+                                <li>一室</li>
+                                <li>二室</li>
+                                <li>三室</li>
+                                <li>四室</li>
+                                <li>五室</li>
+                                <li>五室以上</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control">手机号码：</label>
+                        <input type="text" name="" id="phone" value="">
+                        <span class="formError" id="phoneError"></span>
+                    </div>
+                    <div class="form-item-sm form-item-code-sm">
+                        <label class="label-control">验<i style="margin-left: 7px;"></i>证<i
+                                style="margin-left: 7px;"></i>码：</label>
+                        <input type="text" name="" id="phoneCode" value="">
+                        <input type="button" name="" id="phoneCodeBtn" value="发送验证码">
+                        <input class="count-down" type="button" value="" id="countdown">
+                        <span class="formError" id="phoneCodeError"></span>
+                    </div>
+                    <div class="form-item-sm">
+                        <input type="submit" name="esf" id="findHouseBtn" value="一键找房" class="btn-common">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 小区二手房列表 end -->
+
+    <div class="box-content mt20">
+        <!--小区热门二手房 begin-->
+        <div class="picture-list-wrap">
+            <span class="title-name">小区热门二手房</span>
+            <ul class="picture-list center-image">
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!--小区热门二手房 end-->
+        <!-- 免责声明start -->
+        <div class="box-statement mt20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/list.js"></script>
+
+</html>

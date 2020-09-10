@@ -105,6 +105,10 @@
     color: #f34;
 }
 
+.album-list .album-desc span {
+    margin-right: 8px;
+}
+
 .album-list .album-time {
     font-size: 12px;
     color: #999;
@@ -383,6 +387,7 @@
 }
 
 /* 视频播放 */
+
 .album-video-wrapper {
     position: relative;
     width: 920px;

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>小区相册</title>
+    <meta name="keywords" content="小区相册">
+    <meta name="description" content="小区相册">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/picture.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/form-modal.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!--头部导航栏start-->
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html" >二手房</a></li>
+                        <li><a href="/pages/rent/list.html">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+    
+    <!--楼盘面包屑及查询start-->
+    <div class="box-search">
+        <div class="box-content clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="javascript:void(0);">二手房</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区相册</a>
+            </div>
+            <!-- 面包屑end -->
+            <div class="search-content clearfix fr">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/esf/plot.html" method="GET"
+                    target="_self">
+                    <input type="text" class="search-input" placeholder="小区名或地址" name="t" value="">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cut-line"></div>
+    <!--楼盘面包屑及查询end-->
+
+    <!-- 小区头部信息start -->
+    <div class="box-content">
+        <div class="detail-header">
+            <span class="title">朗曼梦公园</span>
+            <span class="address">襄州-铁四院-钻石大道</span>
+        </div>
+    </div>
+    <!-- 小区头部信息end -->
+
+    <!-- 小区二级导航start -->
+    <div class="box-content mt20">
+        <div class="nav-tab">
+            <a href="/pages/esf/plot/index.html">小区首页</a>
+            <a href="/pages/esf/plot/esf.html">二手房</a>
+            <a href="/pages/esf/plot/rent.html">租房</a>
+            <a href="/pages/esf/plot/picture.html" class="actived">小区相册</a>
+            <a href="/pages/esf/plot/house-type.html">小区户型</a>
+        </div>
+    </div>
+    <!-- 小区二级导航end -->
+
+    <!--小区相册 begin-->
+    <div class="box-content">
+        <div class="album-menu clearfix">
+            <a class="menu-item actived" data-name="全部" href="/pages/esf/plot/picture.html">全部（12）</a>
+            <a class="menu-item" data-name="视频" href="">视频（1）</a>
+            <a class="menu-item" data-name="实景图" href="">实景图（6）</a>
+        </div>
+        <div class="album-content">
+            <div class="album-item" data-name="视频">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="">
+                        视频<span class="album-count">（1）</span>
+                    </a>
+                </div>
+                <ul class="album-list center-image clearfix">
+                    <li>
+                        <a class="album album-others album-video" href="javascript:;" image-id="1001"
+                            data-video="//static.fczx.com/www/assets/images/video.mp4">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                            <i class="margin-center icon-video"></i>
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="album-item" data-name="实景图">
+                <div class="album-title clearfix">
+                    <a class="title-name" href="javascript:;">
+                        实景图<span class="album-count">（6）</span>
+                    </a>
+                </div>
+                <ul class="album-list clearfix">
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3001">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3002">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3003">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3004">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3005">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                    <li>
+                        <a class="album" href="javascript:;" image-id="3005">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </a>
+                        <a class="album-name" href="">样板间-福星惠誉·京澜誉府</a>
+                        <p class="album-time">2020-07-25</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="empty-container mt20 hide">
+            <img src="//static.fczx.com/www/assets/icons/empty120.png" alt="" width="88" height="88">
+            <p class="empty-text">该小区暂无图片</p>
+        </div>
+    </div>
+    <!--小区相册 end-->
+   
+    <div class="box-content mt20">
+    <!-- 小区标签集合start -->
+    <div class="box-tag mb20">
+        <div class="tag-nav">
+            <ul>
+                <li class="actived">小区单元</li>
+                <li>二手房小区</li>
+                <li>相关楼盘</li>
+                <li>热门楼盘</li>
+            </ul>
+        </div>
+        <div class="tag-content">
+            <ul>
+                <li><a href="javascript:void(0);">附近楼盘·水岸壹号</a></li>
+            </ul>
+        </div>
+        <div class="tag-content">
+            <ul>
+                <li><a href="javascript:void(0);">热门楼盘·水岸壹号</a></li>
+                <li><a href="javascript:void(0);">热门楼盘·水岸壹号</a></li>
+            </ul>
+        </div>
+        <div class="tag-content">
+            <ul>
+                <li><a href="javascript:void(0);">相关楼盘·水岸壹号</a></li>
+            </ul>
+        </div>
+        <div class="tag-content">
+            <ul>
+                <li><a href="javascript:void(0);">新开楼盘·水岸壹号</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- 小区标签集合end -->
+        <!-- 免责声明start -->
+        <div class="box-statement mb20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+
+    <!-- 相册全屏图end -->
+    <div class="album-modal" id="albumFullScreen">
+        <input type="hidden" id="hiddenId" value="1000006">
+        <div class="transform-center" id="albumWrap">
+            <div class="album-container clearfix">
+                <div class="album-carousel fl">
+                    <div class="album-carousel-show center-image">
+                        <img src="" alt="" id="albumShowImage">
+                        <div class="album-desc album-mask"></div>
+                        <div class="album-desc album-text"></div>
+                        <div class="cursor-arrow arrow-left" id="showArrowLeft"></div>
+                        <div class="cursor-arrow arrow-right" id="showArrowRight"></div>
+                        <a href="###" class="check-original" id="originalPicture" title="查看原图" target="_blank"></a>
+                    </div>
+                    <div class="album-carousel-content" id="albumCarouselContent">
+                        <ul class="album-carousel-list clearfix" id="albumCarouselList"></ul>
+                        <div class="arrow arrow-left" id="listArrowLeft"></div>
+                        <div class="arrow arrow-right" id="listArrowRight"></div>
+                    </div>
+                </div>
+                <div class="album-nav fr">
+                    <div class="album-close" id="albumCloseBtn">
+                        <i class="iconfont">&#xe66d;</i>
+                    </div>
+                    <div class="album-modal-title">
+                        福星惠誉·京澜誉府
+                    </div>
+                    <div class="album-contact hide">
+                        <i class="iconfont">&#xe681;</i>
+                        <span></span>
+                    </div>
+                    <ul class="album-tabs">
+                        <li class="tab-item" data-name="配套图">
+                            <span class="left-arrow"><em></em></span>
+                            <span class="tab-name">配套图（2）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相册全屏图start -->
+
+    <!-- 相册视频播放start -->
+    <div class="album-modal" id="albumVideoModal">
+        <div class="transform-center">
+            <div class="album-video-wrapper">
+                <div class="album-close" id="albumVideoCloseBtn">
+                    <i class="iconfont">&#xe66d;</i>
+                </div>
+                <div class="video-player">
+                    <video class="video" poster="" src="" controls></video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相册视频播放end -->
+</body>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/index.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/picture.js"></script>
+
+</html>

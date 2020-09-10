@@ -437,9 +437,17 @@
 
 .newhouse-item .content-c .house-name {
     display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 22px;
     font-weight: bold;
     color: #333;
+}
+
+.newhouse-item .content-c .rent-name {
+    font-size: 16px;
 }
 
 .newhouse-item .content-c .house-name:hover {
@@ -460,7 +468,7 @@
 }
 
 .newhouse-item .content-c .house-location span {
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .newhouse-item .content-c .tag {
@@ -470,6 +478,30 @@
     vertical-align: 1px;
     color: #fff;
     background-color: #11a43c;
+}
+
+.content-c .rent-tags span{
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    padding: 0 10px;
+    border-radius: 16px;
+    vertical-align: 1px;
+    margin-right: 10px;
+}
+
+.content-c .rent-tags .tags-1 {
+    color: #e88a78;
+    background-color: #fcf4f1;
+}
+.content-c .rent-tags .tags-2 {
+    color: #799374;
+    background-color: #f2f6ed;
+}
+.content-c .rent-tags .tags-3 {
+    color: #f0f4f8;
+    background-color: #6682ae;
 }
 
 .newhouse-item .content-r {

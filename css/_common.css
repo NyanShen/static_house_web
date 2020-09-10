@@ -379,6 +379,36 @@
     color: #11a43c;
 }
 
+/*二级tab导航*/
+.nav-tab {
+    position: relative;
+    font-size: 0;
+    border-bottom: 2px solid #11a43c;
+}
+
+.nav-tab a {
+    display: inline-block;
+    font-size: 14px;
+    border: 1px solid #eee;
+    padding: 10px 30px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.nav-tab a.actived {
+    border: 1px solid #11a43c;
+    color: #fff;
+    background-color: #11a43c;
+}
+
+.nav-tab a:hover:not(.actived) {
+    background-color: #eee;
+}
+
+.nav-tab a:last-child {
+    border-right: 1px solid #eee;
+}
+
 /*上边固定栏*/
 
 .fix-header {
@@ -574,6 +604,54 @@
     font-size: 24px;
 }
 
+/*楼盘标签*/
+
+.tags {
+    width: 100%;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.tags span {
+    color: #666;
+    background-color: #f2f2f2;
+    padding: 2px 8px;
+    margin-right: 10px;
+}
+
+.tags .sale-status-1 {
+    color: #fff;
+    background-color: #409DFB;
+}
+.tags .sale-status-2 {
+    color: #fff;
+    background-color: #F90;
+}
+.tags .sale-status-3 {
+    color: #fff;
+    background-color: #BBB;
+}
+
+/* 在售 */
+
+.sale-status-1 {
+    background-color: rgba(64, 157, 251);
+}
+
+/* 待售 */
+
+.sale-status-2 {
+    background-color: rgba(255, 152, 50);
+}
+
+/* 售完 */
+
+.sale-status-3 {
+    background-color: rgba(187, 187, 187);
+}
+
 /*带下划线标题*/
 
 .line-title {
@@ -600,6 +678,17 @@
 
 .line-title>.more:hover {
     text-decoration: underline;
+}
+
+.header-title-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.detail-header .title {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #333;
 }
 
 /*表格详情类型标题*/
@@ -709,6 +798,7 @@
 
 .picture-list li {
     display: inline-block;
+    width: 200px;
     font-size: 14px;
     margin-right: 50px;
 }
@@ -728,6 +818,10 @@
 }
 
 .picture-list .name {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 5px;
 }
 
@@ -914,6 +1008,24 @@
     background: url('../assets/icons/video.png') no-repeat center center;
 }
 
+/* 右边按钮*/
+.content-right-wrap {
+    min-height: 80px;
+    padding: 15px 0;
+    background-color: #f7f7f7;
+}
+
+.single-btn {
+    display: block;
+    width: 75%;
+    margin: 15px auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #11a43c;
+    border: 1px solid #11a43c;
+}
 /*others*/
 
 .cut-line {
@@ -933,6 +1045,10 @@
     height: 14px;
     background-color: #11a43c;
     margin-right: 5px;
+}
+
+.mr8 {
+    margin-right: 8px;
 }
 
 .mb10 {
@@ -1086,7 +1202,7 @@
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-color: #1a1a1a;
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 9999;
 }
 
@@ -1105,6 +1221,7 @@
 }
 
 .screen-content {
+    position: relative;
     width: 95%;
     height: 100%;
     margin: 20px auto;
@@ -1215,6 +1332,26 @@
 .screen-carousel .screen-picture-list li img {
     width: 108px;
     height: 80px;
+}
+
+/* 全屏单轮播 */
+
+.switch-screen .screen-content .switch-item {
+    display: none;
+}
+
+.switch-screen .screen-content .switch-item.actived {
+    display: block;
+}
+
+.switch-screen .screen-content .switch-text {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* 打开弹窗 */

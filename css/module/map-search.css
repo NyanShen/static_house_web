@@ -62,32 +62,38 @@
     color: #f60;
 }
 
+.map-search-menu .item-select-list li a {
+    display: block;
+}
+
 .map-search-menu .switch-list {
     position: relative;
 }
 
 .map-search-menu .switch-list .switch-name {
     display: block;
-    width: 68px;
+    width: 85px;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    padding-left: 15px;
-    background: url('//static.fczx.com/www/assets/icons/list.png') no-repeat 15px center;
+    cursor: pointer;
 }
 
 .map-search-menu .switch-list .switch-name:hover {
-    color: #ff3344;
-    background: url('//static.fczx.com/www/assets/icons/list_hv.png') no-repeat 15px center;
+    color: #f60;
     background-color: #f7f7f7;
 }
 
-.map-search-menu .switch-list:hover .item-select-list {
-    display: block;
+.map-search-menu .switch-list .item-select-list {
+    width: 85px;
 }
 
-.map-search-menu .switch-list .item-select-list {
-    width: 82px;
+/* 切换地图 */
+
+.map-search-menu .current-map {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f60;
 }
 
 /*地图搜索内容*/
@@ -115,7 +121,7 @@
 .map-list-wrap .fold-btn {
     position: absolute;
     top: 50%;
-    left: 380px;
+    left: 420px;
     width: 30px;
     height: 65px;
     background-color: #fff;
@@ -138,7 +144,7 @@
 }
 
 .map-list-content {
-    width: 380px;
+    width: 420px;
     height: 100%;
     overflow: hidden;
 }
@@ -175,8 +181,8 @@
 .mli-item .mli-img {
     position: relative;
     display: block;
-    width: 100px;
-    height: 80px;
+    width: 136px;
+    height: 108px;
     overflow: hidden;
 }
 
@@ -186,7 +192,7 @@
 }
 
 .mli-item .mli-detail {
-    width: 220px;
+    width: 228px;
     margin-left: 15px;
 }
 
@@ -196,31 +202,40 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 10px;
+}
+
+.mli-item .mli-detail .item:first-child {
+    margin-top: 0;
 }
 
 .mli-item .mli-detail .house-name {
-    margin-bottom: 10px;
     font-size: 16px;
     font-weight: bold;
     color: #333;
 }
 
 .mli-item .mli-detail .house-price {
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: #ff3344;
     margin: 6px 0;
 }
 
-.mli-item .mli-detail .house-address {
-    margin-top: 10px;
-    color: #666;
+.mli-item .mli-detail .tag {
+    font-size: 12px;
+    padding: 2px 6px;
+    margin-right: 5px;
+    vertical-align: 1px;
+    color: #fff;
+    background-color: #11a43c;
 }
 
 .map-list-empty {
     display: none;
     position: absolute;
     top: 0;
-    width: 380px;
+    width: 420px;
     text-align: center;
     margin-top: 60px;
 }
@@ -228,4 +243,63 @@
 .empty-text {
     color: #666;
     margin-top: 15px;
+}
+
+/* 地图覆盖物样式 */
+
+.circle-bubble {
+    margin-top: 25px;
+    text-align: center;
+    color: #fff;
+}
+
+.circle-bubble .name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.circle-bubble .count {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.house-bubble {
+    display: block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.house-bubble.actived {
+    background-color: #f60;
+}
+
+.house-bubble.actived .triangle-down {
+    border-color: #f60 transparent transparent transparent;
+}
+
+.house-bubble .triangle-down {
+    position: absolute;
+    left: 40%;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #11a43c transparent transparent transparent;
+    opacity: .9;
+}
+
+.house-bubble:hover .triangle-down {
+    border-color: #f60 transparent transparent transparent;
+}
+
+.house-bubble .price {
+    font-weight: bold;
+}
+
+.house-bubble em {
+    padding: 0 10px;
+    color: #ccc;
 }

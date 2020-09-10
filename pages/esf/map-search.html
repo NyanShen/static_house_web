@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图找房</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map-search.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/cus-scroll.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/map-search.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+    
+</head>
+
+<body>
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html">二手房</a></li>
+                        <li><a href="/pages/rent/list.html">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-map-search">
+        <div class="map-search-menu clearfix">
+            <div class="switch-list fl">
+                <span class="switch-name current-map">二手房</span>
+                <ul class="item-select-list">
+                    <li><a href="/pages/module/map-search.html">新房</a></li>
+                    <li><a href="/pages/rent/map-search.html">租房</a></li>
+                </ul>
+            </div>
+            <div class="menu-list fl">
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="区域">区域</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="fang_area_id" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="fang_area_id_1001" data-value="420606">樊城区</li>
+                        <li id="fang_area_id_1002" data-value="1002">襄州区</li>
+                        <li id="fang_area_id_1003" data-value="1003">谷城县</li>
+                        <li id="fang_area_id_1004" data-value="1004">老河口市</li>
+                        <li id="fang_area_id_1005" data-value="1005">宜城</li>
+                        <li id="fang_area_id_1006" data-value="1006">保康</li>
+                        <li id="fang_area_id_1007" data-value="420683">枣阳</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="户型">户型</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="fang_room_type" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="fang_room_type_101" data-value="101">一室</li>
+                        <li id="fang_room_type_102" data-value="102">二室</li>
+                        <li id="fang_room_type_103" data-value="103">三室</li>
+                        <li id="fang_room_type_104" data-value="104">四室</li>
+                        <li id="fang_room_type_105" data-value="105">五室</li>
+                        <li id="fang_room_type_106" data-value="106">五室以上</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="面积">面积</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_area" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="house_area_50" data-value="50">50平米以下</li>
+                        <li id="house_area_5070" data-value="5070">50-70平米</li>
+                        <li id="house_area_7090" data-value="7090">70-90平米</li>
+                        <li id="house_area_90110" data-value="90110">90-110平米</li>
+                        <li id="house_area_110130" data-value="110130">110-130平米</li>
+                        <li id="house_area_130150" data-value="130150">130-150平米</li>
+                        <li id="house_area_150200" data-value="150200">150-200平米</li>
+                        <li id="house_area_200300" data-value="200300">200-300平米</li>
+                        <li id="house_area_300" data-value="300">300平米以上</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="类型">类型</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="fang_building_type" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="fang_building_type_1" data-value="1">住宅</li>
+                        <li id="fang_building_type_2" data-value="2">别墅</li>
+                        <li id="fang_building_type_3" data-value="3">商住</li>
+                        <li id="fang_building_type_4" data-value="4">商铺</li>
+                        <li id="fang_building_type_5" data-value="5">写字楼</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="装修状况">装修状况</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="fang_renovation_status" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="fang_renovation_status_1" data-value="1">住宅</li>
+                        <li id="fang_renovation_status_2" data-value="2">别墅</li>
+                        <li id="fang_renovation_status_3" data-value="3">商住</li>
+                        <li id="fang_renovation_status_4" data-value="4">商铺</li>
+                        <li id="fang_renovation_status_5" data-value="5">写字楼</li>
+                    </ul>
+                </div>
+                <div class="menu-item">
+                    <div class="item-select">
+                        <span data-name="预算">预算</span>
+                        <i class="iconfont">&#xe68a;</i>
+                        <input type="hidden" id="house_price" value="">
+                    </div>
+                    <ul class="item-select-list">
+                        <li data-value="0">全部</li>
+                        <li id="house_price_30" data-value="30">30万以下</li>
+                        <li id="house_price_3050" data-value="3050">30-50万</li>
+                        <li id="house_price_50100" data-value="50100">50-100万</li>
+                        <li id="house_price_100200" data-value="100200">100-200万</li>
+                        <li id="house_price_300" data-value="300">300万以上</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="switch-list fr">
+                <span class="switch-name"><i class="iconfont mr8">&#xe678;</i>列表</span>
+                <ul class="item-select-list">
+                    <li><a href="/pages/building/list.html">新房</a></li>
+                    <li><a href="/pages/esf/list.html">二手房</a></li>
+                    <li><a href="/pages/rent/list.html">租房</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="map-search-content">
+            <div class="map-container" id="mapContainer"></div>
+            <div class="map-list-wrap" id="mapListWrap">
+                <div class="fold-btn">
+                    <i class="open"></i>
+                </div>
+                <div class="map-list-content scroll-content">
+                    <ul class="map-list">
+
+                    </ul>
+                </div>
+                <div class="map-list-scroll-bar scroll-bar">
+                    <div class="scroll-slider"></div>
+                </div>
+                <div class="map-list-empty">
+                    <div class="empty-content">
+                        <img src="//static.fczx.com/www/assets/icons/house_empty.png" alt="">
+                        <p class="empty-text">很抱歉，没有找到符合条件的房源信息！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+
+        new FCZX.map.Index({
+            city: '襄阳',
+            type: 2,
+            position: {}, // {lng: '112.129108', lat: '32.015532'}
+            source_url: 'http://xiangyang.fczx.com/api/house/list', //测试接口
+            // source_url: app.areaApiUrl('/house/area-house'),
+            city_regions: [
+                {
+                    "id": "420606",
+                    "name": "樊城区",
+                    "longitude": "112.146049",
+                    "latitude": "32.051797",
+                },
+                {
+                    "id": "1002",
+                    "name": "襄州区",
+                    "longitude": "112.328604",
+                    "latitude": "32.207599",
+                },
+                {
+                    "id": "1003",
+                    "name": "谷城县",
+                    "longitude": "111.477729",
+                    "latitude": "32.125439",
+                },
+                {
+                    "id": "1004",
+                    "name": "老河口市",
+                    "longitude": "111.774385",
+                    "latitude": "32.416571",
+                },
+                {
+                    "id": "1005",
+                    "name": "宜城",
+                    "longitude": "112.264608",
+                    "latitude": "31.726207",
+                },
+                {
+                    "id": "1006",
+                    "name": "保康",
+                    "longitude": "110.939608",
+                    "latitude": "31.905982",
+                },
+                {
+                    "id": "420683",
+                    "name": "枣阳",
+                    "longitude": "112.778475",
+                    "latitude": "32.136441",
+                },
+                {
+                    "id": "1008",
+                    "name": "东津",
+                    "longitude": "112.24564738403",
+                    "latitude": "32.037933183676",
+                },
+                {
+                    "id": "1009",
+                    "name": "高新区",
+                    "longitude": "112.20214023493",
+                    "latitude": "32.124717768712",
+                },
+                {
+                    "id": "1010",
+                    "name": "襄城区",
+                    "longitude": "112.14737978321",
+                    "latitude": "32.022001683487",
+                }
+            ]
+        })
+
+        // let lng = 112.129108;
+        // let lat = 32.015532;
+    })
+</script>
+
+</html>

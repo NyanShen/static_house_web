@@ -34,11 +34,11 @@
     width: 275px;
     text-align: center;
     padding: 10px 0;
+    border-right: 1px solid #eee;
 }
 
-.retio-item-middle {
-    border-left: 1px solid #eee;
-    border-right: 1px solid #eee;
+.price-retio li:last-child {
+    border-right: 0;
 }
 
 .price-retio li p {

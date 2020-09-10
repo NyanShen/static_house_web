@@ -4,12 +4,14 @@
 
     FCZX.map.Index = function (opt) {
         this.opt = {
+            type: 1,
             defaultZoom: 11,
             regionZoom: 12,
             navSelector: '.main-nav',
             menuOpt: {
                 menuSelector: '.map-search-menu',
                 itemSelector: '.menu-item',
+                switchSelector: '.switch-list',
                 selectTextS: '.item-select',
                 selectListS: '.item-select-list',
                 optionS: 'li',
@@ -29,6 +31,7 @@
             this.bMap = new FCZX.map.SearchMap(_this, {
                 headerHeight: _this.headerHeight,
                 city: _opt.city,
+                type: _opt.type,
                 position: _opt.position,
                 defaultZoom: _opt.defaultZoom,
                 regionZoom: _opt.regionZoom
@@ -58,17 +61,23 @@
             let menuParams = this.menu.getMenuParams();
             return $.extend({}, mapParams, menuParams);
         },
-        updateParams: function () {
+        updateParams: function (params = {}) {
             let _this = this;
-            let params = this._getAllParams();
-            _this.load._setParamsFetch(params);
+            let allParams = $.extend(true, this._getAllParams(), params);
+            _this.load._setParamsFetch(allParams);
         },
         setMapCenter: function (zoom, position) {
             this.bMap.setMapCenter(zoom, position);
             this.updateParams();
         },
         updateData: function (result) {
-            this.list.updateListData(result.label_rows);
+            let listData = [];
+            if (this.opt.type != 1) {
+                listData = result.list_rows;
+            } else {
+                listData = result.label_rows;
+            }
+            this.list.updateListData(listData);
             this.bMap.updateMapDataOverlays(result);
         },
         regionClick: function (region_id) {
@@ -130,13 +139,14 @@
 
     FCZX.map.Menu = function (mapIndex, opt) {
         this.mapIndex = mapIndex;
-        this.keyList = ['fang_area_id', 'fang_building_type', 'fang_room_type', 'fang_renovation_status'];
+        this.keyList = ['fang_area_id', 'fang_house_id', 'fang_building_type', 'fang_room_type', 'fang_renovation_status'];
         this._init(opt);
     }
 
     $.extend(FCZX.map.Menu.prototype, {
         _init: function (opt) {
             this.opt = {
+                switchSelector: '',
                 menuSelector: '',
                 itemSelector: '',
                 selectTextS: '',
@@ -150,17 +160,25 @@
         _initDomEvent: function () {
             let _this = this;
             let _opt = _this.opt;
+            _opt.$switch = $(_opt.switchSelector);
             _opt.$cont = $(_opt.menuSelector);
             _opt.$item = _opt.$cont.find(_opt.itemSelector);
             _opt.$selectList = _opt.$cont.find(_opt.selectListS);
 
+            _opt.$switch.each(function () {
+                $(this).hover(function () {
+                    $(this).find(_opt.selectListS).show();
+                }, function () {
+                    $(this).find(_opt.selectListS).hide();
+                })
+            });
             _opt.$item.each(function () {
                 $(this).hover(function () {
                     $(this).find(_opt.selectListS).show();
                 }, function () {
                     $(this).find(_opt.selectListS).hide();
                 })
-            })
+            });
             _opt.$selectList.find(_opt.optionS).each(function () {
                 $(this).on('click.mapMenuItem', function (event, fromMenu = true) {
                     let text = $(this).text()
@@ -266,7 +284,7 @@
                     $icon.addClass('close');
                     _opt.$content.hide();
                 } else {
-                    $(this).css('left', '380px');
+                    $(this).css('left', '420px');
                     $icon.removeClass('close');
                     $icon.addClass('open');
                     _opt.$content.show();
@@ -284,7 +302,18 @@
                 return;
             }
             for (const item of listData) {
-                _template = _template + `
+                _template = _template + _this._generateListHtml(item);
+            };
+            _opt.$empty.hide();
+            _opt.$list.html(_template);
+            _this.scrollInstance._initSliderHeight();
+        },
+        _generateListHtml: function (item) {
+            let _this = this;
+            let _opt = _this.mapIndex.opt;
+            switch (_opt.type) {
+                case 1:
+                    return `
                     <li class="mli-item clearfix" data-id="${item.id}">
                         <div class="fl">
                             <a class="mli-img" href="/house/${item.alias}/home.html" target="_blank">
@@ -297,14 +326,39 @@
                                 <span class="house-price">${item.price}</span>
                                 <span class="small-desc">${PRICE_TYPE[item.price_type]}</span>
                             </p>
-                            <p class="item house-address" title="[${item.area.name}]${item.address}">[${item.area.name}]${item.address}</p>
+                            <p class="item desc-color" title="[${item.area.name}]${item.address}">[${item.area.name}]${item.address}</p>
+                            <p class="item tags">
+                                <span class="sale-status-${item.sale_status}">${SALE_STATUS[item.sale_status]}</span>
+                            </p>
                         </div>
-                    </li>
-                `
-            };
-            _opt.$empty.hide();
-            _opt.$list.html(_template);
-            _this.scrollInstance._initSliderHeight();
+                    </li>`
+                case 2:
+                case 3:
+                    let houseRoom = item.fangHouseBuildingRoom
+                    return `
+                    <li class="mli-item clearfix" data-id="${item.id}">
+                        <div class="fl">
+                            <a class="mli-img" href="" target="_blank">
+                                <img src="${item.image_path}" alt="">
+                            </a>
+                        </div>
+                        <div class="mli-detail fl">
+                            <a class="item house-name" href="" target="_blank">${item.title}</a>
+                            <p class="item">
+                                <span class="mr8">${houseRoom.room}室${houseRoom.office}厅${houseRoom.toilet}卫</span>
+                                <span class="mr8">${houseRoom.building_area}㎡</span>
+                                <span class="house-price">${item.price}</span>
+                                <span class="small-desc">${PRICE_TYPE[item.price_type]}</span>
+                            </p>
+                            <p class="item desc-color" title="[${item.area.name}]${item.address}">[${item.area.name}]${item.address}</p>
+                            <p class="item">
+                                <span class="tag">经纪人</span>
+                                <span class="text-color">${item.consultant || ''}</span>
+                            </p>
+                        </div>
+                    </li>`
+                default: return ''
+            }
         }
     });
 
@@ -461,6 +515,7 @@
             _thisConfig.bindEvent(label);
         },
         labelConfig: function (_this, data) {
+            let currentType = _this.opt.type;
             return {
                 region: {
                     type: "region",
@@ -468,7 +523,7 @@
                     template: `
                     <div class="circle-bubble" data-id="${data.id}">
                         <p class="name">${data.name}</p>
-                        <p class="count"><span>${data.count}</span>个楼盘</p>
+                        <p class="count"><span>${data.count}</span>个${currentType == 1 ? '楼盘' : '小区'}</p>
                     </div>`,
                     style: {
                         width: "92px",  //宽
@@ -509,20 +564,12 @@
                 },
                 house_label: {
                     type: "house_label",
-                    title: data.house_name,
-                    template: `
-                    <a class="house-bubble" data-id="${data.id}" href="/house/${data.alias}/home.html" target="_blank">
-                        <p>
-                            <span class="price">${data.price}</span>
-                            <span class="unit">${PRICE_TYPE[data.price_type]}</span>
-                            <em>|</em>
-                            <span class="name">${data.title}</span>
-                        </p>
-                        <div class="triangle-down"></div>
-                    </a>`,
+                    title: data.title,
+                    template: _this._generateLabelHtml(data),
                     style: {
                         height: "30px", //高度
                         border: "0",  //边
+                        padding: "0",  //边
                         backgroundColor: "rgba(17,164,60,.9)",
                         borderRadius: "4px",
                         cursor: "pointer"
@@ -539,8 +586,58 @@
                         label.addEventListener("mouseout", function () {
                             label.setStyle({ background: "rgba(17,164,60,.9)" }); //修改覆盖物背景颜色
                         });
+                        label.addEventListener("click", function () {
+                            if (currentType != 1) {
+                                _this.mapIndex.updateParams({ fang_house_id: data.id });
+                                _this.mapIndex.opt.loupan = {
+                                    id: data.id,
+                                    title: data.title
+                                };
+                            }
+                        });
                     }
                 }
+            }
+        },
+        _generateLabelHtml: function (data) {
+            let loupan = this.mapIndex.opt.loupan || {};
+            switch (this.opt.type) {
+                case 1:
+                    return `
+                    <a class="house-bubble" data-id="${data.id}" href="/house/${data.alias}/home.html" target="_blank">
+                        <p>
+                            <span class="price">${data.price}</span>
+                            <span class="unit">${PRICE_TYPE[data.price_type]}</span>
+                            <em>|</em>
+                            <span class="name">${data.title}</span>
+                        </p>
+                        <div class="triangle-down"></div>
+                    </a>`;
+                case 2:
+                    return `
+                    <div class="house-bubble ${loupan.id == data.id ? 'actived' : ''}" data-id="${data.id}">
+                        <p>
+                            <span class="price">${data.price}</span>
+                            <span class="unit">${PRICE_TYPE[data.price_type]}</span>
+                            <em>|</em>
+                            <span>123套</span>
+                            <em>|</em>
+                            <span class="name">${data.title}</span>
+                        </p>
+                        <div class="triangle-down"></div>
+                    </div>`;
+                case 3:
+                    return `
+                    <div class="house-bubble ${loupan.id == data.id ? 'actived' : ''}" data-id="${data.id}">
+                        <p>
+                            <span>123套</span>
+                            <em>|</em>
+                            <span class="name">${data.title}</span>
+                        </p>
+                        <div class="triangle-down"></div>
+                    </div>`;
+                default:
+                    return '';
             }
         }
     });

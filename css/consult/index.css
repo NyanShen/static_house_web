@@ -1,32 +1,3 @@
-/*资讯导航*/
-.consult-tab {
-    position: relative;
-    font-size: 0;
-    border-bottom: 2px solid #11a43c;
-}
-
-.consult-tab a {
-    display: inline-block;
-    font-size: 14px;
-    border: 1px solid #eee;
-    padding: 10px 30px;
-    border-right: 0;
-    border-bottom: 0;
-}
-
-.consult-tab a.actived {
-    border: 1px solid #11a43c;
-    color: #fff;
-    background-color: #11a43c;
-}
-
-.consult-tab a:hover:not(.actived) {
-    background-color: #eee;
-}
-
-.consult-tab a:last-child {
-    border-right: 1px solid #eee;
-}
 
 /*资讯查询*/
 .consult-search {

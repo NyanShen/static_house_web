@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小区首页</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/esf/plot.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/prices.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/building/carousel.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts_theme.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/Msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+
+</head>
+
+<body>
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html" target="_blank">二手房</a></li>
+                        <li><a href="/pages/rent/list.html" target="_blank">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--楼盘面包屑及查询start-->
+    <div class="box-search">
+        <div class="box-content clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="javascript:void(0);">二手房</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区</a>
+                <span>></span>
+                <a href="javascript:void(0);">小区首页</a>
+            </div>
+            <!-- 面包屑end -->
+            <div class="search-content clearfix fr">
+                <form class="search-form clearfix fl" action="//xiangyang.fczx.com/pages/esf/plot.html" method="GET"
+                    target="_self">
+                    <input type="text" class="search-input" placeholder="小区名或地址" name="t" value="">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cut-line"></div>
+    <!--楼盘面包屑及查询end-->
+
+    <!-- 小区头部信息start -->
+    <div class="box-content">
+        <div class="detail-header">
+            <span class="title">朗曼梦公园</span>
+            <span class="address">襄州-铁四院-钻石大道</span>
+        </div>
+    </div>
+    <!-- 小区头部信息end -->
+    <!-- 小区二级导航start -->
+    <div class="box-content mt20">
+        <div class="nav-tab">
+            <a href="/pages/esf/plot/index.html" class="actived">小区首页</a>
+            <a href="/pages/esf/plot/esf.html">二手房</a>
+            <a href="/pages/esf/plot/rent.html">租房</a>
+            <a href="/pages/esf/plot/picture.html">小区相册</a>
+            <a href="/pages/esf/plot/house-type.html">小区户型</a>
+        </div>
+    </div>
+    <!-- 小区二级导航end -->
+
+    <!-- 小区首页信息start -->
+    <div class="box-content clearfix mt20">
+        <div class="bd-carousel fl" id="bdCarousel">
+            <div class="bd-carousel-show">
+                <ul class="item-list center-image" id="bdCarouselShowList">
+                    <li>
+                        <div class="banner-position">
+                            <a href="/pages/building/picture.html">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                                <!-- 视频icon -->
+                                <i class="video-icon video-icon-m"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_2.png" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_4.png" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_5.jpg" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_6.jpg" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_7.jpg" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_8.jpg" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-position">
+                            <a href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_9.png" alt="">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bd-carousel-wrap">
+                <div class="current" id="bdCarouselCurrent"></div>
+                <div class="bd-carousel-content" id="bdCarouselContent">
+                    <ul class="bd-carousel-list center-image" id="bdCarouselList">
+                        <li>
+                            <p><a href="javascript:;">视频</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图2</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_2.png" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图3</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_3.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图4</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_4.png" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图5</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_5.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图6</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_6.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图7</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_7.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图8</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_8.jpg" alt="">
+                        </li>
+                        <li>
+                            <p><a href="javascript:;">图9</a></p>
+                            <em></em>
+                            <img src="//static.fczx.com/www/assets/images/112x80_9.png" alt="">
+                        </li>
+                    </ul>
+                    <a href="javascript:;" class="arrow previous" id="bdArrowPrev"></a>
+                    <a href="javascript:;" class="arrow next" id="bdArrowNext"></a>
+                </div>
+            </div>
+        </div>
+        <div class="plot-info fr">
+            <div class="title">
+                <h1>朗曼梦公园</h1>
+            </div>
+            <div class="plot-price">
+                参考均价<span class="price">56000</span>
+                <span class="price-unit">元/㎡</span>
+                <span class="ratio">环比上月<em class="tip-color">↑0.41%</em></span>
+            </div>
+            <div class="cut-line"></div>
+            <div class="plot-list plot-split clearfix">
+                <div class="list-item">
+                    <span class="label">建造年代</span>
+                    <span class="value">2014年</span>
+                </div>
+                <div class="list-item">
+                    <span class="label">建筑类型</span>
+                    <span class="value">板楼</span>
+                </div>
+                <div class="list-item">
+                    <span class="label">物业费</span>
+                    <span class="value">1.4元/㎡/月</span>
+                </div>
+                <div class="list-item">
+                    <span class="label">房屋总数</span>
+                    <span class="value">1884户</span>
+                </div>
+                <div class="list-item">
+                    <span class="label">楼栋总数</span>
+                    <span class="value">37栋</span>
+                </div>
+                <div class="list-item">
+                    <span class="label">停车位</span>
+                    <span class="value">1122</span>
+                </div>
+                <div class="list-item list-item-inline">
+                    <span class="label">小区位置</span>
+                    <span class="value">白鹿司路5号院</span>
+                </div>
+                <div class="list-item list-item-inline">
+                    <span class="label">开发商</span>
+                    <span class="value">北京柏基置业有限公司</span>
+                </div>
+                <div class="list-item list-item-inline">
+                    <span class="label">物业公司</span>
+                    <span class="value">北京居住主题公园物业管理有限公司</span>
+                </div>
+            </div>
+            <div class="cut-line"></div>
+            <div class="plot-house plot-split clearfix">
+                <div class="house-item">
+                    <a class="count" href="/pages/esf/plot/esf.html">234套</a>
+                    <p class="name">二手房</p>
+                </div>
+                <div class="house-item">
+                    <a class="count" href="/pages/esf/plot/rent.html">23套</a>
+                    <p class="name">租房</p>
+                </div>
+            </div>
+            <div class="cut-line"></div>
+        </div>
+    </div>
+    <!-- 小区首页信息end -->
+
+    <!-- 小区其他信息start -->
+    <div class="box-content clearfix mt30">
+        <div class="content-left fl">
+            <!-- 房价走势start -->
+            <div class="plot-chart">
+                <div class="header-title-name">房价走势</div>
+                <div class="price-retio">
+                    <ul>
+                        <li>
+                            <p>恒大翡翠华庭</p>
+                            <p>
+                                <span class="price">
+                                    ￥
+                                    <span class="required-red">25603元/㎡</span>
+                                </span>
+                                <span class="retio">
+                                    环比
+                                    <label class="primary-color">↓</label>
+                                    <span class="primary-color">0.08</span>
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>武商沃尔玛</p>
+                            <p>
+                                <span class="price">
+                                    ￥--
+                                    <span class="required-red"></span>
+                                </span>
+                                <span class="retio">
+                                    环比
+                                    <label class="required-red">持平</label>
+                                    <span class="required-red"></span>
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="price-ratio-chart" id="priceRatioChart"></div>
+                <script>
+                    $(document).ready(function () {
+                        var priceRatioChart = echarts.init(document.getElementById('priceRatioChart'), 'echarts_theme');
+
+                        // 指定图表的配置项和数据
+                        var option = {
+                            title: {
+                                text: '',
+                                subtext: '2019.10-2020.09房价走势图(元/㎡)'
+                            },
+                            tooltip: {
+                                show: true,
+                                trigger: 'axis',
+                                formatter: '{b1}<br />{a0}： {c0}<br />{a1}： {c1}'
+                            },
+                            legend: {
+                                data: [
+                                    { name: '恒大翡翠华庭' },
+                                    { name: '武商沃尔玛' }
+                                ]
+                            },
+                            xAxis: {
+                                type: 'category',
+                                data: ['10', '11', '12', '01', '02', '03', '04', '05', '06', '07', '08', '09']
+                            },
+                            yAxis: {
+                                min: 0,
+                                max: 60000,
+                                label: { show: true }
+                            },
+                            series: [
+
+                                {
+                                    name: '恒大翡翠华庭',
+                                    type: 'line',
+                                    data: [
+                                        { name: '2019.10', value: 48000 },
+                                        { name: '2019.11', value: 58000 },
+                                        { name: '2019.12', value: 50000 },
+                                        { name: '2020.01', value: 48000 },
+                                        { name: '2020.02', value: 50000 },
+                                        { name: '2020.03', value: 50200 },
+                                        { name: '2020.04', value: 50500 },
+                                        { name: '2020.05', value: 50500 },
+                                        { name: '2020.06', value: 50500 },
+                                        { name: '2020.07', value: 51000 },
+                                        { name: '2020.08', value: 50500 },
+                                        { name: '2020.09', value: 48000 }
+                                    ],
+                                    markLine: { silent: true }
+                                },
+                                {
+                                    name: '武商沃尔玛',
+                                    type: 'line',
+                                    data: [
+                                        { name: '2019.10', value: 38000 },
+                                        { name: '2019.11', value: 48000 },
+                                        { name: '2019.12', value: 40000 },
+                                        { name: '2020.01', value: 48000 },
+                                        { name: '2020.02', value: 40000 },
+                                        { name: '2020.03', value: 40200 },
+                                        { name: '2020.04', value: 40500 },
+                                        { name: '2020.05', value: 40500 },
+                                        { name: '2020.06', value: 40500 },
+                                        { name: '2020.07', value: 41000 },
+                                        { name: '2020.08', value: 40500 },
+                                        { name: '2020.09', value: 45000 }
+                                    ],
+                                    markLine: { silent: true }
+                                }
+                            ]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        priceRatioChart.setOption(option);
+                    })
+                </script>
+            </div>
+            <!-- 房价走势end -->
+        </div>
+        <div class="content-right fr">
+            <div class="table-type-list">
+                <div class="title">相似小区</div>
+                <div class="cut-line"></div>
+                <ul class="hot-pic-list center-image mt20">
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 小区其他信息end -->
+
+    <!-- 二手房周边start -->
+    <div class="box-content mt20" id="surroundMap">
+        <div class="box-surround table-detail">
+            <div class="table-detail-header">
+                <span class="title">小区周边</span>
+            </div>
+            <div class="surround-content">
+                <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+                <script type="text/javascript"
+                    src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+                <div class="surround-map" id="surround-map"></div>
+                <div class="surround-mark">
+                    <div class="surround-mark-tab">
+                        <ul class="mark-tab-list" id="surroundMarkTab">
+                            <li class="actived">交通</li>
+                            <li>商业</li>
+                            <li>学校</li>
+                            <li>医院</li>
+                        </ul>
+                    </div>
+                    <div class="surround-mark-content" id="surroundMarkContent">
+                        <div class="mark-item has-tag" id="traffic">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">公交</li>
+                                    <li>地铁</li>
+                                    <li>停车场</li>
+                                    <li>加油站</li>
+                                </ul>
+                            </div>
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                        <div class="mark-item has-tag" id="business">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">超市</li>
+                                    <li>公园</li>
+                                    <li>餐饮</li>
+                                    <li>银行</li>
+                                </ul>
+                            </div>
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                        <div class="mark-item" id="school">
+                            <ul class="item-list">
+
+                            </ul>
+                        </div>
+                        <div class="mark-item" id="hospital">
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
+                <script type="text/javascript">
+
+                    $(document).ready(function () {
+                        let lng = 112.141744;
+                        let lat = 32.097901;
+                        let mapId = "surround-map";
+                        let centerName = '襄阳吾悦广场';
+                        let firstContentList = $('#surroundMarkContent .mark-item');
+                        let secondContentList = $('#surroundMarkContent .mark-item .item-list');
+                        // 实例化自定义地图函数
+                        let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback, centerName);
+
+                        // 初始化地图搜索结果
+                        firstContentList.eq(0).show();
+                        surroundMap._searchNearby('公交', '#traffic .item-list');
+
+                        // 搜索列表自定义信息弹窗
+                        function searchCallback(currentSelector, resultList) {
+                            $(`${currentSelector} li`).each(function (index) {
+                                $(this).click(function () {
+                                    let currentItem = resultList[index];
+                                    surroundMap._openInfoWindow(currentItem);
+                                })
+                            });
+                        }
+                        //一级菜单事件处理及判断二级菜单
+                        $('#surroundMarkTab>li').each(function (index) {
+                            $(this).click(function () {
+                                $(this).siblings().removeClass('actived');
+                                $(this).addClass('actived');
+                                firstContentList.hide();
+                                // 获取一级菜单对应的content
+                                let targetContent = firstContentList.eq(index);
+                                targetContent.show();
+                                // 判断是否有二级菜单
+                                let secondTab = targetContent.find('.item-tab li');
+                                let targetContentId = targetContent.attr("id");
+                                let contentSelector = `#${targetContentId} .item-list`
+                                if (secondTab.length > 0) {
+                                    let mapKey = secondTab.first().text();
+                                    surroundMap._searchNearby(mapKey, contentSelector);
+                                    return;
+                                }
+                                surroundMap._searchNearby($(this).text(), contentSelector);
+                            });
+                        });
+                        //二级菜单点击事件处理
+                        $('#surroundMarkContent .item-tab li').each(function () {
+                            $(this).click(function () {
+                                $(this).siblings().removeClass('actived');
+                                $(this).addClass('actived');
+                                //获取目标父元素
+                                let targetId = $(this).parents('.mark-item').attr('id');
+                                surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
+                            });
+                        });
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <!-- 二手房周边end -->
+
+    <!-- 底部公共模块start -->
+    <div class="box-content">
+        <!--小区热门二手房 begin-->
+        <div class="picture-list-wrap mt30">
+            <span class="title-name">小区热门二手房</span>
+            <ul class="picture-list center-image">
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!--小区热门二手房 end-->
+        <!-- 免责声明start -->
+        <div class="box-statement mt20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
+    <!-- 底部公共模块start -->
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/carousel.js"></script>
+
+</html>

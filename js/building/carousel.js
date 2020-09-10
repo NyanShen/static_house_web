@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    
+    /*楼盘主页相册轮播*/
+    $('.bd-carousel-show .item-list img').each(function () {
+        resizeImage($(this), 600, 400);
+    });
+
+    $('.bd-carousel-content .bd-carousel-list img').each(function () {
+        resizeImage($(this), 112, 80);
+    });
+
     let index = 0;
     let isMoveOver = true;
     let arrowPrev = $('#bdArrowPrev');

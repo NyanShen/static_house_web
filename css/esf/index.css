@@ -116,7 +116,7 @@
 }
 
 .esf-info .type {
-    margin: 30px 0;
+    margin: 25px 0;
 }
 
 .esf-info .type-item {
@@ -141,6 +141,10 @@
     text-align-last: justify;
     margin-right: 30px;
     color: #999;
+}
+
+.esf-info .plot-item .item-value {
+    padding-left: 85px;
 }
 
 .esf-info .agent {
@@ -177,15 +181,13 @@
     border-bottom: 1px solid #eee;
 }
 
-.header-title-name {
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .esf-detail .detail-list li {
     float: left;
     width: 260px;
     margin: 0 10px 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .esf-detail .detail-list li .value {

@@ -1,0 +1,114 @@
+.house-form {
+    padding: 0 0 30px 30px;
+}
+
+.house-form-wrap {
+    padding-top: 30px;
+}
+
+.house-form-wrap .form-content {
+    padding-top: 20px;
+}
+
+.house-form-wrap .select-content-mini {
+    width: 65px;
+    vertical-align: middle;   
+}
+
+.house-form-wrap .select-content-mini .select-list {
+    width: 65px;
+}
+
+
+.house-form-wrap .form-item-sm .btn-common {
+    width: 130px;
+}
+
+.house-form-wrap .form-item-sm .inline-address {
+    width: 300px;
+    vertical-align: 2px;
+    margin-left: 10px;
+}
+
+.form-item-album .album-wrap{
+    position: relative;
+    display: inline-block;
+    width: 80%;
+}
+
+.form-item-album .album-wrap .upload-btn {
+    color: #11a43c;
+    background-color: #fff;
+    border: 1px solid #11a43c;
+    margin: 0;
+}
+
+.form-item-album .album-wrap .upload-desc {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    line-height: 30px;
+    color: #666;
+}
+.form-item-album .album-list {
+    margin-top: 15px;
+}
+
+.form-item-album .album-list li {
+    float: left;
+    position: relative;
+    margin: 0 15px 15px 0;
+    width: 128px;
+    height: 106px;
+    background-color: #f7f7f7;
+}
+
+.form-item-album .album-list img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-item-album .album-list .image-mask {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.form-item-album .album-list .image-clear {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background: url('//static.fczx.com/www/assets/icons/ashbin.png') no-repeat center center;
+    cursor: pointer;
+}
+
+.form-item-album .album-list .image-text {
+    display: none;
+    position: absolute;
+    left: 10px;
+    bottom: 0; 
+    line-height: 30px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-item-album .album-list .image-tag {
+    position: absolute;
+    left: 0;
+    top: 0; 
+    width: 40px;
+    height: 25px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(17, 164, 60, .8);
+    text-align: center;
+}

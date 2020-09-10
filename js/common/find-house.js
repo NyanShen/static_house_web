@@ -51,6 +51,7 @@ $(document).ready(function () {
     });
 
     $('#findHouseBtn').click(function () {
+        let type = $(this).attr('name'); //rent ,esf, house
         let errorCount = 0;
         errorCount = validateForm('phone', 'phone');
         if (errorCount) return;

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>租房详情</title>
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/esf/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/rent/index.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/echarts_theme.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/Msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+
+</head>
+
+<body>
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html" target="_blank">二手房</a></li>
+                        <li><a href="/pages/rent/list.html" target="_blank">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 固定浮动标题start -->
+    <div class="fix-header fix-header-esf">
+        <div class="box-content clearfix">
+            <div class="header-title fl">
+                <span class="name">朗曼梦公园小区</span>
+                <span class="price">45万</span>
+                <span class="type">2室1厅1卫</span>
+                <span class="type">45m²</span>
+            </div>
+            <div class="contact-phone fr">
+                <span class="name">赵伟华</span>
+                <span class="phone">136545678990</span>
+            </div>
+        </div>
+    </div>
+    <!-- 固定浮动标题end -->
+
+    <!--楼盘面包屑start-->
+    <div class="box-search">
+        <div class="box-content clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="javascript:void(0);">二手房</a>
+                <span>></span>
+                <a href="javascript:void(0);">二手房列表</a>
+                <span>></span>
+                <a href="javascript:void(0);">二手房详情</a>
+            </div>
+        </div>
+    </div>
+    <!--楼盘面包屑end-->
+
+    <!-- 二手房模块start -->
+    <div class="box-content">
+        <div class="esf-header">
+            <div class="title">全市低3千1平中豪旁边天然气入户层高全市低3千1平中豪旁边天然气入户层高</div>
+            <div class="house-code small-desc mt10">
+                <span>房屋编码： 1592639782724615，</span>
+                发布时间：2020年08月05日
+            </div>
+        </div>
+        <div class="esf-content clearfix mt20">
+            <div class="esf-carousel fl">
+                <div class="carousel-show center-image">
+                    <a href="//static.fczx.com/www/assets/images/1400x933_1.jpg" target="_blank">
+                        <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="" id="showImage">
+                    </a>
+                    <div class="middle-arrow arrow-left" id="showArrowLeft"></div>
+                    <div class="middle-arrow arrow-right" id="showArrowRight"></div>
+                </div>
+                <div class="carousel-content">
+                    <ul class="carousel-list clearfix">
+                        <li class="actived">
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_7.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="//static.fczx.com/www/assets/images/1400x933_3.jpg" alt="">
+                        </li>
+                    </ul>
+                    <div class="arrow arrow-left" id="listArrowLeft"></div>
+                    <div class="arrow arrow-right" id="listArrowRight"></div>
+                </div>
+            </div>
+            <div class="esf-info fr">
+                <div class="header">
+                    <span class="price">400</span>
+                    <span class="tip-color">元/月</span>
+                    <span class="header-item">（押一付三）</span>
+                </div>
+                <div class="cut-line"></div>
+                <div class="type clearfix">
+                    <div class="type-item">
+                        <p class="value">整租</p>
+                        <p class="desc-color">出租方式</p>
+                    </div>
+                    <div class="type-item">
+                        <p class="value">2室1厅1卫</p>
+                        <p class="desc-color">户型</p>
+                    </div>
+                    <div class="type-item">
+                        <p class="value">28m²</p>
+                        <p class="desc-color">建筑面积</p>
+                    </div>
+                </div>
+                <div class="cut-line"></div>
+                <div class="type clearfix">
+                    <div class="type-item">
+                        <p class="value">南北</p>
+                        <p class="desc-color">朝向</p>
+                    </div>
+                    <div class="type-item">
+                        <p class="value">中层</p>
+                        <p class="desc-color">楼层（共12层）</p>
+                    </div>
+                    <div class="type-item">
+                        <p class="value">豪华装修</p>
+                        <p class="desc-color">装修</p>
+                    </div>
+                </div>
+                <div class="cut-line"></div>
+                <div class="type">
+                    <div class="plot-item clearfix">
+                        <label class="item-name fl">小区</label>
+                        <div class="item-value">
+                            <a href="/pages/esf/plot.html">朗曼梦公园小区</a>
+                            <a href="#surroundMap">
+                                <span class="iconfont">&#xe677;</span>
+                                查看地图
+                            </a>
+                        </div>
+                    </div>
+                    <div class="plot-item clearfix">
+                        <label class="item-name fl">地址</label>
+                        <div class="item-value">
+                            <span>邓城大道49号（襄阳新五中斜对面）</span>
+                        </div>
+                    </div>
+                    <div class="plot-item clearfix">
+                        <label class="item-name fl">要求</label>
+                        <div class="item-value">
+                            <span>男女不限</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cut-line"></div>
+                <div class="agent">
+                    <p>
+                        <span class="name">赵伟华</span>
+                        <span class="desc-color">经纪人</span>
+                    </p>
+                    <p class="phone">13456234567</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 二手房模块end -->
+
+    <!-- 房屋信息start -->
+    <div class="box-content esf-detail clearfix mt20">
+        <div class="content-left fl">
+            <div class="header clearfix">
+                <span class="header-title-name fl">房源描述</span>
+            </div>
+            <div class="detail-content rent-desc">
+                <p>房子位于长虹路毛纺小区站台背后，二楼大两室，家具家电齐全拎包入住，独栋独院，户型方正，南北通透，安全有保证</p>
+                <p>房子位于长虹路毛纺小区站台背后，二楼大两室，家具家电齐全拎包入住，独栋独院，户型方正，南北通透，安全有保证</p>
+                <p>房子位于长虹路毛纺小区站台背后，二楼大两室，家具家电齐全拎包入住，独栋独院，户型方正，南北通透，安全有保证</p>
+            </div>
+            <div class="header clearfix">
+                <span class="header-title-name fl">配套设施</span>
+            </div>
+            <div class="detail-content">
+                <ul class="facility-list clearfix">
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe6a6;</i>
+                        <p class="desc">床</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe625;</i>
+                        <p class="desc">冰箱</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe651;</i>
+                        <p class="desc">空调</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xec78;</i>
+                        <p class="desc">洗衣机</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe6fc;</i>
+                        <p class="desc">热水器</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe636;</i>
+                        <p class="desc">暖气</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe691;</i>
+                        <p class="desc">电视</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe601;</i>
+                        <p class="desc">宽带</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe6b4;</i>
+                        <p class="desc">沙发</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe61e;</i>
+                        <p class="desc">衣柜</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe657;</i>
+                        <p class="desc">油烟机</p>
+                    </li>
+                    <li class="facility-item">
+                        <i class="iconfont">&#xe600;</i>
+                        <p class="desc">阳台</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-right fr">
+            <div class="table-type-list">
+                <div class="title">同小区楼盘</div>
+                <div class="cut-line"></div>
+                <ul class="hot-pic-list center-image mt20">
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a href="javascript:void(0);" class="item-picture fl">
+                                <img src="//static.fczx.com/www/assets/images/110x80.jpg" alt="">
+                            </a>
+                            <div class="content fr">
+                                <a href="javascript:void(0);" class="item-title">福星惠誉·京澜誉府</a>
+                                <a href="javascript:void(0);" class="area">高新区</a>
+                                <p>约<span class="tip-color">7900</span>元/m²</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 房屋信息end -->
+
+    <!-- 小区周边start -->
+    <div class="box-content mt20" id="surroundMap">
+        <div class="box-surround table-detail">
+            <div class="table-detail-header">
+                <span class="title">襄阳吾悦广场</span>
+            </div>
+            <div class="surround-content">
+                <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/module/map.css">
+                <script type="text/javascript"
+                    src="//api.map.baidu.com/api?v=2.0&ak=kM1RFA6AzOnv6lmlc7qyOMhqBILu1pgk"></script>
+                <div class="surround-map" id="surround-map"></div>
+                <div class="surround-mark">
+                    <div class="surround-mark-tab">
+                        <ul class="mark-tab-list" id="surroundMarkTab">
+                            <li class="actived">交通</li>
+                            <li>商业</li>
+                            <li>学校</li>
+                            <li>医院</li>
+                        </ul>
+                    </div>
+                    <div class="surround-mark-content" id="surroundMarkContent">
+                        <div class="mark-item has-tag" id="traffic">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">公交</li>
+                                    <li>地铁</li>
+                                    <li>停车场</li>
+                                    <li>加油站</li>
+                                </ul>
+                            </div>
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                        <div class="mark-item has-tag" id="business">
+                            <div class="item-tab">
+                                <ul>
+                                    <li class="actived">超市</li>
+                                    <li>公园</li>
+                                    <li>餐饮</li>
+                                    <li>银行</li>
+                                </ul>
+                            </div>
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                        <div class="mark-item" id="school">
+                            <ul class="item-list">
+
+                            </ul>
+                        </div>
+                        <div class="mark-item" id="hospital">
+                            <ul class="item-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript" src="//static.fczx.com/www/js/common/map.js"></script>
+                <script type="text/javascript">
+
+                    $(document).ready(function () {
+                        let lng = 112.141744;
+                        let lat = 32.097901;
+                        let mapId = "surround-map";
+                        let centerName = '襄阳吾悦广场';
+                        let firstContentList = $('#surroundMarkContent .mark-item');
+                        let secondContentList = $('#surroundMarkContent .mark-item .item-list');
+                        // 实例化自定义地图函数
+                        let surroundMap = new SurroundMap(mapId, lng, lat, searchCallback, centerName);
+
+                        // 初始化地图搜索结果
+                        firstContentList.eq(0).show();
+                        surroundMap._searchNearby('公交', '#traffic .item-list');
+
+                        // 搜索列表自定义信息弹窗
+                        function searchCallback(currentSelector, resultList) {
+                            $(`${currentSelector} li`).each(function (index) {
+                                $(this).click(function () {
+                                    let currentItem = resultList[index];
+                                    surroundMap._openInfoWindow(currentItem);
+                                })
+                            });
+                        }
+                        //一级菜单事件处理及判断二级菜单
+                        $('#surroundMarkTab>li').each(function (index) {
+                            $(this).click(function () {
+                                $(this).siblings().removeClass('actived');
+                                $(this).addClass('actived');
+                                firstContentList.hide();
+                                // 获取一级菜单对应的content
+                                let targetContent = firstContentList.eq(index);
+                                targetContent.show();
+                                // 判断是否有二级菜单
+                                let secondTab = targetContent.find('.item-tab li');
+                                let targetContentId = targetContent.attr("id");
+                                let contentSelector = `#${targetContentId} .item-list`
+                                if (secondTab.length > 0) {
+                                    let mapKey = secondTab.first().text();
+                                    surroundMap._searchNearby(mapKey, contentSelector);
+                                    return;
+                                }
+                                surroundMap._searchNearby($(this).text(), contentSelector);
+                            });
+                        });
+                        //二级菜单点击事件处理
+                        $('#surroundMarkContent .item-tab li').each(function () {
+                            $(this).click(function () {
+                                $(this).siblings().removeClass('actived');
+                                $(this).addClass('actived');
+                                //获取目标父元素
+                                let targetId = $(this).parents('.mark-item').attr('id');
+                                surroundMap._searchNearby($(this).text(), `#${targetId} .item-list`);
+                            });
+                        });
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <!-- 小区周边end -->
+    <!-- 底部公共模块start -->
+    <div class="box-content">
+
+        <!--您可能感兴趣的新房 begin-->
+        <div class="picture-list-wrap mt30">
+            <span class="title-name">附近房源</span>
+            <ul class="picture-list center-image">
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <i class="margin-center icon-video"></i>
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="picture">
+                        <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                    </a>
+                    <p class="name">
+                        <a href="javascript:;">通州-首开香溪郡</a>
+                    </p>
+                    <p class="price">
+                        <span class="desc-color">价格：</span>
+                        <span class="bold-red">32600元/㎡</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!--您可能感兴趣的新房 end-->
+        <!-- 免责声明start -->
+        <div class="box-statement mt20">
+            <strong class="title-color">免责声明：</strong>
+            <span class="text-color">本站楼盘信息旨在为用户提供更多信息的无偿服务，信息以政府部门登记备案为准，请谨慎核查。</span>
+        </div>
+        <!-- 免责声明end -->
+    </div>
+    <!-- 底部公共模块start -->
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+<script type="text/javascript" src="//static.fczx.com/www/js/esf/index.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/building/calculator.js"></script>
+
+</html>

@@ -582,7 +582,18 @@ table th, table td {
     height: 30px;
     line-height: 30px;
     margin-right: 10px;
+    text-align: right;
     color: #666;
+}
+
+.form-item-sm .label-control-lg {
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 15px;
+    text-align: right;
+    color: #666 ;
 }
 
 .form-item-sm input[type=text] {
@@ -591,6 +602,16 @@ table th, table td {
     line-height: 30px;
     border: 1px solid #ddd;
     padding: 0 10px;
+}
+
+.form-item-sm-l input[type=text] {
+    width: 300px;
+}
+
+.form-item-sm textarea {
+    width: 60%;
+    border: 1px solid #ddd;
+    padding: 10px;
 }
 
 .form-item-code-sm input[type=text] {
@@ -607,10 +628,83 @@ table th, table td {
     cursor: pointer;
 }
 
+.form-item-sm .input-check {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    color: #666;
+}
+
+.form-item-sm .input-check input[type=radio] {
+    vertical-align: -1px;
+}
+
+.form-item-sm .input-check input[type=checkbox] {
+    vertical-align: -1px;
+}
+
 .form-item-sm .count-down {
     display: none;
     color: #fff;
     background-color: #999;
+}
+
+.form-item-sm .form-select-list {
+    display: none;
+    position: absolute;
+    top: 29px;
+    left: 80px;
+    width: 198px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.form-item-sm .form-select-list li {
+    line-height: 32px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.form-item-sm .form-select-list li:hover {
+    background-color: #f7f7f7;
+}
+
+.form-item-sm .form-select-list li.no-result {
+    cursor: auto;
+    background-color: #f7f7f7;
+}
+
+.form-item-sm .select-content-sm {
+    margin: 0;
+}
+
+.form-item-sm .input-control {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.form-item-sm .input-control input[type=text] {
+    width: 90px;
+    border: none;
+    text-align: center;
+}
+
+.form-item-sm .form-error {
+    margin-left: 10px;
+    padding-left: 16px;
+    background: url('//static.fczx.com/www/assets/icons/tip.png') no-repeat left center;
+    color: #f34;
+}
+
+.form-item-sm .tip-info {
+    margin-left: 10px;
+    color: #999;
 }
 
 .btn-common {
@@ -692,46 +786,6 @@ table th, table td {
     color: #df2f30;
 }
 
-/*楼盘标签*/
-
-.tags {
-    width: 100%;
-    height: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    margin-top: 15px;
-}
-
-.tags span {
-    color: #666;
-    background-color: #f2f2f2;
-    padding: 2px 8px;
-    margin-right: 10px;
-}
-
-.tags .solding {
-    color: #fff;
-    background-color: #409DFB;
-}
-
-/* 在售 */
-
-.sale-status-1 {
-    background-color: rgba(64, 157, 251);
-}
-
-/* 待售 */
-
-.sale-status-2 {
-    background-color: rgba(255, 152, 50);
-}
-
-/* 售完 */
-
-.sale-status-3 {
-    background-color: rgba(187, 187, 187);
-}
-
 /* 中图轮播箭头 */
 
 .carousel-show:hover .middle-arrow {
@@ -762,4 +816,25 @@ table th, table td {
 .middle-arrow.arrow-disabled {
     background-color: rgba(0, 0, 0, .3);
     cursor: auto;
+}
+
+/*周边配套中心点*/
+
+.surround-bubble {
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.surround-bubble .triangle-down {
+    position: absolute;
+    top: 35px;
+    left: 40%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #11a43c transparent transparent transparent;
 }

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>用户中心-我要出租</title>
+    <meta name="keywords" content="用户中心-我要出租">
+    <meta name="description" content="用户中心-我要出租">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/user/index.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/user/house.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+</head>
+
+<body>
+    <!--头部导航栏start-->
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html">二手房</a></li>
+                        <li><a href="/pages/rent/list.html">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+    <!-- 用户信息start -->
+    <div class="user-header">
+        <div class="box-content clearfix">
+            <img src="//static.fczx.com/www/assets/images/user_photo.jpg" alt="" class="user-photo">
+            <div class="user-li">
+                <p class="greet">
+                    <span class="now-time"></span>，
+                    <span class="nickname"></span>
+                </p>
+                <p class="logininfo">
+                    <span class="account">账户名：<span class="username"></span></span>
+                    <span class="desc-color">上次登录：<span class="last-time"></span></span>
+                    <input type="hidden" value="" id="hiddenId" />
+                </p>
+            </div>
+            <a href="/pages/user/profile.html" class="user-modify">修改资料</a>
+        </div>
+    </div>
+    <div class="box-content clearfix mt20">
+        <div class="side-menu fl">
+            <ul class="menu-list">
+                <li><a href="/pages/user/index.html" class="menu-item"><i class="iconfont">&#xeb97;</i>消息</a></li>
+                <li><a href="/pages/user/question.html" class="menu-item"><i class="iconfont">&#xe7c2;</i>问答</a></li>
+                <li><a href="/pages/user/comment.html" class="menu-item"><i class="iconfont">&#xe61d;</i>评论</a></li>
+                <li><a href="/pages/user/profile.html" class="menu-item"><i class="iconfont">&#xe635;</i>个人资料</a></li>
+                <li><a href="/pages/user/password.html" class="menu-item"><i class="iconfont">&#xe674;</i>修改密码</a></li>
+                <li><a href="/pages/user/favorite.html" class="menu-item"><i class="iconfont">&#xe671;</i>我的收藏</a></li>
+            </ul>
+            <ul class="menu-list">
+                <li><a href="/pages/user/salehouse.html" class="menu-item"><i class="iconfont">&#xeb9f;</i>我要卖房</a></li>
+                <li><a href="javascript:;" class="menu-item actived"><i class="iconfont">&#xeb96;</i>我要出租</a></li>
+                <li><a href="/pages/user/managehouse.html" class="menu-item"><i class="iconfont">&#xeb9f;</i>管理房源</a></li>
+                <li><a href="/pages/user/record.html" class="menu-item"><i class="iconfont">&#xe66e;</i>看房记录</a></li>
+            </ul>
+        </div>
+        <div class="side-right fr">
+            <div class="user-content">
+                <ul class="user-tab">
+                    <li><a href="#" class="tab-item actived">免费发布房源</a></li>
+                </ul>
+                <div class="house-form">
+                    <div class="house-form-wrap">
+                        <div class="header">
+                            <span class="title">联系方式（<span class="required-red">*</span>为必填）</span>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>联系人</label>
+                                <input type="text" name="contact" id="contact" value="" data-label="联系人">
+                                <div class="select-content-sm select-content-mini">
+                                    <div class="select-text">
+                                        <span class="title-color">先生</span>
+                                        <input type="text" name="sex" id="sex" value="0" hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="0">先生</li>
+                                        <li data-value="1">女士</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>联系手机</label>
+                                <input type="text" name="phone" id="mobile" value="134186968453" disabled>
+                                <span class="tip-info">（如需切换手机号，请重新登录）</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="house-form-wrap">
+                        <div class="header">
+                            <span class="title">基本信息（<span class="required-red">*</span>为必填）</span>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>小区名字</label>
+                                <input type="text" name="plot" id="plot" value="" data-label="小区名字">
+                                <ul class="form-select-list">
+
+                                </ul>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>区域</label>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color"></span>
+                                        <input type="text" name="region" id="region" value="" data-label="区域" hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="1001">樊城区</li>
+                                        <li data-value="1002">襄城区</li>
+                                        <li data-value="1003">襄州区</li>
+                                    </ul>
+                                </div>
+                                <input class="inline-address" type="text" name="address" id="address" value="" data-label="地址" placeholder="请输入地址">
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>户型</label>
+                                <div class="input-control">
+                                    <input type="text" name="room" id="room" value="" data-label="室">
+                                    <span class="desc-color">室</span>
+                                </div>
+                                <div class="input-control">
+                                    <input type="text" name="office" id="office" value="" data-label="厅">
+                                    <span class="desc-color">厅</span>
+                                </div>
+                                <div class="input-control">
+                                    <input type="text" name="toilet" id="toilet" value="" data-label="卫">
+                                    <span class="desc-color">卫</span>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>建筑面积</label>
+                                <div class="input-control">
+                                    <input type="text" name="area" id="area" value="" data-label="建筑面积">
+                                    <span class="desc-color">㎡</span>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>租赁方式</label>
+                                <div class="input-check">
+                                    <input type="radio" name="rentWay" value="1" checked id="rentEntire">
+                                    <span>整租</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="radio" name="rentWay" value="2" id="rentShare">
+                                    <span>合租</span>
+                                </div>
+                            </div>
+                            <div class="form-item-sm hide" id="rentShareInfo">
+                                <label class="label-control-lg"><span class="required-red">*</span>出租类型</label>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color">次卧</span>
+                                        <input type="text" name="rentRoom" id="rentRoom" value="2" data-label="出租间"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="1">主卧</li>
+                                        <li data-value="2">次卧</li>
+                                        <li data-value="3">床位</li>
+                                    </ul>
+                                </div>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color">2户合租</span>
+                                        <input type="text" name="rentCount" id="rentCount" value="2" data-label="合租户数"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="2">2户合租</li>
+                                        <li data-value="3">3户合租</li>
+                                        <li data-value="4">4户合租</li>
+                                        <li data-value="5">5户合租</li>
+                                    </ul>
+                                </div>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color">性别不限</span>
+                                        <input type="text" name="rentCondition" id="rentCondition" value="1" data-label="合租要求"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="1">性别不限</li>
+                                        <li data-value="2">限男</li>
+                                        <li data-value="3">限女</li>
+                                        <li data-value="4">限夫妻</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>租金</label>
+                                <div class="input-control">
+                                    <input type="text" name="price" id="price" value="" data-label="租金">
+                                    <span class="desc-color">元/月</span>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>付款方式</label>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color">面议</span>
+                                        <input type="text" name="rentPay" id="rentPay" value="6" data-label="付款方式"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="1">付一押一</li>
+                                        <li data-value="2">付二押一</li>
+                                        <li data-value="3">付三押一</li>
+                                        <li data-value="4">半年付</li>
+                                        <li data-value="5">年付</li>
+                                        <li data-value="6">面议</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>楼层</label>
+                                <div class="input-control">
+                                    <span class="desc-color">第</span>
+                                    <input type="text" name="floor" id="floor" value="" data-label="">
+                                    <span class="desc-color">层</span>
+                                </div>
+                                <div class="input-control">
+                                    <span class="desc-color">共</span>
+                                    <input type="text" name="totalFloor" id="totalFloor" value="" data-label="楼层">
+                                    <span class="desc-color">层</span>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>朝向</label>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color"></span>
+                                        <input type="text" name="direction" id="direction" value="" data-label="朝向"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="南北">南北</li>
+                                        <li data-value="南">南</li>
+                                        <li data-value="东南">东南</li>
+                                        <li data-value="东">东</li>
+                                        <li data-value="西南">西南</li>
+                                        <li data-value="北">北</li>
+                                        <li data-value="西">西</li>
+                                        <li data-value="西北">西北</li>
+                                        <li data-value="东北">东北</li>
+                                        <li data-value="东西">东西</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"><span class="required-red">*</span>装修程度</label>
+                                <div class="select-content-sm">
+                                    <div class="select-text">
+                                        <span class="title-color"></span>
+                                        <input type="text" name="renovation" id="renovation" value="" data-label="装修程度"
+                                            hidden>
+                                        <i></i>
+                                    </div>
+                                    <ul class="select-list">
+                                        <li data-value="1">毛坯</li>
+                                        <li data-value="2">简易装修</li>
+                                        <li data-value="3">豪华装修</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg">建造年代</label>
+                                <div class="input-control">
+                                    <input type="text" name="houseAge" id="houseAge" value="" data-label="建造年代">
+                                    <span class="desc-color">年</span>
+                                </div>
+                                <span class="tip-info">（输入房源建造年份，如：2010）</span>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg">配套设施</label>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomBed" value="床">
+                                    <span>床</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomOnline" value="宽带">
+                                    <span>宽带</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomTV" value="电视">
+                                    <span>电视</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomIce" value="冰箱">
+                                    <span>冰箱</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomWash" value="洗衣机">
+                                    <span>洗衣机</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomAir" value="空调">
+                                    <span>空调</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomWater" value="热水器">
+                                    <span>热水器</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="checkbox" name="roomequipment" id="roomHeat" value="暖气">
+                                    <span>暖气</span>
+                                </div>
+                                <a href="javascript:;" class="primary-color" id="roomAllBtn">全选</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="house-form-wrap">
+                        <div class="header">
+                            <span class="title">详细信息（<span class="required-red">*</span>为必填）</span>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-item-sm form-item-sm-l">
+                                <label class="label-control-lg"><span class="required-red">*</span>房源标题</label>
+                                <input type="text" name="houseTitle" id="houseTitle" value="" maxlength="30"
+                                    placeholder="写好房源标题，快速成交第一步" data-label="房源标题">
+                                <span class="text-count desc-color">
+                                    <span class="count">0</span>/30字
+                                    <span class="limit"></span>
+                                </span>
+                            </div>
+                            <div class="form-item-sm">
+                                <label class="label-control-lg">房源描述</label>
+                                <textarea name="houseDesc" id="houseDesc" value="" rows="6" maxlength="500"></textarea>
+                                <span class="text-count desc-color">
+                                    <span class="count">0</span>/500字
+                                    <span class="limit"></span>
+                                </span>
+                            </div>
+
+                            <div class="form-item-sm form-item-album clearfix">
+                                <label class="label-control-lg">室内图片</label>
+                                <div class="album-wrap">
+                                    <div class="upload-btn" id="indoorUploadBtn">
+                                        <span class="upload-text">上传图片</span>
+                                        <i class="iconfont">&#xe683;</i>
+                                    </div>
+                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <input id="indoorImageBtn" name="" type="file" value="上传" multiple accept="image/*"
+                                        style="display: none;" />
+                                    <ul class="album-list clearfix">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm form-item-album clearfix">
+                                <label class="label-control-lg">户型图片</label>
+                                <div class="album-wrap">
+                                    <div class="upload-btn" id="typeUploadBtn">
+                                        <span class="upload-text">上传图片</span>
+                                        <i class="iconfont">&#xe683;</i>
+                                    </div>
+                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <input id="typeImageBtn" name="" type="file" value="上传" multiple accept="image/*"
+                                        style="display: none;" />
+                                    <ul class="album-list clearfix">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-item-sm form-item-album clearfix">
+                                <label class="label-control-lg">小区图片</label>
+                                <div class="album-wrap">
+                                    <div class="upload-btn" id="plotUploadBtn">
+                                        <span class="upload-text">上传图片</span>
+                                        <i class="iconfont">&#xe683;</i>
+                                    </div>
+                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <input id="plotImageBtn" name="" type="file" value="上传" multiple accept="image/*"
+                                        style="display: none;" />
+                                    <ul class="album-list clearfix">
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="form-item-sm">
+                                <label class="label-control-lg"></label>
+                                <input class="btn-common" type="submit" name="" id="housePublishBtn" value="发布房源">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-list-wrap picture-list-inuser mt30">
+                <span class="title-name">您可能感兴趣的新房</span>
+                <ul class="picture-list center-image">
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                        </a>
+                        <p class="name">
+                            <a href="javascript:;">通州-首开香溪郡</a>
+                        </p>
+                        <p class="price">
+                            <span class="desc-color">价格：</span>
+                            <span class="bold-red">32600元/㎡</span>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <i class="margin-center icon-video"></i>
+                            <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                        </a>
+                        <p class="name">
+                            <a href="javascript:;">通州-首开香溪郡</a>
+                        </p>
+                        <p class="price">
+                            <span class="desc-color">价格：</span>
+                            <span class="bold-red">32600元/㎡</span>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                        </a>
+                        <p class="name">
+                            <a href="javascript:;">通州-首开香溪郡</a>
+                        </p>
+                        <p class="price">
+                            <span class="desc-color">价格：</span>
+                            <span class="bold-red">32600元/㎡</span>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="picture">
+                            <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                        </a>
+                        <p class="name">
+                            <a href="javascript:;">通州-首开香溪郡</a>
+                        </p>
+                        <p class="price">
+                            <span class="desc-color">价格：</span>
+                            <span class="bold-red">32600元/㎡</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 用户信息start -->
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+
+<script type="text/javascript" src="//static.fczx.com/www/js/user/salehouse.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        new FCZX.user.HouseForm({type: 'rent'})
+    });
+</script>
+
+</html>

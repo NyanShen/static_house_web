@@ -56,11 +56,6 @@ body {
 
 /* 用户中心内容框架 */
 
-.side-menu {
-    width: 200px;
-    background-color: #fff;
-}
-
 .side-right {
     width: 960px;
 }
@@ -71,6 +66,12 @@ body {
 }
 
 /* 用户中心菜单 */
+
+.menu-list {
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
 
 .menu-list .menu-item {
     display: block;

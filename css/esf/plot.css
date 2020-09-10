@@ -1,0 +1,76 @@
+.plot-info {
+    width: 552px;
+}
+
+.plot-price {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 15px 0;
+    color: #666;
+}
+
+.plot-price .price {
+    font-size: 28px;
+    color: #f34;
+    margin: 0 5px;
+}
+
+.plot-price .ratio {
+    margin-left: 20px;
+}
+
+.plot-split {
+    margin: 20px 0;
+}
+
+.plot-list .list-item {
+    float: left;
+    width: 276px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 10px 0;
+}
+
+.plot-list .list-item-inline {
+    width: 500px;
+}
+
+.plot-list .list-item .label {
+    float: left;
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 20px;
+    text-align: justify;
+    text-align-last: justify;
+    color: #999;
+}
+
+.plot-house .house-item {
+    float: left;
+    width: 276px;
+    text-align: center;
+}
+
+.plot-house .house-item .count {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.plot-house .house-item .count:hover {
+    color: #f60;
+}
+
+/* 价格走势 */
+
+.plot-chart .price-retio li {
+    width: 48%;
+}
