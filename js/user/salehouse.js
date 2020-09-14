@@ -10,57 +10,61 @@
                 selectS: '.select-content-sm',
                 formItemS: '.form-item-sm',
                 plot: {
-                    id: 'plot',
-                    selector: '#plot',
-                    listSel: '.form-select-list',
-                    source_url: '/plot/list'
+                    idS: '#plotId',
+                    nameS: '#plotName',
+                    selectS: '.search-select',
+                    showTextS: '.search-select-text',
+                    contentS: '.search-select-content',
+                    listS: '.search-select-list',
+                    source_url: 'http://xiangyang.fczx.com/api/plot/list',
+                    // source_url: app.areaApiUrl('/community/find-by-title'),
+
+
                 },
-                contactS: '#contact',
+                realNameS: '#realName',
                 mobileS: '#mobile',
                 roomS: '#room',
                 officeS: '#office',
                 toiletS: '#toilet',
                 floorS: '#floor',
                 totalFloorS: '#totalFloor',
-                areaS: '#area',
-                priceS: '#price',
+                buildingAreaS: '#buildingArea',
+                buildingNoS: '#buildingNo',
+                buildingUnitS: '#buildingUnit',
+                buildingRoomS: '#buildingRoom',
+                priceTotalS: '#priceTotal',
                 directionS: '#direction',
                 renovationS: '#renovation',
                 regionS: '#region',
                 addressS: '#address',
-                houseAgeS: '#houseAge',
+                houseYearS: '#houseYear',
 
                 houseTitleS: '#houseTitle',
                 houseDescS: '#houseDesc',
-                salePointS: '#salePoint',
-                mindsetS: '#mindset',
-                introduceS: '#introduce',
+                elevatorValS: '#elevatorVal',
+                elevatorS: 'input[name="elevator"]:radio',
+                housePropertyValS: '#housePropertyVal',
+                housePropertyS: 'input[name="houseProperty"]:radio',
 
-                indoorUploadBtnS: '#indoorUploadBtn',
-                indoorImageBtnS: '#indoorImageBtn',
-                typeUploadBtnS: '#typeUploadBtn',
-                typeImageBtnS: '#typeImageBtn',
-                plotUploadBtnS: '#plotUploadBtn',
-                plotImageBtnS: '#plotImageBtn',
+                saleOpt: {
+                    salePointS: '#salePoint',
+                    mindsetS: '#mindset',
+                    serviceIntroduceS: '#serviceIntroduce',
+                    projectFeatureAllBtnS: '#projectFeatureAllBtn',
+                    projectFeatureS: 'input[name="fangProjectFeature"]:checkbox'
+                },
+
+                houseUploadBtnS: '#houseUploadBtn',
+                houseImageBtnS: '#houseImageBtn',
 
                 rentOpt: {
-                    roomBedS: '#roomBed',
-                    roomOnlineS: '#roomOnline',
-                    roomTVS: '#roomTV',
-                    roomIceS: '#roomIce',
-                    roomWashS: '#roomWash',
-                    roomAirS: '#roomAir',
-                    roomWaterS: '#roomWater',
-                    roomHeatS: '#roomHeat',
                     roomAllBtnS: '#roomAllBtn',
-                    rentEntireS: '#rentEntire',
-                    rentShareS: '#rentShare',
-                    rentShareInfoS: '#rentShareInfo',
                     rentRoomS: '#rentRoom',
                     rentCountS: '#rentCount',
                     rentConditionS: '#rentCondition',
                     rentPayS: '#rentPay',
-                    rentWayValS: 'input[name="rentWay"]:checked',
+                    rentWayValS: '#rentWayVal',
+                    rentWayS: 'input[name="rentWay"]:radio',
                     roomequipmentS: 'input[name="roomequipment"]:checkbox',
                 },
 
@@ -76,44 +80,54 @@
             if (opt.type == 'rent') {
                 this._initRentDomEvent();
             }
+            if (opt.type === 'sale') {
+                this._initSaleDomEvent();
+            }
         },
         _initDomEvent: function () {
             let _this = this;
             let _opt = _this.opt;
-            _opt.$plot = $(_opt.plot.selector);
-            _opt.$plotList = _opt.$plot.siblings(_opt.plot.listSel);
-            _opt.$contact = $(_opt.contactS);
+            _opt.$realName = $(_opt.realNameS);
             _opt.$mobile = $(_opt.mobileS);
             _opt.$room = $(_opt.roomS);
             _opt.$office = $(_opt.officeS);
             _opt.$toilet = $(_opt.toiletS);
             _opt.$floor = $(_opt.floorS);
             _opt.$totalFloor = $(_opt.totalFloorS);
-            _opt.$area = $(_opt.areaS);
-            _opt.$price = $(_opt.priceS);
+            _opt.$buildingArea = $(_opt.buildingAreaS);
+            _opt.$buildingNo = $(_opt.buildingNoS);
+            _opt.$buildingUnit = $(_opt.buildingUnitS);
+            _opt.$buildingRoom = $(_opt.buildingRoomS);
+            _opt.$priceTotal = $(_opt.priceTotalS);
             _opt.$direction = $(_opt.directionS);
             _opt.$renovation = $(_opt.renovationS);
             _opt.$region = $(_opt.regionS);
             _opt.$address = $(_opt.addressS);
-            _opt.$houseAge = $(_opt.houseAgeS);
+            _opt.$houseYear = $(_opt.houseYearS);
             _opt.$houseTitle = $(_opt.houseTitleS);
             _opt.$houseDesc = $(_opt.houseDescS);
-            _opt.$salePoint = $(_opt.salePointS);
-            _opt.$mindset = $(_opt.mindsetS);
-            _opt.$introduce = $(_opt.introduceS);
+            _opt.$elevator = $(_opt.elevatorS);
+            _opt.$elevatorVal = $(_opt.elevatorValS);
+            _opt.$houseProperty = $(_opt.housePropertyS);
+            _opt.$housePropertyVal = $(_opt.housePropertyValS);
 
-            _opt.$indoorUploadBtn = $(_opt.indoorUploadBtnS);
-            _opt.$indoorImageBtn = $(_opt.indoorImageBtnS);
-            _opt.$typeUploadBtn = $(_opt.typeUploadBtnS);
-            _opt.$typeImageBtn = $(_opt.typeImageBtnS);
-            _opt.$plotUploadBtn = $(_opt.plotUploadBtnS);
-            _opt.$plotImageBtn = $(_opt.plotImageBtnS);
+            _opt.$houseUploadBtn = $(_opt.houseUploadBtnS);
+            _opt.$houseImageBtn = $(_opt.houseImageBtnS);
             _opt.$submitBtn = $(_opt.submitBtnS);
             _this._initPlotEvent();
             new FCZX.Select({ selectContS: _opt.selectS });
 
-            let $allInput = $(`${_opt.contactS}, ${_opt.plot.selector}, ${_opt.roomS}, ${_opt.officeS}, ${_opt.toiletS},
-             ${_opt.floorS}, ${_opt.totalFloorS}, ${_opt.areaS}, ${_opt.priceS}, ${_opt.directionS}, ${_opt.renovationS},
+            _opt.$elevator.click(function () {
+                _opt.$elevatorVal.val(this.value)
+            });
+
+            _opt.$houseProperty.click(function () {
+                _opt.$housePropertyVal.val(this.value)
+            });
+
+            let $allInput = $(`${_opt.realNameS}, ${_opt.roomS}, ${_opt.officeS}, ${_opt.toiletS},
+             ${_opt.floorS}, ${_opt.totalFloorS}, ${_opt.buildingAreaS}, ${_opt.buildingNoS}, ${_opt.buildingUnitS}, ${_opt.buildingRoomS},
+              ${_opt.priceS}, ${_opt.directionS}, ${_opt.renovationS},
               ${_opt.regionS},${_opt.addressS}, ${_opt.houseTitleS}`);
 
             $allInput.on('focusout', function (event) {
@@ -128,8 +142,8 @@
                     case 'totalFloor':
                         _this._checkPattern($this, _opt.intWiZeroReg, '请填写除0外的数字', false);
                         break;
-                    case 'area':
-                    case 'price':
+                    case 'buildingArea':
+                    case 'priceTotal':
                         let label = $this.data('label');
                         _this._checkPattern($this, _opt.floatReg, `请填写正确的${label}`, false);
                         break;
@@ -141,20 +155,16 @@
 
             inputListener(_opt.$houseTitle, 30);
             inputListener(_opt.$houseDesc, 500);
-            inputListener(_opt.$salePoint, 500);
-            inputListener(_opt.$mindset, 500);
-            inputListener(_opt.$introduce, 500);
 
-            _this._initAlbumEvent(_opt.$indoorUploadBtn, _opt.$indoorImageBtn, true);
-            _this._initAlbumEvent(_opt.$typeUploadBtn, _opt.$typeImageBtn);
-            _this._initAlbumEvent(_opt.$plotUploadBtn, _opt.$plotImageBtn);
+            _this._initAlbumEvent(_opt.$houseUploadBtn, _opt.$houseImageBtn, 10, true);
 
             _opt.$submitBtn.on('click.submit', function () {
                 _this._submitData();
-                if (_this._checkDataEmpty(_opt.$contact)) {
+                if (_this._checkDataEmpty(_opt.$realName)) {
                     return
                 }
-                if (_this._checkDataEmpty(_opt.$plot)) {
+                if (_this._checkDataEmpty(_opt.$plotId)) {
+                    alert('请填写小区名字')
                     return
                 }
                 if (_this._checkDataEmpty(_opt.$region)) {
@@ -173,10 +183,19 @@
                 if (_this._checkPattern(_opt.$toilet, _opt.sinPoReg, '请填写0-10的数字')) {
                     return
                 }
-                if (_this._checkPattern(_opt.$area, _opt.floatReg, `请填写正确的${_opt.$area.data('label')}`)) {
+                if (_this._checkPattern(_opt.$buildingArea, _opt.floatReg, `请填写正确的${_opt.$buildingArea.data('label')}`)) {
                     return
                 }
-                if (_this._checkPattern(_opt.$price, _opt.floatReg, `请填写正确的${_opt.$price.data('label')}`)) {
+                if (_this._checkDataEmpty(_opt.$buildingNo)) {
+                    return;
+                }
+                if (_this._checkDataEmpty(_opt.$buildingUnit)) {
+                    return;
+                }
+                if (_this._checkDataEmpty(_opt.$buildingRoom)) {
+                    return;
+                }
+                if (_this._checkPattern(_opt.$priceTotal, _opt.floatReg, `请填写正确的${_opt.$priceTotal.data('label')}`)) {
                     return
                 }
                 if (_this._checkPattern(_opt.$floor, _opt.intWiZeroReg, '请填写除0外的数字')) {
@@ -199,27 +218,48 @@
                 _this._submitData();
             });
         },
+        _initSaleDomEvent: function () {
+            let _this = this;
+            let _opt = _this.opt;
+            let _saleOpt = _this.opt.saleOpt;
+
+            _opt.$salePoint = $(_saleOpt.salePointS);
+            _opt.$mindset = $(_saleOpt.mindsetS);
+            _opt.$serviceIntroduce = $(_saleOpt.serviceIntroduceS);
+            _opt.$projectFeatureAllBtn = $(_saleOpt.projectFeatureAllBtnS);
+            _opt.$projectFeature = $(_saleOpt.projectFeatureS);
+            inputListener(_opt.$salePoint, 500);
+            inputListener(_opt.$mindset, 500);
+            inputListener(_opt.$serviceIntroduce, 500);
+
+            _saleOpt.checked = false;
+
+            _opt.$projectFeatureAllBtn.click(function () {
+                if (_saleOpt.checked) {
+                    _opt.$projectFeature.prop('checked', false);
+                    _opt.$projectFeatureAllBtn.text('全选');
+                } else {
+                    _opt.$projectFeature.prop('checked', true);
+                    _opt.$projectFeatureAllBtn.text('全不选');
+                }
+                _saleOpt.checked = !_saleOpt.checked;
+            });
+        },
         _initRentDomEvent: function () {
             let _this = this;
             let _opt = _this.opt;
             let _rentOpt = _this.opt.rentOpt;
             _opt.$roomAllBtn = $(_rentOpt.roomAllBtnS);
-            _opt.$rentEntire = $(_rentOpt.rentEntireS);
-            _opt.$rentShare = $(_rentOpt.rentShareS);
-            _opt.$rentShareInfo = $(_rentOpt.rentShareInfoS);
             _opt.$rentRoom = $(_rentOpt.rentRoomS);
             _opt.$rentCount = $(_rentOpt.rentCountS);
             _opt.$rentCondition = $(_rentOpt.rentConditionS);
             _opt.$rentPay = $(_rentOpt.rentPayS);
+            _opt.$rentWay = $(_rentOpt.rentWayS);
             _opt.$rentWayVal = $(_rentOpt.rentWayValS);
             _opt.$roomequipment = $(_rentOpt.roomequipmentS);
 
-            _opt.$rentShare.click(function () {
-                _opt.$rentShareInfo.show();
-            });
-
-            _opt.$rentEntire.click(function () {
-                _opt.$rentShareInfo.hide();
+            _opt.$rentWay.click(function () {
+                _opt.$rentWayVal.val(this.value)
             });
 
             _rentOpt.checked = false;
@@ -238,30 +278,35 @@
         _initPlotEvent: function () {
             let _this = this;
             let _opt = _this.opt;
-            _opt.$plot.bind('propertychange', loadData).bind('input', loadData)
+            _opt.$plotId = $(_opt.plot.idS);
+            _opt.$plotName = $(_opt.plot.nameS);
+            _opt.$plotShow = _opt.$plotId.parents(_opt.plot.showTextS);
+            _opt.$plotList = _opt.$plotName.siblings(_opt.plot.listS);
+            _opt.$plotCont = _opt.$plotName.parents(_opt.plot.contentS);
+
+            $(document).click(function (event) {
+                let $target = $(event.target).parents(_opt.plot.selectS);
+                if ($target.length === 1) {
+                    _opt.$plotCont.show();
+                    _opt.$plotName.focus();
+                } else {
+                    _opt.$plotCont.hide();
+                }
+            });
+
+            _opt.$plotName.bind('propertychange', loadData).bind('input', loadData);
 
             function loadData() {
-                _this._ajaxFloorList(this.value)
-            }
-        },
-        _ajaxFloorList: function (value) {
-            let _this = this;
-            let _opt = _this.opt;
-            if (value) {
-                _this._getFloorList(value);
-                _opt.$plotList.show();
-            } else {
-                _opt.$plotList.hide();
+                _this._getFloorList(this.value);
             }
         },
         _getFloorList: function (value) {
             let _this = this;
             let _opt = _this.opt;
             app.request({
-                // url: app.areaApiUrl(_opt.plot.source_url),
-                url: 'http://xiangyang.fczx.com/api/plot/list',
+                url: _opt.plot.source_url,
                 data: {
-                    kw: value
+                    title: value
                 },
                 type: 'GET',
                 dataType: 'json',
@@ -272,8 +317,8 @@
                         for (const item of data) {
                             _html = _html + `
                             <li data-value="${item.id}">
-                                <span>${item.name}</span>
-                                <input type="hidden" value="${item.area}_${item.address}"/>
+                                <span>${item.title}</span>
+                                <input type="hidden" value="${item.fang_area_id}_${item.address}"/>
                             </li>`
                         }
                         _opt.$plotList.html(_html);
@@ -289,22 +334,24 @@
             let _opt = _this.opt;
             _opt.$plotList.find('li').each(function () {
                 $(this).click(function () {
+                    let plotId = $(this).data('value')
+                    let plotName = $(this).find('span').text();
                     let regionVal = $(this).find('input').val().split('_');
-                    _opt.$plot.val($(this).find('span').text());
+                    let regionName = _opt.$region.parents(_opt.formItemS).find(`li[data-value=${regionVal[0]}]`).text()
+
+                    _opt.$plotName.val('');
+                    _opt.$plotId.val(plotId);
+                    _opt.$plotShow.find('span').text(plotName);
                     _opt.$region.val(regionVal[0]);
-                    _opt.$region.parent().find('span').text(regionVal[0]);
                     _opt.$address.val(regionVal[1]);
+                    _opt.$region.parent().find('span').text(regionName);
+                    _opt.$plotList.html('<li class="no-result">请输入小区名称</li>')
                     _this._checkDataEmpty(_opt.$address, false);
                 })
             });
-            $(document).click(function (event) {
-                let target = event.target;
-                if (target.id != _opt.plot.id && _opt.$plotList.is(':visible')) {
-                    _opt.$plotList.hide();
-                }
-            });
+
         },
-        _initAlbumEvent: function ($uploadBtn, $imageBtn, hasCover = false) {
+        _initAlbumEvent: function ($uploadBtn, $imageBtn, maxCount, hasCover = false) {
             let _this = this;
             let $albumList = $imageBtn.parent().find('.album-list');
             _this._initAlbumListEvent($albumList, hasCover);
@@ -313,19 +360,36 @@
                 $imageBtn.click();
             });
 
-            $imageBtn.on('change', function (event) {
+            $imageBtn.off('change.upload').on('change.upload', function (event) {
+                let sizeError = 0;
+                let formatError = 0;
                 let files = event.target.files;
+                let existLen = $albumList.find('li').length;
+                if ((existLen + files.length) > maxCount) {
+                    alert(`最多只能上传${maxCount}张图片哦`);
+                    return
+                }
                 for (const file of files) {
-                    if (!file) return;
+                    if (!file) continue;
+                    if (file.size > app.FILE_LIMIT.SIZE_10) {
+                        sizeError++;
+                        continue;
+                    }
                     let lastIndex = file.name.lastIndexOf(".");
                     let fileType = file.name.substring(lastIndex + 1);
                     if (app.FILE_LIMIT.IMAGE_ACCEPT.indexOf(fileType) === -1) {
-                        alert(`请您上传图片格式的文件哦`);
-                        return;
+                        formatError++;
+                        continue;
                     }
                     let formData = new FormData();
                     formData.append('file', file);
                     _this._uploadImageRequest(formData, $albumList, hasCover);
+                }
+                if (sizeError > 0) {
+                    alert(`你上传的图片中有${sizeError}张图片超过10M！`);
+                }
+                if (formatError > 0) {
+                    alert(`你上传的图片中有${formatError}张不是图片格式！`);
                 }
             });
         },
@@ -384,7 +448,7 @@
             let $albumList = $imageBtn.parent().find('.album-list');
             $albumList.find('li').each(function () {
                 imageData.push({
-                    isCover: $(this).find('.image-tag').length > 0,
+                    is_face: $(this).find('.image-tag').length > 0 ? '1' : '2',
                     image_path: $(this).find('img').attr('src')
                 });
             });
@@ -434,60 +498,74 @@
         _submitData: function () {
             let _this = this;
             let _opt = _this.opt;
+            let submitData = {};
+
             let commonData = {
-                contact: _opt.$contact.val(),
+                real_name: _opt.$realName.val(),
                 mobile: _opt.$mobile.val(),
-                plot: _opt.$plot.val(),
-                region: _opt.$region.val(),
+                fang_house_id: _opt.$plotId.val(),
+                fang_area_id: _opt.$region.val(),
                 address: _opt.$address.val(),
                 room: _opt.$room.val(),
                 office: _opt.$office.val(),
                 toilet: _opt.$toilet.val(),
-                area: _opt.$area.val(),
-                price: _opt.$price.val(),
-                floor: _opt.$floor.val(),
-                direction: _opt.$direction.val(),
-                renovation: _opt.$renovation.val(),
-                houseAge: _opt.$houseAge.val(),
-                houseTitle: _opt.$houseTitle.val(),
-                houseDesc: _opt.$houseDesc.val(),
-                salePoint: _opt.$salePoint.val(),
-                mindset: _opt.$mindset.val(),
-                introduce: _opt.$introduce.val(),
+                building_area: _opt.$buildingArea.val(),
+                price_total: _opt.$priceTotal.val(),
+                height_self: _opt.$floor.val(),
+                height_total: _opt.$totalFloor.val(),
+                fang_direction_type_id: _opt.$direction.val(),
+                fang_renovation_status_id: _opt.$renovation.val(),
+                house_year: _opt.$houseYear.val(),
+                title: _opt.$houseTitle.val(),
+                description: _opt.$houseDesc.val(),
+                is_elevator: _opt.$elevatorVal.val(),
+                fang_property_type_id: _opt.$housePropertyVal.val()
             }
-            let indoorImages = _this._getImageData(_opt.$indoorImageBtn);
-            let typeImages = _this._getImageData(_opt.$typeImageBtn);
-            let plotImages = _this._getImageData(_opt.$plotImageBtn);
-            let imageData = {
-                indoorImages,
-                typeImages,
-                plotImages
-            }
+            let imageData = _this._getImageData(_opt.$houseImageBtn);
 
-            // 出租字段
-            let rentWay = _opt.$rentWayVal.val();
-            
-            let roomEquipment = [];
-            _opt.$roomequipment.each(function() {
-                if($(this).prop('checked')) {
-                    roomEquipment.push($(this).val())
+            if (_opt.type === 'sale') {
+                let projectFeatureVal = {};
+                _opt.$projectFeature.each(function () {
+                    if ($(this).prop('checked')) {
+                        projectFeatureVal[$(this).attr('id')] = $(this).val();
+                    }
+                });
+                let saleData = {
+                    selling_point: _opt.$salePoint.val(),
+                    attitude_point: _opt.$mindset.val(),
+                    service_point: _opt.$serviceIntroduce.val(),
+                    fangProjectFeature: projectFeatureVal,
+                    esfImage: imageData
                 }
-            });
 
-            let rentdata = {
-                rentWay,
-                roomEquipment,
-                rentPay: _opt.$rentPay.val(),
-                rentRoom: _opt.$rentRoom.val(),
-                rentCount: _opt.$rentCount.val(),
-                rentCondition: _opt.$rentCondition.val(),
-            };
-            
-            let submitData = $.extend(true, commonData, imageData, rentdata);
+                submitData = $.extend(true, commonData, saleData);
+            }
+
+            if (_opt.type === 'rent') {
+                let roomEquipment = [];
+                _opt.$roomequipment.each(function () {
+                    if ($(this).prop('checked')) {
+                        roomEquipment[$(this).attr('id')] = $(this).val();
+                    }
+                });
+
+                let rentdata = {
+                    roomEquipment,
+                    rentPay: _opt.$rentPay.val(),
+                    rentRoom: _opt.$rentRoom.val(),
+                    rentWay: _opt.$rentWayVal.val(),
+                    rentCount: _opt.$rentCount.val(),
+                    rentCondition: _opt.$rentCondition.val(),
+                    rentImage: imageData
+                };
+
+                submitData = $.extend(true, commonData, rentdata);
+            }
+
             app.request({
-                url: app.areaApiUrl('/test/test'),
+                url: _opt.action_url,
                 data: submitData,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'json',
                 headers: {},
                 done: function (res) {

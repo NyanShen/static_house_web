@@ -111,17 +111,103 @@
             <ul class="menu-list">
                 <li><a href="/pages/user/salehouse.html" class="menu-item"><i class="iconfont">&#xeb9f;</i>我要卖房</a></li>
                 <li><a href="/pages/user/renthouse.html" class="menu-item"><i class="iconfont">&#xeb96;</i>我要出租</a></li>
-                <li><a href="javascript:;" class="menu-item actived"><i class="iconfont">&#xeb9f;</i>管理房源</a></li>
+                <li><a href="/pages/user/managesale.html" class="menu-item actived"><i
+                            class="iconfont">&#xe610;</i>管理房源</a></li>
                 <li><a href="/pages/user/record.html" class="menu-item"><i class="iconfont">&#xe66e;</i>看房记录</a></li>
             </ul>
         </div>
         <div class="side-right fr">
             <div class="user-content">
                 <ul class="user-tab">
-                    <li><a href="#" class="tab-item actived">管理出售房源</a></li>
-                    <li><a href="#" class="tab-item">管理出租房源</a></li>
+                    <li><a href="/pages/user/managesale.html" class="tab-item">管理出售房源</a></li>
+                    <li><a href="javascript:;" class="tab-item actived">管理出租房源</a></li>
                 </ul>
-                
+                <div class="empty-container mt30 hide">
+                    <img src="//static.fczx.com/www/assets/icons/empty120.png" alt="" width="120" height="120px">
+                    <div class="empty-text">您还没有发布房源信息</div>
+                    <a class="empty-link" href="/pages/user/renthouse.html">免费发布房源</a>
+                </div>
+                <div class="house-content">
+                    <div class="house-header">
+                        <span>以下是您发布的房源列表信息</span>
+                    </div>
+                    <ul class="house-list">
+                        <li class="house-item clearfix">
+                            <a class="picture fl" href="javascript:;">
+                                <img src="//static.fczx.com/www/assets/images/1400x933_1.jpg" alt="">
+                                <span class="tag">出租</span>
+                            </a>
+                            <div class="content-c fl">
+                                <a href="javascript:;" class="house-name">房源标题:春园路小清河旁天润8号公馆32万买小两室现房成熟商圈白菜价</a>
+                                <p class="house-type">
+                                    <span>2室1厅</span>
+                                    <span class="split-v"></span>
+                                    <span>41㎡</span>
+                                </p>
+                                <p class="house-location">
+                                    <span>[襄阳]</span>
+                                    <a href="/pages/esf/plot/index.html">小区名字</a>
+                                    <span>区域名-地铁良乡大学城站南约900米</span>
+                                </p>
+                                <p class="small-desc">
+                                    <span>更新时间： 2020-09-12 11:12:32</span>
+                                </p>
+                            </div>
+                            <div class="content-r fr">
+                                <p class="house-price">
+                                    <span>41</span>
+                                    <em class="tip-color">万</em>
+                                </p>
+                            </div>
+
+                            <div class="action-list" data-id="194">
+                                <a class="action-item" href="/pages/user/modifyrent.html">修改</a>
+                                <a class="action-item delete" href="javascript:;">删除</a>
+                            </div>
+                        </li>
+                        <li class="house-item clearfix">
+                            <a class="picture fl" href="javascript:;">
+                                <img src="" alt="">
+                                <span class="tag">出租</span>
+                            </a>
+                            <div class="content-c fl">
+                                <a href="javascript:;" class="house-name">房源标题:春园路小清河旁天润8号公馆32万买小两室现房成熟商圈白菜价</a>
+                                <p class="house-type">
+                                    <span>2室1厅</span>
+                                    <span class="split-v"></span>
+                                    <span>41㎡</span>
+                                </p>
+                                <p class="house-location">
+                                    <span>[襄阳]</span>
+                                    <a href="/pages/esf/plot/index.html">小区名字</a>
+                                    <span>区域名-地铁良乡大学城站南约900米</span>
+                                </p>
+                                <p class="small-desc">
+                                    <span>更新时间： 2020-09-12 11:12:32</span>
+                                </p>
+                            </div>
+                            <div class="content-r fr">
+                                <p class="house-price">
+                                    <span>41</span>
+                                    <em class="tip-color">万</em>
+                                </p>
+                            </div>
+
+                            <div class="action-list" data-id="194">
+                                <a class="action-item" href="/pages/user/modifyrent.html">修改</a>
+                                <a class="action-item delete" href="javascript:;">删除</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="pagination mt20">
+                        <ul>
+                            <li><a href="javascript:void(0);" class="disabled">上一页</a></li>
+                            <li><a href="javascript:void(0);" class="actived">1</a></li>
+                            <li><a href="javascript:void(0);" class="">2</a></li>
+                            <li><a href="javascript:void(0);" class="">下一页</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="picture-list-wrap picture-list-inuser mt30">
                 <span class="title-name">您可能感兴趣的新房</span>
@@ -196,10 +282,11 @@
     <!--底部footer end-->
 </body>
 
-<script type="text/javascript" src="//static.fczx.com/www/js/user/salehouse.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/user/index.js"></script>
+<script type="text/javascript" src="//static.fczx.com/www/js/user/managehouse.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        new FCZX.user.HouseForm({ type: 'sale' })
+        new FCZX.user.HouseList({ type: 'rent', delete_url: app.areaApiUrl('/test/test') });
     });
 </script>
 

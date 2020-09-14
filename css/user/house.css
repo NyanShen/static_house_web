@@ -1,9 +1,9 @@
 .house-form {
-    padding: 0 0 30px 30px;
+    margin: 0 0 30px 300px;
 }
 
 .house-form-wrap {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .house-form-wrap .form-content {
@@ -12,16 +12,26 @@
 
 .house-form-wrap .select-content-mini {
     width: 65px;
-    vertical-align: middle;   
+    vertical-align: middle;
 }
 
 .house-form-wrap .select-content-mini .select-list {
     width: 65px;
 }
 
-
 .house-form-wrap .form-item-sm .btn-common {
-    width: 130px;
+    width: 100px;
+}
+
+.house-form-wrap .form-item-sm .btn-default {
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 15px;
+    text-align: center;
+    color: #666;
+    background-color: #f2f2f2;
 }
 
 .house-form-wrap .form-item-sm .inline-address {
@@ -30,17 +40,24 @@
     margin-left: 10px;
 }
 
-.form-item-album .album-wrap{
+.form-item-album .album-wrap {
     position: relative;
     display: inline-block;
     width: 80%;
 }
 
 .form-item-album .album-wrap .upload-btn {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #11a43c;
     color: #11a43c;
     background-color: #fff;
-    border: 1px solid #11a43c;
     margin: 0;
+    cursor: pointer;
 }
 
 .form-item-album .album-wrap .upload-desc {
@@ -50,6 +67,7 @@
     line-height: 30px;
     color: #666;
 }
+
 .form-item-album .album-list {
     margin-top: 15px;
 }
@@ -93,7 +111,7 @@
     display: none;
     position: absolute;
     left: 10px;
-    bottom: 0; 
+    bottom: 0;
     line-height: 30px;
     font-weight: bold;
     color: #fff;
@@ -103,7 +121,7 @@
 .form-item-album .album-list .image-tag {
     position: absolute;
     left: 0;
-    top: 0; 
+    top: 0;
     width: 40px;
     height: 25px;
     line-height: 25px;
@@ -111,4 +129,178 @@
     color: #fff;
     background-color: rgba(17, 164, 60, .8);
     text-align: center;
+}
+
+/* 房源管理列表 */
+
+.house-content {
+    padding: 0 30px 30px 30px;
+}
+
+.house-content .house-header {
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.house-item {
+    position: relative;
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.house-item:hover {
+    background-color: #fcfcfc;
+}
+
+.house-item .picture {
+    position: relative;
+    width: 168px;
+    height: 125px;
+    overflow: hidden;
+    background-color: #f7f7f7;
+}
+
+.house-item .picture img {
+    width: 100%;
+    height: 100%;
+}
+
+.house-item .picture .tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    padding: 2px 8px;
+    color: #fff;
+    background-color: rgba(255, 102, 0, .9);
+}
+
+.house-item .content-c {
+    width: 520px;
+    padding-left: 20px;
+}
+
+.house-item .content-c .house-name {
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}
+
+.house-item .content-c .house-name:hover {
+    color: #f60;
+}
+
+.house-item .content-c p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 14px;
+}
+
+.house-item .content-c .house-location {
+    color: #666;
+}
+
+.house-item .content-c .house-location a {
+    margin-right: 10px;
+}
+
+.house-item .content-r {
+    width: 200px;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: right;
+}
+
+.house-item .content-r .house-price span {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff3344;
+}
+
+.house-item a:hover {
+    color: #f60;
+}
+
+.house-item .action-list {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+}
+
+.house-item .action-list .action-item {
+    display: inline-block;
+    border: 1px solid #11a43c;
+    border-radius: 2px;
+    margin-left: 10px;
+    padding: 2px 12px;
+    color: #11a43c;
+}
+
+.house-item .action-list .action-item:hover {
+    background-color: #11a43c;
+    color: #fff;
+}
+
+/* 小区搜索下拉选择 */
+
+.search-select {
+    position: relative;
+    display: inline-block;
+    width: 198px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-select .iconfont {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.search-select .search-select-text {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.search-select-content {
+    display: none;
+    position: absolute;
+    top: 28px;
+    left: -2px;
+    width: 198px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.search-select-content .search-select-list {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.search-select-content .search-select-list li {
+    line-height: 32px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.search-select-content .search-select-list li:hover {
+    background-color: #f7f7f7;
+}
+
+.search-select-content .search-select-list li.no-result {
+    cursor: auto;
+    background-color: #f7f7f7;
 }

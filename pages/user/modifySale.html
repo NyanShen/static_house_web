@@ -111,7 +111,7 @@
             <ul class="menu-list">
                 <li><a href="/pages/user/salehouse.html" class="menu-item"><i class="iconfont">&#xeb9f;</i>我要卖房</a></li>
                 <li><a href="/pages/user/renthouse.html" class="menu-item"><i class="iconfont">&#xeb96;</i>我要出租</a></li>
-                <li><a href="/pages/user/managehouse.html" class="menu-item actived"><i
+                <li><a href="/pages/user/managesale.html" class="menu-item actived"><i
                             class="iconfont">&#xeb9f;</i>管理房源</a></li>
                 <li><a href="/pages/user/record.html" class="menu-item"><i class="iconfont">&#xe66e;</i>看房记录</a></li>
             </ul>
@@ -119,9 +119,9 @@
         <div class="side-right fr">
             <div class="user-content">
                 <ul class="user-tab">
-                    <li><a href="#" class="tab-item">管理出售房源</a></li>
-                    <li><a href="#" class="tab-item">管理出租房源</a></li>
-                    <li><a href="#" class="tab-item actived">修改出售房源</a></li>
+                    <li><a href="/pages/user/managesale.html" class="tab-item">管理出售房源</a></li>
+                    <li><a href="/pages/user/managerent.html" class="tab-item">管理出租房源</a></li>
+                    <li><a href="javascript:;" class="tab-item actived">修改出售房源</a></li>
                 </ul>
                 <div class="house-form">
                     <div class="house-form-wrap">
@@ -325,7 +325,7 @@
                                         <span class="upload-text">上传图片</span>
                                         <i class="iconfont">&#xe683;</i>
                                     </div>
-                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <span class="upload-desc">（最多可以上传10张图片，每张图片最大10M）</span>
                                     <input id="indoorImageBtn" name="" type="file" value="上传" multiple accept="image/*"
                                         style="display: none;" />
                                     <ul class="album-list clearfix">
@@ -352,7 +352,7 @@
                                         <span class="upload-text">上传图片</span>
                                         <i class="iconfont">&#xe683;</i>
                                     </div>
-                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <span class="upload-desc">（最多可以上传3张图片，每张图片最大10M）</span>
                                     <input id="typeImageBtn" name="" type="file" value="上传" multiple accept="image/*"
                                         style="display: none;" />
                                     <ul class="album-list clearfix">
@@ -371,7 +371,7 @@
                                         <span class="upload-text">上传图片</span>
                                         <i class="iconfont">&#xe683;</i>
                                     </div>
-                                    <span class="upload-desc">（请上传小于10M的图片）</span>
+                                    <span class="upload-desc">（最多可以上传10张图片，每张图片最大10M）</span>
                                     <input id="plotImageBtn" name="" type="file" value="上传" multiple accept="image/*"
                                         style="display: none;" />
                                     <ul class="album-list clearfix">
@@ -382,7 +382,8 @@
 
                             <div class="form-item-sm">
                                 <label class="label-control-lg"></label>
-                                <input class="btn-common" type="submit" name="" id="housePublishBtn" value="发布房源">
+                                <input class="btn-common" type="submit" name="" id="housePublishBtn" value="确认修改">
+                                <a class="btn-default" href="/pages/user/managesale.html">取消</a>
                             </div>
                         </div>
                     </div>
@@ -460,7 +461,7 @@
     </div>
     <!--底部footer end-->
 </body>
-
+<script type="text/javascript" src="//static.fczx.com/www/js/user/index.js"></script>
 <script type="text/javascript" src="//static.fczx.com/www/js/user/salehouse.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {

@@ -63,6 +63,11 @@
     background-color: #f7f7f7;
 }
 
+.bd-carousel-content .bd-carousel-list li img {
+    max-width: 112px;
+    max-height: 80px;
+}
+
 .bd-carousel-content .bd-carousel-list li em {
     position: absolute;
     bottom: 0;

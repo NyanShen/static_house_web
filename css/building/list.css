@@ -467,8 +467,8 @@
     color: #333;
 }
 
-.newhouse-item .content-c .house-location span {
-    margin-left: 10px;
+.newhouse-item .content-c .house-location a {
+    margin-right: 10px;
 }
 
 .newhouse-item .content-c .tag {

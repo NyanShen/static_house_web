@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>用户中心-我要出租</title>
-    <meta name="keywords" content="用户中心-我要出租">
-    <meta name="description" content="用户中心-我要出租">
+    <title>用户中心-修改房源</title>
+    <meta name="keywords" content="用户中心-修改房源">
+    <meta name="description" content="用户中心-修改房源">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -110,15 +110,17 @@
             </ul>
             <ul class="menu-list">
                 <li><a href="/pages/user/salehouse.html" class="menu-item"><i class="iconfont">&#xeb9f;</i>我要卖房</a></li>
-                <li><a href="javascript:;" class="menu-item actived"><i class="iconfont">&#xeb96;</i>我要出租</a></li>
-                <li><a href="/pages/user/managesale.html" class="menu-item"><i class="iconfont">&#xe610;</i>管理房源</a></li>
+                <li><a href="/pages/user/renthouse.html" class="menu-item"><i class="iconfont">&#xeb96;</i>我要出租</a></li>
+                <li><a href="/pages/user/managesale.html" class="menu-item actived"><i class="iconfont">&#xe610;</i>管理房源</a></li>
                 <li><a href="/pages/user/record.html" class="menu-item"><i class="iconfont">&#xe66e;</i>看房记录</a></li>
             </ul>
         </div>
         <div class="side-right fr">
             <div class="user-content">
                 <ul class="user-tab">
-                    <li><a href="#" class="tab-item actived">免费发布房源</a></li>
+                    <li><a href="/pages/user/managesale.html" class="tab-item">管理出售房源</a></li>
+                    <li><a href="/pages/user/managerent.html" class="tab-item">管理出租房源</a></li>
+                    <li><a href="javascript:;" class="tab-item actived">修改出租房源</a></li>
                 </ul>
                 <div class="house-form">
                     <div class="house-form-wrap">
@@ -128,11 +130,11 @@
                         <div class="form-content">
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>联系人</label>
-                                <input type="text" name="contact" id="contact" value="" data-label="联系人">
+                                <input type="text" name="contact" id="contact" value="Nyan" data-label="联系人">
                                 <div class="select-content-sm select-content-mini">
                                     <div class="select-text">
-                                        <span class="title-color">先生</span>
-                                        <input type="text" name="sex" id="sex" value="0" hidden>
+                                        <span class="title-color">女士</span>
+                                        <input type="text" name="sex" id="sex" value="1" hidden>
                                         <i></i>
                                     </div>
                                     <ul class="select-list">
@@ -155,7 +157,7 @@
                         <div class="form-content">
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>小区名字</label>
-                                <input type="text" name="plot" id="plot" value="" data-label="小区名字">
+                                <input type="text" name="plot" id="plot" value="小区名字" data-label="小区名字">
                                 <ul class="form-select-list">
 
                                 </ul>
@@ -164,8 +166,8 @@
                                 <label class="label-control-lg"><span class="required-red">*</span>区域</label>
                                 <div class="select-content-sm">
                                     <div class="select-text">
-                                        <span class="title-color"></span>
-                                        <input type="text" name="region" id="region" value="" data-label="区域" hidden>
+                                        <span class="title-color">樊城区</span>
+                                        <input type="text" name="region" id="region" value="1001" data-label="区域" hidden>
                                         <i></i>
                                     </div>
                                     <ul class="select-list">
@@ -179,37 +181,37 @@
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>户型</label>
                                 <div class="input-control">
-                                    <input type="text" name="room" id="room" value="" data-label="室">
+                                    <input type="text" name="room" id="room" value="2" data-label="室">
                                     <span class="desc-color">室</span>
                                 </div>
                                 <div class="input-control">
-                                    <input type="text" name="office" id="office" value="" data-label="厅">
+                                    <input type="text" name="office" id="office" value="1" data-label="厅">
                                     <span class="desc-color">厅</span>
                                 </div>
                                 <div class="input-control">
-                                    <input type="text" name="toilet" id="toilet" value="" data-label="卫">
+                                    <input type="text" name="toilet" id="toilet" value="1" data-label="卫">
                                     <span class="desc-color">卫</span>
                                 </div>
                             </div>
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>建筑面积</label>
                                 <div class="input-control">
-                                    <input type="text" name="area" id="area" value="" data-label="建筑面积">
+                                    <input type="text" name="area" id="area" value="89" data-label="建筑面积">
                                     <span class="desc-color">㎡</span>
                                 </div>
                             </div>
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>租赁方式</label>
                                 <div class="input-check">
-                                    <input type="radio" name="rentWay" value="1" checked id="rentEntire">
+                                    <input type="radio" name="rentWay" value="1" id="rentEntire">
                                     <span>整租</span>
                                 </div>
                                 <div class="input-check">
-                                    <input type="radio" name="rentWay" value="2" id="rentShare">
+                                    <input type="radio" name="rentWay" value="2" checked id="rentShare">
                                     <span>合租</span>
                                 </div>
                             </div>
-                            <div class="form-item-sm hide" id="rentShareInfo">
+                            <div class="form-item-sm" id="rentShareInfo">
                                 <label class="label-control-lg"><span class="required-red">*</span>出租类型</label>
                                 <div class="select-content-sm">
                                     <div class="select-text">
@@ -226,8 +228,8 @@
                                 </div>
                                 <div class="select-content-sm">
                                     <div class="select-text">
-                                        <span class="title-color">2户合租</span>
-                                        <input type="text" name="rentCount" id="rentCount" value="2" data-label="合租户数"
+                                        <span class="title-color">3户合租</span>
+                                        <input type="text" name="rentCount" id="rentCount" value="3" data-label="合租户数"
                                             hidden>
                                         <i></i>
                                     </div>
@@ -256,7 +258,7 @@
                             <div class="form-item-sm">
                                 <label class="label-control-lg"><span class="required-red">*</span>租金</label>
                                 <div class="input-control">
-                                    <input type="text" name="price" id="price" value="" data-label="租金">
+                                    <input type="text" name="price" id="price" value="1500" data-label="租金">
                                     <span class="desc-color">元/月</span>
                                 </div>
                             </div>
@@ -264,8 +266,8 @@
                                 <label class="label-control-lg"><span class="required-red">*</span>付款方式</label>
                                 <div class="select-content-sm">
                                     <div class="select-text">
-                                        <span class="title-color">面议</span>
-                                        <input type="text" name="rentPay" id="rentPay" value="6" data-label="付款方式"
+                                        <span class="title-color">付三押一</span>
+                                        <input type="text" name="rentPay" id="rentPay" value="3" data-label="付款方式"
                                             hidden>
                                         <i></i>
                                     </div>
@@ -283,12 +285,12 @@
                                 <label class="label-control-lg"><span class="required-red">*</span>楼层</label>
                                 <div class="input-control">
                                     <span class="desc-color">第</span>
-                                    <input type="text" name="floor" id="floor" value="" data-label="">
+                                    <input type="text" name="floor" id="floor" value="2" data-label="">
                                     <span class="desc-color">层</span>
                                 </div>
                                 <div class="input-control">
                                     <span class="desc-color">共</span>
-                                    <input type="text" name="totalFloor" id="totalFloor" value="" data-label="楼层">
+                                    <input type="text" name="totalFloor" id="totalFloor" value="8" data-label="楼层">
                                     <span class="desc-color">层</span>
                                 </div>
                             </div>
@@ -296,8 +298,8 @@
                                 <label class="label-control-lg"><span class="required-red">*</span>朝向</label>
                                 <div class="select-content-sm">
                                     <div class="select-text">
-                                        <span class="title-color"></span>
-                                        <input type="text" name="direction" id="direction" value="" data-label="朝向"
+                                        <span class="title-color">南北</span>
+                                        <input type="text" name="direction" id="direction" value="南北" data-label="朝向"
                                             hidden>
                                         <i></i>
                                     </div>
@@ -319,8 +321,8 @@
                                 <label class="label-control-lg"><span class="required-red">*</span>装修程度</label>
                                 <div class="select-content-sm">
                                     <div class="select-text">
-                                        <span class="title-color"></span>
-                                        <input type="text" name="renovation" id="renovation" value="" data-label="装修程度"
+                                        <span class="title-color">简易装修</span>
+                                        <input type="text" name="renovation" id="renovation" value="2" data-label="装修程度"
                                             hidden>
                                         <i></i>
                                     </div>
@@ -334,7 +336,7 @@
                             <div class="form-item-sm">
                                 <label class="label-control-lg">建造年代</label>
                                 <div class="input-control">
-                                    <input type="text" name="houseAge" id="houseAge" value="" data-label="建造年代">
+                                    <input type="text" name="houseAge" id="houseAge" value="2000" data-label="建造年代">
                                     <span class="desc-color">年</span>
                                 </div>
                                 <span class="tip-info">（输入房源建造年份，如：2010）</span>
@@ -342,7 +344,7 @@
                             <div class="form-item-sm">
                                 <label class="label-control-lg">配套设施</label>
                                 <div class="input-check">
-                                    <input type="checkbox" name="roomequipment" id="roomBed" value="床">
+                                    <input type="checkbox" name="roomequipment" id="roomBed" value="床" checked>
                                     <span>床</span>
                                 </div>
                                 <div class="input-check">
@@ -354,19 +356,19 @@
                                     <span>电视</span>
                                 </div>
                                 <div class="input-check">
-                                    <input type="checkbox" name="roomequipment" id="roomIce" value="冰箱">
+                                    <input type="checkbox" name="roomequipment" id="roomIce" value="冰箱" checked>
                                     <span>冰箱</span>
                                 </div>
                                 <div class="input-check">
-                                    <input type="checkbox" name="roomequipment" id="roomWash" value="洗衣机">
+                                    <input type="checkbox" name="roomequipment" id="roomWash" value="洗衣机" checked>
                                     <span>洗衣机</span>
                                 </div>
                                 <div class="input-check">
-                                    <input type="checkbox" name="roomequipment" id="roomAir" value="空调">
+                                    <input type="checkbox" name="roomequipment" id="roomAir" value="空调" checked>
                                     <span>空调</span>
                                 </div>
                                 <div class="input-check">
-                                    <input type="checkbox" name="roomequipment" id="roomWater" value="热水器">
+                                    <input type="checkbox" name="roomequipment" id="roomWater" value="热水器" checked>
                                     <span>热水器</span>
                                 </div>
                                 <div class="input-check">
@@ -384,7 +386,7 @@
                         <div class="form-content">
                             <div class="form-item-sm form-item-sm-l">
                                 <label class="label-control-lg"><span class="required-red">*</span>房源标题</label>
-                                <input type="text" name="houseTitle" id="houseTitle" value="" maxlength="30"
+                                <input type="text" name="houseTitle" id="houseTitle" value="房源标题修改测试" maxlength="30"
                                     placeholder="写好房源标题，快速成交第一步" data-label="房源标题">
                                 <span class="text-count desc-color">
                                     <span class="count">0</span>/30字
@@ -393,7 +395,7 @@
                             </div>
                             <div class="form-item-sm">
                                 <label class="label-control-lg">房源描述</label>
-                                <textarea name="houseDesc" id="houseDesc" value="" rows="6" maxlength="500"></textarea>
+                                <textarea name="houseDesc" id="houseDesc" value="房源描述修改测试" rows="6" maxlength="500"></textarea>
                                 <span class="text-count desc-color">
                                     <span class="count">0</span>/500字
                                     <span class="limit"></span>
@@ -411,7 +413,13 @@
                                     <input id="indoorImageBtn" name="" type="file" value="上传" multiple accept="image/*"
                                         style="display: none;" />
                                     <ul class="album-list clearfix">
-
+                                        <li>
+                                            <img src="//static.fczx.com/www/assets/images/214x160.jpg" alt="">
+                                            <div class="image-mask"></div>
+                                            <div class="image-clear"></div>
+                                            <div class="image-tag">封面</div>
+                                            <div class="image-text">设为封面</div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -448,7 +456,8 @@
 
                             <div class="form-item-sm">
                                 <label class="label-control-lg"></label>
-                                <input class="btn-common" type="submit" name="" id="housePublishBtn" value="发布房源">
+                                <input class="btn-common" type="submit" name="" id="housePublishBtn" value="确认修改">
+                                <a class="btn-default" href="/pages/user/managerent.html">取消</a>
                             </div>
                         </div>
                     </div>

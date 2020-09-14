@@ -650,33 +650,6 @@ table th, table td {
     background-color: #999;
 }
 
-.form-item-sm .form-select-list {
-    display: none;
-    position: absolute;
-    top: 29px;
-    left: 80px;
-    width: 198px;
-    border: 1px solid #eee;
-    background-color: #fff;
-    z-index: 10;
-}
-
-.form-item-sm .form-select-list li {
-    line-height: 32px;
-    padding-left: 10px;
-    cursor: pointer;
-    color: #333;
-}
-
-.form-item-sm .form-select-list li:hover {
-    background-color: #f7f7f7;
-}
-
-.form-item-sm .form-select-list li.no-result {
-    cursor: auto;
-    background-color: #f7f7f7;
-}
-
 .form-item-sm .select-content-sm {
     margin: 0;
 }

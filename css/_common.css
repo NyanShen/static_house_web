@@ -964,6 +964,18 @@
     color: #999;
 }
 
+.empty-container .empty-link {
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    padding: 0 6px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #11a43c;
+}
+
 .subscrib-list li {
     float: left;
     width: 100px;

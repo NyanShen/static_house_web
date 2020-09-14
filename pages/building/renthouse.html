@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我要出租</title>
+    <meta name="keywords" content="我要出租">
+    <meta name="description" content="我要出租">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_common.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/_module.css">
+    <link rel="stylesheet" type="text/css" href="//static.fczx.com/www/css/user/house.css">
+
+    <script type="text/javascript" src="//static.fczx.com/www/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/msg-modal.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/index.js"></script>
+    <script type="text/javascript" src="//static.fczx.com/www/js/common/app.js"></script>
+</head>
+
+<body>
+    <!--头部导航栏start-->
+    <div class="main-nav">
+        <div class="nav-content clearfix">
+            <div class="nav-left fl clearfix">
+                <div class="nav-item">
+                    <a href="/" class="nav-logo">房产在线<small>Fczx.com</small></a>
+                </div>
+                <div class="nav-item nav-city">
+                    <a href="javascript:void(0);" class="city-name">襄阳</a>
+                    <div class="city-list">
+                        <span class="triangle-up"></span>
+                        <a href="">武汉</a>
+                        <a href="">襄阳</a>
+                        <a href="/pages/city-list.html">更多城市>></a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <ul class="nav-list">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/pages/building/list.html" target="_blank">新房</a></li>
+                        <li><a href="/pages/esf/list.html">二手房</a></li>
+                        <li><a href="/pages/rent/list.html">租房</a></li>
+                        <li><a href="/pages/consult" target="_blank">资讯</a></li>
+                        <li><a href="/pages/knowledge" target="_blank">知识</a></li>
+                        <li><a href="/pages/qa" target="_blank">问答</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-right fr">
+                <div class="nav-item login-link" id="loginLink">
+                    <ul>
+                        <li>
+                            <a href="/pages/login" class="login-btn">登录</a>
+                        </li>
+                        <li>
+                            <a href="/pages/login/register.html" class="login-btn">注册</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-user hide" id="loginUser">
+                    <div class="nav-item">
+                        <a href="/pages/user/profile.html" class="login-btn" id="loginUserName"></a>
+                    </div>
+                    <div class="user-center">
+                        <span class="triangle-up"></span>
+                        <a href="/pages/user/profile.html">个人资料</a>
+                        <a href="/pages/user/password.html">修改密码</a>
+                        <a href="javascript:;" class="logout">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部导航栏end-->
+
+    <!--面包屑start-->
+    <div class="box-content">
+        <div class="box-search clearfix">
+            <!-- 面包屑start -->
+            <div class="breadcrumb fl">
+                <span>当前位置： </span>
+                <a href="javascript:void(0);">出租</a>
+                <span>></span>
+                <a href="javascript:void(0);">录入出租房源</a>
+            </div>
+            <!-- 面包屑end -->
+        </div>
+    </div>
+    <!--面包屑end-->
+    <div class="cut-line"></div>
+
+    <!-- 房源发布start -->
+    <div class="box-content clearfix mt20">
+        <div class="house-form">
+            <div class="house-form-wrap">
+                <div class="header">
+                    <span class="title">联系方式（<span class="required-red">*</span>为必填）</span>
+                </div>
+                <div class="form-content">
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>联系人</label>
+                        <input type="text" name="realName" id="realName" value="" data-label="联系人">
+                        <div class="select-content-sm select-content-mini">
+                            <div class="select-text">
+                                <span class="title-color">先生</span>
+                                <input type="text" name="sex" id="sex" value="0" hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="0">先生</li>
+                                <li data-value="1">女士</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>联系手机</label>
+                        <input type="text" name="phone" id="mobile" value="134186968453" disabled>
+                        <span class="tip-info">（如需切换手机号，请重新登录）</span>
+                    </div>
+                </div>
+            </div>
+            <div class="house-form-wrap">
+                <div class="header">
+                    <span class="title">基本信息（<span class="required-red">*</span>为必填）</span>
+                </div>
+                <div class="form-content">
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>物业类型</label>
+                        <input type="hidden" id="housePropertyVal" value="1">
+                        <div class="input-check">
+                            <input type="radio" name="houseProperty" value="1" checked>
+                            <span>住宅</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="radio" name="houseProperty" value="2">
+                            <span>别墅</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="radio" name="houseProperty" value="3">
+                            <span>商铺</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="radio" name="houseProperty" value="4">
+                            <span>写字楼</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>小区名字</label>
+                        <div class="search-select">
+                            <div class="search-select-text">
+                                <span></span>
+                                <input type="hidden" name="plotId" id="plotId" value="" data-label="小区名字">
+                                <i class="iconfont">&#xe687;</i>
+                            </div>
+                            <div class="search-select-content">
+                                <input type="text" name="" id="plotName" value="" autocomplete="off">
+                                <i class="iconfont">&#xeb9c;</i>
+                                <ul class="search-select-list">
+                                    <li class="no-result">请输入小区名称</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="tip-info">（请输入小区名称进行匹配，若没有匹配的小区，建议输入“其他小区”）</span>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>区域</label>
+                        <div class="select-content-sm">
+                            <div class="select-text">
+                                <span class="title-color"></span>
+                                <input type="text" name="region" id="region" value="" data-label="区域" hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="420606">樊城区</li>
+                                <li data-value="1002">襄城区</li>
+                                <li data-value="1003">襄州区</li>
+                                <li data-value="1004">襄州区</li>
+                            </ul>
+                        </div>
+                        <input class="inline-address" type="text" name="address" id="address" value="" data-label="区域地址"
+                            placeholder="请输入地址">
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>户型</label>
+                        <div class="input-control">
+                            <input type="text" name="room" id="room" value="" data-label="室">
+                            <span class="desc-color">室</span>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" name="office" id="office" value="" data-label="厅">
+                            <span class="desc-color">厅</span>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" name="toilet" id="toilet" value="" data-label="卫">
+                            <span class="desc-color">卫</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>建筑面积</label>
+                        <div class="input-control">
+                            <input type="text" name="buildingArea" id="buildingArea" value="" data-label="建筑面积">
+                            <span class="desc-color">㎡</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>租赁方式</label>
+                        <input type="hidden" id="rentWayVal" value="1">
+                        <div class="input-check">
+                            <input type="radio" name="rentWay" value="1" checked>
+                            <span>整租</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="radio" name="rentWay" value="2">
+                            <span>合租</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>出租要求</label>
+                        <div class="select-content-sm">
+                            <div class="select-text">
+                                <span class="title-color">性别不限</span>
+                                <input type="text" name="rentCondition" id="rentCondition" value="1" data-label="出租要求"
+                                    hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="1">性别不限</li>
+                                <li data-value="2">限男</li>
+                                <li data-value="3">限女</li>
+                                <li data-value="4">限夫妻</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>租金</label>
+                        <div class="input-control">
+                            <input type="text" name="price" id="price" value="" data-label="租金">
+                            <span class="desc-color">元/月</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>付款方式</label>
+                        <div class="select-content-sm">
+                            <div class="select-text">
+                                <span class="title-color">面议</span>
+                                <input type="text" name="rentPay" id="rentPay" value="6" data-label="付款方式"
+                                    hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="1">付一押一</li>
+                                <li data-value="2">付二押一</li>
+                                <li data-value="3">付三押一</li>
+                                <li data-value="4">半年付</li>
+                                <li data-value="5">年付</li>
+                                <li data-value="6">面议</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>楼栋号</label>
+                        <div class="input-control">
+                            <input type="text" name="buildingNo" id="buildingNo" value="" data-label="楼栋号">
+                            <span class="desc-color">栋</span>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" name="buildingUnit" id="buildingUnit" value="" data-label="楼栋号">
+                            <span class="desc-color">单元</span>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" name="buildingRoom" id="buildingRoom" value="" data-label="楼栋号">
+                            <span class="desc-color">室</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>楼层</label>
+                        <div class="input-control">
+                            <span class="desc-color">第</span>
+                            <input type="text" name="floor" id="floor" value="" data-label="">
+                            <span class="desc-color">层</span>
+                        </div>
+                        <div class="input-control">
+                            <span class="desc-color">共</span>
+                            <input type="text" name="totalFloor" id="totalFloor" value="" data-label="楼层">
+                            <span class="desc-color">层</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>有无电梯</label>
+                        <input type="hidden" id="elevatorVal" value="1">
+                        <div class="input-check">
+                            <input type="radio" name="elevator" value="1" checked>
+                            <span>有</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="radio" name="elevator" value="2">
+                            <span>无</span>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>朝向</label>
+                        <div class="select-content-sm">
+                            <div class="select-text">
+                                <span class="title-color"></span>
+                                <input type="text" name="direction" id="direction" value="" data-label="朝向" hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="南北">南北</li>
+                                <li data-value="南">南</li>
+                                <li data-value="东南">东南</li>
+                                <li data-value="东">东</li>
+                                <li data-value="西南">西南</li>
+                                <li data-value="北">北</li>
+                                <li data-value="西">西</li>
+                                <li data-value="西北">西北</li>
+                                <li data-value="东北">东北</li>
+                                <li data-value="东西">东西</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"><span class="required-red">*</span>装修程度</label>
+                        <div class="select-content-sm">
+                            <div class="select-text">
+                                <span class="title-color"></span>
+                                <input type="text" name="renovation" id="renovation" value="" data-label="装修程度" hidden>
+                                <i></i>
+                            </div>
+                            <ul class="select-list">
+                                <li data-value="1">毛坯</li>
+                                <li data-value="2">简易装修</li>
+                                <li data-value="3">豪华装修</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg">建造年代</label>
+                        <div class="input-control">
+                            <input type="text" name="houseYear" id="houseYear" value="" data-label="建造年代">
+                            <span class="desc-color">年</span>
+                        </div>
+                        <span class="tip-info">（输入房源建造年份，如：2010）</span>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg">配套设施</label>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomBed" value="床">
+                            <span>床</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomOnline" value="宽带">
+                            <span>宽带</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomTV" value="电视">
+                            <span>电视</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomIce" value="冰箱">
+                            <span>冰箱</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomWash" value="洗衣机">
+                            <span>洗衣机</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomAir" value="空调">
+                            <span>空调</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomWater" value="热水器">
+                            <span>热水器</span>
+                        </div>
+                        <div class="input-check">
+                            <input type="checkbox" name="roomequipment" id="roomHeat" value="暖气">
+                            <span>暖气</span>
+                        </div>
+                        <a href="javascript:;" class="primary-color" id="roomAllBtn">全选</a>
+                    </div>
+                </div>
+            </div>
+            <div class="house-form-wrap">
+                <div class="header">
+                    <span class="title">详细信息（<span class="required-red">*</span>为必填）</span>
+                </div>
+                <div class="form-content">
+                    <div class="form-item-sm form-item-sm-l">
+                        <label class="label-control-lg"><span class="required-red">*</span>房源标题</label>
+                        <input type="text" name="houseTitle" id="houseTitle" value="" maxlength="30"
+                            placeholder="写好房源标题，快速成交第一步" data-label="房源标题">
+                        <span class="text-count desc-color">
+                            <span class="count">0</span>/30字
+                            <span class="limit"></span>
+                        </span>
+                    </div>
+                    <div class="form-item-sm">
+                        <label class="label-control-lg">房源描述</label>
+                        <textarea name="houseDesc" id="houseDesc" value="" rows="6" maxlength="500"></textarea>
+                        <span class="text-count desc-color">
+                            <span class="count">0</span>/500字
+                            <span class="limit"></span>
+                        </span>
+                    </div>
+                    
+                    <div class="form-item-sm form-item-album clearfix">
+                        <label class="label-control-lg">房源图片</label>
+                        <div class="album-wrap">
+                            <div class="upload-btn" id="houseUploadBtn">
+                                <span class="upload-text">上传图片</span>
+                                <i class="iconfont">&#xe683;</i>
+                            </div>
+                            <span class="upload-desc">（最多可以上传10张图片，每张图片最大10M）</span>
+                            <input id="houseImageBtn" name="" type="file" value="上传" multiple accept="image/*"
+                                style="display: none;" />
+                            <ul class="album-list clearfix">
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-item-sm">
+                        <label class="label-control-lg"></label>
+                        <input class="btn-common" type="submit" name="" id="housePublishBtn" value="发布房源">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 房源发布start -->
+
+    <!--底部footer start-->
+    <div class="box-content">
+        <div class="box-footer">
+            <p class="copyright">Copyright © 2020 Fang.com Corporation, All Rights Reserved</p>
+            <p class="contact">客服热线：0632-5677111（工作时间：周一至周六8:00-17:00）</p>
+            <p class="record">
+                工信部备案/许可证编号：
+                <a href="javascript:void(0);">鲁ICP备14025533-3号</a>
+                <a href="javascript:void(0);">鲁公网安备37048102006002号</a>
+            </p>
+        </div>
+    </div>
+    <!--底部footer end-->
+</body>
+<script type="text/javascript" src="//static.fczx.com/www/js/user/salehouse.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        new FCZX.user.HouseForm({
+            type: 'rent',
+            action_url: app.areaApiUrl('/house/rent')
+        })
+    });
+</script>
+
+</html>

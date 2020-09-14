@@ -44,6 +44,11 @@
     overflow: hidden;
 }
 
+.esf-carousel .carousel-show img {
+    max-width: 640px;
+    max-height: 425px;
+}
+
 .esf-carousel .carousel-content {
     position: relative;
     height: 80px;
